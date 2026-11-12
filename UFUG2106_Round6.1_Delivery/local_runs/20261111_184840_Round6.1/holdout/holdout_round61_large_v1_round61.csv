@@ -1,0 +1,9 @@
+case,status,area,delay,runtime_ms,target_met
+case_000.txt,PASS,2690,62,94.516,yes
+case_001.txt,PASS,6285,88,65.815,yes
+case_002.txt,PASS,21639,50,154.008,yes
+case_003.txt,PASS,3084,61,94.137,yes
+case_004.txt,PASS,4877,48,110.994,yes
+case_005.txt,PASS,2382,51,52.979,yes
+case_006.txt,PASS,18035,63,120.724,yes
+case_007.txt,PASS,8055,36,87.184,yes

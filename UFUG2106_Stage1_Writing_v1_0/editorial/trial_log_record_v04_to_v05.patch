@@ -1,0 +1,153 @@
+--- v0.4/trial_log_record/main.tex
++++ v0.5/trial_log_record/main.tex
+@@ -240,7 +240,7 @@
+ {\Huge\bfseries Truth Table to Circuit}\par\vspace{0.3cm}
+ {\LARGE A Research Trial Log\par}
+ \vspace{.5cm}
+-{\large Stage 1: from exact Boolean construction to synthesis-cost limits\par}
++{\large Stage 1: from exact construction to evidence-based research decisions\par}
+ \vspace{1cm}
+ {\large UFUG2106 Discrete Mathematics Project\par}
+ \vspace{0.45cm}
+@@ -250,7 +250,7 @@
+ \textbf{Purpose.} This document records the \emph{path of reasoning}: what prompted each new algorithm, why the mathematical construction works, what the measurements show, and why the next experiment followed. It is intended for later self-study and transparent public research presentation. It is \emph{not} a replacement for the shorter Stage 1 technical report or for the primary evidence ZIPs.
+ \end{tcolorbox}
+ \vfill
+-\textbf{Version status:} Draft v0.2, with verified author names and a frozen Round 5.1 research source. Individual roles, AI-use disclosure and actual Canvas submission remain to be confirmed.\par
++\textbf{Version status:} Draft v0.5, with verified author names and a frozen Round 5.1 research source. Individual roles, AI-use disclosure and actual Canvas submission remain to be confirmed.\par
+ \end{titlepage}
+ \tableofcontents
+ \clearpage
+@@ -280,6 +280,25 @@
+ 
+ \subsection{The narrative contract}
+ Each iteration answers six questions: (1) What observable problem remained? (2) Which mathematical property suggested an answer? (3) What was implemented, rather than merely proposed? (4) What independent check supports correctness? (5) What happened to area, delay and runtime under measured conditions? (6) How did this evidence change the next decision? Formal results are statements about functions or algorithms under assumptions; benchmark claims are observations of frozen implementations.
++
++\subsection{The research map: decisions, not just versions}
++A conventional changelog would list features in implementation order. A research notebook should reveal why an observation made the next experiment reasonable. Table~\ref{tab:decisionmap} summarizes that logic; each transition will later be examined with its precise mathematical condition and supporting evidence.
++\begin{table}[H]
++\centering\footnotesize
++\caption{A question-led map of the Stage 1 research path. ``Observation'' denotes the development evidence prompting the next question, not a controlled causal effect.}\label{tab:decisionmap}
++\begin{tabularx}{\textwidth}{@{}p{.13\textwidth}X X@{}}\toprule
++\textbf{Move} & \textbf{Observation to explain} & \textbf{Next hypothesis}\\\midrule
++R1 $\to$ R2 & Correct netlists can still miss delay targets. & Change decision orders and mapping forms, not the truth function.\\
++R2 $\to$ R3 & Better representations still leave costly shared gates and slack unused. & Optimize the costed DAG under global timing requirements.\\
++R3 $\to$ R4 & A local De Morgan choice ignores shared polarity across consumers. & Evaluate phase and shallow algebra jointly with real DAG costs.\\
++R4 $\to$ R4.1 & Additional candidates yield small area gains but expensive searches. & Make Area--Runtime tradeoffs explicit.\\
++R4.1 $\to$ R5--5.1 & Repeated structure building and text processing waste search time. & Preserve candidate semantics while eliminating recomputation.\\
++R5.1 $\to$ R6 & A fast mapping framework need not exhaust local Boolean alternatives. & Resynthesize bounded cuts under exact full-network costs.\\
++R6.0 $\to$ R6.1 & Valid area gains do not justify the measured runtime. & Cache and prioritize cuts with a fixed search budget; accept or stop.\\\bottomrule
++\end{tabularx}
++\end{table}
++
++\noindent\textbf{What would have counted as failure?} A proposed new mapping would be rejected if it broke functionality, missed required delay targets without a compensating purpose, or exhausted permitted resources. An engineering refactor would not qualify as an area-preserving speedup merely because it was faster on one selected case: it had to retain complete official results and survive paired and additional-function checks. These tests do not prove hidden-case performance, but they make the research decisions falsifiable.
+ 
+ \section{Starting point: what is the real synthesis problem?}
+ A complete truth table for $F:\{0,1\}^n\to\{0,1\}^m$ contains $2^n$ input assignments and $m$ output bits per row. One can always write a sum of minterms: for each row on which $f=1$, form the conjunction of the required input literals, then OR all such conjunctions. The construction is exact, but it can repeat the same combinations, use many NOT gates, and produce long chains of ANDs and ORs. This shows the central tension: \emph{existence of a legal circuit} is elementary, while finding a good shared circuit is not.
+@@ -422,7 +441,7 @@
+ \subsection{What the archived Round 3 ablation actually establishes}
+ We later recovered a development summary that was missing from the first writing draft. Rather than treating the final result as one opaque improvement, it lists concrete snapshots along an algorithmic path. Starting at the $790{,}243$-area portfolio, the successive archived snapshots record $777{,}324$ after complemented-BDD development, $770{,}195$ after affine detection, $762{,}164$ after balancing, $586{,}218$ after slack-aware recovery, $543{,}209$ after an additional reverse-order candidate, and $533{,}705$ after legacy fallback selection. All listed entries have 25 successful target checks in their respective evaluations.
+ 
+-\begin{figure}[htbp]\centering\includegraphics[width=.97\textwidth]{../shared/figures/round3_ablation_path.pdf}
++\begin{figure}[H]\centering\includegraphics[width=.97\textwidth]{../shared/figures/round3_ablation_path.pdf}
+ \caption{The chronological Round 3 \emph{development path}; the separate implication experiment in the source CSV is deliberately not connected as though it were the next sequential stage.}\end{figure}
+ 
+ \textbf{Why does the distinction matter?} The $175{,}946$ difference between the balanced snapshot and the slack-recovery snapshot is an observation after a sequence of earlier changes. It illustrates why required-time reasoning was so promising, but it does not prove that activating the recovery routine on every possible prior configuration saves exactly that amount. A controlled factorial study would require frozen alternatives differing in only one feature, compiled and evaluated under matched conditions. Our source supports a strong \emph{development narrative}, not that stronger causal claim.
+@@ -448,7 +467,7 @@
+ \subsection{Recovering the missing postprocessor experiment}
+ The newly located \texttt{postprocess\_comparison.csv} helps answer the question: was it the De Morgan phase pass or algebraic rewriting that mattered more? Applied separately to the archived Round 3 circuits, algebra only reduces total area from $533{,}705$ to $532{,}416$, while phase only reaches $533{,}378$. The two orders of composition are slightly different: phase followed by algebra gives $532{,}078$, and algebra followed by phase gives $532{,}080$. Taking the best strategy for each of the 25 cases produces $532{,}070$.
+ 
+-\begin{figure}[htbp]\centering\includegraphics[width=.91\textwidth]{../shared/figures/round4_postprocess_ablation.pdf}
++\begin{figure}[H]\centering\includegraphics[width=.91\textwidth]{../shared/figures/round4_postprocess_ablation.pdf}
+ \caption{Round 4 postprocessing ablation. These treatments reuse the same original circuits; extra variable-order search is intentionally not included.}\end{figure}
+ 
+ The important insight is not that one rewriting order always wins. Both the circuit's shared fanout and the local AND/OR/NOT prices determine which candidate is best. The $532{,}070$ total uses a \emph{per-case selection}, which makes sense for a multi-candidate synthesizer but should not be confused with a single rewrite rule. The fully fledged Round 4 result of $528{,}910$ also contains further variable-order exploration. Thus the difference between $532{,}070$ and $528{,}910$ cannot be counted as a benefit of algebra and phase postprocessing alone.
+@@ -458,6 +477,8 @@
+ \end{tcolorbox}
+ 
+ \section{Round 4.1: construct the first explicit Area--Runtime Pareto comparison}
++\textbf{Counterfactual considered.} We could continue adding variable orders or polarity restarts and keep every tiny public-case area improvement. But this would spend more of a finite synthesis budget on strategies whose extra benefit had become small. The alternative was not to abandon the improved R4 circuit: it was to ask how much area a faster search would actually sacrifice.
++
+ The next experiment varies the amount of polarity postprocessing and variable-order exploration. It retains three executable configurations rather than presenting one parameter setting as universally best: \textbf{Strict} minimizes perturbation of the R4 circuit, \textbf{Balanced} accepts a tiny area change for runtime reduction, and \textbf{Fast} reduces the search further. These are meaningful \emph{Pareto alternatives}: lower runtime can require worse area, and a global criterion is impossible without knowing the actual scoring function.
+ 
+ Two WSL measurements report that the Balanced configuration produces Area 529,014 in both runs; its median runtime is 96.048 and 102.615 ms. Strict preserves Area 528,910, while Fast reaches Area 530,822. In the case-level data, Fast has a conspicuous area regression in \texttt{case\_018}; the small relative area-sum penalty conceals a large localized change. This demonstrates why we record per-case data and not only aggregate sums.
+@@ -465,6 +486,7 @@
+ \textbf{Research decision:} Balanced becomes the candidate for engineering optimization, not because its gate area is absolutely smallest, but because its area sacrifice relative to Strict is 104 out of roughly 529,000 while lowering median runtime. We retain Strict as the area-oriented comparator.
+ 
+ \section{Round 5: remove recomputation before reducing search quality}
++\textbf{The change of object.} Until now, the algorithm had treated the circuit as the thing being optimized. Here the \emph{synthesis program} becomes the object of analysis. This is not a semantic change to a Boolean function: we are asking whether repeated work inside the compiler can be removed before sacrificing any useful gate mapping candidate.
+ \subsection{A useful conceptual split}
+ There are two ways to accelerate a synthesis engine: \emph{delete candidate searches}, or \emph{implement the same searches more efficiently}. The latter is preferable when we already trust the candidate quality. Profiling revealed three repeated operations: multiple mapping policies rebuild the same ordered BDD; several small-support candidates recompute identical implicant covers; and every candidate's textual netlist is reparsed for area and timing estimates.
+ 
+@@ -484,6 +506,7 @@
+ \end{tcolorbox}
+ 
+ \section{Round 5.1: treat the netlist as a data structure, not repeated text}
++\textbf{Why another implementation round?} Caching helped with BDDs and covers, but the candidates still passed through several text-to-graph and graph-to-text transformations. Those conversions have no Boolean significance; they exist only because of an inconvenient intermediate representation. Round 5.1 therefore tests whether a typed internal graph can retain the same transformation logic while making it cheaper to execute.
+ \subsection{The engineering hypothesis}
+ A text format is a good external interface but a poor internal representation for repeated graph operations. Instead of parsing a netlist for rebalancing, serializing it, then parsing again for area recovery, Round 5.1 stores a typed gate table $v\mapsto(\mathrm{op},a,b)$ and an explicit output list. Structural hashing interns identical immutable gates; reachability pruning discards dead nodes at the final serialization step. For commutative AND2/OR2 nodes the builder sorts input IDs before hash lookup. For rebalancing, a same-operation internal cone is flattened only when the interior nodes have a single consumer, while output references are included in the fanout count. This matters in a multi-output network: reusing an output as someone else's intermediate result must not cause that shared computation to be silently removed. A topological induction over gate IDs proves the functional equivalence of these associative, commutative and idempotent rewrites; a reverse reachability pass from \emph{all} output roots preserves every live shared gate.
+ 
+@@ -502,7 +525,7 @@
+ \subsection{Measured speed and generalization}
+ The WSL paired medians change from 72.188 to 55.488 ms in one run and 60.827 to 55.077 ms in the other. Both versions have 25/25 PASS, 25/25 target delays and total Area 529,014. The average of the two per-run medians improves from 66.508 to 55.283 ms, about 16.9\% (a descriptive two-run estimate). A mixed holdout of 80 functions and a 16-case larger set also pass the evaluator and independent checker, but the gains are distribution-dependent: small cases may see little benefit or small overhead, while larger graphs profit more from avoided parsing.
+ 
+-\begin{figure}[htbp]\centering
++\begin{figure}[H]\centering
+ \includegraphics[width=.96\textwidth]{../shared/figures/paired_runtime.pdf}
+ \caption{Paired WSL comparisons from distinct recorded experiments. The figure is constructed from authentic CSV records with the bundled plotting script; inter-group medians are not interchangeable experiments.}\end{figure}
+ 
+@@ -517,6 +540,7 @@
+ The measurement answers a narrow question: \emph{how much memory did one particular process run make resident at its peak?} It does not bound worst-case memory across the 25 official cases, does not measure all virtual-memory allocations, and must not replace the official evaluator's per-case synthesis runtime. Preserving these distinctions is part of experimental reproducibility, not a cosmetic disclaimer.
+ 
+ \section{Round 6.0: a change of representation, not merely another BDD order}
++\textbf{Why resume Boolean optimization after engineering speedups?} A faster synthesis engine is valuable only if it gives room to seek better realizations, or if synthesis time itself is a scoring concern. The next experiment deliberately returns to gate quality: a mapped DAG can still contain locally expensive expressions that are not exposed by changing the original BDD order. This is a new hypothesis, not an extension of the caching theorem.
+ \subsection{Motivation: escaped local equivalences}
+ A BDD-derived circuit may already be compact as a BDD yet still contain local multi-gate patterns that another circuit can implement more cheaply. The new idea is to inspect \emph{the final gate DAG itself}, choose a small boundary of signals, recover the exact Boolean subfunction between that boundary and an internal output, and resynthesize the subfunction independently of the original local shape.
+ 
+@@ -557,14 +581,14 @@
+ 
+ The fresh 40-case mixed and 8-case larger holdouts nonetheless demonstrate valid generalizing area savings: 11,186 to 10,858 and 67,275 to 67,047, respectively; all pass both correctness and target delay, but their synthesis medians rise from 7.852 to 10.762 ms and from 68.093 to 94.327 ms. The positive and negative conclusions must be presented \emph{together}.
+ 
+-\begin{figure}[htbp]\centering\includegraphics[width=.82\textwidth]{../shared/figures/holdout_area.pdf}
++\begin{figure}[H]\centering\includegraphics[width=.82\textwidth]{../shared/figures/holdout_area.pdf}
+ \caption{Fresh Round 6.1 holdout area by function family; source data and rendering script are included.}\end{figure}
+ 
+ 
+ \subsection{What the development budgets really measured}
+ We also recovered two intermediate budget sweeps. On the 40-function mixed \emph{development} set, the nominal cut budgets $25$, $35$ and $45$ ms all save the same $213$ local area units. The corresponding median \emph{postprocessor} wall times are $4.84$, $4.59$ and $4.91$ ms, a fluctuation too small to interpret as a monotone speed law. On a different, larger \emph{development} set of 16 functions, increasing the budget produces $358$, $408$ and $501$ area units saved, while median local wall time rises from $31.66$ to $40.89$ to $52.38$ ms.
+ 
+-\begin{figure}[htbp]\centering\includegraphics[width=.82\textwidth]{../shared/figures/round61_budget_tradeoff.pdf}
++\begin{figure}[H]\centering\includegraphics[width=.82\textwidth]{../shared/figures/round61_budget_tradeoff.pdf}
+ \caption{Larger-development-set Cut Budget experiment. ``Area saved'' measures the local postprocessor; these are not sums from the official Stage 1 evaluation.}\end{figure}
+ 
+ \textbf{Decision logic:} on easy local structures, more budget may buy nothing; on harder structures, it can buy more rewrites but at an increasing cost. That explains why the 25 ms limit was a defensible engineering compromise. It does not imply that 25 ms is optimal for every unknown truth table. These were \emph{development} sets already consulted during budget selection, so we cannot rebrand them as fresh blind holdouts.
+@@ -581,13 +605,18 @@
+ Independent correctness verification adds a different kind of reassurance. The official evaluator performs the required truth-table check under its contract, while a separately written checker validates legality and independently simulates circuits. For selected smaller functions the independent checker enumerates all rows; for larger ones it uses deterministic samples. The latter is not a formal universal proof, and the separate mathematical correctness arguments are still important.
+ 
+ \section{A consolidated evidence narrative}
++\subsection{The useful negative results}
++Not every valid rewrite should be adopted. In the present study, a large truth-table-derived candidate pool could become impractically expensive; phase/algebra refinements produced diminishing public-case area gains; the smaller generated cases sometimes showed negligible runtime benefit from typed DAGs; and four-feasible cut rewriting reduced area but breached the local runtime-acceptance threshold. These observations are not defects to omit from a research record. Each separates a \emph{correct mathematical transform} from a \emph{justified engineering decision}. They also explain why further tuning of a public 25-case benchmark was stopped.
++
++A particularly important counterfactual is the decision \emph{not} to promote R6.1. Had we selected the default solely by public-case area sum, we would have ignored its roughly 47.7\% local median-runtime penalty relative to R5.1. Had we dismissed it solely because of that penalty, we would have missed the independent evidence that cut rewriting can help other generated function families. Preserving the branch as an experimental result is more informative than either extreme.
++
+ \subsection{Why the version history needs more than one number}
+-\begin{figure}[htbp]\centering\includegraphics[width=.98\textwidth]{../shared/figures/area_evolution.pdf}
++\begin{figure}[H]\centering\includegraphics[width=.98\textwidth]{../shared/figures/area_evolution.pdf}
+ \caption{Selected archived local area totals. This is a non-paired development history; area totals are directly tabulated but runtime is not compared across archives.}\end{figure}
+ 
+ Read the sequence by the \emph{question solved}, not by the ordering of bar heights. R1 proves construction. R2 changes representations and meets the timing targets. R3 integrates the global deadline and reduces area substantially. R4 explores global phase and algebra, revealing expensive diminishing returns. R4.1 makes the Pareto tradeoff explicit. R5 and R5.1 refactor repeated computational work while preserving observed quality. R6.0 discovers an overlooked local area opportunity; R6.1 demonstrates the current technique's unfavorable cost under a fixed decision rule. These are complementary contributions, not a monotone sequence in all metrics.
+ 
+-\begin{table}[htbp]\centering\small\caption{Local Stage 1 area milestones; a single designated run per round}\begin{tabular}{@{}lrr@{}}\toprule
++\begin{table}[H]\centering\small\caption{Local Stage 1 area milestones; a single designated run per round}\begin{tabular}{@{}lrr@{}}\toprule
+ Round & Target met & Summed area \\ \midrule
+ 1 &12/25&1,103,455\\
+ 2 &25/25&790,243\\
+@@ -608,6 +637,8 @@
+ A reproducible public repository should preserve each round's source snapshot, compiler flags, evaluator commands, input manifest/hash, official CSV, independent verification result, candidate outputs, and document with the research decision. Large raw netlists can be archived separately, while the paper still includes enough information for a reader to reproduce its figures. The exact local output paths follow the project's convention \texttt{local\_runs/YYYYMMDD\_HHMMSS\_Round*/report\_ready/}.
+ 
+ \section{Reflection and next steps}
++\textbf{Research lesson.} A mathematical identity can certify equivalence; a cost model determines whether the identity is economically useful; a benchmark reports how a particular implementation behaved; and an adoption rule explains why that behavior warranted changing the default. Treating these as separate levels of reasoning is the central habit this project developed. The largest early improvements came from changing the search representation and acknowledging global timing; the later rounds taught us when \emph{not} to trade a large amount of computation for a tiny area gain.
++
+ The project begins with a basic identity from discrete mathematics, but the practical problem quickly becomes one of \emph{shared structure, global constraints and resource-aware search}. The most decisive insight was not a particular identity by itself. It was learning when the relevant object changed: from a Boolean function, to an ROBDD of shared cofactors, to a priced physical gate DAG, to a deadline-constrained graph, and finally to an algorithm that consumes computation and memory while exploring candidate graphs.
+ 
+ An area-optimization algorithm can be mathematically sound and still be the wrong engineering choice when its marginal improvement is dwarfed by synthesis time. Preserving that negative result demonstrates an appropriate stopping criterion, especially under a rubric that rewards deep understanding and justified conceptual application. We therefore freeze Round 5.1 as the principal Stage 1 engineering baseline and preserve Rounds 6.0/6.1 as exploration branches, subject to the students' final submission choice.

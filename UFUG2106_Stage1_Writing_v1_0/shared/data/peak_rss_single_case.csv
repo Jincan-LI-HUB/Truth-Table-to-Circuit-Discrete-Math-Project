@@ -1,0 +1,2 @@
+case,source,exit_code,wall_seconds,peak_rss_kib,peak_rss_mib,synth_reported_area,synth_reported_delay,completed_candidates,chosen_candidate,verified_official_in_same_invocation
+case_024,user_supplied_terminal_excerpt_20261111,0,1.66,69480,67.8516,124475,70,7,5,no

@@ -1,0 +1,14 @@
+{
+  "name": "UFUG2106 muted research palette (user-supplied, 2026-11-11)",
+  "colors": {
+    "peach": "#FAD6C9",
+    "sage": "#B0C6A8",
+    "ivory": "#FAF5E8",
+    "blue": "#92B3CD",
+    "rose": "#D99DA3",
+    "mint": "#D0E3DB",
+    "slate": "#A6B3C0",
+    "stone": "#E8E2DB"
+  },
+  "use": "Muted fills; black/charcoal labels and outlines. Also use hatch/markers for grayscale accessibility. Never use color alone to encode findings."
+}

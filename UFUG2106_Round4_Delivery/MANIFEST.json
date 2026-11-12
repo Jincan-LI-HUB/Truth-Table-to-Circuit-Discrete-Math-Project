@@ -1,0 +1,20 @@
+{
+  "round": "Round4",
+  "reference_date": "2026-11-11",
+  "official_pass": "25/25",
+  "official_target_met": "25/25",
+  "area_sum": 528910,
+  "baseline_round3_area_sum": 533705,
+  "source_hash_sha256": {
+    "src/synth.cpp": "d4943b5a9dbc236978c3a6beea05477e7713c03b77e95f9e515c017185f4261a",
+    "src/polarity_mapper.hpp": "46e8183e644071ca45792499bb6e3961dacda9e0243a98071e409473419e375a",
+    "src/algebraic_mapper.hpp": "33d9d02a4fe2cbb14934e334bb8433260e9763541b6f78fcbd969b2e88220667",
+    "src/synth_round3_frozen.cpp": "2f101e9fc320d5feb78d5539d9d9ddbf131b9805c6ffd6265db37f76b89f0135",
+    "Makefile": "8b30551c7e886a74b73f9912e0f0a1bb0d1c39b85ff5c665163d4dc57bbfac4d",
+    "run_round4_local.sh": "6390a32e8f3986d68421eb63e2ce7db45e5c064e06deecabbc0ebe3c51e78a3d",
+    "results/reference_round4.csv": "500e746ecada2d410fb2579f9e73b67241f323d8cd589f6fcd427404d94c05cf",
+    "results/reference_round3.csv": "cfc11e439d98caf58f30808a7eb0b51f29d4ee305aabf8eacb9739f577dd3d05"
+  },
+  "archive_convention": "local_runs/YYYYMMDD_HHMMSS_Round4/report_ready/",
+  "note": "Generated from verified source; instructor data and evaluator are not included."
+}

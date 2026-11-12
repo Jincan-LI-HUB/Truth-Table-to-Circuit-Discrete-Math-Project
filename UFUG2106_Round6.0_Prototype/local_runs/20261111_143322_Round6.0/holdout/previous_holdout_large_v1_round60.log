@@ -1,0 +1,17 @@
+PASS case_000.txt | n=12 m=8 exit_code=0 area=9447 delay=74 runtime_ms=227.679 target_delay=150 target_met=yes delay_excess=0
+PASS case_001.txt | n=14 m=10 exit_code=0 area=16477 delay=71 runtime_ms=177.758 target_delay=150 target_met=yes delay_excess=0
+PASS case_002.txt | n=16 m=12 exit_code=0 area=10634 delay=40 runtime_ms=217.560 target_delay=150 target_met=yes delay_excess=0
+PASS case_003.txt | n=17 m=14 exit_code=0 area=9530 delay=64 runtime_ms=201.277 target_delay=150 target_met=yes delay_excess=0
+PASS case_004.txt | n=12 m=8 exit_code=0 area=5664 delay=70 runtime_ms=191.582 target_delay=150 target_met=yes delay_excess=0
+PASS case_005.txt | n=14 m=10 exit_code=0 area=8120 delay=81 runtime_ms=152.885 target_delay=150 target_met=yes delay_excess=0
+PASS case_006.txt | n=16 m=12 exit_code=0 area=28958 delay=55 runtime_ms=237.348 target_delay=150 target_met=yes delay_excess=0
+PASS case_007.txt | n=17 m=14 exit_code=0 area=1452 delay=46 runtime_ms=184.839 target_delay=150 target_met=yes delay_excess=0
+PASS case_008.txt | n=12 m=8 exit_code=0 area=4676 delay=37 runtime_ms=287.128 target_delay=150 target_met=yes delay_excess=0
+PASS case_009.txt | n=14 m=10 exit_code=0 area=1375 delay=31 runtime_ms=155.778 target_delay=150 target_met=yes delay_excess=0
+PASS case_010.txt | n=16 m=12 exit_code=0 area=12703 delay=104 runtime_ms=224.587 target_delay=150 target_met=yes delay_excess=0
+PASS case_011.txt | n=17 m=14 exit_code=0 area=14490 delay=46 runtime_ms=200.626 target_delay=150 target_met=yes delay_excess=0
+PASS case_012.txt | n=12 m=8 exit_code=0 area=4663 delay=58 runtime_ms=243.579 target_delay=150 target_met=yes delay_excess=0
+PASS case_013.txt | n=14 m=10 exit_code=0 area=5803 delay=49 runtime_ms=163.865 target_delay=150 target_met=yes delay_excess=0
+PASS case_014.txt | n=16 m=12 exit_code=0 area=12731 delay=73 runtime_ms=229.607 target_delay=150 target_met=yes delay_excess=0
+PASS case_015.txt | n=17 m=14 exit_code=0 area=10717 delay=79 runtime_ms=186.725 target_delay=150 target_met=yes delay_excess=0
+16/16 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round6.0_Prototype/local_runs/20261111_143322_Round6.0/holdout/previous_holdout_large_v1_round60.csv

@@ -1,0 +1,3 @@
+Round 4.1: {'count': 25, 'pass_count': 25, 'target_met': 25, 'area_sum': 529014, 'median_runtime_ms': 87.041, 'max_runtime_ms': 2477.652, 'sum_runtime_ms': 8695.436}
+Round 5: {'count': 25, 'pass_count': 25, 'target_met': 25, 'area_sum': 529014, 'median_runtime_ms': 68.861, 'max_runtime_ms': 1787.182, 'sum_runtime_ms': 6030.508}
+Byte-identical netlists: 25 of 25

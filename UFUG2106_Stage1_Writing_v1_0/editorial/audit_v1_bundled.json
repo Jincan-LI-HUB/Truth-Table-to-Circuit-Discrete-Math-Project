@@ -1,0 +1,100 @@
+{
+  "status": "PASS",
+  "checks": 18,
+  "passed": 18,
+  "failed": [],
+  "source_dir": "not supplied (historical run ZIP reproduction not attempted)",
+  "freeze_dir": "not supplied (frozen source hash check not attempted)",
+  "details": [
+    {
+      "check": "9 separately archived selected official CSVs present",
+      "passed": true,
+      "detail": 9
+    },
+    {
+      "check": "official file schema + complete case set: official_round_1.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_2.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_3.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_4.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_4_1_b.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_5.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_5_1.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_6_0.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_6_1.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "R5.1 selected area = 529014",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "R5.1 25 target met",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "raw evidence SHA-256: round3_development_ablation.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "raw evidence SHA-256: round4_postprocessing_ablation.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "raw evidence SHA-256: round61_budget_development_mixed.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "raw evidence SHA-256: round61_budget_development_large.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "raw evidence SHA-256: stage1_round51_research_freeze_manifest.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "freeze identity",
+      "passed": true,
+      "detail": null
+    }
+  ]
+}

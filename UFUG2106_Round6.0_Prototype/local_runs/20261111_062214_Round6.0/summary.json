@@ -1,0 +1,99 @@
+{
+  "official": {
+    "pair1": {
+      "reference": {
+        "pass": 25,
+        "target": 25,
+        "cases": 25,
+        "area": 529014,
+        "median_ms": 77.822,
+        "sum_ms": 7492.464
+      },
+      "round60": {
+        "pass": 25,
+        "target": 25,
+        "cases": 25,
+        "area": 528822,
+        "median_ms": 134.384,
+        "sum_ms": 9889.158
+      }
+    },
+    "pair2": {
+      "reference": {
+        "pass": 25,
+        "target": 25,
+        "cases": 25,
+        "area": 529014,
+        "median_ms": 74.006,
+        "sum_ms": 7479.414
+      },
+      "round60": {
+        "pass": 25,
+        "target": 25,
+        "cases": 25,
+        "area": 528805,
+        "median_ms": 135.084,
+        "sum_ms": 9704.339
+      }
+    }
+  },
+  "holdouts": {
+    "holdout_round60_v1": {
+      "reference": {
+        "pass": 40,
+        "target": 40,
+        "cases": 40,
+        "area": 9709,
+        "median_ms": 6.9350000000000005,
+        "sum_ms": 673.643
+      },
+      "round60": {
+        "pass": 40,
+        "target": 40,
+        "cases": 40,
+        "area": 9496,
+        "median_ms": 15.381499999999999,
+        "sum_ms": 1155.377
+      }
+    },
+    "previous_holdout_v1": {
+      "reference": {
+        "pass": 80,
+        "target": 80,
+        "cases": 80,
+        "area": 22821,
+        "median_ms": 4.743,
+        "sum_ms": 985.635
+      },
+      "round60": {
+        "pass": 80,
+        "target": 80,
+        "cases": 80,
+        "area": 22579,
+        "median_ms": 12.2335,
+        "sum_ms": 2179.706
+      }
+    },
+    "previous_holdout_large_v1": {
+      "reference": {
+        "pass": 16,
+        "target": 16,
+        "cases": 16,
+        "area": 157944,
+        "median_ms": 96.195,
+        "sum_ms": 1727.285
+      },
+      "round60": {
+        "pass": 16,
+        "target": 16,
+        "cases": 16,
+        "area": 157530,
+        "median_ms": 224.54500000000002,
+        "sum_ms": 3770.411
+      }
+    }
+  },
+  "strict_area_reductions": 8,
+  "strict_area_regressions": 0,
+  "netlist_equal_count": 17
+}

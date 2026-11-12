@@ -1,0 +1,17 @@
+PASS case_000.txt | n=12 m=8 exit_code=0 area=9479 delay=74 runtime_ms=99.833 target_delay=150 target_met=yes delay_excess=0
+PASS case_001.txt | n=14 m=10 exit_code=0 area=16493 delay=71 runtime_ms=42.941 target_delay=150 target_met=yes delay_excess=0
+PASS case_002.txt | n=16 m=12 exit_code=0 area=10643 delay=40 runtime_ms=79.780 target_delay=150 target_met=yes delay_excess=0
+PASS case_003.txt | n=17 m=14 exit_code=0 area=9638 delay=64 runtime_ms=68.778 target_delay=150 target_met=yes delay_excess=0
+PASS case_004.txt | n=12 m=8 exit_code=0 area=5672 delay=70 runtime_ms=69.640 target_delay=150 target_met=yes delay_excess=0
+PASS case_005.txt | n=14 m=10 exit_code=0 area=8133 delay=81 runtime_ms=35.485 target_delay=150 target_met=yes delay_excess=0
+PASS case_006.txt | n=16 m=12 exit_code=0 area=28958 delay=55 runtime_ms=99.689 target_delay=150 target_met=yes delay_excess=0
+PASS case_007.txt | n=17 m=14 exit_code=0 area=1495 delay=46 runtime_ms=62.217 target_delay=150 target_met=yes delay_excess=0
+PASS case_008.txt | n=12 m=8 exit_code=0 area=4676 delay=37 runtime_ms=172.049 target_delay=150 target_met=yes delay_excess=0
+PASS case_009.txt | n=14 m=10 exit_code=0 area=1376 delay=31 runtime_ms=30.108 target_delay=150 target_met=yes delay_excess=0
+PASS case_010.txt | n=16 m=12 exit_code=0 area=12703 delay=104 runtime_ms=91.035 target_delay=150 target_met=yes delay_excess=0
+PASS case_011.txt | n=17 m=14 exit_code=0 area=14509 delay=46 runtime_ms=71.570 target_delay=150 target_met=yes delay_excess=0
+PASS case_012.txt | n=12 m=8 exit_code=0 area=4687 delay=58 runtime_ms=117.761 target_delay=150 target_met=yes delay_excess=0
+PASS case_013.txt | n=14 m=10 exit_code=0 area=5830 delay=49 runtime_ms=43.075 target_delay=150 target_met=yes delay_excess=0
+PASS case_014.txt | n=16 m=12 exit_code=0 area=12731 delay=73 runtime_ms=98.777 target_delay=150 target_met=yes delay_excess=0
+PASS case_015.txt | n=17 m=14 exit_code=0 area=10921 delay=79 runtime_ms=60.782 target_delay=150 target_met=yes delay_excess=0
+16/16 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round5.1_Delivery/local_runs/20261111_134547_Round5.1/holdout/holdout_large_v1_round51.csv

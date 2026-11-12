@@ -1,0 +1,8 @@
+pair,baseline_area,candidate_area,baseline_median_ms,candidate_median_ms,runtime_delta_pct,source_zip,baseline_member,candidate_member
+5 vs 4.1 B,529014,529014,87.041,68.861,-20.89,20261111_130515_Round5_local_results.zip,20261111_130515_Round5/reference/official.csv,20261111_130515_Round5/round5/official.csv
+5.1 vs 5 #1,529014,529014,72.188,55.488,-23.13,20261111_134547_Round5.1_local_results.zip,20261111_134547_Round5.1/benchmark/run1_reference.csv,20261111_134547_Round5.1/benchmark/run1_round51.csv
+5.1 vs 5 #2,529014,529014,60.827,55.077,-9.45,20261111_134547_Round5.1_local_results.zip,20261111_134547_Round5.1/benchmark/run2_reference.csv,20261111_134547_Round5.1/benchmark/run2_round51.csv
+6.0 vs 5.1 #1,529014,528738,53.286,114.61,115.08,20261111_143322_Round6.0_local_results.zip,20261111_143322_Round6.0/benchmark/run1_reference.csv,20261111_143322_Round6.0/benchmark/run1_round60.csv
+6.0 vs 5.1 #2,529014,528744,51.403,116.351,126.35,20261111_143322_Round6.0_local_results.zip,20261111_143322_Round6.0/benchmark/run2_reference.csv,20261111_143322_Round6.0/benchmark/run2_round60.csv
+6.1 vs 5.1 #1,529014,528854,54.572,80.731,47.93,20261111_184840_Round6.1_local_results.zip,20261111_184840_Round6.1/benchmark/run1_reference.csv,20261111_184840_Round6.1/benchmark/run1_round61.csv
+6.1 vs 5.1 #2,529014,528839,50.224,74.083,47.51,20261111_184840_Round6.1_local_results.zip,20261111_184840_Round6.1/benchmark/run2_reference.csv,20261111_184840_Round6.1/benchmark/run2_round61.csv

@@ -1,0 +1,566 @@
+{
+  "seed": 21912600798,
+  "generated_before_implementation": true,
+  "rows": [
+    {
+      "case": "case_000.txt",
+      "kind": "affine",
+      "n": 12,
+      "m": 4,
+      "sha256": "d4cfa5c40cef00476a6714414539394c9da3bcd0c3d3c3712c1997a9dc010692"
+    },
+    {
+      "case": "case_001.txt",
+      "kind": "sparse",
+      "n": 8,
+      "m": 3,
+      "sha256": "3476612dbcd2fa307b505187f00e3bc97a8f0177f7ca46cfea00a72d364c2982"
+    },
+    {
+      "case": "case_002.txt",
+      "kind": "threshold",
+      "n": 12,
+      "m": 3,
+      "sha256": "54d645e0b6d39c3761bce193f5c793e99e384cdf41a999fee5a1efba80249ba7"
+    },
+    {
+      "case": "case_003.txt",
+      "kind": "mux",
+      "n": 15,
+      "m": 2,
+      "sha256": "c115ab41a92ac7a6e44b640b74486976e7b7a7de2dbe8fd02ec3698b2feb4d8a"
+    },
+    {
+      "case": "case_004.txt",
+      "kind": "arithmetic",
+      "n": 13,
+      "m": 4,
+      "sha256": "04d7b3bbced8066ff64f21db7f6517330eaf9a737d44e55b93a407b18767d4db"
+    },
+    {
+      "case": "case_005.txt",
+      "kind": "shared",
+      "n": 14,
+      "m": 3,
+      "sha256": "8116d6133d9efab00df9c970a687324ab5ee70a4dbc284c559741bfa0c77f853"
+    },
+    {
+      "case": "case_006.txt",
+      "kind": "structured",
+      "n": 12,
+      "m": 2,
+      "sha256": "244e45a608b21030ee4010cae571d8f63a27877940eb5ef8727698ca1cd247fa"
+    },
+    {
+      "case": "case_007.txt",
+      "kind": "dense",
+      "n": 7,
+      "m": 2,
+      "sha256": "e6ffcbfd6fec4c9e5df0c8dceffbc0bd73f042078a269a7e9788355c3a8edf8c"
+    },
+    {
+      "case": "case_008.txt",
+      "kind": "affine",
+      "n": 8,
+      "m": 4,
+      "sha256": "b584bf2cb7ba1cd58cdf1e60eef9cac60f6437a27994997cc8f29055ba988b1d"
+    },
+    {
+      "case": "case_009.txt",
+      "kind": "sparse",
+      "n": 11,
+      "m": 3,
+      "sha256": "fca56d8cf40cacb507dbc34d6c3322d70998e7a9b38b5a3a51377464545846ce"
+    },
+    {
+      "case": "case_010.txt",
+      "kind": "threshold",
+      "n": 7,
+      "m": 4,
+      "sha256": "962dba4fbce6cb37513f8bb8d754443f952179ab7e7d2e71ddddb686e8eefeb6"
+    },
+    {
+      "case": "case_011.txt",
+      "kind": "mux",
+      "n": 13,
+      "m": 1,
+      "sha256": "600cd8773fc7b32eb7d3c62797786ad2b79bc58ff1eb30384bd6e7943278ba23"
+    },
+    {
+      "case": "case_012.txt",
+      "kind": "arithmetic",
+      "n": 12,
+      "m": 3,
+      "sha256": "7e582e0db1e7d413c50aa00f1a40952be2535d1df3307a7e1f3392451ab9ef83"
+    },
+    {
+      "case": "case_013.txt",
+      "kind": "shared",
+      "n": 8,
+      "m": 3,
+      "sha256": "e1a72e4f5fa160daa541b34ac2869755a80e3fa7b961abf137e5b3f5c89f3645"
+    },
+    {
+      "case": "case_014.txt",
+      "kind": "structured",
+      "n": 10,
+      "m": 4,
+      "sha256": "afa1e1e6380409ce338fc2026874a1470cdb0559b862065e6a8f499d4c05494d"
+    },
+    {
+      "case": "case_015.txt",
+      "kind": "dense",
+      "n": 5,
+      "m": 1,
+      "sha256": "28f219ff222e832be3b2d5b3083c631ed1e3c9501fea53d72e9e8d35d894f680"
+    },
+    {
+      "case": "case_016.txt",
+      "kind": "affine",
+      "n": 11,
+      "m": 3,
+      "sha256": "b87053ae70628c7526abb542138b00492af48e6df095926833f675e16124ccad"
+    },
+    {
+      "case": "case_017.txt",
+      "kind": "sparse",
+      "n": 12,
+      "m": 3,
+      "sha256": "a80053e612943aa43d5a632fcf011ae8180042228daa4b6de4d4423c384dc6aa"
+    },
+    {
+      "case": "case_018.txt",
+      "kind": "threshold",
+      "n": 15,
+      "m": 2,
+      "sha256": "982116f87fa8cabced28f471ad1cbba6685c6fddd345c0d1012ff87cf2acd373"
+    },
+    {
+      "case": "case_019.txt",
+      "kind": "mux",
+      "n": 10,
+      "m": 3,
+      "sha256": "563d8d128fe351befb3fdd5698b3efae1cd83880e8bc789b3b5d1e3361dc2180"
+    },
+    {
+      "case": "case_020.txt",
+      "kind": "arithmetic",
+      "n": 15,
+      "m": 4,
+      "sha256": "1b504c45e6b3f20e3658d49f199402f24a08fdea11f5fc2da46b62fc51d2ba39"
+    },
+    {
+      "case": "case_021.txt",
+      "kind": "shared",
+      "n": 12,
+      "m": 6,
+      "sha256": "0f8e4d93f87325c2e2c680a9ee5a7242c38443ee28b5e5cec53c663f7baf407a"
+    },
+    {
+      "case": "case_022.txt",
+      "kind": "structured",
+      "n": 6,
+      "m": 3,
+      "sha256": "25a0b91c52170af4d1532619be93496d47805fa9d1656cdb07087891bea90b5e"
+    },
+    {
+      "case": "case_023.txt",
+      "kind": "dense",
+      "n": 10,
+      "m": 2,
+      "sha256": "1422da5d5ca9f6e25a073c4c35d185aee9fa5ecfce7d72b7d764b20d96c97540"
+    },
+    {
+      "case": "case_024.txt",
+      "kind": "affine",
+      "n": 7,
+      "m": 3,
+      "sha256": "82f637e50e4135dc35534644f6ee0d8a4bf878102d3ada08f4b764f2dfce74df"
+    },
+    {
+      "case": "case_025.txt",
+      "kind": "sparse",
+      "n": 9,
+      "m": 2,
+      "sha256": "7779a8361197293e94dffd57372fbb67dbe037303ccde6477d6e4aa6601ede4c"
+    },
+    {
+      "case": "case_026.txt",
+      "kind": "threshold",
+      "n": 5,
+      "m": 1,
+      "sha256": "d589baedb927980b3fe42d2172d41249f5ce8fbc0fb62bc9550d4c9e33c61234"
+    },
+    {
+      "case": "case_027.txt",
+      "kind": "mux",
+      "n": 10,
+      "m": 4,
+      "sha256": "11af297fe3804053e2729e4150748fdbce0192d04cff4f42ae2f61c44331ea21"
+    },
+    {
+      "case": "case_028.txt",
+      "kind": "arithmetic",
+      "n": 7,
+      "m": 4,
+      "sha256": "4d106f5cf0ff94ee3ffcedc162974886705db17124195a6dd71c5f0dcb213695"
+    },
+    {
+      "case": "case_029.txt",
+      "kind": "shared",
+      "n": 7,
+      "m": 6,
+      "sha256": "02e1046d485bffcff2f46f50921d71b0bc145135ce6b2d847af6676357902e98"
+    },
+    {
+      "case": "case_030.txt",
+      "kind": "structured",
+      "n": 12,
+      "m": 2,
+      "sha256": "c9dc0688467c0e369cbf5c114406460b9edfee674b2b19bf6e1bc73528dd73ea"
+    },
+    {
+      "case": "case_031.txt",
+      "kind": "dense",
+      "n": 6,
+      "m": 2,
+      "sha256": "d8ca909439520219ad7353bf0b10981d2b9f8fc850e8faacad596d3e910c5fd7"
+    },
+    {
+      "case": "case_032.txt",
+      "kind": "affine",
+      "n": 10,
+      "m": 2,
+      "sha256": "02554acc2985f8720ca80d912e870bf21b0d8807c1f6006ff46e4a8247131ba5"
+    },
+    {
+      "case": "case_033.txt",
+      "kind": "sparse",
+      "n": 12,
+      "m": 1,
+      "sha256": "fc0a87f39e6c26242095c8a6b599d58255417377363f47506caa5e3689f6d600"
+    },
+    {
+      "case": "case_034.txt",
+      "kind": "threshold",
+      "n": 14,
+      "m": 1,
+      "sha256": "2efae4100c0180aeb188c29672b919ccffe059f28fd118c81bf6e18f695baba6"
+    },
+    {
+      "case": "case_035.txt",
+      "kind": "mux",
+      "n": 10,
+      "m": 4,
+      "sha256": "4b5f7ae4d752907d50daa7e7ed83e0b915e0d1692b949cf05ddbf28f8f5ccdc9"
+    },
+    {
+      "case": "case_036.txt",
+      "kind": "arithmetic",
+      "n": 12,
+      "m": 1,
+      "sha256": "b27da3b996829efc36ff104bca1c22a1e2a22d444b3f17dec8ba1fe4eafbc83e"
+    },
+    {
+      "case": "case_037.txt",
+      "kind": "shared",
+      "n": 8,
+      "m": 3,
+      "sha256": "910a732e71b4735bf20367812dc247f74edf8015e5fd5eb7a2ff010391f10fc5"
+    },
+    {
+      "case": "case_038.txt",
+      "kind": "structured",
+      "n": 8,
+      "m": 1,
+      "sha256": "5df8a39058594b994c9e2258372a8797b28614a26c0d0472c6ee757f2302054f"
+    },
+    {
+      "case": "case_039.txt",
+      "kind": "dense",
+      "n": 8,
+      "m": 4,
+      "sha256": "21845cec6b84ce67e9caff09fe89c491d0b8a1d969ac6d1ad07fd017c175abaf"
+    },
+    {
+      "case": "case_040.txt",
+      "kind": "affine",
+      "n": 6,
+      "m": 2,
+      "sha256": "f2558b4e32e585bf3cdb00c2a53b145d1e338875e04e4b7d32e1548c2fb04584"
+    },
+    {
+      "case": "case_041.txt",
+      "kind": "sparse",
+      "n": 12,
+      "m": 3,
+      "sha256": "23da2cd0f3e2118b4a51e314cef434b6f87b1d99f17af253fa27fb8d9767b181"
+    },
+    {
+      "case": "case_042.txt",
+      "kind": "threshold",
+      "n": 11,
+      "m": 4,
+      "sha256": "2e4e6421cd0b50a2c8c4ad2363bd6765914aeb123be5e13dd5f966c872f9ed3f"
+    },
+    {
+      "case": "case_043.txt",
+      "kind": "mux",
+      "n": 15,
+      "m": 2,
+      "sha256": "85b3e300fe013ca024901c70c85f29f917e2b73fdd743819e0477722f9d4ccf7"
+    },
+    {
+      "case": "case_044.txt",
+      "kind": "arithmetic",
+      "n": 5,
+      "m": 3,
+      "sha256": "9f042acc6be39e29b0097193dd02333329f14c5eb3c3a3d90f7754ef07e41c19"
+    },
+    {
+      "case": "case_045.txt",
+      "kind": "shared",
+      "n": 14,
+      "m": 5,
+      "sha256": "373a9bab2f10bede64e5ea5e7299c831a2d8e128fc57bf5fbfdc8eec0943f224"
+    },
+    {
+      "case": "case_046.txt",
+      "kind": "structured",
+      "n": 12,
+      "m": 2,
+      "sha256": "7dfe3807da4e083d0433289bcf0e9283138392a9100f316518e0aa72eddd95ef"
+    },
+    {
+      "case": "case_047.txt",
+      "kind": "dense",
+      "n": 9,
+      "m": 4,
+      "sha256": "835f193d1f544d227ce618dd9b24d6e9918cf100f83e3812619e16aa60c8d7a8"
+    },
+    {
+      "case": "case_048.txt",
+      "kind": "affine",
+      "n": 12,
+      "m": 3,
+      "sha256": "556496b092b01472b6a21af2af20bfc9e6ccb276a951abdeaf83d654f15a03f8"
+    },
+    {
+      "case": "case_049.txt",
+      "kind": "sparse",
+      "n": 6,
+      "m": 4,
+      "sha256": "153f1f2d647460a94d9ad489e548d75f2ec8ee67e4505210d79f3c28ccaf1b3a"
+    },
+    {
+      "case": "case_050.txt",
+      "kind": "threshold",
+      "n": 12,
+      "m": 3,
+      "sha256": "c651250126072d08f1a39dcdcc1e9e002d183a861ad33fe70145cd1d35313d35"
+    },
+    {
+      "case": "case_051.txt",
+      "kind": "mux",
+      "n": 6,
+      "m": 2,
+      "sha256": "8a92bb3eb91f5aab2686b0db348943608aa7c1996146d836feb9fedc93d01eb9"
+    },
+    {
+      "case": "case_052.txt",
+      "kind": "arithmetic",
+      "n": 10,
+      "m": 2,
+      "sha256": "a4ff1dfaf00060599d0e55724161cb743e178d4a019fd87574e46c5addc97de9"
+    },
+    {
+      "case": "case_053.txt",
+      "kind": "shared",
+      "n": 5,
+      "m": 5,
+      "sha256": "51c4ce00917a9062957520dad25987cd834932d6191d3a89aa363750cbb19042"
+    },
+    {
+      "case": "case_054.txt",
+      "kind": "structured",
+      "n": 12,
+      "m": 3,
+      "sha256": "68a9d40f7c9e8abb535fa33b3415513cf1eeaea96e78583bcba5dae5deddc515"
+    },
+    {
+      "case": "case_055.txt",
+      "kind": "dense",
+      "n": 6,
+      "m": 3,
+      "sha256": "067392ca078b0a53acaede2ee8a6fa8a348272f1be842521be34093e01d66813"
+    },
+    {
+      "case": "case_056.txt",
+      "kind": "affine",
+      "n": 8,
+      "m": 3,
+      "sha256": "688113458ce11c6f81ba29aa509f49b0121d79ca5aa966bb6ea0f222a4ad6fb5"
+    },
+    {
+      "case": "case_057.txt",
+      "kind": "sparse",
+      "n": 12,
+      "m": 1,
+      "sha256": "46091d2cebd16afd625eb5761878e4f3d4f405e3857f183585dad9a6fb6041d8"
+    },
+    {
+      "case": "case_058.txt",
+      "kind": "threshold",
+      "n": 11,
+      "m": 3,
+      "sha256": "713bae6637d9a2591c326d910fdc1c6fdd1f5df3baf489cd0654bdf0d05c9972"
+    },
+    {
+      "case": "case_059.txt",
+      "kind": "mux",
+      "n": 7,
+      "m": 4,
+      "sha256": "d80360fab5b4c83dda9c600846e54da5554fedef65bfd34375a73a1c496ad349"
+    },
+    {
+      "case": "case_060.txt",
+      "kind": "arithmetic",
+      "n": 15,
+      "m": 3,
+      "sha256": "cca7ab886046885c4bd0f7ae408b99fc302070d5659e6e8c80093ed4c9820085"
+    },
+    {
+      "case": "case_061.txt",
+      "kind": "shared",
+      "n": 7,
+      "m": 5,
+      "sha256": "7649f2fb06b78ff716a6a0499d0543cf36dcfe7c4a5c402ef5e5383be2ade2b2"
+    },
+    {
+      "case": "case_062.txt",
+      "kind": "structured",
+      "n": 12,
+      "m": 2,
+      "sha256": "d1ff83387b83780894dea5da35206f455b62bd1242c18f407646e632db7ad57a"
+    },
+    {
+      "case": "case_063.txt",
+      "kind": "dense",
+      "n": 4,
+      "m": 3,
+      "sha256": "c89006b00ffc967f5f5e0fbf911aee825904526332bf9db7a2c8e14d451cb1be"
+    },
+    {
+      "case": "case_064.txt",
+      "kind": "affine",
+      "n": 10,
+      "m": 1,
+      "sha256": "aab8435dbbe47ac8f9d3c81cabc26a82184a706e1be41a5d2b48c6dbfc15f800"
+    },
+    {
+      "case": "case_065.txt",
+      "kind": "sparse",
+      "n": 6,
+      "m": 3,
+      "sha256": "8c627aaacfb95e6e356ef68f323ed2dd2ae4632083e92da9c6a24968bfdcb2d1"
+    },
+    {
+      "case": "case_066.txt",
+      "kind": "threshold",
+      "n": 7,
+      "m": 1,
+      "sha256": "d5cc0ff403f1c4814806d73b1070c4ac889fb6945c736280a03668b27e86661f"
+    },
+    {
+      "case": "case_067.txt",
+      "kind": "mux",
+      "n": 15,
+      "m": 2,
+      "sha256": "9a66f805a5e2a792081400056307dbc237fc3bca60a9ffc9fd5fe2544ac0e199"
+    },
+    {
+      "case": "case_068.txt",
+      "kind": "arithmetic",
+      "n": 11,
+      "m": 1,
+      "sha256": "36ca047ed439c3df296526e420163223962ef4521fdac0af974d7455aac2a985"
+    },
+    {
+      "case": "case_069.txt",
+      "kind": "shared",
+      "n": 11,
+      "m": 3,
+      "sha256": "bd0c4a757bf4865ccb841947453c08630a00e0003aaee26caa48e03061908a45"
+    },
+    {
+      "case": "case_070.txt",
+      "kind": "structured",
+      "n": 9,
+      "m": 1,
+      "sha256": "c98797a1b250ad03a00de8b591f3958de177b46be2beb5a3c99d2c80302d419a"
+    },
+    {
+      "case": "case_071.txt",
+      "kind": "dense",
+      "n": 6,
+      "m": 1,
+      "sha256": "e2411fb4516749e6381dec54183ef4674b5a2a32bf10d0460001159ef7adafc2"
+    },
+    {
+      "case": "case_072.txt",
+      "kind": "affine",
+      "n": 13,
+      "m": 1,
+      "sha256": "82a7d1be50edfa7d2dea87d5a41bf4025d7837087aca43aa893877cbf615c290"
+    },
+    {
+      "case": "case_073.txt",
+      "kind": "sparse",
+      "n": 12,
+      "m": 3,
+      "sha256": "2e7f357d0530bdddd175656b1d947481c7eb25571bc8ebc234e3b9b259405c3d"
+    },
+    {
+      "case": "case_074.txt",
+      "kind": "threshold",
+      "n": 9,
+      "m": 3,
+      "sha256": "172dcb7097a0d1e425fdd3ddcfdf06f2b6d46571ecd8d3ed21e993a086ec11cd"
+    },
+    {
+      "case": "case_075.txt",
+      "kind": "mux",
+      "n": 15,
+      "m": 1,
+      "sha256": "921574ab073729cc091c319c2cdfdac0c2693e11f60a0f9f370ce10a75c771d6"
+    },
+    {
+      "case": "case_076.txt",
+      "kind": "arithmetic",
+      "n": 8,
+      "m": 3,
+      "sha256": "4ffc909b2adbfc22035737a9084a1e7263b953c4a94c618fc5a3cd205f80d284"
+    },
+    {
+      "case": "case_077.txt",
+      "kind": "shared",
+      "n": 13,
+      "m": 3,
+      "sha256": "bc68f13775cedc06287997891ec8b69edcc99062c09bcf33482d419eeee75f27"
+    },
+    {
+      "case": "case_078.txt",
+      "kind": "structured",
+      "n": 8,
+      "m": 4,
+      "sha256": "ec3e1b0a332ace2042c2c8e0540a6a56ed48842edccf2392254c3620e27f6ecd"
+    },
+    {
+      "case": "case_079.txt",
+      "kind": "dense",
+      "n": 8,
+      "m": 3,
+      "sha256": "19b53172dc7ab0a3ec74e7588feb39a755a4cad08e3ec9b8aab7e8958799b1c9"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+UFUG2106 Round2 - local reproduction
+Local evaluator CSV: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round2_Delivery/local_runs/20261111_104026_Round2/official.csv
+Historical reference: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round2_Delivery/results/reference.csv
+Official PASS: 25/25 | reference 25/25
+Target Delay met: 25/25 | reference 25/25
+Area sum: 790,243 | reference 790,243 | difference +0
+Median runtime ms: 36.427 | reference 55.46
+Max runtime ms: 895.198 | reference 1565.56
+Case count: 25

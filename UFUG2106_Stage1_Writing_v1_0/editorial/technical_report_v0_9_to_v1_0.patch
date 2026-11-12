@@ -1,0 +1,43 @@
+--- v0.9/technical_report/main.tex
++++ v1.0/technical_report/main.tex
+@@ -1,5 +1,5 @@
+ \documentclass[journal,10pt]{IEEEtran}
+-% UFUG2106 Stage 1 Technical Report — v0.9 references, visual hierarchy and supplementary tests.
++% UFUG2106 Stage 1 Technical Report — v1.0 references, visual hierarchy and supplementary tests.
+ % Compile from technical_report/: pdflatex main; bibtex main; pdflatex main x2
+ \usepackage[T1]{fontenc}
+ \usepackage{lmodern}
+@@ -324,7 +324,7 @@
+ 
+ 
+ \subsection{Source freeze and a scoped resource observation}
+-The adopted \emph{research} baseline is the Round 5.1 source snapshot from WSL run \texttt{20261111\_134547\_Round5.1}. Its C++ entry point is \texttt{synth\_round51.cpp}; the complete SHA-256 digest is preserved in the bundled \texttt{raw\_evidence} freeze manifest. The students independently confirmed the file digest and executed the provided evidence-collection script. This is a \emph{research freeze}, not a claim that this exact source has been submitted to Canvas.
++The adopted \emph{research} baseline is the Round 5.1 source snapshot from WSL run \texttt{20261111\_134547\_Round5.1}. Its C++ entry point is \texttt{synth\_round51.cpp}; the complete SHA-256 digest is preserved in the bundled \texttt{raw\_evidence} freeze manifest. A student author independently checked the file digest on WSL and ran the evidence-collection script. This is a \emph{research freeze}, not a claim that this exact source has been submitted to Canvas.
+ 
+ A separate single-process GNU \texttt{/usr/bin/time -v} measurement on \texttt{case\_024} returned exit status 0, elapsed wall time $1.66$ s and maximum resident set size $69{,}480$ KiB ($67.85$ MiB); the synthesizer reported area $124{,}475$ and delay $70$. This result is transcribed from the student's terminal record, not independently reconstructed from a saved raw time log. The measurement is one process invocation, not an exhaustive peak-RSS bound over all cases and not a paired official-evaluator runtime. In particular, its nonzero netlist output alone does not establish correctness; that claim comes from the separately archived evaluator and independent checker.
+ 
+@@ -384,7 +384,14 @@
+ 
+ The main lesson is that \emph{reusable structure and global constraints matter at different points}. An ROBDD removes identical Boolean subproblems; alternative mappings explore equivalent representations; required-time propagation makes timing slack available for area recovery; and typed-DAG engineering reduces overhead that would otherwise obscure the value of further search. Conversely, cut-based rewriting demonstrates that finding additional correct optimizations is not sufficient: their execution cost must also justify adoption.
+ 
+-For the Stage 1 source candidate we recommend freezing Round 5.1 until an actual submitted source snapshot is designated. Round 4.1 Strict is an area-oriented comparison and R6.0/R6.1 remain exploratory branches. A formal collaboration record, named authorship and the course-required disclosure of AI assistance should be finalized by the two students; we do not infer personal contributions from the repository alone. Stage 2 is out of scope of this Stage 1 manuscript.
++For the Stage 1 source candidate we recommend freezing Round 5.1 until an actual submitted source snapshot is designated. Round 4.1 Strict is an area-oriented comparison and R6.0/R6.1 remain exploratory branches. The authorship and use of AI assistance are disclosed below; specific individual ownership of unverified implementation modules is not asserted. Stage 2 is out of scope of this Stage 1 manuscript.
++
++
++\section{Collaborative Development and AI Assistance}
++\label{sec:disclosure}
++\textbf{Team contributions.} Jincan LI and Zeyun DU initially explored synthesis strategies independently, then compared alternatives and integrated selected methods into a common framework. Roles evolved through discussion and review rather than a fixed assignment of modules; we do not assert unverified individual ownership of code, proofs, or experiments.
++
++\textbf{AI assistance.} Generative AI, principally ChatGPT, was extensively used to suggest algorithms, generate and revise substantial C++ code, construct test, benchmark, data-collection and packaging scripts, assist mathematical analysis and interpretation, and draft/edit the manuscripts. This went well beyond language polishing. The student team directed and questioned research priorities and adoption decisions; a student author independently ran the official evaluator and local reproduction checks in WSL and verified the frozen source hash. AI-produced outputs were assessed against mathematical conditions, actual program behavior, evaluator evidence, and additional tests, without treating AI suggestions as authoritative. These checks do not prove global optimality or unseen-case success. The student authors accept responsibility for the accuracy, citations and integrity of the report.
+ 
+ \clearpage
+ \onecolumn
+@@ -428,7 +435,7 @@
+ \end{table}
+ 
+ \section{Reproducibility and Data Lineage}
+-The accompanying evidence archive retains the original Round 3 and 4 ablation CSVs, both Round 6.1 budget JSON files, the research-freeze SHA-256 manifest and the labeled terminal transcription for the single-case Peak RSS. Its plotting script regenerates the new ablation figures from normalized CSVs. The original authorship identifiers are confirmed, but individual roles and the final AI-assistance statement still require review. The writing archive retains: (i) selected official metric CSVs, (ii) source and original-run SHA-256 manifests, (iii) a source-linked evidence matrix, (iv) extraction, provenance-checking and plotting scripts, and (v) generated figure PDFs and PNGs. Original program sources and instructor test assets are held in separate, access-controlled archives. The extraction code checks that each selected official CSV has exactly 25 cases and all report PASS. It does not modify runtime values or impute missing cases. A re-analysis of complete historical runs requires the separately archived local-results ZIP files, which are not replicated inside this writing package to avoid duplicating large netlists. Compiling this paper uses IEEEtran and BibTeX with the 	exttt{IEEEtran.bst} bibliography style; both manuscripts load the shared 	exttt{references.bib}. The course handout is cited as privately distributed material and is not assigned an invented public URL.
++The accompanying evidence archive retains the original Round 3 and 4 ablation CSVs, both Round 6.1 budget JSON files, the research-freeze SHA-256 manifest and the labeled terminal transcription for the single-case Peak RSS. Its plotting script regenerates the new ablation figures from normalized CSVs. The collaborative workflow and the substantive role of AI systems are described in the dedicated disclosure section. The writing archive retains: (i) selected official metric CSVs, (ii) source and original-run SHA-256 manifests, (iii) a source-linked evidence matrix, (iv) extraction, provenance-checking and plotting scripts, and (v) generated figure PDFs and PNGs. Original program sources and instructor test assets are held in separate, access-controlled archives. The extraction code checks that each selected official CSV has exactly 25 cases and all report PASS. It does not modify runtime values or impute missing cases. A re-analysis of complete historical runs requires the separately archived local-results ZIP files, which are not replicated inside this writing package to avoid duplicating large netlists. Compiling this paper uses IEEEtran and BibTeX with the \texttt{IEEEtran.bst} bibliography style; both manuscripts load the shared \texttt{references.bib}. The course handout is cited as privately distributed material and is not assigned an invented public URL.
+ 
+ \bibliographystyle{IEEEtran}
+ \bibliography{../shared/bibliography/references}

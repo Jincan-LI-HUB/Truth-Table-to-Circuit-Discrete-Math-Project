@@ -1,0 +1,84 @@
+--- v0.7/technical_report/main.tex
++++ v0.8/technical_report/main.tex
+@@ -1,11 +1,12 @@
+ \documentclass[journal,10pt]{IEEEtran}
+-% UFUG2106 Stage 1 Technical Report — v0.7 provenance and academic audit.
++% UFUG2106 Stage 1 Technical Report — v0.8 final editorial review.
+ % Compile from technical_report/: pdflatex main; bibtex main; pdflatex main x2
+ \usepackage[T1]{fontenc}
+ \usepackage{lmodern}
+ \usepackage{amsmath,amssymb,amsthm,mathtools}
+ \usepackage{graphicx,booktabs,array,tabularx}\usepackage{tikz}
+ \usepackage{microtype}
++\usepackage{balance}
+ \usepackage{url}
+ \usepackage{xcolor}
+ \input{../shared/palette.tex}
+@@ -24,11 +25,11 @@
+ \begin{document}
+ \title{From Truth Tables to Timing-Constrained Gate DAGs:\\Representation, Global Sharing, and Evidence-Based Synthesis}
+ \author{Jincan LI (50032637), Zeyun DU (50025854)%
+-\thanks{Stage 1 research manuscript, Draft v0.7 (provenance audit). Individual contributions, AI-assistance disclosure, and the actual Canvas submission remain subject to student confirmation.}}
++\thanks{Stage 1 research manuscript, Draft v0.8 (editorial review). Individual contributions, AI-assistance disclosure, and the actual Canvas submission remain subject to student confirmation.}}
+ \markboth{UFUG2106 Stage 1: Truth Table to Circuit}{UFUG2106 Stage 1: Truth Table to Circuit}
+ \maketitle
+ \begin{abstract}
+-A complete truth table determines a Boolean function but not a low-cost, timing-feasible implementation. We examine how a course-project synthesizer can progress from an exact Shannon/ROBDD construction to a shared, priced gate DAG under AND2/OR2/NOT costs and a synthesis-time budget. The first problem is architectural: varying decision orders and mapping forms eliminates the baseline's timing-target misses. The second is global: complemented functions, shared fanout and required-time analysis let the mapper trade local delay for area without discarding correctness. The third is computational: caching and typed in-memory graphs reduce redundant synthesis work. On all 25 released Stage 1 cases, our frozen Round 5.1 research candidate passes the official checks, meets every delay target, and has aggregate area 529,014. Two paired WSL runs against Round 5 give median runtimes of 72.188 versus 55.488 ms and 60.827 versus 55.077 ms, with unchanged reported area and delay. A bounded cut-rewriting branch finds additional area savings on released and generated functions but fails our predeclared runtime criterion. We distinguish universal equivalence arguments from implementation-specific and empirical claims, and do not infer hidden-case or global-optimality guarantees.
++A complete truth table fixes Boolean behavior but leaves circuit structure, gate sharing, and timing unresolved. We study the construction of AND2/OR2/NOT netlists under case-specific area and delay costs, using an exact Shannon/ROBDD baseline, diversified mapping, required-time-aware recovery, and a more efficient synthesis engine. The frozen Round 5.1 research implementation passes all 25 released Stage 1 cases, meets every delay target, and achieves aggregate area 529,014. In two paired WSL comparisons with Round 5, median synthesis runtimes decrease from 72.188 to 55.488 ms and from 60.827 to 55.077 ms, with unchanged measured area and delay. A separate bounded cut-rewriting study discovers further area savings on released and generated functions but exceeds our prespecified synthesis-runtime tolerance. We report the distinction between functional proofs, implemented transformations, and empirical performance; neither minimum area nor performance on unreleased cases is claimed.
+ \end{abstract}
+ \begin{IEEEkeywords}
+ Logic synthesis, Shannon expansion, ROBDD, Boolean functions, technology mapping, timing analysis, combinational DAG, empirical reproducibility.
+@@ -232,7 +233,7 @@
+   \If{candidate meets target delay}
+      \State Try required-time area recovery; remeasure
+   \EndIf
+-  \If{valid and $C^*=\bot$ or $\rho(C_\theta)<\rho(C^*)$}
++  \If{valid and $(C^*=\bot$ or $\rho(C_\theta)<\rho(C^*))$}
+      \State $C^*\gets\textsc{Serialize}(C_\theta)$
+   \EndIf
+ \EndFor
+@@ -249,9 +250,15 @@
+ 
+ Algorithm~\ref{alg:synth} follows the frozen control-flow hierarchy: typed rebalancing/recovery occur per mapping candidate, whereas the Round 4 algebra/phase alternatives are considered only after portfolio/legacy candidate selection. The dead-code guarded reverse-order phase branch is not claimed as executed. The frozen source is the authoritative implementation. A search decision can be wall-clock-dependent. Thus a faster implementation preserves the function of each fixed candidate but may complete a different candidate set by the cutoff, a distinction visible in an earlier container rerun of one case.
+ 
++\subsection{What the in-memory improvement actually covers}
++The typed graph is used inside the primary per-candidate balancing and area-recovery sequence. The final algebraic/phase alternatives still operate through serialized text and their own parsers. The internal typed parser is designed for netlists produced by the synthesizer; it is not presented as a complete adversarial-input validator, and structural correctness checks do not replace truth-table equivalence checking. Consequently ``in-memory'' is a statement about a \emph{specific high-frequency pipeline}, not an end-to-end text-free synthesizer. The runtime changes are empirical constant-factor gains; the truth-table input lower bound and worst-case BDD/cut complexity remain exponential.
++
++\subsection{Why the efficiency baseline was frozen}
++The selected R5.1 implementation has aggregate published-case area $529{,}014$, whereas the designated R4.1 Strict archive records $528{,}910$ (a difference of $104$, or about $0.020\%$). These are \emph{different engineering points}, not an area dominance result. R5.1 preserves all published delay targets and reduces processing overhead relative to its R5 predecessor in the two paired WSL runs reported below. No numerical course score has been disclosed, so the preference for R5.1 is an explicit reproducibility/efficiency decision and cannot be presented as a proven grade-maximizing choice. In particular, historical runtime observations from separate R4.1 and R5.1 archives are not a controlled paired speedup estimate.
++
++
+ \section{Exploration Beyond the Adopted Candidate}
+-Once Round 5.1 had made the existing search cheaper, the next question was whether its preferred representations still missed locally equivalent gate structures. The cut-rewriting branch deliberately tests a \emph{different} hypothesis from caching: local truth functions can be resynthesized under the legal gate library, but the global area benefit may be too small relative to the cost of enumerating and checking cuts. The result is informative even if the branch is not adopted.
+-A final experiment asks whether already optimized gate DAGs contain local functions poorly realized by the existing BDD-origin structure. Round 6.0 enumerates up to four boundary signals for an internal node, simulates its cut function as a mask of at most $2^4=16$ bits, and generates exact alternative SOP, complemented SOP/POS, factored, and Shannon realizations. A $k$-feasible cut $C$ of root $v$ is a set of at most $k$ boundary signals intersecting every path from any primary input to $v$; the signals can therefore be treated as formal inputs for the local cone. For a cut $C$ at $v$,
++After the efficiency refactor, we asked a different question: did the BDD-origin mapping leave locally equivalent gate structures unexplored? This experiment examines circuit quality rather than repeated-computation overhead. Round 6.0 enumerates up to four boundary signals for an internal node, simulates its cut function as a mask of at most $2^4=16$ bits, and generates exact alternative SOP, complemented SOP/POS, factored, and Shannon realizations. A $k$-feasible cut $C$ of root $v$ is a set of at most $k$ boundary signals intersecting every path from any primary input to $v$; the signals can therefore be treated as formal inputs for the local cone. For a cut $C$ at $v$,
+ \begin{equation}
+  M_{v,C}=\sum_{s=0}^{2^{|C|}-1} f_{v,C}(s)\,2^s.
+ \end{equation}
+@@ -261,12 +268,6 @@
+ 
+ Round 6.1 reuses symbolic prime-implicant covers under a key $(|C|,M,p)$, prioritizes cuts by potentially removable private subgraph area, and restricts postprocessing to a 25 ms per-invocation cut budget (subject to a second budget depending on the case limit). A 25 ms \emph{postprocessor} budget does not mean that total synthesis runtime is 25 ms. Both stages are exact-function transformations, yet their search and area improvements are heuristic. The separate experiments show modest public-case area savings at a significant runtime cost, so Round 5.1 remains the adopted efficiency baseline.
+ 
+-
+-\subsection{What the in-memory improvement actually covers}
+-The typed graph is used inside the primary per-candidate balancing and area-recovery sequence. The final algebraic/phase alternatives still operate through serialized text and their own parsers. The internal typed parser is designed for netlists produced by the synthesizer; it is not presented as a complete adversarial-input validator, and structural correctness checks do not replace truth-table equivalence checking. Consequently ``in-memory'' is a statement about a \emph{specific high-frequency pipeline}, not an end-to-end text-free synthesizer. The runtime changes are empirical constant-factor gains; the truth-table input lower bound and worst-case BDD/cut complexity remain exponential.
+-
+-\subsection{Why the efficiency baseline was frozen}
+-The selected R5.1 implementation has aggregate published-case area $529{,}014$, whereas the designated R4.1 Strict archive records $528{,}910$ (a difference of $104$, or about $0.020\%$). These are \emph{different engineering points}, not an area dominance result. R5.1 preserves all published delay targets and reduces processing overhead relative to its R5 predecessor in the two paired WSL runs reported below. No numerical course score has been disclosed, so the preference for R5.1 is an explicit reproducibility/efficiency decision and cannot be presented as a proven grade-maximizing choice. In particular, historical runtime observations from separate R4.1 and R5.1 archives are not a controlled paired speedup estimate.
+ 
+ \subsection{Round 6.1 development-budget evidence}
+ For the \emph{larger development set of 16 generated functions}, the archived cut-postprocessor study records local area saved of $358$, $408$, and $501$ at nominal search budgets of $25$, $35$, and $45$ ms, with corresponding median postprocessor wall times $31.66$, $40.89$, and $52.38$ ms (Fig.~\ref{fig:budget}). The 40-function mixed development set records $213$ area saved at each budget, with medians $4.84$, $4.59$, and $4.91$ ms, respectively. This contrast supports a workload-dependent diminishing-return analysis; it does \emph{not} supply 25-case official final Area, and these development sets must not be presented as previously unseen holdouts. The ultimately selected 25 ms budget is a local engineering choice, not a proof of optimality.
+@@ -353,10 +354,12 @@
+ 
+ \noindent The bundled \texttt{verify\_provenance.py} checks the shipped schema and raw-evidence hashes without external data. With the original run archives supplied, it also verifies archive digests and exact reconstructed tables; with the separate frozen-source directory it verifies all recorded source hashes. \emph{No result for a future evaluator rerun is asserted by these checks.} Since candidate eligibility uses elapsed wall time, source-level reproduction need not imply byte-identical output or equal runtime on different systems. Independent functional checking remains a distinct step after evaluation.
+ 
++% Balance the last double-column discussion page before the single-column appendices.
++\balance
+ \section{Discussion, Threats to Validity, and Conclusions}
+ \textbf{What changed the research direction?} Three observations governed the sequence. First, Round 1's 13 missed delay targets showed that exactness does not imply a useful gate architecture; this justified representation diversification. Second, the large area reduction around Round 3's required-time development path showed the importance of optimizing a shared graph under a global deadline, while the sequential nature of that record precludes isolated causal attribution. Third, the small public-case area gains and large synthesis-time penalties of the cut branch motivated a predeclared stopping rule, not another unbounded parameter sweep.
+ 
+-\textbf{Why freeze Round 5.1?} The lowest archived area and the selected engineering baseline are not identical. R4.1 Strict recorded $528{,}910$, just $104$ below the R5.1 total $529{,}014$ (about $0.020\%$). R5.1 was selected for engineering efficiency, supported by within-run paired comparisons with R5, while its comparison to R4.1 Strict is not a same-run runtime experiment. R6.1 yielded another modest area reduction but breached the \emph{predeclared} local median-runtime tolerance. Without a published numerical grading formula, this is a transparent design choice, not a claim that R5.1 maximizes the official score.
++\textbf{Why freeze Round 5.1?} The adopted candidate is a deliberately chosen engineering point, not the minimum-area archived branch. R4.1 Strict is $104$ area units smaller, but the available runtime records for those versions are not paired; R5.1's measured efficiency advantage is established instead against R5. The cut-based R6.1 branch saves slightly more area but violates the predeclared local runtime tolerance. Because the grading formula is unavailable, this stopping decision is explicit and revisable rather than a claim of score optimality.
+ 
+ We distinguish four levels of evidence. A Boolean-identity proof is universal for the stated local transformation, but it does not automatically prove that its C++ implementation satisfies the transformation's preconditions. For example, a correct rewrite of a root may be wired incorrectly to an output, and a locally smaller cone may contain externally shared gates. Structural invariants, emitted-netlist verification and whole-network recomputation close different parts of this gap. Boolean identities and structural inductions prove function preservation for correctly applied transformations. Gate parsing, topological invariants and full-DAG rescoring address implementation correctness. The official evaluator and independent simulator provide empirical checks of emitted circuits. Finally, comparisons over released and synthetic instances support \emph{measured} performance findings. No level proves global minimum-area synthesis for arbitrary functions, optimal search under deadline constraints, or success on unseen case distributions.
+ \begin{table}[!t]

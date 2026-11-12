@@ -1,0 +1,9 @@
+stage,area_sum,target_met,median_runtime_ms,source_row_type
+Previous portfolio,790243,25,55.46,sequential_development_snapshot
+Complemented BDD,777324,25,51.728,sequential_development_snapshot
+Affine detection,770195,25,49.583,sequential_development_snapshot
+Balanced cones,762164,25,75.844,sequential_development_snapshot
+Slack-aware area recovery,586218,25,103.259,sequential_development_snapshot
+Area recovery + reverse order,543209,25,106.124,sequential_development_snapshot
+Implication experiment,776953,25,58.802,separate_implication_experiment
+Legacy non-regression fallback,533705,25,102.302,sequential_development_snapshot

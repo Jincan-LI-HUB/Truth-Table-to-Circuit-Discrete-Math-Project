@@ -1,0 +1,286 @@
+{
+  "seed": 602106,
+  "cases": [
+    {
+      "case": "case_000.txt",
+      "n": 8,
+      "m": 3,
+      "family": "affine",
+      "sha256": "3517bee355bc370090ffedf5763b7a8c5f23b573a58593ad290a2a7c00d64c14"
+    },
+    {
+      "case": "case_001.txt",
+      "n": 8,
+      "m": 4,
+      "family": "mux",
+      "sha256": "3591e43d4072c3fd1aaece137ed3f03c5c4ee9217c9430f9c4756d659e61d011"
+    },
+    {
+      "case": "case_002.txt",
+      "n": 8,
+      "m": 5,
+      "family": "threshold",
+      "sha256": "2b63495cc9f7c443cb21370177c1ea988c12cc98c827cf09b0cc9eae30accbca"
+    },
+    {
+      "case": "case_003.txt",
+      "n": 8,
+      "m": 3,
+      "family": "sop",
+      "sha256": "5f32b18b1494daed2410f86962fc3e48213c6278ffb05cb42637a163b32accd0"
+    },
+    {
+      "case": "case_004.txt",
+      "n": 8,
+      "m": 4,
+      "family": "random_dag",
+      "sha256": "42c430e3e1ea97e6ed900f2b6ac1d0dbff70672b07f7a661ee810a59b0eae430"
+    },
+    {
+      "case": "case_005.txt",
+      "n": 9,
+      "m": 5,
+      "family": "affine",
+      "sha256": "c546cd54ab53649d57e6c7551f0eaea77979640e726efd7fad654da0d7bf4851"
+    },
+    {
+      "case": "case_006.txt",
+      "n": 9,
+      "m": 3,
+      "family": "mux",
+      "sha256": "560b3554c00a76c5547b08fae343c66d37ae1ad24b40745be3e629ca5869f7a3"
+    },
+    {
+      "case": "case_007.txt",
+      "n": 9,
+      "m": 4,
+      "family": "threshold",
+      "sha256": "c29e6bcc71300f99c59499b96048f5bd81b5acf55a76770552da3e912c868713"
+    },
+    {
+      "case": "case_008.txt",
+      "n": 9,
+      "m": 5,
+      "family": "sop",
+      "sha256": "ec928f2cbd59df1cab6eb0e9b22035f79ffa2b1931140c30247d926cc5cfad9e"
+    },
+    {
+      "case": "case_009.txt",
+      "n": 9,
+      "m": 3,
+      "family": "random_dag",
+      "sha256": "2568f7e922918422f0c227c1ef41fdfada63a470439aefc0e664454ad3637c30"
+    },
+    {
+      "case": "case_010.txt",
+      "n": 10,
+      "m": 4,
+      "family": "affine",
+      "sha256": "153cfd63f2a5cadb29fc95d69cb73289d92cb97c3629d6d4c71d61fc24d50f22"
+    },
+    {
+      "case": "case_011.txt",
+      "n": 10,
+      "m": 5,
+      "family": "mux",
+      "sha256": "62763b327e7c3fa1e5b9cafb9ea5f79d1570212ea50e621172f84735f1bc65ea"
+    },
+    {
+      "case": "case_012.txt",
+      "n": 10,
+      "m": 3,
+      "family": "threshold",
+      "sha256": "71a6a0bab60b6a41adfefae70dab9f3eb20a3abb81bd69a35d5b313c38be8647"
+    },
+    {
+      "case": "case_013.txt",
+      "n": 10,
+      "m": 4,
+      "family": "sop",
+      "sha256": "49a737653cecba7e73100e34c8bf032cd4f4c94e3abed56a18ba83ec465083f1"
+    },
+    {
+      "case": "case_014.txt",
+      "n": 10,
+      "m": 5,
+      "family": "random_dag",
+      "sha256": "4c6db87858a1915eeb62d81d01c72ede09a20e8174eac93aee1337d5fed05835"
+    },
+    {
+      "case": "case_015.txt",
+      "n": 11,
+      "m": 3,
+      "family": "affine",
+      "sha256": "6ff5c3729687853de715f4c2eb401656068815a57edf0f3b88dbcd7adc424f7f"
+    },
+    {
+      "case": "case_016.txt",
+      "n": 11,
+      "m": 4,
+      "family": "mux",
+      "sha256": "821d514c180d409378c5f0e863262453b67d9538557286e0e7496e3c101ee586"
+    },
+    {
+      "case": "case_017.txt",
+      "n": 11,
+      "m": 5,
+      "family": "threshold",
+      "sha256": "8de5846476fdf77d588e278d3f17a83c7849c63ae47f453e67c9204d33ee8e3c"
+    },
+    {
+      "case": "case_018.txt",
+      "n": 11,
+      "m": 3,
+      "family": "sop",
+      "sha256": "9817cbafc4c70449d7b1876ebb540c84a3d7b7a57806c409cf5a7a55d14b23eb"
+    },
+    {
+      "case": "case_019.txt",
+      "n": 11,
+      "m": 4,
+      "family": "random_dag",
+      "sha256": "6c60047b2e82ee8497ddc6a157041c20c4208a0107e72d2d2533cff0f9828f50"
+    },
+    {
+      "case": "case_020.txt",
+      "n": 12,
+      "m": 5,
+      "family": "affine",
+      "sha256": "206ea13bbb679c1589bde16b3d5d7a031d2a88e052d5d3e24617a6874d1719cf"
+    },
+    {
+      "case": "case_021.txt",
+      "n": 12,
+      "m": 3,
+      "family": "mux",
+      "sha256": "d94d70b0c5d466ab401a660afd35dc98877ae42813416ea26a248c14bf8ec853"
+    },
+    {
+      "case": "case_022.txt",
+      "n": 12,
+      "m": 4,
+      "family": "threshold",
+      "sha256": "cda8dfaf09a9aef3aa9b0991ad8fcf2742931a86cabf0ead4a8dbdb229d6b72b"
+    },
+    {
+      "case": "case_023.txt",
+      "n": 12,
+      "m": 5,
+      "family": "sop",
+      "sha256": "a8650ae526a9aba9440e0ca7205c1ef306a154e4763bc593397b64e5f6138a74"
+    },
+    {
+      "case": "case_024.txt",
+      "n": 12,
+      "m": 3,
+      "family": "random_dag",
+      "sha256": "dfad866f6a1c6ee0e427b9cdc7804de0219a5e4cd6886159e241b6e4eb16e25f"
+    },
+    {
+      "case": "case_025.txt",
+      "n": 13,
+      "m": 4,
+      "family": "affine",
+      "sha256": "87d5891ef87f430ff5ad41e8272ef39cab8c2f6a57f32ec7dcc103ea2d91709b"
+    },
+    {
+      "case": "case_026.txt",
+      "n": 13,
+      "m": 5,
+      "family": "mux",
+      "sha256": "acf9897f2bac376caed60e81bb0dbe8f904f0fe198c8a6f057aa15fba9952cc7"
+    },
+    {
+      "case": "case_027.txt",
+      "n": 13,
+      "m": 3,
+      "family": "threshold",
+      "sha256": "af92ac203102ed85a1ea84cc44805f4d214d7550b09fea688306677c0b223e60"
+    },
+    {
+      "case": "case_028.txt",
+      "n": 13,
+      "m": 4,
+      "family": "sop",
+      "sha256": "4f7d4e4e69a594dc6491a4356102a60e048bfe3e5dbf2de4fa705ea1bc15fa98"
+    },
+    {
+      "case": "case_029.txt",
+      "n": 13,
+      "m": 5,
+      "family": "random_dag",
+      "sha256": "384c872d1db99f63e079883e04f1dff470cc8e846cfa58c38e040ddef4418129"
+    },
+    {
+      "case": "case_030.txt",
+      "n": 8,
+      "m": 3,
+      "family": "affine",
+      "sha256": "9ffff7e7bd9648d2c19ec7356c1e5d5ccc0a1bf84cdc8031a13019b3745b85ac"
+    },
+    {
+      "case": "case_031.txt",
+      "n": 8,
+      "m": 4,
+      "family": "mux",
+      "sha256": "5baef80452f5c7b0f6d5612ab074f810b5af29a78090245443b0f1767da89032"
+    },
+    {
+      "case": "case_032.txt",
+      "n": 8,
+      "m": 5,
+      "family": "threshold",
+      "sha256": "286e4400e65912c842f0fdf5c1e42de62f2963506479e194b6dd97bd143cbd46"
+    },
+    {
+      "case": "case_033.txt",
+      "n": 8,
+      "m": 3,
+      "family": "sop",
+      "sha256": "a83380a3374d620b0dea4bff92edbb9f11f8f5da70fc00a61786dff3fce0bdf5"
+    },
+    {
+      "case": "case_034.txt",
+      "n": 8,
+      "m": 4,
+      "family": "random_dag",
+      "sha256": "a1ce5a4698d6adca2c92f447f2b5b400a0715923f745396ae3c0ddd7ac35c78a"
+    },
+    {
+      "case": "case_035.txt",
+      "n": 9,
+      "m": 5,
+      "family": "affine",
+      "sha256": "570c96d958756713eb8c6e88be084b389f5b2d6213e0926e24c3a7d7bb1fe0c0"
+    },
+    {
+      "case": "case_036.txt",
+      "n": 9,
+      "m": 3,
+      "family": "mux",
+      "sha256": "3d0011d21f5c456012c26bb1e48caee593dc5f6365dd40e4af36b6e5d5bc8165"
+    },
+    {
+      "case": "case_037.txt",
+      "n": 9,
+      "m": 4,
+      "family": "threshold",
+      "sha256": "219782582b7e551c55fdce6336f1435fef32f611c5a6462e41dc70492c3975f4"
+    },
+    {
+      "case": "case_038.txt",
+      "n": 9,
+      "m": 5,
+      "family": "sop",
+      "sha256": "9c584ea65f0de0dcc2b3bc7f750e3df80602d8686e77abfa80d0a1bd8f2c7e76"
+    },
+    {
+      "case": "case_039.txt",
+      "n": 9,
+      "m": 3,
+      "family": "random_dag",
+      "sha256": "7ded95774e2a9f48722e2a3b4cadc1874feabc56f4d1ee3015ea7fc6adb35c9a"
+    }
+  ],
+  "description": "40 cases, 5 distinct function families, n=8..13, 3-5 outputs; held out from algorithm tuning"
+}

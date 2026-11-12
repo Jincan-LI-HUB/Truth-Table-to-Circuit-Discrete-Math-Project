@@ -1,0 +1,2 @@
+case,status,area,delay,runtime_ms,target_met
+case_024.txt,PASS,124475,70,2331.623,yes

@@ -1,0 +1,101 @@
+--- /mnt/data/UFUG2106_Stage1_Writing_Draft_v0_5_Narrative/technical_report/main.tex	2026-11-11 15:47:19.010813725 +0000
++++ /mnt/data/UFUG2106_Stage1_Writing_Draft_v0_6_Deep_Exposition/technical_report/main.tex	2026-11-11 15:58:16.719327568 +0000
+@@ -1,5 +1,5 @@
+ \documentclass[journal,10pt]{IEEEtran}
+-% UFUG2106 Stage 1 Technical Report — v0.5 narrative and contribution revision.
++% UFUG2106 Stage 1 Technical Report — v0.6 explanatory depth and academic review.
+ % Compile from technical_report/: pdflatex main; bibtex main; pdflatex main x2
+ \usepackage[T1]{fontenc}
+ \usepackage{lmodern}
+@@ -24,7 +24,7 @@
+ \begin{document}
+ \title{From Truth Tables to Timing-Constrained Gate DAGs:\\Representation, Global Sharing, and Evidence-Based Synthesis}
+ \author{Jincan LI (50032637), Zeyun DU (50025854)%
+-\thanks{Stage 1 research manuscript, Draft v0.5 (research narrative review). Individual contributions, AI-assistance disclosure, and the actual Canvas submission remain subject to student confirmation.}}
++\thanks{Stage 1 research manuscript, Draft v0.6 (explanation-depth review). Individual contributions, AI-assistance disclosure, and the actual Canvas submission remain subject to student confirmation.}}
+ \markboth{UFUG2106 Stage 1: Truth Table to Circuit}{UFUG2106 Stage 1: Truth Table to Circuit}
+ \maketitle
+ \begin{abstract}
+@@ -72,9 +72,9 @@
+ \begin{equation}\label{eq:shannon}
+  f=(\neg x_i\land f_{i,0})\lor(x_i\land f_{i,1}).
+ \end{equation}
+-This identity gives a constructive proof that every Boolean output can be expressed with $\AND$, $\OR$, and $\NOT$. It also supplies a recursive algorithm, but naïve recursion can repeat the same subfunction many times.
++This identity gives a constructive proof that every Boolean output can be expressed with $\AND$, $\OR$, and $\NOT$. It also supplies a recursive algorithm, but naïve recursion can repeat the same subfunction many times. Crucially, the identity fixes the value of the parent, not the number, shape, or price of physical gates used to implement it. An abstract decision node may resemble a two-input multiplexer, but a multiplexer is not included in the permitted library: an ordinary realization needs the appropriate input inversion, two conjunctions, and one disjunction. These gates can be reused across nodes, so multiplying a decision-node count by this naive per-node cost is generally incorrect.
+ 
+-For a fixed variable permutation $\pi$, an ROBDD interns every nonterminal decision node by $(\pi(k),\ell,h)$ and deletes a node when $\ell=h$. A unique table shares recurring cofactors between branches and output functions. Such ordered reductions preserve the represented function and give a canonical graph relative to the fixed order under standard assumptions~\cite{bryant1986}. The resulting decision graph is subsequently \emph{mapped} into permitted physical gates; a BDD node is not itself a free multiplexor.
++For a fixed variable permutation $\pi$, an ROBDD interns every nonterminal decision node by $(\pi(k),\ell,h)$ and deletes a node when $\ell=h$. A unique table shares recurring cofactors between branches and output functions. Such ordered reductions preserve the represented function and give a canonical graph relative to the fixed order under standard assumptions~\cite{bryant1986}. The resulting decision graph is subsequently \emph{mapped} into permitted physical gates; a BDD node is not itself a free multiplexor. The distinction between \emph{functional} and \emph{syntactic} sharing is important: a gate-level structural hash can merge identical tuples $(\operatorname{op},a,b)$, but by itself cannot recognize that $(a\land b)\lor(a\land c)$ is functionally equal to $a\land(b\lor c)$. Such equalities require rewriting or a function-level representation. Hence a canonical ROBDD under one fixed order does not imply a minimum-area mapped circuit.
+ 
+ \begin{lemma}[Correctness of the baseline]
+ If each BDD terminal represents its Boolean constant, each nonterminal represents the function in (\ref{eq:shannon}), and its gate mapping uses exact AND/OR/NOT identities, then each emitted output equals its specified truth-table column.
+@@ -114,14 +114,14 @@
+  I_i(f)=2^{-(n-1)}\sum_{x_{-i}\in\{0,1\}^{n-1}}
+  \mathbf1\{f(x_{-i},0)\ne f(x_{-i},1)\}.
+ \end{equation}
+-For multiple outputs, the implementation combines observed variable effects when constructing its order. Influence is not a proof of the optimal order: even the smallest ROBDD need not map to the smallest gate DAG under nonuniform costs.
++For multiple outputs, the implementation combines observed variable effects when constructing its order. Influence is not a proof of the optimal order: even the smallest ROBDD need not map to the smallest gate DAG under nonuniform costs. To see why this statistic is incomplete, the running example gives $I_a(f_1)=I_b(f_1)=I_c(f_1)=1/2$: changing the selector matters only when the two data inputs differ, while changing either data input matters only in its selected branch. Thus all three variables tie in influence despite playing different structural roles. Influence can guide a candidate order, but only completed mapping and full-DAG cost evaluation determine its merit.
+ 
+ The portfolio also uses a two-level decomposition. With root variable $x$ and potentially distinct second variables $u$ and $v$ in the $x=0$ and $x=1$ branches,
+ \begin{multline}\label{eq:twolevel}
+  f=\neg x\land\big(\neg u\land f_{00}\lor u\land f_{01}\big)\\
+  \lor x\land\big(\neg v\land f_{10}\lor v\land f_{11}\big).
+ \end{multline}
+-Balancing the branch computations changes gate critical paths without changing the Boolean function. For outputs of small essential support, SOP/POS candidates use prime implicants followed by a deterministic greedy cover. Every selected cube is an implicant, and the chosen cubes cover the full on-set; hence the cover is exact, although generally \emph{not minimum-area}. These alternatives allow the selector to measure completed circuits instead of betting on one representation. The Round 2 archive records 25/25 target-met cases and area $790{,}243$, compared with 12/25 and $1{,}103{,}455$ for the baseline. Yet a better candidate portfolio still leaves one structural limitation: a local cofactor or mapping choice does not know whether its output will be shared, complemented, or given slack by the \emph{rest of the network}. That is the motivation for global, timing-aware recovery in Round 3.
++Balancing the branch computations changes gate critical paths without changing the Boolean function. For outputs of small essential support, SOP/POS candidates use prime implicants followed by a deterministic greedy cover. Every selected cube is an implicant, and the chosen cubes cover the full on-set; hence the cover is exact, although generally \emph{not minimum-area}. Formally, if selected cubes $c_j$ satisfy $c_j(x)\Rightarrow f(x)$ for all $x$ and $f(x)\Rightarrow\bigvee_j c_j(x)$, then the two implications prove $f=\bigvee_jc_j$ pointwise. For POS, one can instead cover the complement $\neg f$ and negate the resulting exact SOP. The \emph{cover selection} and its \emph{gate realization} are distinct: a greedy minimum-cover proxy need not minimize the final priced, shared AND2/OR2/NOT network. These alternatives allow the selector to measure completed circuits instead of betting on one representation. The Round 2 archive records 25/25 target-met cases and area $790{,}243$, compared with 12/25 and $1{,}103{,}455$ for the baseline. Yet a better candidate portfolio still leaves one structural limitation: a local cofactor or mapping choice does not know whether its output will be shared, complemented, or given slack by the \emph{rest of the network}. That is the motivation for global, timing-aware recovery in Round 3.
+ 
+ \section{Cost-Aware Gate Mapping and Timing Recovery}
+ The preceding section chooses among equivalent \emph{descriptions} of Boolean functions. This section instead asks about their \emph{joint realization}: a gate shared by two outputs is charged once, but its arrival affects every downstream consumer. Polarity, balancing, and required-time optimization therefore operate on the whole costed DAG, rather than independently minimizing each output expression.
+@@ -175,7 +175,12 @@
+ \begin{equation}
+  (a\land b)\lor(a\land c)=a\land(b\lor c).
+ \end{equation}
+-A replacement that saves a standalone gate may still be worse globally because one old subexpression is shared elsewhere. All finalized candidates are pruned and remeasured. Round 4 lowered area but increased synthesis time, motivating the following engineering phase.
++A replacement that saves a standalone gate may still be worse globally because one old subexpression is shared elsewhere. Write $L(G)$ for the \emph{set} of gate IDs reachable from at least one output. Since shared gates are charged only once,
++\begin{equation}\label{eq:livegain}
++ A(G)=\sum_{v\in L(G)}a_{\operatorname{op}(v)},\quad
++ \Delta A=A(G)-A(G').
++\end{equation}
++A gate in the rewritten cone is actually removed only if it loses \emph{all} paths to every output; conversely, a candidate may reuse an existing gate without paying for another copy. This is why a standalone expression's gate count cannot serve as the exact rewrite gain. All finalized candidates are pruned and remeasured. Round 4 lowered area but increased synthesis time, motivating the following engineering phase.
+ 
+ 
+ \subsection{Round 4 postprocessing ablation}
+@@ -198,6 +203,14 @@
+ \subsection{Typed DAG and incremental arrival propagation}
+ Round 5.1 replaces intermediate strings inside rebalancing and area recovery with a compact typed graph. A gate is stored as $(\mathrm{op},a,b)$ and new nodes are hash-consed. Its arrival time is computed on insertion from (\ref{eq:arrival}); topological construction makes this stored value exact. Repeated parsing and serialization are avoided across the principal rebalancing and recovery passes. A shared gate is identified by its operation and normalized input IDs. For AND2/OR2, the input order is canonicalized because these operations are commutative. Rebalancing flattens associative cones only across unshared interior gates (or the cone root); fanout references from \emph{all} outputs participate in the reference counts. For each old node $v$, topological induction shows that the mapped node implements the same function: the rewrites use associativity, commutativity and idempotence, while hashing reuses a gate only for identical operands and type. The builder traces all $m$ output roots, removes unreachable gates, and renumbers surviving nodes in topological order, preserving both functionality and output ordering. Area recovery uses exact De Morgan identities; its completed candidates are again evaluated over the reconstructed graph. Importantly, the implementation \emph{does not} perform fully incremental global-area evaluation: after rewriting, it recomputes area over the output-reachable emitted DAG, since shared fanout can make local area differences misleading.
+ 
++\begin{proposition}[Typed-graph transformation and output preservation]
++Suppose an input netlist is a valid topologically ordered AND2/OR2/NOT DAG. If the typed builder (i) creates only gates whose predecessors are already defined, (ii) replaces subgraphs using exact Boolean identities, (iii) shares nodes only when their operator and canonicalized operand IDs match, and (iv) serializes only gates reachable from the \emph{complete ordered list} of outputs, then its emitted netlist implements the same output vector as the input. For the emitted live graph, gate-count area and the arrival recurrence in (\ref{eq:area})--(\ref{eq:arrival}) are exact under the given library costs.
++\end{proposition}
++\begin{IEEEproof}
++Proceed in topological order. Primary signals retain their values. A new gate computes the stated AND, OR, or NOT of already correct predecessors; each permitted algebraic replacement is an identity, so the corresponding mapped value is unchanged. Canonicalizing operand order is valid for commutative binary operators. Interning an identical operator/operand tuple reuses a node with exactly the same computed value. Finally, output-root reachability includes \emph{all} uses of shared gates; removing nodes outside this union cannot affect any output. Renumbering retained nodes in their original topological order preserves all predecessor references and leaves the ordered output vector unchanged. Each retained physical gate appears exactly once in the resulting graph, giving the stated area, while forward topological evaluation gives exact arrival times.
++\end{IEEEproof}
++This is a conditional structural argument, not an automated proof of every implementation detail. It does not establish that arbitrary nonlocal graph transformations preserve acyclicity or that a locally cheaper expression reduces the global area. The archived independent checks test the actual serialized implementation in addition to these mathematical conditions.
++
+ The frozen implementation compares candidates using an \emph{internal heuristic}, not an inferred evaluator score. For each valid netlist $G$, define
+ \begin{equation}\label{eq:rank}
+ \begin{split}
+@@ -238,11 +251,13 @@
+ 
+ \section{Exploration Beyond the Adopted Candidate}
+ Once Round 5.1 had made the existing search cheaper, the next question was whether its preferred representations still missed locally equivalent gate structures. The cut-rewriting branch deliberately tests a \emph{different} hypothesis from caching: local truth functions can be resynthesized under the legal gate library, but the global area benefit may be too small relative to the cost of enumerating and checking cuts. The result is informative even if the branch is not adopted.
+-A final experiment asks whether already optimized gate DAGs contain local functions poorly realized by the existing BDD-origin structure. Round 6.0 enumerates up to four boundary signals for an internal node, simulates its cut function as a mask of at most $2^4=16$ bits, and generates exact alternative SOP, complemented SOP/POS, factored, and Shannon realizations. For a cut $C$ at $v$,
++A final experiment asks whether already optimized gate DAGs contain local functions poorly realized by the existing BDD-origin structure. Round 6.0 enumerates up to four boundary signals for an internal node, simulates its cut function as a mask of at most $2^4=16$ bits, and generates exact alternative SOP, complemented SOP/POS, factored, and Shannon realizations. A $k$-feasible cut $C$ of root $v$ is a set of at most $k$ boundary signals intersecting every path from any primary input to $v$; the signals can therefore be treated as formal inputs for the local cone. For a cut $C$ at $v$,
+ \begin{equation}
+  M_{v,C}=\sum_{s=0}^{2^{|C|}-1} f_{v,C}(s)\,2^s.
+ \end{equation}
+-The leaves are \emph{formal} independent variables for enumeration, not asserted independent random variables. The local implementation is considered only if it is equivalent on every boundary assignment; the whole emitted DAG is then rescored. This is inspired by well-established cut-based logic rewriting approaches~\cite{mishchenko2006,abc}, but the project implementation uses a limited heuristic candidate set, not an exhaustive NPN rewrite database.
++For the running example, taking $(a,b,c)$ as the cut of output $f_2$ and indexing assignments in binary order $000,\ldots,111$ yields the local mask
++$M=2^1+2^2+2^3+2^6+2^7=206$. Both $f_1\lor b$ and $b\lor(\neg a\land c)$ realize this mask. The second expression can bypass a slow output-to-output dependency, although it need not save area.
++The leaves are \emph{formal} independent variables for enumeration, not asserted independent random variables. The local implementation is considered only if it is equivalent on every boundary assignment; the whole emitted DAG is then rescored. Equivalence on \emph{all} formal cut assignments is a sufficient substitution condition even when the boundary signals are correlated in the original circuit, because the actual assignment set is a subset of the tested formal assignments. It is not by itself sufficient for legal substitution if the rewrite adds a dependency cycle, changes external interfaces, or violates the gate library. Thus a valid rewrite must also preserve acyclicity and output connectivity. Its true area gain is given by the live-node accounting in (\ref{eq:livegain}), not by counting gates in the new cone alone. This is inspired by well-established cut-based logic rewriting approaches~\cite{mishchenko2006,abc}, but the project implementation uses a limited heuristic candidate set, not an exhaustive NPN rewrite database.
+ 
+ Round 6.1 reuses symbolic prime-implicant covers under a key $(|C|,M,p)$, prioritizes cuts by potentially removable private subgraph area, and restricts postprocessing to a 25 ms per-invocation cut budget (subject to a second budget depending on the case limit). A 25 ms \emph{postprocessor} budget does not mean that total synthesis runtime is 25 ms. Both stages are exact-function transformations, yet their search and area improvements are heuristic. The separate experiments show modest public-case area savings at a significant runtime cost, so Round 5.1 remains the adopted efficiency baseline.
+ 
+@@ -322,7 +337,7 @@
+ 
+ \textbf{Why freeze Round 5.1?} The lowest archived area and the selected engineering baseline are not identical. R4.1 Strict recorded $528{,}910$, just $104$ below the R5.1 total $529{,}014$ (about $0.020\%$). R5.1 was selected for engineering efficiency, supported by within-run paired comparisons with R5, while its comparison to R4.1 Strict is not a same-run runtime experiment. R6.1 yielded another modest area reduction but breached the \emph{predeclared} local median-runtime tolerance. Without a published numerical grading formula, this is a transparent design choice, not a claim that R5.1 maximizes the official score.
+ 
+-We distinguish four levels of evidence. Boolean identities and structural inductions prove function preservation for correctly applied transformations. Gate parsing, topological invariants and full-DAG rescoring address implementation correctness. The official evaluator and independent simulator provide empirical checks of emitted circuits. Finally, comparisons over released and synthetic instances support \emph{measured} performance findings. No level proves global minimum-area synthesis for arbitrary functions, optimal search under deadline constraints, or success on unseen case distributions.
++We distinguish four levels of evidence. A Boolean-identity proof is universal for the stated local transformation, but it does not automatically prove that its C++ implementation satisfies the transformation's preconditions. For example, a correct rewrite of a root may be wired incorrectly to an output, and a locally smaller cone may contain externally shared gates. Structural invariants, emitted-netlist verification and whole-network recomputation close different parts of this gap. Boolean identities and structural inductions prove function preservation for correctly applied transformations. Gate parsing, topological invariants and full-DAG rescoring address implementation correctness. The official evaluator and independent simulator provide empirical checks of emitted circuits. Finally, comparisons over released and synthetic instances support \emph{measured} performance findings. No level proves global minimum-area synthesis for arbitrary functions, optimal search under deadline constraints, or success on unseen case distributions.
+ \begin{table}[!t]
+ \centering\footnotesize\setlength{\tabcolsep}{3pt}
+ \caption{What each evidence layer establishes---and does not.}\label{tab:claimscope}

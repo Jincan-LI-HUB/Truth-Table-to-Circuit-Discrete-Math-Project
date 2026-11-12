@@ -1,0 +1,10 @@
+round,pass,target_met,area_sum,median_runtime_ms,sum_runtime_ms,max_runtime_ms,data_kind,source_zip,source_member
+Round 1,25,12,1103455,5.455,405.583,95.293,WSL archived individual invocation; do not treat as paired across versions,20261111_104006_Round1_local_results.zip,20261111_104006_Round1/official.csv
+Round 2,25,25,790243,36.427,3753.451,895.198,WSL archived individual invocation; do not treat as paired across versions,20261111_104026_Round2_local_results.zip,20261111_104026_Round2/official.csv
+Round 3,25,25,533705,68.486,6706.703,1497.046,WSL archived individual invocation; do not treat as paired across versions,20261111_095622_Round3_local_results.zip,20261111_095622/official.csv
+Round 4,25,25,528910,127.568,11444.836,3535.952,WSL archived individual invocation; do not treat as paired across versions,20261111_112447_Round4_local_results.zip,20261111_112447_Round4/official.csv
+Round 4.1 B,25,25,529014,102.615,9062.732,2699.425,WSL archived individual invocation; do not treat as paired across versions,20261111_121216_Round4.1_local_results.zip,20261111_121216_Round4.1/balanced/official.csv
+Round 5,25,25,529014,68.861,6030.508,1787.182,WSL archived individual invocation; do not treat as paired across versions,20261111_130515_Round5_local_results.zip,20261111_130515_Round5/round5/official.csv
+Round 5.1,25,25,529014,55.488,6517.229,2453.455,WSL archived individual invocation; do not treat as paired across versions,20261111_134547_Round5.1_local_results.zip,20261111_134547_Round5.1/benchmark/run1_round51.csv
+Round 6.0,25,25,528738,114.61,7609.708,1879.518,WSL archived individual invocation; do not treat as paired across versions,20261111_143322_Round6.0_local_results.zip,20261111_143322_Round6.0/benchmark/run1_round60.csv
+Round 6.1,25,25,528854,80.731,6154.935,1650.892,WSL archived individual invocation; do not treat as paired across versions,20261111_184840_Round6.1_local_results.zip,20261111_184840_Round6.1/benchmark/run1_round61.csv

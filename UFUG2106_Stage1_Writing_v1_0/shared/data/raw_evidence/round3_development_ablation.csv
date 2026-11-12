@@ -1,0 +1,9 @@
+method,passed,target_met,area_sum,median_runtime_ms,max_runtime_ms
+Previous portfolio,25,25,790243,55.46,1565.56
+Complemented BDD,25,25,777324,51.728,1549.178
+Affine detection,25,25,770195,49.583,1520.274
+Balanced cones,25,25,762164,75.844,1799.904
+Slack-aware area recovery,25,25,586218,103.259,2026.821
+Area recovery + reverse order,25,25,543209,106.124,2696.465
+Implication experiment,25,25,776953,58.802,1523.165
+Legacy non-regression fallback,25,25,533705,102.302,2455.64

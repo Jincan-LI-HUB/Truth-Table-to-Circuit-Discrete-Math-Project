@@ -1,0 +1,81 @@
+{
+  "run_inputs": {
+    "20261111_121043": "20261111_121043_Round4.1_local_results.zip",
+    "20261111_121216": "20261111_121216_Round4.1_local_results.zip"
+  },
+  "round4_source": "20261111_112447_Round4_local_results.zip",
+  "baseline_median": 127.568,
+  "variants": {
+    "strict": {
+      "area": 528910,
+      "median1": 111.149,
+      "median2": 117.527,
+      "median_avg": 114.338,
+      "total1": 10270.82,
+      "total2": 10024.729,
+      "max1": 3337.741,
+      "max2": 3084.013,
+      "netlist_equal": 25,
+      "area_delay_equal": 25
+    },
+    "balanced": {
+      "area": 529014,
+      "median1": 96.048,
+      "median2": 102.615,
+      "median_avg": 99.3315,
+      "total1": 9081.375,
+      "total2": 9062.732,
+      "max1": 2697.434,
+      "max2": 2699.425,
+      "netlist_equal": 25,
+      "area_delay_equal": 25
+    },
+    "fast": {
+      "area": 530822,
+      "median1": 67.605,
+      "median2": 63.035,
+      "median_avg": 65.32,
+      "total1": 7236.432,
+      "total2": 7422.6230000000005,
+      "max1": 2299.251,
+      "max2": 2273.646,
+      "netlist_equal": 25,
+      "area_delay_equal": 25
+    }
+  },
+  "sha256": {
+    "Makefile": "bcdd7a681940e118e64d3493121a82cedeb2bf75cf6114410a97f6bbb5567d1a",
+    "src/synth_strict.cpp": "a447a6d3e29c29d0de3cec71f00ef034b40603c3fc40134faaed5eeea5c2b8b2",
+    "src/synth_balanced.cpp": "906d250fd3384d845bb7f93fc9bd59144c49243c85d1e1896b7e7869f19718ff",
+    "src/synth_fast.cpp": "62c9e906096546b62ce75380cef49ad6a1e4d9598052081f2d7cae6f9735cea2",
+    "src/algebraic_mapper.hpp": "33d9d02a4fe2cbb14934e334bb8433260e9763541b6f78fcbd969b2e88220667",
+    "src/polarity_mapper.hpp": "46e8183e644071ca45792499bb6e3961dacda9e0243a98071e409473419e375a"
+  },
+  "case_inventory_sha256": "923b4f333cf1ebc6b89d7c2916b437f6791c3931771bfd7f29bc7937821a26ba",
+  "reproduction_coverage": {
+    "('20261111_121043', 'strict')": [
+      13,
+      12
+    ],
+    "('20261111_121043', 'balanced')": [
+      13,
+      12
+    ],
+    "('20261111_121043', 'fast')": [
+      13,
+      12
+    ],
+    "('20261111_121216', 'strict')": [
+      13,
+      12
+    ],
+    "('20261111_121216', 'balanced')": [
+      13,
+      12
+    ],
+    "('20261111_121216', 'fast')": [
+      13,
+      12
+    ]
+  }
+}

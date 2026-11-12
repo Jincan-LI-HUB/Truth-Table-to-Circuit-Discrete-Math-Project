@@ -1,0 +1,9 @@
+PASS case_000.txt | n=12 m=8 exit_code=0 area=2690 delay=62 runtime_ms=94.516 target_delay=150 target_met=yes delay_excess=0
+PASS case_001.txt | n=14 m=10 exit_code=0 area=6285 delay=88 runtime_ms=65.815 target_delay=150 target_met=yes delay_excess=0
+PASS case_002.txt | n=16 m=12 exit_code=0 area=21639 delay=50 runtime_ms=154.008 target_delay=150 target_met=yes delay_excess=0
+PASS case_003.txt | n=17 m=14 exit_code=0 area=3084 delay=61 runtime_ms=94.137 target_delay=150 target_met=yes delay_excess=0
+PASS case_004.txt | n=12 m=8 exit_code=0 area=4877 delay=48 runtime_ms=110.994 target_delay=150 target_met=yes delay_excess=0
+PASS case_005.txt | n=14 m=10 exit_code=0 area=2382 delay=51 runtime_ms=52.979 target_delay=150 target_met=yes delay_excess=0
+PASS case_006.txt | n=16 m=12 exit_code=0 area=18035 delay=63 runtime_ms=120.724 target_delay=150 target_met=yes delay_excess=0
+PASS case_007.txt | n=17 m=14 exit_code=0 area=8055 delay=36 runtime_ms=87.184 target_delay=150 target_met=yes delay_excess=0
+8/8 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round6.1_Delivery/local_runs/20261111_184840_Round6.1/holdout/holdout_round61_large_v1_round61.csv

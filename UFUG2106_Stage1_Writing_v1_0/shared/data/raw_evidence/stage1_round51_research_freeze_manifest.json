@@ -1,0 +1,37 @@
+{
+  "freeze_role": "Stage 1 course report primary synthesis source; reference for trial log",
+  "frozen_from_user_local_run": "20261111_134547_Round5.1",
+  "source_primary": "source_snapshot/src/synth_round51.cpp",
+  "source_sha256": "cf90d0b110e6f45d1d508db351c95f10e7d704824fc34e17e6a5f5b783e20759",
+  "status": "RESEARCH FREEZE; actual Canvas submission not confirmed",
+  "official_evaluator_pass": 25,
+  "official_target_met": 25,
+  "official_area_sum": 529014,
+  "files": [
+    {
+      "path": "source_snapshot/src/algebraic_mapper.hpp",
+      "sha256": "33d9d02a4fe2cbb14934e334bb8433260e9763541b6f78fcbd969b2e88220667"
+    },
+    {
+      "path": "source_snapshot/src/polarity_mapper.hpp",
+      "sha256": "46e8183e644071ca45792499bb6e3961dacda9e0243a98071e409473419e375a"
+    },
+    {
+      "path": "source_snapshot/src/synth_balanced.cpp",
+      "sha256": "906d250fd3384d845bb7f93fc9bd59144c49243c85d1e1896b7e7869f19718ff"
+    },
+    {
+      "path": "source_snapshot/src/synth_round5.cpp",
+      "sha256": "e27f9744e95e4c439ca6e23f71ab9faf7d331a9675e519e133bed4b6c89929fc"
+    },
+    {
+      "path": "source_snapshot/src/synth_round51.cpp",
+      "sha256": "cf90d0b110e6f45d1d508db351c95f10e7d704824fc34e17e6a5f5b783e20759"
+    },
+    {
+      "path": "source_snapshot/src/typed_netgraph.hpp",
+      "sha256": "55030bc9a51ff435e15285c0e9cb36db4032625a45b42993d4f1434290e04950"
+    }
+  ],
+  "assumptions": "No final Canvas upload is asserted; runtime varies with workload and CPU."
+}

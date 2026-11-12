@@ -1,0 +1,31 @@
+--- v0.9/trial_log_record/main.tex
++++ v1.0/trial_log_record/main.tex
+@@ -252,7 +252,7 @@
+ \textbf{Purpose.} This document records the \emph{path of reasoning}: what prompted each new algorithm, why the mathematical construction works, what the measurements show, and why the next experiment followed. It is intended for later self-study and transparent public research presentation. It is \emph{not} a replacement for the shorter Stage 1 technical report or for the primary evidence ZIPs.
+ \end{tcolorbox}
+ \vfill
+-\textbf{Version status:} Stage 1 research draft v0.9, backed by the frozen Round 5.1 research source and the archived experimental record.\par
++\textbf{Version status:} Stage 1 research record v1.0, backed by the frozen Round 5.1 research source and the archived experimental record.\par
+ \end{titlepage}
+ % The round-level contents deliberately suppress the many nested subsections.
+ \setcounter{tocdepth}{1}
+@@ -737,8 +737,17 @@
+ For the later Stage 2 release, we should not reuse the published Stage 1 cases as though they were new holdouts. The actual submitted Stage 1 source should first be frozen, then both the old and any improved algorithm can be evaluated on the new release and on the original cases under matched conditions. This future work is outside the current Stage 1 record.
+ 
+ 
+-\section*{Contribution and tool-use disclosure (individual details pending)}
+-The authors are Jincan LI and Zeyun DU. The collaboration model described by the team is initially independent exploration, followed by comparison, discussion and integration into a shared line of work. We do not infer a named person's specific code, experiment or mathematical proof contribution from that broad description. The final public record should include verified names, actual assignments and an accurate account of AI-assisted drafting/coding/verification, in accordance with the course policy. No unsupported attribution is added to this draft.
++\section{Collaboration, AI-Assisted Development, and Responsibility}
++\subsection{How the two students collaborated}
++The two named student authors, Jincan LI and Zeyun DU, initially investigated approaches independently. They then compared ideas and integrated selected methods into a common research direction. This process was not divided into a fixed checklist of per-person ownership for BDDs, area recovery, or experimentation. We therefore describe the collaboration as independent exploration followed by mutual review and integration, without claiming that a specific individual authored each C++ module or mathematical derivation.
++
++\subsection{What AI actually did}
++Generative AI tools, principally ChatGPT, played a substantial role throughout the work. In particular, AI produced or substantially revised significant C++ implementation code, developed scripts for case execution, benchmarking, data gathering, verification and result packaging, and assisted in mathematical explanation, design suggestions, interpretation of measurements, and the preparation and iterative editing of these documents. This was not merely grammar correction, boilerplate generation, or occasional syntax help. The research record deliberately retains the generated tools and the results they produced rather than retroactively portraying the workflow as manual-only development.
++
++\subsection{What the human review and local evidence contribute}
++Human participation focused on asking which technical problem was worth solving next, questioning proposed optimizations and their marginal benefits, assessing the area--runtime trade-off, demanding checks against overfitting, and deciding when to keep or stop an approach. A student author independently executed the provided Linux evaluator and the local reproduction workflow in WSL, inspected the resulting summaries, and verified the chosen Round 5.1 source digest. These actions establish a concrete review and reproduction path; they do not support a claim that every line of code was written unaided or individually inspected in full.
++
++Several risks follow directly from extensive AI assistance: an apparently plausible transformation may violate a graph invariant, a generated script may compare unmatched experimental runs, and a polished explanation may overstate what data establish. Our response was to retain source snapshots, evaluator outputs and independent checks, distinguish proofs from empirical findings, and revise claims whenever the evidence was narrower than an initial interpretation. This process improves traceability but cannot guarantee optimality or correctness on every unseen case. The authors remain responsible for the factual claims, appropriate citations, and final research decisions in any submitted or published version.
+ 
+ \bibliographystyle{IEEEtran}
+ \bibliography{../shared/bibliography/references}

@@ -1,0 +1,3 @@
+set,cases,base_area,cut_area,base_median_ms,cut_median_ms,source_zip,base_member,cut_member
+mixed40,40,11186,10858,7.852,10.762,20261111_184840_Round6.1_local_results.zip,20261111_184840_Round6.1/holdout/holdout_round61_fresh_v1_reference.csv,20261111_184840_Round6.1/holdout/holdout_round61_fresh_v1_round61.csv
+large8,8,67275,67047,68.093,94.327,20261111_184840_Round6.1_local_results.zip,20261111_184840_Round6.1/holdout/holdout_round61_large_v1_reference.csv,20261111_184840_Round6.1/holdout/holdout_round61_large_v1_round61.csv

@@ -1,0 +1,118 @@
+{
+  "seed": 1364885009,
+  "designed_before_testing": true,
+  "rows": [
+    {
+      "case": "case_000.txt",
+      "kind": "local_lookups",
+      "n": 12,
+      "m": 8,
+      "sha256": "86f7a776cc47ef7e3c1ef7e69d40f131dc664a5f29eb234d0c689db107499713"
+    },
+    {
+      "case": "case_001.txt",
+      "kind": "shared_ensemble",
+      "n": 14,
+      "m": 10,
+      "sha256": "1963be1ae46c5bd074d4ade66f2399939431f5c658501399e435c73931841fe9"
+    },
+    {
+      "case": "case_002.txt",
+      "kind": "xor_of_lookups",
+      "n": 16,
+      "m": 12,
+      "sha256": "f5d9a45aad60be9af65b344750ef57b201d5b492af32aa8e9be1f55d9c983d99"
+    },
+    {
+      "case": "case_003.txt",
+      "kind": "cascaded_mux",
+      "n": 17,
+      "m": 14,
+      "sha256": "afad1cdcd30dc17d389d6e7ec0047455ab4eeb5059bff159050344f612b32137"
+    },
+    {
+      "case": "case_004.txt",
+      "kind": "local_lookups",
+      "n": 12,
+      "m": 8,
+      "sha256": "d135ae2a847d033dc2a3faf5ac6839729d2e094979148cdc29ceee239ea7a02a"
+    },
+    {
+      "case": "case_005.txt",
+      "kind": "shared_ensemble",
+      "n": 14,
+      "m": 10,
+      "sha256": "a8ae17e6438959538751482b5733584ad67e411e40a9a42daa804d16a92f6cc2"
+    },
+    {
+      "case": "case_006.txt",
+      "kind": "xor_of_lookups",
+      "n": 16,
+      "m": 12,
+      "sha256": "2024bf92362959fdb83efd082bc1861e275f2c12ee7cc8b6fd80e0b32a5971e1"
+    },
+    {
+      "case": "case_007.txt",
+      "kind": "cascaded_mux",
+      "n": 17,
+      "m": 14,
+      "sha256": "d7b8b9142816dcb8d31078fe5ccff0cf38f4d8165f78e2faa9cd956a5e043f59"
+    },
+    {
+      "case": "case_008.txt",
+      "kind": "local_lookups",
+      "n": 12,
+      "m": 8,
+      "sha256": "0e37cea45ce8943068d79236245afb2bfd3b3f9f1267138030c22426184238dc"
+    },
+    {
+      "case": "case_009.txt",
+      "kind": "shared_ensemble",
+      "n": 14,
+      "m": 10,
+      "sha256": "e8456cfe07365815b15acf98249f98fbe1dabab469249168fbf82eb68bfd9a63"
+    },
+    {
+      "case": "case_010.txt",
+      "kind": "xor_of_lookups",
+      "n": 16,
+      "m": 12,
+      "sha256": "29ff2a1ab2f05fe16a2bc15aaa2db66ae089de5f6fe4c5b6782ad96a13dfac3b"
+    },
+    {
+      "case": "case_011.txt",
+      "kind": "cascaded_mux",
+      "n": 17,
+      "m": 14,
+      "sha256": "acfe15e535ae1f1f8209f1132e0f4bc546469450b48790c7d9ee91e4fb13aafb"
+    },
+    {
+      "case": "case_012.txt",
+      "kind": "local_lookups",
+      "n": 12,
+      "m": 8,
+      "sha256": "2973276e1f3a1a1955ac513fdea7f354455583484ad18f9536f4f2bb5899ace6"
+    },
+    {
+      "case": "case_013.txt",
+      "kind": "shared_ensemble",
+      "n": 14,
+      "m": 10,
+      "sha256": "e94f8238ab234c3fdde28ad070948a577aa379c7a37d443fa4891df023f013c3"
+    },
+    {
+      "case": "case_014.txt",
+      "kind": "xor_of_lookups",
+      "n": 16,
+      "m": 12,
+      "sha256": "672b7b5adf9809d988c068b211a76a91b37a35e6083cc052bdad4f8798d8bf73"
+    },
+    {
+      "case": "case_015.txt",
+      "kind": "cascaded_mux",
+      "n": 17,
+      "m": 14,
+      "sha256": "6b313d8f2e461baa958594189e087d9bbcb603e5cf9bb7f45344880edca5f502"
+    }
+  ]
+}

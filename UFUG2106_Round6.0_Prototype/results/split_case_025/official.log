@@ -1,0 +1,2 @@
+PASS case_025.txt | n=15 m=15 exit_code=0 area=80684 delay=60 runtime_ms=1197.769 target_delay=76 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/data/UFUG2106_Round6.0_Prototype/results/split_case_025/official.csv

@@ -1,0 +1,9 @@
+rm -f synth
+g++ -O2 -std=c++17 -Wall -Wextra src/synth.cpp -o synth
+src/synth.cpp: In lambda function:
+src/synth.cpp:45:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   45 |   if(a==0)return ONE;if(a==ONE)return 0;
+      |   ^~
+src/synth.cpp:45:22: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   45 |   if(a==0)return ONE;if(a==ONE)return 0;
+      |                      ^~

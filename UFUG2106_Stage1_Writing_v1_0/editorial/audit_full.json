@@ -1,0 +1,250 @@
+{
+  "status": "PASS",
+  "checks": 48,
+  "passed": 48,
+  "failed": [],
+  "source_dir": "/mnt/data",
+  "freeze_dir": "/mnt/data/UFUG2106_Stage1_Round5.1_Freeze_20261111",
+  "details": [
+    {
+      "check": "9 separately archived selected official CSVs present",
+      "passed": true,
+      "detail": 9
+    },
+    {
+      "check": "official file schema + complete case set: official_round_1.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_2.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_3.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_4.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_4_1_b.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_5.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_5_1.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_6_0.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "official file schema + complete case set: official_round_6_1.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "R5.1 selected area = 529014",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "R5.1 25 target met",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "raw evidence SHA-256: round3_development_ablation.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "raw evidence SHA-256: round4_postprocessing_ablation.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "raw evidence SHA-256: round61_budget_development_mixed.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "raw evidence SHA-256: round61_budget_development_large.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "raw evidence SHA-256: stage1_round51_research_freeze_manifest.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "freeze identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "frozen source file SHA-256: source_snapshot/src/algebraic_mapper.hpp",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "frozen source file SHA-256: source_snapshot/src/polarity_mapper.hpp",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "frozen source file SHA-256: source_snapshot/src/synth_balanced.cpp",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "frozen source file SHA-256: source_snapshot/src/synth_round5.cpp",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "frozen source file SHA-256: source_snapshot/src/synth_round51.cpp",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "frozen source file SHA-256: source_snapshot/src/typed_netgraph.hpp",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "original run archive SHA-256: Round 1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "original run archive SHA-256: Round 2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "original run archive SHA-256: Round 3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "original run archive SHA-256: Round 4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "original run archive SHA-256: Round 4.1 B",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "original run archive SHA-256: Round 5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "original run archive SHA-256: Round 5.1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "original run archive SHA-256: Round 6.0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "original run archive SHA-256: Round 6.1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "extraction script completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: cut_holdout.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: official_round_1.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: official_round_2.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: official_round_3.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: official_round_4.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: official_round_4_1_b.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: official_round_5.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: official_round_5_1.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: official_round_6_0.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: official_round_6_1.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: paired_benchmarks.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: round_history.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: source_manifest.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "re-extracted CSV byte-identical: stage1_per_case.csv",
+      "passed": true,
+      "detail": null
+    }
+  ]
+}

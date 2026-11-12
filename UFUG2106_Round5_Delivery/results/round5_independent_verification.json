@@ -1,0 +1,152 @@
+[
+  {
+    "case": "case_001",
+    "valid": true,
+    "sec": 1.13,
+    "details": "{'exhaustive': False, 'assignments': 286, 'area': 61952, 'delay': 62, 'target': 77, 'matched': True}"
+  },
+  {
+    "case": "case_002",
+    "valid": true,
+    "sec": 1.07,
+    "details": "{'exhaustive': False, 'assignments': 283, 'area': 18897, 'delay': 60, 'target': 61, 'matched': True}"
+  },
+  {
+    "case": "case_003",
+    "valid": true,
+    "sec": 1.02,
+    "details": "{'exhaustive': False, 'assignments': 283, 'area': 24251, 'delay': 56, 'target': 64, 'matched': True}"
+  },
+  {
+    "case": "case_004",
+    "valid": true,
+    "sec": 0.89,
+    "details": "{'exhaustive': True, 'assignments': 8192, 'area': 4550, 'delay': 47, 'target': 57, 'matched': True}"
+  },
+  {
+    "case": "case_005",
+    "valid": true,
+    "sec": 0.82,
+    "details": "{'exhaustive': True, 'assignments': 256, 'area': 700, 'delay': 31, 'target': 36, 'matched': True}"
+  },
+  {
+    "case": "case_006",
+    "valid": true,
+    "sec": 0.87,
+    "details": "{'exhaustive': True, 'assignments': 4096, 'area': 5962, 'delay': 46, 'target': 60, 'matched': True}"
+  },
+  {
+    "case": "case_007",
+    "valid": true,
+    "sec": 1.07,
+    "details": "{'exhaustive': False, 'assignments': 298, 'area': 78042, 'delay': 71, 'target': 89, 'matched': True}"
+  },
+  {
+    "case": "case_008",
+    "valid": true,
+    "sec": 0.92,
+    "details": "{'exhaustive': True, 'assignments': 4096, 'area': 8637, 'delay': 50, 'target': 62, 'matched': True}"
+  },
+  {
+    "case": "case_009",
+    "valid": true,
+    "sec": 0.82,
+    "details": "{'exhaustive': True, 'assignments': 4096, 'area': 14584, 'delay': 46, 'target': 59, 'matched': True}"
+  },
+  {
+    "case": "case_010",
+    "valid": true,
+    "sec": 0.91,
+    "details": "{'exhaustive': False, 'assignments': 296, 'area': 4712, 'delay': 32, 'target': 61, 'matched': True}"
+  },
+  {
+    "case": "case_011",
+    "valid": true,
+    "sec": 0.74,
+    "details": "{'exhaustive': True, 'assignments': 1024, 'area': 464, 'delay': 33, 'target': 40, 'matched': True}"
+  },
+  {
+    "case": "case_012",
+    "valid": true,
+    "sec": 0.81,
+    "details": "{'exhaustive': True, 'assignments': 1024, 'area': 5359, 'delay': 25, 'target': 40, 'matched': True}"
+  },
+  {
+    "case": "case_013",
+    "valid": true,
+    "sec": 0.8,
+    "details": "{'exhaustive': False, 'assignments': 283, 'area': 11252, 'delay': 60, 'target': 70, 'matched': True}"
+  },
+  {
+    "case": "case_014",
+    "valid": true,
+    "sec": 0.82,
+    "details": "{'exhaustive': False, 'assignments': 298, 'area': 11662, 'delay': 61, 'target': 72, 'matched': True}"
+  },
+  {
+    "case": "case_015",
+    "valid": true,
+    "sec": 0.87,
+    "details": "{'exhaustive': False, 'assignments': 290, 'area': 33374, 'delay': 64, 'target': 81, 'matched': True}"
+  },
+  {
+    "case": "case_016",
+    "valid": true,
+    "sec": 0.84,
+    "details": "{'exhaustive': True, 'assignments': 1024, 'area': 2149, 'delay': 40, 'target': 47, 'matched': True}"
+  },
+  {
+    "case": "case_017",
+    "valid": true,
+    "sec": 0.98,
+    "details": "{'exhaustive': True, 'assignments': 8192, 'area': 440, 'delay': 22, 'target': 25, 'matched': True}"
+  },
+  {
+    "case": "case_018",
+    "valid": true,
+    "sec": 0.91,
+    "details": "{'exhaustive': True, 'assignments': 4096, 'area': 1232, 'delay': 31, 'target': 32, 'matched': True}"
+  },
+  {
+    "case": "case_019",
+    "valid": true,
+    "sec": 0.85,
+    "details": "{'exhaustive': False, 'assignments': 294, 'area': 5319, 'delay': 57, 'target': 73, 'matched': True}"
+  },
+  {
+    "case": "case_020",
+    "valid": true,
+    "sec": 0.83,
+    "details": "{'exhaustive': True, 'assignments': 256, 'area': 766, 'delay': 30, 'target': 35, 'matched': True}"
+  },
+  {
+    "case": "case_021",
+    "valid": true,
+    "sec": 0.8,
+    "details": "{'exhaustive': False, 'assignments': 286, 'area': 28104, 'delay': 60, 'target': 72, 'matched': True}"
+  },
+  {
+    "case": "case_022",
+    "valid": true,
+    "sec": 0.84,
+    "details": "{'exhaustive': True, 'assignments': 256, 'area': 1320, 'delay': 31, 'target': 34, 'matched': True}"
+  },
+  {
+    "case": "case_023",
+    "valid": true,
+    "sec": 0.83,
+    "details": "{'exhaustive': True, 'assignments': 256, 'area': 125, 'delay': 22, 'target': 24, 'matched': True}"
+  },
+  {
+    "case": "case_024",
+    "valid": true,
+    "sec": 0.99,
+    "details": "{'exhaustive': False, 'assignments': 294, 'area': 124475, 'delay': 70, 'target': 83, 'matched': True}"
+  },
+  {
+    "case": "case_025",
+    "valid": true,
+    "sec": 0.79,
+    "details": "{'exhaustive': False, 'assignments': 286, 'area': 80686, 'delay': 60, 'target': 76, 'matched': True}"
+  }
+]

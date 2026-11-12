@@ -1,0 +1,16 @@
+{
+  "first_area_saved": 160,
+  "median_reference_ms": 52.398,
+  "median_round61_ms": 77.407,
+  "runtime_pct": 47.729,
+  "pass_each_run": [
+    [
+      25,
+      25
+    ],
+    [
+      25,
+      25
+    ]
+  ]
+}

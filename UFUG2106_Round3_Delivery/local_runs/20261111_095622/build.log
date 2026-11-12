@@ -1,0 +1,3 @@
+rm -f synth synth_core
+g++ -O2 -std=c++17 -Wall -Wextra src/synth.cpp -o synth
+g++ -O2 -std=c++17 -Wall -Wextra src/synth_core.cpp -o synth_core

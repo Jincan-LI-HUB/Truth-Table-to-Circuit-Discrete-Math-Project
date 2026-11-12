@@ -1,0 +1,1 @@
+PASS cases=2000 transforms_checked=8000 independent_truth_assignments_per_case=4*(2^n) cases_recover_exceeds_original_feasible_target=0

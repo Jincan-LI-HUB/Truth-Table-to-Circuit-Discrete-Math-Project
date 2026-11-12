@@ -1,0 +1,56 @@
+[
+  {
+    "case": "case_023.txt",
+    "time": 0.015,
+    "stderr": "cut60 visited=97 cuts=490 attempts=3184 chosen=30 hit_budget=0 baseline_area=125 proposed_area=146 baseline_delay=22 proposed_delay=17 accepted=0\n",
+    "returncode": 0
+  },
+  {
+    "case": "case_005.txt",
+    "time": 0.053,
+    "stderr": "cut60 visited=444 cuts=3147 attempts=20836 chosen=195 hit_budget=0 baseline_area=700 proposed_area=974 baseline_delay=31 proposed_delay=27 accepted=0\n",
+    "returncode": 0
+  },
+  {
+    "case": "case_011.txt",
+    "time": 0.051,
+    "stderr": "cut60 visited=219 cuts=1407 attempts=11018 chosen=44 hit_budget=0 baseline_area=464 proposed_area=476 baseline_delay=33 proposed_delay=33 accepted=0\n",
+    "returncode": 0
+  },
+  {
+    "case": "case_018.txt",
+    "time": 0.124,
+    "stderr": "cut60 visited=493 cuts=3499 attempts=26393 chosen=173 hit_budget=1 baseline_area=1232 proposed_area=1416 baseline_delay=31 proposed_delay=31 accepted=0\n",
+    "returncode": 0
+  },
+  {
+    "case": "case_020.txt",
+    "time": 0.107,
+    "stderr": "cut60 visited=388 cuts=2769 attempts=22646 chosen=94 hit_budget=0 baseline_area=766 proposed_area=796 baseline_delay=30 proposed_delay=30 accepted=0\n",
+    "returncode": 0
+  },
+  {
+    "case": "case_022.txt",
+    "time": 0.124,
+    "stderr": "cut60 visited=522 cuts=3631 attempts=28782 chosen=94 hit_budget=1 baseline_area=1320 proposed_area=1296 baseline_delay=31 proposed_delay=31 accepted=1\n",
+    "returncode": 0
+  },
+  {
+    "case": "case_001.txt",
+    "time": 0.141,
+    "stderr": "cut60 visited=908 cuts=7010 attempts=46952 chosen=385 hit_budget=1 baseline_area=61952 proposed_area=62997 baseline_delay=62 proposed_delay=62 accepted=0\n",
+    "returncode": 0
+  },
+  {
+    "case": "case_007.txt",
+    "time": 0.24,
+    "stderr": "cut60 visited=916 cuts=7100 attempts=46748 chosen=353 hit_budget=1 baseline_area=78042 proposed_area=79239 baseline_delay=71 proposed_delay=69 accepted=0\n",
+    "returncode": 0
+  },
+  {
+    "case": "case_024.txt",
+    "time": 0.163,
+    "stderr": "cut60 visited=493 cuts=3600 attempts=29232 chosen=33 hit_budget=1 baseline_area=124475 proposed_area=124519 baseline_delay=70 proposed_delay=67 accepted=0\n",
+    "returncode": 0
+  }
+]

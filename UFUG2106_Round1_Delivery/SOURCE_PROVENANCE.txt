@@ -1,0 +1,5 @@
+Version: Round1
+Source SHA-256: 3989b677ba6ff7b533de4179c8b3fc1612878bc1b8fc8c1ae10e0627a5cd4b8b
+Source origin: ufug2106_stage1_bdd_baseline.cpp from the conversation's prior experiments
+No changes to the original synthesis algorithms; only the filename src/synth.cpp and build wrapper are standardized.
+Reference CSV: earlier official-evaluator result, NOT a user-local reproduction.

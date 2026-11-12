@@ -1,0 +1,7 @@
+strategy,area_sum,cases_improved,area_saved,scope
+Original R3,533705,0,0,Postprocessor only; excludes extra variable-order exploration
+Algebra only,532416,11,1289,Postprocessor only; excludes extra variable-order exploration
+Phase only,533378,9,327,Postprocessor only; excludes extra variable-order exploration
+Phase then algebra,532078,13,1627,Postprocessor only; excludes extra variable-order exploration
+Algebra then phase,532080,13,1625,Postprocessor only; excludes extra variable-order exploration
+Best per case,532070,13,1635,Postprocessor only; excludes extra variable-order exploration

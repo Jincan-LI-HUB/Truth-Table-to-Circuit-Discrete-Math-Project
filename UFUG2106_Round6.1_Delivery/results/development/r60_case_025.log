@@ -1,0 +1,2 @@
+PASS case_025.txt | n=15 m=15 exit_code=0 area=80686 delay=60 runtime_ms=1083.574 target_delay=76 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/data/UFUG2106_Round6.1_Delivery/results/official/r60_case_025.csv

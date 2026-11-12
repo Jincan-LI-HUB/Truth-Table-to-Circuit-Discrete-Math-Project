@@ -1,0 +1,16 @@
+R5_STAGE stage=bdd order=influence-desc cache_hit=0 nodes=119 elapsed_ms=0.017
+R5_STAGE stage=mapping order=influence-desc elapsed_ms=6.311
+R5_STAGE stage=trial_total index=0 order=influence-desc elapsed_ms=10.405
+R5_STAGE stage=bdd order=influence-desc cache_hit=1 nodes=119 elapsed_ms=0.001
+R5_STAGE stage=mapping order=influence-desc elapsed_ms=1.410
+R5_STAGE stage=trial_total index=1 order=influence-desc elapsed_ms=2.291
+R5_STAGE stage=bdd order=influence-desc cache_hit=1 nodes=119 elapsed_ms=0.000
+R5_STAGE stage=mapping order=influence-desc elapsed_ms=1.155
+R5_STAGE stage=trial_total index=2 order=influence-desc elapsed_ms=1.864
+R5_STAGE stage=bdd order=natural cache_hit=0 nodes=158 elapsed_ms=0.012
+R5_STAGE stage=mapping order=natural elapsed_ms=1.346
+R5_STAGE stage=trial_total index=3 order=natural elapsed_ms=2.186
+R5_STAGE stage=bdd order=influence-desc cache_hit=1 nodes=119 elapsed_ms=0.000
+R5_STAGE stage=mapping order=influence-desc elapsed_ms=1.125
+R5_STAGE stage=trial_total index=4 order=influence-desc elapsed_ms=1.907
+completed=8 chosen=2 area=700 delay=31

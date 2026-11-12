@@ -1,0 +1,3 @@
+PASS: eight truth rows, SOP/POS equality, cut mask=0xCE
+PASS: influences f1=(1/2,1/2,1/2); f2=(1/4,3/4,1/4)
+PASS: cofactor/XOR identity, area=11, delay 7->5, required time R(7): 6->8

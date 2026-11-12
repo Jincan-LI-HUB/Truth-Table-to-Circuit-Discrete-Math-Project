@@ -1,0 +1,286 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct BKey {int v,lo,hi;bool operator==(const BKey&o)const{return v==o.v && lo==o.lo && hi==o.hi;}};
+struct H3 {size_t operator()(const BKey&k)const { uint64_t z=((uint64_t)(unsigned)k.v<<55)^((uint64_t)(unsigned)k.lo<<26)^(unsigned)k.hi; z^=z>>30;z*=0xbf58476d1ce4e5b9ULL;z^=z>>27;z*=0x94d049bb133111ebULL;return z^(z>>31);}};
+struct BNode{int v,lo,hi;};
+struct Gate{string type;int a,b;};
+struct GKey{int t,a,b;bool operator==(const GKey&o)const{return t==o.t&&a==o.a&&b==o.b;}};
+struct HKey{size_t operator()(const GKey &k)const{return H3{}({k.t,k.a,k.b});}};
+struct Opt {string order;bool fast, rewrite, expand;int cubemode,margin;};
+string run_synth(const string &input,const Opt &opt){
+ ifstream in(input);ostringstream out;if(!in)return {};
+ int n,m;in>>n>>m; if(n<1 || n>22 || m<1)return {};
+ size_t N=1ull<<n; vector<unsigned char> T(N*m);string bits;
+ for(size_t i=0;i<N;i++){in>>bits; if((int)bits.size()!=m)return {};for(int j=0;j<m;j++)T[i*m+j]=bits[j]-'0';}
+ int aa,da,ao,doo,an,dn,D;in>>aa>>da>>ao>>doo>>an>>dn>>D;
+ // BDD global canonical graph, terminal 0 and 1.
+ vector<BNode> nodes;nodes.reserve(N);nodes.push_back({-1,0,0}); nodes.push_back({-1,1,1});
+ unordered_map<BKey,int,H3> cache;cache.reserve(min((size_t)N*2,(size_t)5000000));
+ vector<int> perm(n); iota(perm.begin(),perm.end(),0);
+ string order=opt.order;
+ if(order=="reverse")reverse(perm.begin(),perm.end());
+ if(order=="rotate")rotate(perm.begin(),perm.begin()+n/2,perm.end());
+ if(order=="influence-asc"||order=="influence-desc"){
+  vector<unsigned long long> influence(n,0);
+  for(int v=0;v<n;v++){
+    size_t step=1ull<<(n-1-v);
+    for(size_t start=0;start<N;start+=2*step){
+      for(size_t k=0;k<step;k++){
+        size_t a=(start+k)*m,b=(start+k+step)*m;
+        for(int j=0;j<m;j++)influence[v]+=(T[a+j]!=T[b+j]);
+      }
+    }
+  }
+  stable_sort(perm.begin(),perm.end(),[&](int a,int b){return order=="influence-asc"?influence[a]<influence[b]:influence[a]>influence[b];});
+ }
+ vector<size_t> orig(N);for(size_t z=1;z<N;z++){int bit=__builtin_ctzll(z);orig[z]=orig[z&(z-1)]|(1ull<<(n-1-perm[n-1-bit]));}
+ vector<int> roots(m);vector<int> cur(N),next;
+ for(int j=0;j<m;j++){
+  cur.resize(N);
+  for(size_t i=0;i<N;i++)cur[i]=T[orig[i]*m+j];
+  size_t count=N;
+  for(int v=n-1;v>=0;v--){
+   next.resize(count/2);
+   for(size_t k=0;k<count/2;k++){
+    int lo=cur[2*k],hi=cur[2*k+1];
+    if(lo==hi){next[k]=lo;continue;}
+    BKey key={v,lo,hi};auto it=cache.find(key);
+    if(it!=cache.end()){next[k]=it->second;continue;}
+    int id=nodes.size();nodes.push_back({v,lo,hi});cache.emplace(key,id);next[k]=id;
+   }
+   cur.swap(next);count/=2;
+  }
+  roots[j]=cur[0];
+ }
+ // Emit gates with structural sharing, constant folding, and NOT sharing.
+ vector<Gate> gates;
+ unordered_map<GKey,int,HKey> gcache;gcache.reserve(nodes.size()*2);
+ vector<int> ready(n+1);int A=0;
+ auto mk=[&](int t,int a,int b)->int {if(t!=2&&a>b)swap(a,b); GKey k{t,a,b}; auto it=gcache.find(k);if(it!=gcache.end())return it->second;
+  int id=n+1+(int)gates.size();gates.push_back({t==0?"AND2":t==1?"OR2":"NOT",a,b}); gcache.emplace(k,id);A+=(t==0?aa:t==1?ao:an);ready.push_back((t==2?ready[a]:max(ready[a],ready[b]))+(t==0?da:t==1?doo:dn));return id;};
+ int ONE=mk(2,0,0); // canonical 1
+ function<int(int)> neg=[&](int a)->int{
+  if(a==0)return ONE;if(a==ONE)return 0;
+  auto it=gcache.find({2,a,0});if(it!=gcache.end())return it->second;
+  if(a>n){Gate &g=gates[a-(n+1)];if(g.type=="NOT")return g.a;}
+  return mk(2,a,0);
+ };
+ auto areInverse=[&](int a,int b)->bool {
+   if((a==0&&b==ONE)||(a==ONE&&b==0))return true;
+   if(a>n && gates[a-(n+1)].type=="NOT" && gates[a-(n+1)].a==b)return true;
+   if(b>n && gates[b-(n+1)].type=="NOT" && gates[b-(n+1)].a==a)return true;
+   return false;
+ };
+ function<int(int,int)> land=[&](int a,int b)->int{if(a==0||b==0)return 0;if(a==ONE)return b;if(b==ONE)return a;if(a==b)return a;if(areInverse(a,b))return 0;if((opt.rewrite && aa>ao+3*an) || opt.fast){
+  int na=neg(a),nb=neg(b);int limit=0;
+  limit=0;
+  if((opt.fast?max(ready[na],ready[nb])+doo+dn<max(ready[a],ready[b])+da:max(ready[na],ready[nb])+doo+dn<=max(ready[a],ready[b])+da+limit))return neg(mk(1,na,nb));
+  }return mk(0,a,b);};
+ function<int(int,int)> lor=[&](int a,int b)->int{if(a==ONE||b==ONE)return ONE;if(a==0)return b;if(b==0)return a;if(a==b)return a;if(areInverse(a,b))return ONE;if((opt.rewrite && ao>aa+3*an) || opt.fast){
+  int na=neg(a),nb=neg(b);int limit=0;
+  limit=0;
+  if((opt.fast?max(ready[na],ready[nb])+da+dn<max(ready[a],ready[b])+doo:max(ready[na],ready[nb])+da+dn<=max(ready[a],ready[b])+doo+limit))return neg(mk(0,na,nb));
+  }return mk(1,a,b);};
+ vector<int> done(nodes.size(),-1);done[0]=0;done[1]=ONE;
+ function<int(int)> build=[&](int id)->int {if(done[id]>=0)return done[id];auto node=nodes[id];int x=perm[node.v]+1;
+  int lo=build(node.lo),hi=build(node.hi),result;
+  if(lo==hi)result=lo;
+  else if(lo==0)result=land(x,hi);
+  else if(hi==0)result=land(neg(x),lo);
+  else if(lo==ONE)result=lor(neg(x),hi);
+  else if(hi==ONE)result=lor(x,lo);
+  else result=lor(land(neg(x),lo),land(x,hi));
+  // Experimental two-level Shannon expansion, compare by local arrival time.
+  if(opt.expand && nodes[id].lo > 1 && nodes[id].hi > 1) {
+    auto combine_balanced=[&](vector<int> v,bool isor)->int {
+      if(v.empty())return isor?0:ONE;
+      auto cmp=[&](int a,int b){return ready[a]>ready[b];};
+      priority_queue<int,vector<int>,decltype(cmp)> pq(cmp);
+      for(int a:v)pq.push(a);
+      while(pq.size()>1){int a=pq.top();pq.pop();int b=pq.top();pq.pop();pq.push(isor?lor(a,b):land(a,b));}
+      return pq.top();
+    };
+    vector<int> terms;
+    for(int side=0;side<2;side++){
+      int child=side?nodes[id].hi:nodes[id].lo;
+      int rootlit=side?x:neg(x);
+      if(child <= 1) { if(child==1)terms.push_back(rootlit);continue; }
+      auto g=nodes[child];int y=perm[g.v]+1;
+      for(int side2=0;side2<2;side2++){
+        int leaf=build(side2?g.hi:g.lo);
+        if(leaf==0)continue;
+        vector<int> vs={rootlit,side2?y:neg(y)};
+        if(leaf!=ONE)vs.push_back(leaf);
+        terms.push_back(combine_balanced(vs,false));
+      }
+    }
+    int expanded=combine_balanced(terms,true);
+    int slack=opt.margin;
+    if(ready[expanded]+slack < ready[result])result=expanded;
+  }
+  done[id]=result;return result;
+ };
+ vector<int> outs;for(int r:roots)outs.push_back(build(r));
+ // Exact implicant enumeration for small truth tables, followed by greedy cover.
+ int cubemode=opt.cubemode;
+ if(cubemode && n<=13){
+  struct Cube {int val,mask;};
+  auto calcSOP=[&](int j,int goal)->int {
+    vector<int> support;
+    for(int v=0;v<n;v++){
+      int step=1<<(n-1-v);bool flag=false;
+      for(int start=0;start<(int)N && !flag;start+=step*2)
+        for(int z=0;z<step;z++)if(T[((size_t)start+z)*m+j]!=T[((size_t)start+step+z)*m+j]){flag=true;break;}
+      if(flag)support.push_back(v);
+    }
+    int k=(int)support.size();if(k>9)return -1;
+    int Q=1<<k;vector<uint8_t> tt(Q);
+    for(int i=0;i<Q;i++){
+      size_t orig=0;
+      for(int b=0;b<k;b++)if(i&(1<<b))orig|=1ull<<(n-1-support[k-1-b]);
+      tt[i]=T[orig*m+j];
+    }
+    vector<Cube> cur; cur.reserve(Q);
+    for(int i=0;i<Q;i++)if(tt[i]==goal)cur.push_back({i,Q-1});
+    if(cur.empty())return 0;
+    if((int)cur.size()==Q)return ONE;
+    vector<Cube> prime;
+    while(!cur.empty()){
+      vector<char> used(cur.size());vector<Cube> nxt;
+      unordered_set<unsigned long long> hash;
+      for(size_t a=0;a<cur.size();a++)for(size_t b=a+1;b<cur.size();b++){
+        if(cur[a].mask!=cur[b].mask)continue;
+        int diff=(cur[a].val^cur[b].val)&cur[a].mask;
+        if(__builtin_popcount((unsigned)diff)!=1)continue;
+        used[a]=used[b]=1;
+        int mk=cur[a].mask^diff,v=cur[a].val&mk;
+        auto id=((unsigned long long)(unsigned)mk<<32)|(unsigned)v;
+        if(hash.insert(id).second)nxt.push_back({v,mk});
+      }
+      for(size_t a=0;a<cur.size();a++)if(!used[a])prime.push_back(cur[a]);
+      cur.swap(nxt);
+    }
+    // Deduplicate and greedily cover all on-set minterms.
+    sort(prime.begin(),prime.end(),[](Cube a,Cube b){return tie(a.mask,a.val)<tie(b.mask,b.val);});
+    prime.erase(unique(prime.begin(),prime.end(),[](Cube a,Cube b){return a.mask==b.mask&&a.val==b.val;}),prime.end());
+    vector<char> uncovered(Q,0);int remaining=0;
+    for(int i=0;i<Q;i++)if(tt[i]==goal){uncovered[i]=1;remaining++;}
+    vector<Cube> chosen;
+    while(remaining){
+      double best=-1;int which=-1;
+      for(int k=0;k<(int)prime.size();k++){
+        int gains=0;
+        for(int i=0;i<Q;i++)if(uncovered[i] && (i&prime[k].mask)==prime[k].val)gains++;
+        if(!gains)continue;
+        int cost=max(1,__builtin_popcount((unsigned)prime[k].mask));
+        double score=double(gains)/(0.4+cost);
+        if(score>best){best=score;which=k;}
+      }
+      if(which<0)throw runtime_error("cover failed");
+      auto p=prime[which];chosen.push_back(p);
+      for(int i=0;i<Q;i++)if(uncovered[i] && (i&p.mask)==p.val){uncovered[i]=0;remaining--;}
+    }
+    auto combine=[&](vector<int> vs,bool isOr)->int {
+       if(vs.empty())return isOr?0:ONE;
+       auto cmp=[&](int a,int b){return ready[a]>ready[b];};
+       priority_queue<int,vector<int>,decltype(cmp)> pq(cmp);
+       for(int a:vs)pq.push(a);
+       while(pq.size()>1){int a=pq.top();pq.pop();int b=pq.top();pq.pop();pq.push(isOr?lor(a,b):land(a,b));}
+       return pq.top();
+    };
+    vector<int> terms;
+    for(auto p:chosen){
+      vector<int> literals;
+      for(int b=0;b<k;b++)if(p.mask&(1<<b)){
+         int x=support[k-1-b]+1;literals.push_back((p.val&(1<<b))?x:neg(x));
+      }
+      terms.push_back(combine(literals,false));
+    }
+    return combine(terms,true);
+  };
+  for(int j=0;j<m;j++){
+   
+   int old=outs[j];
+   int p=calcSOP(j,1);
+   if(p<0)continue;
+   int q=neg(calcSOP(j,0));
+   int candidate=(ready[p]<=ready[q]?p:q);
+   if(cubemode==2 || ready[candidate]<ready[old])outs[j]=candidate;
+  }
+ }
+
+ // remove unused gates including unnecessary ONE if not needed; preserve ID indexing by regenerating used gates.
+ vector<char> use(gates.size());function<void(int)> mark=[&](int id){if(id<=n)return;int j=id-n-1;if(use[j])return;use[j]=1;mark(gates[j].a);if(gates[j].type!="NOT")mark(gates[j].b);};
+ for(int o:outs)mark(o);
+ vector<int> new_ids(gates.size());int k=n+1;
+ for(size_t i=0;i<gates.size();i++)if(use[i])new_ids[i]=k++;
+ for(size_t i=0;i<gates.size();i++)if(use[i]){auto g=gates[i];auto fix=[&](int x){return x<=n?x:new_ids[x-n-1];}; out<<new_ids[i]<<" "<<g.type<<" "<<fix(g.a);if(g.type!="NOT")out<<" "<<fix(g.b);out<<"\n";}
+ for(int j=0;j<m;j++){if(j)out<<" ";out<<(outs[j]<=n?outs[j]:new_ids[outs[j]-n-1]);}out<<"\n";
+ return out.str();
+}
+
+struct Stats {bool valid=false;long long area=0;int delay=0;};
+Stats stats(const string&net,int n,int m,int aa,int da,int ao,int dor,int an,int dn){
+ istringstream in(net);string line;vector<int> arr(n+1);long long area=0;int count=0;
+ while(getline(in,line)){
+  if(line.empty())continue;
+  istringstream ss(line);vector<string> parts;string z;while(ss>>z)parts.push_back(z);
+  if(parts.size()>=3 && (parts[1]=="AND2"||parts[1]=="OR2"||parts[1]=="NOT")){
+   int id=stoi(parts[0]),u=stoi(parts[2]),v=0;
+   if(id!=n+1+count||u<0||u>=id)return {};
+   if(parts[1]=="NOT"){
+    if(parts.size()!=3)return {};
+    arr.push_back(arr[u]+dn);area+=an;
+   }else{
+    if(parts.size()!=4)return {};
+    v=stoi(parts[3]);if(v<0||v>=id)return {};
+    if(parts[1]=="AND2"){arr.push_back(max(arr[u],arr[v])+da);area+=aa;}
+    else{arr.push_back(max(arr[u],arr[v])+dor);area+=ao;}
+   }
+   ++count;
+  }else{
+   if(int(parts.size())!=m)return {};
+   int delay=0;
+   for(const string&t:parts){int v=stoi(t);if(v<0||v>=int(arr.size()))return {};delay=max(delay,arr[v]);}
+   return {true,area,delay};
+  }
+ }
+ return {};
+}
+int main(int argc,char**argv){
+ if(argc!=3)return 2;
+ ifstream in(argv[1]);int n,m;string line;
+ if(!(in>>n>>m))return 3;
+ for(int k=0;k<(1<<n);k++)if(!(in>>line))return 4;
+ int aa,da,ao,dor,an,dn,target;
+ if(!(in>>aa>>da>>ao>>dor>>an>>dn>>target))return 5;
+ long long limit=0;in>>limit;
+ using Clock=chrono::steady_clock;
+ auto start=Clock::now();
+ // Always try a correct delay-oriented candidate first.
+ vector<Opt> variants={
+   {"influence-desc",true,false,true,1,0},
+   {"influence-desc",false,true,true,1,0},
+   {"influence-desc",true,false,true,0,0},
+   {"natural",true,false,true,1,0},
+   {"influence-desc",true,false,true,1,4}
+ };
+ string best;Stats b;int chosen=-1,completed=0;
+ for(int i=0;i<int(variants.size());i++){
+  // Heuristic search budget leaves space for writing and evaluation overhead.
+  if(i && limit>0){
+   auto elapsed=chrono::duration<double,milli>(Clock::now()-start).count();
+   if(elapsed>0.75*limit)break;
+  }
+  string net=run_synth(argv[1],variants[i]);
+  if(net.empty())continue;
+  auto z=stats(net,n,m,aa,da,ao,dor,an,dn);if(!z.valid)continue;
+  completed++;
+  auto rank=[&](Stats x){return make_tuple(max(0,x.delay-target), x.delay<=target?x.area:0LL, x.delay, x.area);};
+  if(!b.valid || rank(z)<rank(b)) {best=std::move(net);b=z;chosen=i;}
+ }
+ if(!b.valid)return 6;
+ ofstream out(argv[2]);out<<best;
+ cerr<<"completed="<<completed<<" chosen="<<chosen<<" area="<<b.area<<" delay="<<b.delay<<'\n';
+ return out?0:7;
+}

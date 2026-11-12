@@ -1,0 +1,63 @@
+{
+  "reference_median_ms": 52.3445,
+  "round60_median_ms": 115.4805,
+  "area_before": 529014,
+  "area_after": 528738,
+  "netlist_equal": 16,
+  "holdouts": {
+    "holdout_round60_v1": {
+      "reference": {
+        "pass": 40,
+        "target": 40,
+        "cases": 40,
+        "area": 9709,
+        "median_ms": 10.557,
+        "sum_ms": 720.494
+      },
+      "round60": {
+        "pass": 40,
+        "target": 40,
+        "cases": 40,
+        "area": 9496,
+        "median_ms": 14.3825,
+        "sum_ms": 1023.709
+      }
+    },
+    "previous_holdout_v1": {
+      "reference": {
+        "pass": 80,
+        "target": 80,
+        "cases": 80,
+        "area": 22821,
+        "median_ms": 7.622999999999999,
+        "sum_ms": 1058.5
+      },
+      "round60": {
+        "pass": 80,
+        "target": 80,
+        "cases": 80,
+        "area": 22579,
+        "median_ms": 12.7875,
+        "sum_ms": 2000.135
+      }
+    },
+    "previous_holdout_large_v1": {
+      "reference": {
+        "pass": 16,
+        "target": 16,
+        "cases": 16,
+        "area": 157944,
+        "median_ms": 81.42750000000001,
+        "sum_ms": 1407.354
+      },
+      "round60": {
+        "pass": 16,
+        "target": 16,
+        "cases": 16,
+        "area": 157440,
+        "median_ms": 200.9515,
+        "sum_ms": 3282.823
+      }
+    }
+  }
+}

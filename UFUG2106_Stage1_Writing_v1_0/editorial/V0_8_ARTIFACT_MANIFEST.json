@@ -1,0 +1,15 @@
+{
+  "edition": "v0.8 Editorial",
+  "research_source": "Round 5.1 freeze, unchanged",
+  "evidence_base": "v0.7 unchanged",
+  "assets": {
+    "technical_report/main.tex": "74d61fcdc47e954b9c4217e69e0e408bb97fba1fcaad624fd4983695bfb70999",
+    "technical_report/main.pdf": "f941dc95e59ed0adf9ddf01fce94f874c4fa0933ea070885c6a6a27d09483cf5",
+    "trial_log_record/main.tex": "4d9e54987f2d7923546ecb57726ad1e5f4f620aa64518790fe71ba15dd6bb77b",
+    "trial_log_record/main.pdf": "d61fe92477c6442712b6ce789b888103aaea4fb3d10710f25923665bb4503ac5",
+    "shared/data/round_history.csv": "1c0a85343fba26e1bf7374cb5c24dc0a383d57c4cf4f1951d1ae29f2709272b7",
+    "shared/data/paired_benchmarks.csv": "5a9d8aec9c45eaad68fcc690d690eaaf5ae9234174ef45369e97ee4bd589b90f",
+    "shared/bibliography/references.bib": "ed8d988c1b7fae6032679131a80815f8e1ccb1b037bca55390e93c6cac182824"
+  },
+  "shared_original_files_identical": 52
+}

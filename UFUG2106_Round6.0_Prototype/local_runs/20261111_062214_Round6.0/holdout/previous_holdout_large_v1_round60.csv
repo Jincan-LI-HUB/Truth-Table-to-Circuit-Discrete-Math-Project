@@ -1,0 +1,17 @@
+case,status,area,delay,runtime_ms,target_met
+case_000.txt,PASS,9471,74,263.148,yes
+case_001.txt,PASS,16477,71,180.784,yes
+case_002.txt,PASS,10634,40,269.139,yes
+case_003.txt,PASS,9548,64,211.793,yes
+case_004.txt,PASS,5664,70,216.005,yes
+case_005.txt,PASS,8120,81,166.225,yes
+case_006.txt,PASS,28958,55,278.388,yes
+case_007.txt,PASS,1468,46,209.492,yes
+case_008.txt,PASS,4676,37,365.459,yes
+case_009.txt,PASS,1375,31,171.403,yes
+case_010.txt,PASS,12703,104,261.768,yes
+case_011.txt,PASS,14490,46,233.085,yes
+case_012.txt,PASS,4666,58,290.506,yes
+case_013.txt,PASS,5803,49,174.636,yes
+case_014.txt,PASS,12731,73,270.381,yes
+case_015.txt,PASS,10746,79,208.199,yes

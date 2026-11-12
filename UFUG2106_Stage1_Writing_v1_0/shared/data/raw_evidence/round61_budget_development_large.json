@@ -1,0 +1,410 @@
+{
+  "25": {
+    "area_saved": 358,
+    "positive": 10,
+    "median_wall_ms": 31.66,
+    "mean_wall_ms": 32.3,
+    "per_case": [
+      {
+        "case": "case_000.txt",
+        "ms": 29.817931001161924,
+        "saved": 0,
+        "accepted": false,
+        "visited": 367,
+        "chosen": 0
+      },
+      {
+        "case": "case_001.txt",
+        "ms": 30.289455000456655,
+        "saved": 16,
+        "accepted": true,
+        "visited": 404,
+        "chosen": 2
+      },
+      {
+        "case": "case_002.txt",
+        "ms": 32.062941001640866,
+        "saved": 0,
+        "accepted": false,
+        "visited": 309,
+        "chosen": 0
+      },
+      {
+        "case": "case_003.txt",
+        "ms": 34.67808400091599,
+        "saved": 60,
+        "accepted": true,
+        "visited": 347,
+        "chosen": 6
+      },
+      {
+        "case": "case_004.txt",
+        "ms": 29.00498700182652,
+        "saved": 8,
+        "accepted": true,
+        "visited": 354,
+        "chosen": 2
+      },
+      {
+        "case": "case_005.txt",
+        "ms": 29.867904999264283,
+        "saved": 10,
+        "accepted": true,
+        "visited": 348,
+        "chosen": 1
+      },
+      {
+        "case": "case_006.txt",
+        "ms": 32.948312000371516,
+        "saved": 0,
+        "accepted": false,
+        "visited": 312,
+        "chosen": 0
+      },
+      {
+        "case": "case_007.txt",
+        "ms": 34.19315599967376,
+        "saved": 21,
+        "accepted": true,
+        "visited": 407,
+        "chosen": 7
+      },
+      {
+        "case": "case_008.txt",
+        "ms": 29.089710998960072,
+        "saved": 0,
+        "accepted": false,
+        "visited": 352,
+        "chosen": 0
+      },
+      {
+        "case": "case_009.txt",
+        "ms": 31.26514899850008,
+        "saved": 1,
+        "accepted": true,
+        "visited": 289,
+        "chosen": 1
+      },
+      {
+        "case": "case_010.txt",
+        "ms": 34.98000699983095,
+        "saved": 0,
+        "accepted": false,
+        "visited": 349,
+        "chosen": 0
+      },
+      {
+        "case": "case_011.txt",
+        "ms": 38.68910700111883,
+        "saved": 19,
+        "accepted": true,
+        "visited": 318,
+        "chosen": 1
+      },
+      {
+        "case": "case_012.txt",
+        "ms": 29.04874800151447,
+        "saved": 21,
+        "accepted": true,
+        "visited": 337,
+        "chosen": 3
+      },
+      {
+        "case": "case_013.txt",
+        "ms": 30.223531000956427,
+        "saved": 27,
+        "accepted": true,
+        "visited": 339,
+        "chosen": 4
+      },
+      {
+        "case": "case_014.txt",
+        "ms": 33.0436109979928,
+        "saved": 0,
+        "accepted": false,
+        "visited": 304,
+        "chosen": 0
+      },
+      {
+        "case": "case_015.txt",
+        "ms": 37.559724998573074,
+        "saved": 175,
+        "accepted": true,
+        "visited": 398,
+        "chosen": 14
+      }
+    ]
+  },
+  "35": {
+    "area_saved": 408,
+    "positive": 12,
+    "median_wall_ms": 40.89,
+    "mean_wall_ms": 41.18,
+    "per_case": [
+      {
+        "case": "case_000.txt",
+        "ms": 39.56959299830487,
+        "saved": 8,
+        "accepted": true,
+        "visited": 498,
+        "chosen": 1
+      },
+      {
+        "case": "case_001.txt",
+        "ms": 39.84996500003035,
+        "saved": 16,
+        "accepted": true,
+        "visited": 498,
+        "chosen": 2
+      },
+      {
+        "case": "case_002.txt",
+        "ms": 43.75978899770416,
+        "saved": 3,
+        "accepted": true,
+        "visited": 392,
+        "chosen": 1
+      },
+      {
+        "case": "case_003.txt",
+        "ms": 42.95532399919466,
+        "saved": 90,
+        "accepted": true,
+        "visited": 541,
+        "chosen": 9
+      },
+      {
+        "case": "case_004.txt",
+        "ms": 39.00668499773019,
+        "saved": 8,
+        "accepted": true,
+        "visited": 471,
+        "chosen": 2
+      },
+      {
+        "case": "case_005.txt",
+        "ms": 39.66868800125667,
+        "saved": 13,
+        "accepted": true,
+        "visited": 488,
+        "chosen": 2
+      },
+      {
+        "case": "case_006.txt",
+        "ms": 42.384644999401644,
+        "saved": 0,
+        "accepted": false,
+        "visited": 412,
+        "chosen": 0
+      },
+      {
+        "case": "case_007.txt",
+        "ms": 42.70911200001137,
+        "saved": 27,
+        "accepted": true,
+        "visited": 514,
+        "chosen": 8
+      },
+      {
+        "case": "case_008.txt",
+        "ms": 38.99080100018182,
+        "saved": 0,
+        "accepted": false,
+        "visited": 393,
+        "chosen": 0
+      },
+      {
+        "case": "case_009.txt",
+        "ms": 40.067605001240736,
+        "saved": 1,
+        "accepted": true,
+        "visited": 402,
+        "chosen": 1
+      },
+      {
+        "case": "case_010.txt",
+        "ms": 41.906992002623156,
+        "saved": 0,
+        "accepted": false,
+        "visited": 403,
+        "chosen": 0
+      },
+      {
+        "case": "case_011.txt",
+        "ms": 44.33967200020561,
+        "saved": 19,
+        "accepted": true,
+        "visited": 435,
+        "chosen": 1
+      },
+      {
+        "case": "case_012.txt",
+        "ms": 38.98616900187335,
+        "saved": 21,
+        "accepted": true,
+        "visited": 662,
+        "chosen": 3
+      },
+      {
+        "case": "case_013.txt",
+        "ms": 39.84684500028379,
+        "saved": 27,
+        "accepted": true,
+        "visited": 472,
+        "chosen": 4
+      },
+      {
+        "case": "case_014.txt",
+        "ms": 41.716421001183335,
+        "saved": 0,
+        "accepted": false,
+        "visited": 417,
+        "chosen": 0
+      },
+      {
+        "case": "case_015.txt",
+        "ms": 43.078235001303256,
+        "saved": 175,
+        "accepted": true,
+        "visited": 434,
+        "chosen": 14
+      }
+    ]
+  },
+  "45": {
+    "area_saved": 501,
+    "positive": 12,
+    "median_wall_ms": 52.38,
+    "mean_wall_ms": 51.9,
+    "per_case": [
+      {
+        "case": "case_000.txt",
+        "ms": 49.91127899847925,
+        "saved": 32,
+        "accepted": true,
+        "visited": 607,
+        "chosen": 3
+      },
+      {
+        "case": "case_001.txt",
+        "ms": 50.31340200002887,
+        "saved": 16,
+        "accepted": true,
+        "visited": 614,
+        "chosen": 2
+      },
+      {
+        "case": "case_002.txt",
+        "ms": 51.60763499952736,
+        "saved": 9,
+        "accepted": true,
+        "visited": 541,
+        "chosen": 2
+      },
+      {
+        "case": "case_003.txt",
+        "ms": 53.681718000007095,
+        "saved": 108,
+        "accepted": true,
+        "visited": 657,
+        "chosen": 12
+      },
+      {
+        "case": "case_004.txt",
+        "ms": 49.3491230008658,
+        "saved": 8,
+        "accepted": true,
+        "visited": 593,
+        "chosen": 2
+      },
+      {
+        "case": "case_005.txt",
+        "ms": 50.054561001161346,
+        "saved": 13,
+        "accepted": true,
+        "visited": 593,
+        "chosen": 2
+      },
+      {
+        "case": "case_006.txt",
+        "ms": 52.70626200217521,
+        "saved": 0,
+        "accepted": false,
+        "visited": 531,
+        "chosen": 0
+      },
+      {
+        "case": "case_007.txt",
+        "ms": 53.58803899798659,
+        "saved": 37,
+        "accepted": true,
+        "visited": 620,
+        "chosen": 10
+      },
+      {
+        "case": "case_008.txt",
+        "ms": 52.294837001682026,
+        "saved": 0,
+        "accepted": false,
+        "visited": 632,
+        "chosen": 0
+      },
+      {
+        "case": "case_009.txt",
+        "ms": 50.373746002151165,
+        "saved": 1,
+        "accepted": true,
+        "visited": 585,
+        "chosen": 1
+      },
+      {
+        "case": "case_010.txt",
+        "ms": 53.726719997939654,
+        "saved": 0,
+        "accepted": false,
+        "visited": 499,
+        "chosen": 0
+      },
+      {
+        "case": "case_011.txt",
+        "ms": 53.961574001732515,
+        "saved": 31,
+        "accepted": true,
+        "visited": 618,
+        "chosen": 2
+      },
+      {
+        "case": "case_012.txt",
+        "ms": 49.57838699920103,
+        "saved": 21,
+        "accepted": true,
+        "visited": 804,
+        "chosen": 3
+      },
+      {
+        "case": "case_013.txt",
+        "ms": 52.465444001427386,
+        "saved": 27,
+        "accepted": true,
+        "visited": 526,
+        "chosen": 4
+      },
+      {
+        "case": "case_014.txt",
+        "ms": 53.04458099999465,
+        "saved": 0,
+        "accepted": false,
+        "visited": 467,
+        "chosen": 0
+      },
+      {
+        "case": "case_015.txt",
+        "ms": 53.74026299978141,
+        "saved": 198,
+        "accepted": true,
+        "visited": 615,
+        "chosen": 18
+      }
+    ]
+  }
+}

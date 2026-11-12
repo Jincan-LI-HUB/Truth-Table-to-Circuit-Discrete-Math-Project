@@ -1,0 +1,31 @@
+UFUG2106 Round 3 - WSL Local Reproduction
+
+1. Unzip these two scripts into the UFUG2106_Round3_Delivery directory, alongside Makefile and README.md:
+   run_round3_local.sh
+   summarize_round3.py
+
+2. Open Ubuntu/WSL terminal and change to the Round3 folder:
+   cd "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round3_Delivery"
+
+3. Locate instructor files if required:
+   find .. -maxdepth 5 -type f -name evaluator
+   find .. -maxdepth 5 -type d -name stage1
+
+4. Run script (auto-detects one evaluator and one stage1 folder within the parent):
+   bash run_round3_local.sh
+
+   If multiple candidates were found, specify exact paths:
+   bash run_round3_local.sh "/full/path/to/evaluator" "/full/path/to/stage1"
+
+5. Results are saved to:
+   local_runs/YYYYMMDD_HHMMSS/
+   local_runs/YYYYMMDD_HHMMSS_Round3_local_results.zip
+
+6. Upload the generated *_Round3_local_results.zip file to ChatGPT.
+
+The script recompiles from src/synth.cpp, runs the instructor evaluator, saves all generated netlists,
+independently checks outputs (exhaustive when n<=13, sampled otherwise), and creates a per-case
+comparison against results/final_release.csv. It does not modify any official inputs or previous CSVs.
+
+If the script encounters a build error, capture the terminal error and build.log. If the evaluator fails,
+the script still attempts to package the available logs. CPU/WSL performance differences are expected.

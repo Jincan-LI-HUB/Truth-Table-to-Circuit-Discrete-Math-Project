@@ -1,0 +1,19 @@
+2026-11-11T18:48:40+08:00
+Linux 6.6.87.2-microsoft-standard-WSL2 x86_64
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Python 3.12.3
+--- evaluator and source hashes ---
+142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca  /tmp/ufug2106_evaluator
+33d9d02a4fe2cbb14934e334bb8433260e9763541b6f78fcbd969b2e88220667  src/algebraic_mapper.hpp
+fb7d2bed53a4148a3dc830cb60b566aeb96b6e8cfddf50eb18fadc64614f8a68  src/cut_postprocess.cpp
+7b3a755e10b9cb8df95993a5e6f07a684fad473341670e6559300b50e7a58e10  src/cut_postprocess61.cpp
+b36b3acce1658c6c004577ffb632790d8faa5040a2a8da3501cfc9bb63ad912b  src/cut_rewriter.hpp
+61e891b8c43935c0d4e4b37914c687283517db3bebf11c20e57afcc98b02c9c8  src/cut_rewriter61.hpp
+46e8183e644071ca45792499bb6e3961dacda9e0243a98071e409473419e375a  src/polarity_mapper.hpp
+906d250fd3384d845bb7f93fc9bd59144c49243c85d1e1896b7e7869f19718ff  src/synth_balanced.cpp
+e27f9744e95e4c439ca6e23f71ab9faf7d331a9675e519e133bed4b6c89929fc  src/synth_round5.cpp
+cf90d0b110e6f45d1d508db351c95f10e7d704824fc34e17e6a5f5b783e20759  src/synth_round51.cpp
+63296e131f5ebef428933cd158d8b40784005c104ba72b0bdc850e14ddfc4f6f  src/synth_round60.cpp
+6e4b0ae01a5bb25f81b9d8e3cb970d9f7c89069d16cc6b025ebd9ee0870842d2  src/synth_round61.cpp
+55030bc9a51ff435e15285c0e9cb36db4032625a45b42993d4f1434290e04950  src/typed_netgraph.hpp
+f3324bb50967a0d71563843a6064e6f77429d64570dda66a396b03aaf2b9c6cd  Makefile

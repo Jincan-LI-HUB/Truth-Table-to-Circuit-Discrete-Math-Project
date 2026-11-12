@@ -1,0 +1,169 @@
+--- v0.8/technical_report/main.tex
++++ v0.9/technical_report/main.tex
+@@ -1,10 +1,11 @@
+ \documentclass[journal,10pt]{IEEEtran}
+-% UFUG2106 Stage 1 Technical Report — v0.8 final editorial review.
++% UFUG2106 Stage 1 Technical Report — v0.9 references, visual hierarchy and supplementary tests.
+ % Compile from technical_report/: pdflatex main; bibtex main; pdflatex main x2
+ \usepackage[T1]{fontenc}
+ \usepackage{lmodern}
+ \usepackage{amsmath,amssymb,amsthm,mathtools}
+ \usepackage{graphicx,booktabs,array,tabularx}\usepackage{tikz}
++\usetikzlibrary{arrows.meta,positioning,calc}
+ \usepackage{microtype}
+ \usepackage{balance}
+ \usepackage{url}
+@@ -24,8 +25,7 @@
+ \newcommand{\Lset}{\mathcal{L}}
+ \begin{document}
+ \title{From Truth Tables to Timing-Constrained Gate DAGs:\\Representation, Global Sharing, and Evidence-Based Synthesis}
+-\author{Jincan LI (50032637), Zeyun DU (50025854)%
+-\thanks{Stage 1 research manuscript, Draft v0.8 (editorial review). Individual contributions, AI-assistance disclosure, and the actual Canvas submission remain subject to student confirmation.}}
++\author{Jincan LI (50032637), Zeyun DU (50025854)}
+ \markboth{UFUG2106 Stage 1: Truth Table to Circuit}{UFUG2106 Stage 1: Truth Table to Circuit}
+ \maketitle
+ \begin{abstract}
+@@ -45,6 +45,14 @@
+ The development stages answer these questions in sequence rather than constituting independent features. Round 1 establishes an exact Shannon/ROBDD baseline, but its delay misses expose a representation problem. Round 2 widens the mapping portfolio. Round 3 shows that the \emph{mapped network}---not just the BDD---must be evaluated against global sharing and required time. Round 4 finds further area savings but makes additional search costly. Rounds 4.1--5.1 then focus on an efficiency-preserving implementation, before Rounds 6.0--6.1 deliberately test the value of an additional local rewrite family.
+ 
+ The contributions of this course-project study are \emph{(i)} a reproducible implementation combining established exact representations with case-dependent gate mapping and timing recovery; \emph{(ii)} an engineering refinement that reduces repeated synthesis computation while preserving measured circuit quality; and \emph{(iii)} evidence-backed adoption decisions that include a negative result for costly cut rewriting. These are integration and experimental contributions, \emph{not} claims to have invented ROBDDs, De Morgan transformations, or cut rewriting~\cite{bryant1986,mishchenko2006}. Every measured comparison below is explicitly attributed to its archive or paired experiment.
++
++
++\begin{figure*}[!t]
++\centering
++\input{figures/research_overview.tex}
++\caption{Overview of the implemented Stage 1 synthesis workflow and the separately evaluated Round 6 research branch. Candidate-specific graph construction, balancing, and recovery precede winner selection; algebraic/phase postprocessing is applied to the selected incumbent, not to every portfolio member. BDD and implicant caching, fast scoring, and a typed DAG improve the main implementation's synthesis efficiency. Only legal AND2/OR2/NOT gates are emitted. The cut-rewriting branch remains experimental because its additional area gains did not justify its synthesis-runtime overhead.}
++\label{fig:workflow}
++\end{figure*}
+ 
+ \section{Formal Problem and Evaluation Contract}
+ Let $F:\{0,1\}^{n}\rightarrow\{0,1\}^{m}$ be the multi-output function represented by the complete truth table, where $1\le n\le18$ and $m\ge1$. Input vector $x=(x_0,\ldots,x_{n-1})$ indexes rows with $x_0$ most significant. The target network is a directed acyclic graph $G=(V,E)$ with source nodes for the constant zero and the $n$ primary inputs. Every remaining node is one of $\Lset=\{\AND,\OR,\NOT\}$; every output references a previously defined signal. Fanout and sharing are permitted.
+@@ -97,16 +105,23 @@
+ \end{equation*}
+ For illustrative gate areas $(a_\AND,a_\OR,a_\NOT)=(2,3,1)$ and delays $(d_\AND,d_\OR,d_\NOT)=(2,2,1)$, this circuit has $A=11$, $T(7)=5$ and $T(8)=7$. Boolean absorption gives $f_2=b\lor(\neg a\land c)$, so replacing gate $8$ by $\OR(2,6)$ retains the same charged gate count but changes the second output arrival from $7$ to $5$. The example is a \emph{constructed illustration}, not one of the 25 benchmark inputs. It demonstrates why Boolean equality, shared-gate area and critical-path timing are three separate questions.
+ 
+-\begin{figure}[t]
++\begin{figure}[!t]
+ \centering
+-\begin{tikzpicture}[x=0.8cm,y=0.66cm,>=stealth, every node/.style={font=\scriptsize}]
+-\node[draw,rounded corners,fill=ResearchMint!45] (b) at (0,2) {shared cofactor $b$};
+-\node[draw,rounded corners,fill=ResearchPeach!55] (c) at (0,0) {cofactor $c$};
+-\node[draw,rounded corners,fill=ResearchBlue!35] (f1) at (3,2) {$f_1=\mathrm{MUX}(a,c,b)$};
+-\node[draw,rounded corners,fill=ResearchRose!30] (f2) at (3,0) {$f_2=\mathrm{MUX}(a,b\lor c,b)$};
+-\draw[->] (b) -- (f1);\draw[->] (b) -- (f2);\draw[->] (c) -- (f1);\draw[->] (c) -- (f2);
++\begin{tikzpicture}[>=Stealth, x=1cm,y=1cm,
++  every node/.style={font=\scriptsize},
++  cnode/.style={draw,rounded corners=2pt,minimum height=7mm,align=center,inner xsep=3pt},
++  outputbox/.style={draw,rounded corners=3pt,minimum height=9mm,align=center,inner xsep=4pt}]
++\node[cnode,fill=ResearchPeach!55] (c) at (0,1.05) {low cofactor $c$};
++\node[cnode,fill=ResearchMint!65] (b) at (0,0) {shared high cofactor $b$};
++\node[cnode,fill=ResearchIvory] (bc) at (0,-1.05) {low cofactor $b\lor c$};
++\node[outputbox,fill=ResearchBlue!30] (f1) at (4.2,1.05) {$f_1=\mathrm{MUX}(a,c,b)$};
++\node[outputbox,fill=ResearchRose!30] (f2) at (4.2,-1.05) {$f_2=\mathrm{MUX}(a,b\lor c,b)$};
++\draw[->,line width=.57pt] (c.east) -- node[above,near end,font=\tiny] {low} (f1.west);
++\draw[->,line width=.57pt] (bc.east) -- node[below,near end,font=\tiny] {low} (f2.west);
++\draw[->,line width=.65pt,ResearchBlue!65!black] (b.east) to[bend left=13] node[below,pos=.60,font=\tiny] {high} (f1.west);
++\draw[->,line width=.65pt,ResearchBlue!65!black] (b.east) to[bend right=13] node[above,pos=.60,font=\tiny] {high} (f2.west);
+ \end{tikzpicture}
+-\caption{Shared Boolean cofactors across two BDD outputs do not automatically dictate the lowest-area physical gate sharing. The MUX notation is illustrative; emitted gates use only AND2/OR2/NOT.}\label{fig:example}
++\caption{Two Shannon decompositions reuse the same high cofactor $b$; each output has a distinct low cofactor. The diagram shows functional dependence, not priced gate edges; the MUX is conceptual rather than an allowed physical primitive.}\label{fig:example}
+ \end{figure}
+ 
+ \subsection{Representation and candidate diversification}
+@@ -165,11 +180,11 @@
+ For example, in the illustrative two-output network of Section~III, gate $7$ is both output $y_1$ and an input of gate $8$. With $D_{\rm target}=8$ and $d_{\mathrm{OR2}}=2$, it receives $R_G(7)=\min\{8,8-2\}=6$, not $8$. This output-as-fanin case motivates the non-strict bound in the proposition.\par
+ The restriction to \emph{fixed externally visible boundaries} matters: an arbitrary rewrite changing fanout or dependencies cannot rely on stale $R_G$ values. After accepted changes, required times should be refreshed before applying this argument to a new incumbent. The frozen implementation also recomputes full-DAG costs for each completed candidate and accepts only a better ranked feasible realization where available; a whole-network delay check is the authoritative engineering safeguard, not a proof that all possible rewrites preserve timing.\subsection{Round 3 development-path evidence}
+ The newly archived Round 3 ablation summary gives sequential development snapshots (Fig.~\ref{fig:r3ablation}). The recorded aggregate areas evolve as $790{,}243\rightarrow777{,}324\rightarrow770{,}195\rightarrow762{,}164\rightarrow586{,}218\rightarrow543{,}209\rightarrow533{,}705$ across portfolio, complemented-BDD, affine, balancing, slack-recovery, reverse-order and fallback configurations. In this sequence the transition from balanced cones to slack-aware recovery changes area by $175{,}946$, a substantial measured improvement \emph{in that development configuration}. However, the figures are not a randomized factorial ablation: earlier changes remain enabled, and the separately listed implication experiment is a branch rather than another stage in the sequential path. Neither the transition nor the final figure identifies an independent average treatment effect of a single pass.
+-\begin{figure}[t]
+-\centering\includegraphics[width=\columnwidth]{../shared/figures/round3_ablation_path.pdf}
++\begin{figure*}[!t]
++\centering\includegraphics[width=.76\textwidth]{../shared/figures/round3_ablation_path.pdf}
+ \caption{Round 3 archived sequential development snapshots. Areas are historical full-program evaluator results; the isolated contribution of each module cannot be read causally from this line.}
+ \label{fig:r3ablation}
+-\end{figure}
++\end{figure*}
+ 
+ \subsection{Global phase choices and algebraic factoring}
+ Round 4 introduces a phase bit $p_v$ for an intermediate Boolean function $f_v$, allowing its stored realization to compute $g_v=\neg^{p_v}f_v$. When a node changes phase, De Morgan's laws interchange AND/OR while potentially moving or sharing NOT gates across fanouts. A coordinate-descent search estimates area for candidate phase assignments; actual DAG area and delay, rather than the surrogate, determine acceptance. A separate algebraic pass applies absorption and factoring identities such as
+@@ -186,11 +201,11 @@
+ 
+ \subsection{Round 4 postprocessing ablation}
+ The Round 4 postprocessing record contains per-case areas for the original Round 3 circuits and five ways of selecting algebraic and phase rewrites. Summing the 25 input cases yields $533{,}705$ (original), $532{,}416$ (algebra only), $533{,}378$ (phase only), $532{,}078$ (phase then algebra), and $532{,}080$ (algebra then phase). Choosing the lowest tested area separately for each case yields $532{,}070$, a saving of $1{,}635$ against the original circuit set. The best-per-case result is a selector over recorded strategies, not one uniform transformation order. Most importantly, \emph{these numbers exclude the later variable-order exploration}: the complete Round 4 candidate reached $528{,}910$ on its archived Stage 1 run. This distinction prevents wrongly attributing the whole Round 3-to-4 improvement to the two local postprocessors.
+-\begin{figure}[t]
+-\centering\includegraphics[width=\columnwidth]{../shared/figures/round4_postprocess_ablation.pdf}
++\begin{figure*}[!t]
++\centering\includegraphics[width=.76\textwidth]{../shared/figures/round4_postprocess_ablation.pdf}
+ \caption{Round 4 postprocessor-only comparison, aggregated from the original 25-row ablation CSV. The horizontal axis distinguishes alternative treatment orders and a per-case minimum; this is not the complete R4 variable-order portfolio.}
+ \label{fig:r4ablation}
+-\end{figure}
++\end{figure*}
+ 
+ \section{A More Efficient Synthesis Engine}
+ The area improvements of Rounds 3--4 exposed a different bottleneck. More candidates or more local rewrite passes can reduce circuit cost, but also consume the finite time available for synthesis. We therefore changed the optimization target of the \emph{program itself}: first eliminate identical work, then reduce representation overhead, instead of immediately removing potentially useful search candidates. The empirical claim to test is lower synthesis time with unchanged completed-candidate semantics, not a new Boolean identity.
+@@ -272,7 +287,7 @@
+ \subsection{Round 6.1 development-budget evidence}
+ For the \emph{larger development set of 16 generated functions}, the archived cut-postprocessor study records local area saved of $358$, $408$, and $501$ at nominal search budgets of $25$, $35$, and $45$ ms, with corresponding median postprocessor wall times $31.66$, $40.89$, and $52.38$ ms (Fig.~\ref{fig:budget}). The 40-function mixed development set records $213$ area saved at each budget, with medians $4.84$, $4.59$, and $4.91$ ms, respectively. This contrast supports a workload-dependent diminishing-return analysis; it does \emph{not} supply 25-case official final Area, and these development sets must not be presented as previously unseen holdouts. The ultimately selected 25 ms budget is a local engineering choice, not a proof of optimality.
+ \begin{figure}[t]
+-\centering\includegraphics[width=.95\columnwidth]{../shared/figures/round61_budget_tradeoff.pdf}
++\centering\includegraphics[width=\columnwidth]{../shared/figures/round61_budget_tradeoff.pdf}
+ \caption{Round 6.1 local cut-search budget study on 16 larger \emph{development} functions. Annotations give local median wall time; neither axis reports the full official Stage 1 synthesizer runtime.}
+ \label{fig:budget}
+ \end{figure}
+@@ -282,6 +297,14 @@
+ Our experimental argument has three distinct stages: establish a correct legal circuit, compare its measured cost with an appropriate baseline, and decide whether the gain is worth the additional synthesis work. A proof of a Boolean identity addresses the first stage but cannot establish the second; a smaller area total cannot, by itself, establish the third. We therefore report status, deadline feasibility, area and runtime separately, and reserve same-run paired measurements for runtime claims.
+ 
+ We evaluated archived source snapshots using the course Linux x86 evaluator. For each published case we record the official status, whether the target was met, circuit area, circuit delay, and measured synthesis runtime. Independent simulation checks gate legality and Boolean functions; small cases were exhaustively enumerated while larger cases used deterministic sampling in the independent checker. The official evaluator is the primary full-case correctness reference. We also ran generated structure families to probe regressions. We do \emph{not} infer unseen Stage 2 performance or claim that local wall-clock runtime is identical to a designated grading server.
++
++\subsection{Supplementary test generation and evaluation protocol}
++The published Stage 1 instances were the main development benchmark; supplementary instances were constructed by deterministic generators to test different Boolean structures and sizes. Each retained generator specifies a seed, the number of inputs $n$ and outputs $m$, per-gate area/delay costs, a delay target, and the truth bits of every output for all $2^n$ assignments. The accompanying manifests record input-file SHA-256 values. Sampling a Boolean-function \emph{family} is distinct from sampling independent truth bits: affine, sparse-SOP, threshold, multiplexor, arithmetic, shared-cone, small lookup-table, and seeded gate-DAG functions exercise different kinds of regularity and sharing.
++
++For Round 5.1, the separately archived scripts specify $80$ mixed functions ($4\leq n\leq15$ in the generator, with family-specific caps, mostly $1$--$4$ outputs), and $16$ larger structured functions ($n\in\{12,14,16,17\}$; $m\in\{8,10,12,14\}$). A preexisting $110$-case suite and two stress cases serve as \emph{regression} evidence rather than fresh holdouts. In Round 6.1, after the selected cut budget was fixed, a new seeded $40$-case mixed suite ($8\leq n\leq13$, $3$--$5$ outputs) and an $8$-case larger suite ($n\in\{12,14,16,17\}$) were evaluated. The 25/35/45-ms budget sweeps used \emph{development} functions and are explicitly excluded from the independent-holdout claim.
++
++Each generated instance is evaluated under the same legal netlist and Boolean-equivalence contract as an official case, but with its own chosen costs and target. We compare each candidate against the frozen comparator on identical instances, separating correctness, target satisfaction, area, delay, and runtime. A seeded holdout reduces reuse of the published cases, but does not estimate performance on the unknown Stage 2 distribution. Moreover, fixed seeds and source manifests provide repeatability, not a statistical confidence interval or proof that selection effects are absent. The included \texttt{TEST\_SUITE\_PROTOCOL.md} documents exact generators, archived seeds, function families and the evidence role of each suite; original inputs are not republished in the paper archive.
++
+ 
+ Figure~\ref{fig:history} shows one designated WSL archive per round; these archives were not an interleaved experiment, so the plot supports an \emph{area evolution} story, not a causal cross-round runtime claim. For performance comparisons, Fig.~\ref{fig:paired} instead uses official CSVs from each same-run paired benchmark. Precise source ZIP names and member paths are retained alongside the CSV tables in the supplementary evidence manifest.
+ 
+@@ -295,22 +318,7 @@
+ \caption{Within-run WSL paired comparisons of median synthesis runtime. For comparisons having two paired runs, the plotted bar is the mean of the two per-run medians. Different comparison groups have distinct loads and cannot be interpreted as one continuous randomized experiment.}\label{fig:paired}
+ \end{figure*}
+ 
+-\begin{table}[!t]
+-\centering\caption{Milestones using selected local WSL runs}\label{tab:milestones}
+-\footnotesize\setlength{\tabcolsep}{3pt}
+-\begin{tabular}{@{}lrrr@{}}\toprule
+-Version & PASS & Target & Area sum \\ \midrule
+-R1 baseline &25/25&12/25&1,103,455\\
+-R2 hybrid &25/25&25/25&790,243\\
+-R3 timed map &25/25&25/25&533,705\\
+-R4 polarity &25/25&25/25&528,910\\
+-R4.1 Balanced &25/25&25/25&529,014\\
+-R5 caching &25/25&25/25&529,014\\
+-\textbf{R5.1 typed DAG}&\textbf{25/25}&\textbf{25/25}&\textbf{529,014}\\
+-R6.0 cut proto.&25/25&25/25&528,738\\
+-R6.1 budgeted&25/25&25/25&528,854\\ \bottomrule
+-\end{tabular}
+-\end{table}
++\input{../shared/data/milestones_with_runtime.tex}
+ 
+ Round 1 to Round 5.1 reduces aggregate area by 574,441, about 52.1\%, across the archived published-case results. The largest improvement occurs through representation diversification and timing-aware mapping (Rounds 2--3), rather than the later runtime refactors. The Stage 1 Round 5.1 official per-case result table is provided in Table~\ref{tab:fullcases}.
+ 
+@@ -420,14 +428,8 @@
+ \end{table}
+ 
+ \section{Reproducibility and Data Lineage}
+-The accompanying evidence archive retains the original Round 3 and 4 ablation CSVs, both Round 6.1 budget JSON files, the research-freeze SHA-256 manifest and the labeled terminal transcription for the single-case Peak RSS. Its plotting script regenerates the new ablation figures from normalized CSVs. The original authorship identifiers are confirmed, but individual roles and the final AI-assistance statement still require review. The writing archive retains: (i) selected official metric CSVs, (ii) source and original-run SHA-256 manifests, (iii) a source-linked evidence matrix, (iv) extraction, provenance-checking and plotting scripts, and (v) generated figure PDFs and PNGs. Original program sources and instructor test assets are held in separate, access-controlled archives. The extraction code checks that each selected official CSV has exactly 25 cases and all report PASS. It does not modify runtime values or impute missing cases. A re-analysis of complete historical runs requires the separately archived local-results ZIP files, which are not replicated inside this writing package to avoid duplicating large netlists. Compiling this paper uses the system IEEEtran class, pdfLaTeX; an editable BibTeX database is also supplied, while this self-contained draft uses a corresponding inline bibliography.
+-
+-\begin{thebibliography}{9}
+-\bibitem{shannon1949} C. E. Shannon, ``The synthesis of two-terminal switching circuits,'' \emph{Bell System Technical Journal}, vol. 28, no. 1, pp. 59--98, 1949.
+-\bibitem{bryant1986} R. E. Bryant, ``Graph-based algorithms for Boolean function manipulation,'' \emph{IEEE Transactions on Computers}, vol. C-35, no. 8, pp. 677--691, 1986, doi: 10.1109/TC.1986.1676819.
+-\bibitem{brayton1984} R. K. Brayton, G. D. Hachtel, C. McMullen, and A. L. Sangiovanni-Vincentelli, \emph{Logic Minimization Algorithms for VLSI Synthesis}. Kluwer, 1984.
+-\bibitem{mishchenko2006} A. Mishchenko, S. Chatterjee, and R. K. Brayton, ``DAG-aware AIG rewriting: A fresh look at combinational logic synthesis,'' in \emph{Proc. 43rd ACM/IEEE Design Automation Conf.}, 2006, pp. 532--535, doi: 10.1145/1146909.1147048.
+-\bibitem{abc} Berkeley Logic Synthesis and Verification Group, ``ABC: A system for sequential synthesis and verification,'' \url{https://github.com/berkeley-abc/abc} (accessed Nov. 2026).
+-\bibitem{coursehandout} UFUG2106 Course Staff, \emph{Final Project (Tentative): Truth Table to Circuit}, instructor-distributed specification, 2026.
+-\end{thebibliography}
++The accompanying evidence archive retains the original Round 3 and 4 ablation CSVs, both Round 6.1 budget JSON files, the research-freeze SHA-256 manifest and the labeled terminal transcription for the single-case Peak RSS. Its plotting script regenerates the new ablation figures from normalized CSVs. The original authorship identifiers are confirmed, but individual roles and the final AI-assistance statement still require review. The writing archive retains: (i) selected official metric CSVs, (ii) source and original-run SHA-256 manifests, (iii) a source-linked evidence matrix, (iv) extraction, provenance-checking and plotting scripts, and (v) generated figure PDFs and PNGs. Original program sources and instructor test assets are held in separate, access-controlled archives. The extraction code checks that each selected official CSV has exactly 25 cases and all report PASS. It does not modify runtime values or impute missing cases. A re-analysis of complete historical runs requires the separately archived local-results ZIP files, which are not replicated inside this writing package to avoid duplicating large netlists. Compiling this paper uses IEEEtran and BibTeX with the 	exttt{IEEEtran.bst} bibliography style; both manuscripts load the shared 	exttt{references.bib}. The course handout is cited as privately distributed material and is not assigned an invented public URL.
++
++\bibliographystyle{IEEEtran}
++\bibliography{../shared/bibliography/references}
+ \end{document}

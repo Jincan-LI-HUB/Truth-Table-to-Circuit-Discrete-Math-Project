@@ -1,0 +1,27 @@
+{
+  "round3_development_ablation.csv": {
+    "origin": "ablation_summary(1).csv",
+    "sha256": "4163f88fb4451388fa46249cbfe943bfcee0ce0a509717da3c45d6cf40bf6997",
+    "package_path": "shared/data/raw_evidence/round3_development_ablation.csv"
+  },
+  "round4_postprocessing_ablation.csv": {
+    "origin": "Round4_postprocess_comparison.csv",
+    "sha256": "ac829ca71587f549b0965d52f75d221e363f66b1c17703f36fc9503e2041c397",
+    "package_path": "shared/data/raw_evidence/round4_postprocessing_ablation.csv"
+  },
+  "round61_budget_development_mixed.json": {
+    "origin": "development_budget_ablation.json",
+    "sha256": "df59a216d9297617dfed4efef6d4963203bd1660c40a927329a23a1b6fbf769b",
+    "package_path": "shared/data/raw_evidence/round61_budget_development_mixed.json"
+  },
+  "round61_budget_development_large.json": {
+    "origin": "development_budget_ablation_large.json",
+    "sha256": "8e9ec20b46284404fed0e094310f960ee256a348129e292f41de3d689b57ab78",
+    "package_path": "shared/data/raw_evidence/round61_budget_development_large.json"
+  },
+  "stage1_round51_research_freeze_manifest.json": {
+    "origin": "FREEZE_MANIFEST.json",
+    "sha256": "4683628fcb165e25e7aeda0b2001539de940a7f8a9f2140f6012a2cf54815fc4",
+    "package_path": "shared/data/raw_evidence/stage1_round51_research_freeze_manifest.json"
+  }
+}

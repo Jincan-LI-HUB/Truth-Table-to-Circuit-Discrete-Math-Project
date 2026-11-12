@@ -1,0 +1,8 @@
+{
+  "mean_of_run_medians": {
+    "round5": 66.5075,
+    "round51": 55.2825
+  },
+  "median_reduction_pct": 16.877795737322852,
+  "byte_identical_run1": 25
+}

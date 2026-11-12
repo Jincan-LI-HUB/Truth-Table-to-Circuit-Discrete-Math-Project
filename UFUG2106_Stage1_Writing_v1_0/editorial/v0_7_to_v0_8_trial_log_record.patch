@@ -1,0 +1,74 @@
+--- v0.7/trial_log_record/main.tex
++++ v0.8/trial_log_record/main.tex
+@@ -79,11 +79,13 @@
+ \usepackage{hyperref}
+ \usepackage{bookmark}
+ \input{../shared/palette.tex}
++% Readable muted link color derived from the eight-color project palette.
++\colorlet{ResearchLink}{ResearchBlue!35!black}
+ \hypersetup{
+   colorlinks=true,
+-  linkcolor=blue,
+-  citecolor=blue,
+-  urlcolor=blue,
++  linkcolor=ResearchLink,
++  citecolor=ResearchLink,
++  urlcolor=ResearchLink,
+   pdfborder={0 0 0}
+ }
+ 
+@@ -250,8 +252,10 @@
+ \textbf{Purpose.} This document records the \emph{path of reasoning}: what prompted each new algorithm, why the mathematical construction works, what the measurements show, and why the next experiment followed. It is intended for later self-study and transparent public research presentation. It is \emph{not} a replacement for the shorter Stage 1 technical report or for the primary evidence ZIPs.
+ \end{tcolorbox}
+ \vfill
+-\textbf{Version status:} Draft v0.7, with verified author names and a frozen Round 5.1 research source. Individual roles, AI-use disclosure and actual Canvas submission remain to be confirmed.\par
++\textbf{Version status:} Draft v0.8, with verified author names and a frozen Round 5.1 research source. Individual roles, AI-use disclosure and actual Canvas submission remain to be confirmed.\par
+ \end{titlepage}
++% The round-level contents deliberately suppress the many nested subsections.
++\setcounter{tocdepth}{1}
+ \tableofcontents
+ \clearpage
+ 
+@@ -259,6 +263,9 @@
+ This log is intentionally more explanatory than a conventional technical paper. A reader need not know BDDs, implicants, or logic synthesis in advance. We begin with complete truth tables and the three allowed gates, then explain how each design limitation motivates the next technique. Whenever a mathematical identity is used, we distinguish that \emph{the Boolean function is preserved} from the separate empirical claim that \emph{the resulting circuit is cheaper or faster to synthesize}.
+ 
+ The research was not one straight sequence of uniformly better algorithms. Some changes reduced area at considerable runtime cost; a few optimization proposals were not retained. Consequently, the final architectural choice is not simply ``the version with the smallest aggregate area.'' Round 5.1 is retained as the principal efficiency candidate, while Round 4.1 Strict and Rounds 6.0/6.1 provide informative alternative points on the engineering tradeoff.
++
++\subsection{Two reading routes}
++Readers who are new to logic synthesis should begin with the synthesis problem and the recurring three-input, two-output example, then follow Rounds 1--3 to see why representation and timing analysis are needed. Readers primarily interested in the engineering decisions can begin with the research map, examine the paired runtime and cut-rewriting results in Rounds 4.1--6.1, and finish with the evidence and reflection sections. Both routes rely on the same definitions and archived measurements; the shorter Technical Report presents the selected method rather than every development turn.
+ 
+ \subsection{What the metrics do and do not mean}
+ For a legal netlist $G$ with gate-type areas $a_t$ and delays $d_t$, the output-file area is
+@@ -270,6 +277,23 @@
+  T(v)=\max_{u\in\mathrm{fanin}(v)}T(u)+d_{\operatorname{op}(v)},\quad D(G)=\max_{y\in\mathrm{outputs}}T(y),
+ \end{equation}
+ with source arrival zero (for NOT, the maximum has one argument). Finally, the synthesizer runtime $T_{\rm synth}$ is the wall-clock time of the \emph{program constructing $G$}, not the propagation delay $D(G)$. These are dimensionally and conceptually different. The official evaluator additionally distinguishes the Boolean/format/limit status \texttt{PASS} from \texttt{target\_met}. The provided project instructions and evaluator interface do not reveal a numerical grading formula, so our totals across cases are engineering diagnostics rather than an official grade.
++
++\subsection{A short notation guide}
++The same symbols recur at different stages of the project. The distinction between the Boolean function and its implementation matters throughout:
++\begin{table}[H]
++\centering\small
++\caption{Notation used throughout the trial record. These are definitions, not performance claims.}\label{tab:notation}
++\begin{tabularx}{\textwidth}{@{}p{.25\textwidth}X@{}}\toprule
++\textbf{Symbol} & \textbf{Meaning}\\\midrule
++$F$ or $f$ & Desired Boolean output vector or a single Boolean function from the input truth table.\\
++$G$ & Concrete, directed acyclic gate network realizing $F$.\\
++$A(G)$ & Charged area of all live gates in $G$ (shared gates count once).\\
++$D(G)$ & Maximum output arrival time; a property of the circuit.\\
++$T_{\rm synth}$ & Wall-clock runtime of the synthesis \emph{program}, not the circuit delay.\\
++$T(v),R(v)$ & Arrival time and required arrival time of a node in a fixed network.\\
++$\rho(G)$ & The program's internal lexicographic candidate ranking, not an official score.\\
++\bottomrule\end{tabularx}
++\end{table}
+ 
+ \subsection{The frozen solver's ranking is not the evaluator's score}
+ The Round 5.1 code uses a lexicographic tuple
+@@ -697,7 +721,7 @@
+ \section{Reflection and next steps}
+ \textbf{Research lesson.} A mathematical identity can certify equivalence; a cost model determines whether the identity is economically useful; a benchmark reports how a particular implementation behaved; and an adoption rule explains why that behavior warranted changing the default. Treating these as separate levels of reasoning is the central habit this project developed. The largest early improvements came from changing the search representation and acknowledging global timing; the later rounds taught us when \emph{not} to trade a large amount of computation for a tiny area gain.
+ 
+-The project begins with a basic identity from discrete mathematics, but the practical problem quickly becomes one of \emph{shared structure, global constraints and resource-aware search}. The running example gives a compact test of this lesson: a cofactor is a function, a BDD edge is a structural reference, a gate is a charged physical operation, and a path is a timed dependency. Saving a reference, eliminating a live gate, and shortening the critical path are three different events. The most decisive insight was not a particular identity by itself. It was learning when the relevant object changed: from a Boolean function, to an ROBDD of shared cofactors, to a priced physical gate DAG, to a deadline-constrained graph, and finally to an algorithm that consumes computation and memory while exploring candidate graphs.
++The same small example clarifies what changes at each layer: a cofactor is a function, a BDD edge is a structural reference, a gate is a charged operation, and a path is a timed dependency. Reusing a reference, eliminating a live gate, and shortening a critical path are not interchangeable. This progression---Boolean function, shared decision graph, priced gate DAG, constrained timing graph, and resource-consuming search program---is the conceptual thread connecting the rounds.
+ 
+ An area-optimization algorithm can be mathematically sound and still be the wrong engineering choice when its marginal improvement is dwarfed by synthesis time. Preserving that negative result demonstrates an appropriate stopping criterion, especially under a rubric that rewards deep understanding and justified conceptual application. We therefore freeze Round 5.1 as the principal Stage 1 engineering baseline and preserve Rounds 6.0/6.1 as exploration branches, subject to the students' final submission choice.
+ 

@@ -1,0 +1,27 @@
+PASS case_001.txt | n=15 m=14 exit_code=0 area=61950 delay=62 runtime_ms=791.549 target_delay=77 target_met=yes delay_excess=0
+PASS case_002.txt | n=14 m=14 exit_code=0 area=18897 delay=60 runtime_ms=298.676 target_delay=61 target_met=yes delay_excess=0
+PASS case_003.txt | n=14 m=14 exit_code=0 area=24235 delay=56 runtime_ms=346.061 target_delay=64 target_met=yes delay_excess=0
+PASS case_004.txt | n=13 m=10 exit_code=0 area=4550 delay=47 runtime_ms=73.024 target_delay=57 target_met=yes delay_excess=0
+PASS case_005.txt | n=8 m=5 exit_code=0 area=700 delay=31 runtime_ms=36.309 target_delay=36 target_met=yes delay_excess=0
+PASS case_006.txt | n=12 m=12 exit_code=0 area=5960 delay=46 runtime_ms=84.548 target_delay=60 target_met=yes delay_excess=0
+PASS case_007.txt | n=20 m=15 exit_code=0 area=78042 delay=71 runtime_ms=1080.332 target_delay=89 target_met=yes delay_excess=0
+PASS case_008.txt | n=12 m=12 exit_code=0 area=8637 delay=50 runtime_ms=93.055 target_delay=62 target_met=yes delay_excess=0
+PASS case_009.txt | n=12 m=6 exit_code=0 area=14584 delay=46 runtime_ms=121.285 target_delay=59 target_met=yes delay_excess=0
+PASS case_010.txt | n=19 m=8 exit_code=0 area=4602 delay=32 runtime_ms=199.758 target_delay=61 target_met=yes delay_excess=0
+PASS case_011.txt | n=10 m=5 exit_code=0 area=464 delay=33 runtime_ms=40.286 target_delay=40 target_met=yes delay_excess=0
+PASS case_012.txt | n=10 m=10 exit_code=0 area=5272 delay=25 runtime_ms=74.183 target_delay=40 target_met=yes delay_excess=0
+PASS case_013.txt | n=14 m=14 exit_code=0 area=11248 delay=60 runtime_ms=159.776 target_delay=70 target_met=yes delay_excess=0
+PASS case_014.txt | n=20 m=8 exit_code=0 area=11642 delay=61 runtime_ms=420.061 target_delay=72 target_met=yes delay_excess=0
+PASS case_015.txt | n=16 m=16 exit_code=0 area=33374 delay=64 runtime_ms=518.554 target_delay=81 target_met=yes delay_excess=0
+PASS case_016.txt | n=10 m=5 exit_code=0 area=2149 delay=40 runtime_ms=63.561 target_delay=47 target_met=yes delay_excess=0
+PASS case_017.txt | n=13 m=12 exit_code=0 area=440 delay=22 runtime_ms=12.529 target_delay=25 target_met=yes delay_excess=0
+PASS case_018.txt | n=12 m=12 exit_code=0 area=1232 delay=31 runtime_ms=19.207 target_delay=32 target_met=yes delay_excess=0
+PASS case_019.txt | n=18 m=8 exit_code=0 area=5299 delay=57 runtime_ms=188.692 target_delay=73 target_met=yes delay_excess=0
+PASS case_020.txt | n=8 m=8 exit_code=0 area=766 delay=30 runtime_ms=37.594 target_delay=35 target_met=yes delay_excess=0
+PASS case_021.txt | n=15 m=14 exit_code=0 area=28104 delay=60 runtime_ms=534.949 target_delay=72 target_met=yes delay_excess=0
+PASS case_022.txt | n=8 m=16 exit_code=0 area=1320 delay=31 runtime_ms=46.020 target_delay=34 target_met=yes delay_excess=0
+PASS case_023.txt | n=8 m=4 exit_code=0 area=124 delay=22 runtime_ms=10.226 target_delay=24 target_met=yes delay_excess=0
+PASS case_024.txt | n=18 m=8 exit_code=0 area=124475 delay=70 runtime_ms=2496.493 target_delay=83 target_met=yes delay_excess=0
+PASS case_025.txt | n=15 m=15 exit_code=0 area=80684 delay=60 runtime_ms=1034.435 target_delay=76 target_met=yes delay_excess=0
+25/25 passed; report: /mnt/data/UFUG2106_Round6.1_Delivery/results/official/round61.csv
+EVALUATOR_WALL_S=20.10

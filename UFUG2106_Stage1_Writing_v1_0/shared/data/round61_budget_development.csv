@@ -1,0 +1,7 @@
+dataset,case_count,budget_ms,area_saved,cases_improved,median_wall_ms,mean_wall_ms,scope
+mixed_development,40,25,213,20,4.84,6.53,Cut postprocess development only; not official full-synthesis Stage1 metric
+mixed_development,40,35,213,20,4.59,6.66,Cut postprocess development only; not official full-synthesis Stage1 metric
+mixed_development,40,45,213,20,4.91,6.5,Cut postprocess development only; not official full-synthesis Stage1 metric
+larger_development,16,25,358,10,31.66,32.3,Cut postprocess development only; not official full-synthesis Stage1 metric
+larger_development,16,35,408,12,40.89,41.18,Cut postprocess development only; not official full-synthesis Stage1 metric
+larger_development,16,45,501,12,52.38,51.9,Cut postprocess development only; not official full-synthesis Stage1 metric

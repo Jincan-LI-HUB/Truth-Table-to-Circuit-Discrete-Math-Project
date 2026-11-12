@@ -1,0 +1,18 @@
+\begin{table*}[!t]
+\centering\caption{Stage 1 milestones from individually archived WSL official-evaluator results}\label{tab:milestones}
+\small\setlength{\tabcolsep}{11pt}
+\begin{tabular}{@{}lccrr@{}}\toprule
+Version & PASS & Target met & Area sum & Median synthesis runtime (ms) \\ \midrule
+R1 baseline & 25/25 & 12/25 & 1,103,455 & 5.455 \\
+R2 hybrid & 25/25 & 25/25 & 790,243 & 36.427 \\
+R3 timed map & 25/25 & 25/25 & 533,705 & 68.486 \\
+R4 polarity & 25/25 & 25/25 & 528,910 & 127.568 \\
+R4.1 Balanced & 25/25 & 25/25 & 529,014 & 102.615 \\
+R5 caching & 25/25 & 25/25 & 529,014 & 68.861 \\
+\textbf{R5.1 typed DAG} & \textbf{25/25} & \textbf{25/25} & \textbf{529,014} & \textbf{55.488} \\
+R6.0 cut proto. & 25/25 & 25/25 & 528,738 & 114.610 \\
+R6.1 budgeted & 25/25 & 25/25 & 528,854 & 80.731 \\
+\bottomrule\end{tabular}
+\par\vspace{2pt}
+\parbox{0.92\textwidth}{\footnotesize\emph{Comparability:} each row is one designated historical WSL run, not a randomized same-run comparison of every round. Runtime is the median of 25 official \texttt{runtime\_ms} values for that one archive; use Fig.~\ref{fig:paired} for directly paired runtime evidence. Values were not normalized across CPU loads.}
+\end{table*}

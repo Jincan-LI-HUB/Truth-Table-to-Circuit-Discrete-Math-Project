@@ -1,0 +1,146 @@
+--- /mnt/data/UFUG2106_Stage1_Writing_Draft_v0_5_Narrative/trial_log_record/main.tex	2026-11-11 15:44:17.716666445 +0000
++++ /mnt/data/UFUG2106_Stage1_Writing_Draft_v0_6_Deep_Exposition/trial_log_record/main.tex	2026-11-11 15:58:16.719540855 +0000
+@@ -313,6 +313,10 @@
+ 
+ A second early realization is that the optimum is constrained rather than scalar. The natural question is whether we can reduce $A(G)$ while keeping $D(G)\le D_{\rm target}$ and avoiding program limits. We will repeatedly return to this distinction.
+ 
++\begin{tcolorbox}[colback=ResearchIvory!75,colframe=ResearchSlate,title=Four levels of objects: keep them separate]
++The \emph{truth table} is the specification of $F$. A \emph{BDD} is one compact way to represent that function by recursive decisions. A \emph{gate DAG} is the actual implementation with fanout, prices, and timing. Finally, the \emph{synthesizer} is the program searching for such DAGs and consuming CPU time and memory. A theorem about one level must not silently be turned into a performance claim about another.
++\end{tcolorbox}
++
+ \section{A recurring three-input, two-output example}
+ This running example will distinguish Boolean reasoning, structural representation and priced implementation throughout the log. Let
+ \[
+@@ -328,6 +332,16 @@
+ \end{center}
+ \textbf{Shannon step.} Restriction at $a=0$ gives $f_1=c$ and $f_2=b\lor c$; restriction at $a=1$ gives $f_1=f_2=b$. Therefore the two output BDDs share the $b$ cofactor. Yet a shared \emph{BDD node} is not a physical gate, and shared gate placement must be decided after mapping.
+ 
++To make the reduction visible, the root decisions can be written as
++\[
++\begin{array}{c|cc}
++ & a=0 & a=1\\\hline
++f_1 & c & b\\
++f_2 & b\lor c & b
++\end{array}.
++\]
++One decision graph with root $a$ for each output therefore points to the \emph{same} residual subproblem $b$ in both high branches. The equality of two cofactors is a mathematical reason for merging them; no heuristic guess is involved. It does \emph{not} imply that a post-mapping hardware node has to be reused at every possible location.
++
+ \textbf{A legal netlist.} Using ID $0$ for constant zero and IDs $1,2,3$ for $a,b,c$, take
+ \[
+ \begin{array}{c|l}
+@@ -344,6 +358,8 @@
+ 
+ \textbf{A useful surprise.} Absorption changes $f_2$ to $b\lor(\neg a\land c)$. Gate $8$ can therefore use inputs $(2,6)$ without changing any other line, producing the same two Boolean outputs and the same area, but output $f_2$ then arrives at time $5$. This is not a global optimum proof; it is a controlled illustration of why algebra, fanout and timing must be considered jointly.
+ 
++\textbf{What happens to required time after a rewrite?} After absorbing $f_2$ into the direct gate $8=\mathrm{OR2}(2,6)$, gate $7$ no longer feeds gate $8$, although it remains the first primary output. Its \emph{new} required time becomes $R'(7)=8$ rather than $6$. Thus a valid rewrite can change the fanout graph and the required-time constraints even when it preserves both Boolean outputs. This is exactly why old required times are local proof tools for a \emph{fixed-boundary} rewrite, not numbers that may safely be reused after arbitrary restructuring.
++
+ \section{Round 1: obtain an indisputably correct construction}
+ \subsection{Observation and motivation}
+ Before comparing elaborate heuristics, we need a constructor that never relies on guessing hidden circuit structure. A complete table does not disclose the network that produced it, and many distinct networks can implement exactly the same function. The logical target should therefore be \emph{equivalence to the table}, not reconstruction of a hypothetical unique original gate diagram.
+@@ -384,6 +400,8 @@
+ \end{equation}
+ A variable with large influence is frequently decisive. The heuristic places such variables earlier in one candidate order. This is a plausible structural guide, \emph{not} an optimality theorem: sensitivity and BDD node count are different notions, and neither captures weighted gate area by itself.
+ 
++\paragraph{Compute influence instead of taking it on faith.} In the running example, $f_1$ chooses $c$ when $a=0$ and $b$ when $a=1$. Flipping $a$ changes the output precisely when $b\ne c$, which occurs on two of the four $(b,c)$ assignments. Therefore $I_a(f_1)=1/2$. Flipping $b$ changes $f_1$ when $a=1$, while flipping $c$ changes it when $a=0$; so $I_b(f_1)=I_c(f_1)=1/2$ as well. Influence cannot distinguish the selector from either data signal for this function. By contrast, $f_2=b\lor(\neg a\land c)$ has $I_b(f_2)=3/4$ and $I_a(f_2)=I_c(f_2)=1/4$. The combined influence ordering can be useful but is inevitably sensitive to how multiple outputs are aggregated. It does not know the actual gate prices or the quality of downstream sharing.
++
+ \subsection{Two-level Shannon expansion}
+ One first-level decision may create a long chain of nested multiplexor-like logic. The next idea is to expand two levels at once, possibly choosing different second variables in the two branches. Formally,
+ \begin{align*}
+@@ -393,7 +411,13 @@
+ The derivation simply substitutes Shannon's identity into both cofactors. Its advantage is structural: four gated terms can often be computed in parallel and combined with a balanced OR structure, which may shorten the critical path. Its disadvantage is equally important: an expansion can duplicate shared subfunctions and inflate area. It belongs in a \emph{portfolio}, not as an unconditional rewrite.
+ 
+ \subsection{Small-support SOP and POS}
+-The next route does not begin with a BDD at all. A variable is \emph{essential} if its two cofactors differ. When a function depends only on a few essential variables, directly enumerate cubes (partial assignments), derive prime implicants, and select a greedy cover of the function's on-set. An SOP is exact if every selected cube implies the function and their union covers all true minterms. A POS-like implementation can be obtained by covering the complement and negating its result. The optimization is incomplete because greedy cover is not guaranteed minimal, and prime enumeration can become exponential, so the implementation restricts support size.
++The next route does not begin with a BDD at all. A variable is \emph{essential} if its two cofactors differ. When a function depends only on a few essential variables, directly enumerate cubes (partial assignments), derive prime implicants, and select a greedy cover of the function's on-set. An SOP is exact if every selected cube implies the function and their union covers all true minterms. This is worth proving as two inclusions. Every selected cube lies inside the on-set, hence the SOP never outputs $1$ where $f=0$; coverage ensures the SOP never outputs $0$ where $f=1$. Consequently it agrees with $f$ on the entire domain. A POS-like implementation can be obtained by covering the complement and negating its result. The optimization is incomplete because greedy cover is not guaranteed minimal, and prime enumeration can become exponential, so the implementation restricts support size.
++
++\paragraph{A cover on the running example.} Since $f_2=b\lor(\neg a\land c)$, the cube $b$ covers all rows with $b=1$, while $\neg a\land c$ covers the remaining true row with $a=0,b=0,c=1$. Both cubes imply $f_2$, and together they cover its complete on-set: the expression is therefore exact, not merely a plausible simplification. Distributivity also yields the POS
++\[
++ f_2=(b\lor\neg a)\land(b\lor c).
++\]
++Neither canonical form is guaranteed to be cheapest after mapping: an AND2, OR2, or NOT may have different prices, and some of their subexpressions may already exist in another output's graph.
+ 
+ \begin{example}[Factoring is a mapping choice]
+ The SOP $(a\land b)\lor(a\land c)$ is logically equal to $a\land(b\lor c)$. The first exposes two independent AND terms; the second shares $a$ and may use fewer gates. Which has lower delay depends on $d_{\land}$, $d_{\lor}$ and the incoming arrivals. Thus algebraic equality is a correctness fact, while its desirability is a cost fact.
+@@ -410,7 +434,11 @@
+ \subsection{Complemented edges: negation is information before it is a gate}
+ If $g=\neg f$, it seems wasteful to store two unrelated Boolean subgraphs representing $f$ and $g$. A complemented-edge BDD reference stores a regular node identity plus one inversion bit. The graph can share the same structural nodes, while the inversion bit carries the semantic complement. To prevent multiple redundant encodings, the unique table normalizes one child-complement convention before interning nodes. This is a representation optimization; when mapped into physical AND2/OR2/NOT, a required inverter must still be emitted or shared and charged.
+ 
+-An affine detector also recognizes functions $c\oplus\bigoplus_{i\in S}x_i$. If the high cofactor equals the negation of the low cofactor, Shannon decomposition reduces to XOR with the decision variable. This allows structured balanced XOR constructions, lowered through legal gates. It can help parity-like truth tables that ordinary BDD mapping handles awkwardly.
++An affine detector also recognizes functions $c\oplus\bigoplus_{i\in S}x_i$. If the high cofactor equals the negation of the low cofactor, Shannon decomposition reduces to XOR with the decision variable. To check the algebra, write $q=f|_{x=0}$ and $f|_{x=1}=\neg q$; then
++\[
++ f=(\neg x\land q)\lor(x\land\neg q)=x\oplus q.
++\]
++This recognizes one XOR-shaped decision, not automatically an arbitrary global affine function; full affine recognition requires the appropriate recursive consistency across the remaining variables. It can allow structured balanced XOR constructions, all lowered through legal gates. It can help parity-like truth tables that ordinary BDD mapping handles awkwardly.
+ 
+ \subsection{Why timing slack changes the optimization problem}
+ Imagine a network whose target delay is 30 but whose actual delay to an output is 22. A gate-level rewrite that increases an intermediate arrival by 2 is not automatically harmful if every downstream path still finishes by 30. A greedy ``never increase any arrival'' policy leaves potentially cheaper gates unexplored.
+@@ -456,7 +484,7 @@
+ \begin{equation}
+  g_v=\neg^{p_v}f_v.
+ \end{equation}
+-Changing $p_v$ switches whether its children must be complemented and whether a logical AND is physically realized as an AND or, under De Morgan, as an OR on the opposite phases. A shared NOT is paid once per realized source polarity, not once per fanout. We evaluate a surrogate phase objective and use coordinate descent as a heuristic; exact output DAG area and delay still decide whether a candidate wins. This is not a global minimum-area solver.
++Changing $p_v$ switches whether its children must be complemented and whether a logical AND is physically realized as an AND or, under De Morgan, as an OR on the opposite phases. For example, if a shared signal $z=u\lor v$ is stored negatively as $\neg z=\neg u\land\neg v$, an AND2 may replace an OR2 but only if the required child polarities can be produced at acceptable cost. No NOT gate is ``free'' merely because the internal BDD reference has an inversion bit. A shared NOT is paid once per realized source polarity, not once per fanout. We evaluate a surrogate phase objective and use coordinate descent as a heuristic; exact output DAG area and delay still decide whether a candidate wins. This is not a global minimum-area solver.
+ 
+ A second pass applies absorption and factoring across shallow gate patterns. Its gains can be small because the original Boolean structure has already been aggressively simplified. It must also avoid an incorrect inference: if one rewrites a local cone to use fewer gates, the entire netlist may remain the same size when its allegedly removed ancestors are still referenced elsewhere.
+ 
+@@ -483,6 +511,8 @@
+ 
+ Two WSL measurements report that the Balanced configuration produces Area 529,014 in both runs; its median runtime is 96.048 and 102.615 ms. Strict preserves Area 528,910, while Fast reaches Area 530,822. In the case-level data, Fast has a conspicuous area regression in \texttt{case\_018}; the small relative area-sum penalty conceals a large localized change. This demonstrates why we record per-case data and not only aggregate sums.
+ 
++\paragraph{What makes two settings genuinely incomparable?} Say configuration $X$ dominates $Y$ if $A_X\le A_Y$ and $T_X\le T_Y$, with at least one strict inequality, under matched evaluations. If $X$ is smaller but slower, neither dominates the other: there is no single unambiguous winner without a scoring utility or an explicit time constraint. Strict and Balanced illustrate exactly this tension. This is a \emph{Pareto} argument, not a claim that area and milliseconds can be added together in a physically meaningful unit.
++
+ \textbf{Research decision:} Balanced becomes the candidate for engineering optimization, not because its gate area is absolutely smallest, but because its area sacrifice relative to Strict is 104 out of roughly 529,000 while lowering median runtime. We retain Strict as the area-oriented comparator.
+ 
+ \section{Round 5: remove recomputation before reducing search quality}
+@@ -494,7 +524,7 @@
+ \begin{equation}
+  C_i=\operatorname{Map}(B(F,\pi),\theta_i).
+ \end{equation}
+-The semantic reason is simple: BDD building depends on $(F,\pi)$, not on how a later gate mapper chooses to realize its nodes. Throughout this log we use $\land$, $\lor$ and $\neg$ for Boolean connectives; $\mathrm{AND2}$, $\mathrm{OR2}$ and $\mathrm{NOT}$ denote gate types in mathematical expressions; and the corresponding monospaced tokens are reserved for literal netlist syntax. In a simplified cost model the repeated build term decreases from $kT_B$ to $T_B$. Crucially, this does \emph{not} imply a $k$-fold overall speedup when mapping or postprocessing dominates. Cached implicant covers follow the same logic: symbolic cube selections depend on the function and deterministic tie-breaking, while physical gate emission remains candidate-specific.
++The semantic reason is simple: BDD building depends on $(F,\pi)$, not on how a later gate mapper chooses to realize its nodes. The cache key is logically meaningful: it must distinguish different truth functions and different variable orders, and the cached graph must not be modified by downstream candidates. If the mapper mutates the shared structure, reuse becomes a correctness risk rather than a safe speedup. Likewise, cache hits justify avoiding computation, not inventing a better Boolean function. Throughout this log we use $\land$, $\lor$ and $\neg$ for Boolean connectives; $\mathrm{AND2}$, $\mathrm{OR2}$ and $\mathrm{NOT}$ denote gate types in mathematical expressions; and the corresponding monospaced tokens are reserved for literal netlist syntax. In a simplified cost model the repeated build term decreases from $kT_B$ to $T_B$. Crucially, this does \emph{not} imply a $k$-fold overall speedup when mapping or postprocessing dominates. Cached implicant covers follow the same logic: symbolic cube selections depend on the function and deterministic tie-breaking, while physical gate emission remains candidate-specific.
+ 
+ Round 5 also removes one provably duplicate candidate when $n>13$. In the frozen configuration the pair differed only by an implicant mode that is disabled for those dimensions, so the two candidate computations were identical. A lightweight line scanner further reduces repeated netlist-statistic overhead.
+ 
+@@ -508,7 +538,7 @@
+ \section{Round 5.1: treat the netlist as a data structure, not repeated text}
+ \textbf{Why another implementation round?} Caching helped with BDDs and covers, but the candidates still passed through several text-to-graph and graph-to-text transformations. Those conversions have no Boolean significance; they exist only because of an inconvenient intermediate representation. Round 5.1 therefore tests whether a typed internal graph can retain the same transformation logic while making it cheaper to execute.
+ \subsection{The engineering hypothesis}
+-A text format is a good external interface but a poor internal representation for repeated graph operations. Instead of parsing a netlist for rebalancing, serializing it, then parsing again for area recovery, Round 5.1 stores a typed gate table $v\mapsto(\mathrm{op},a,b)$ and an explicit output list. Structural hashing interns identical immutable gates; reachability pruning discards dead nodes at the final serialization step. For commutative AND2/OR2 nodes the builder sorts input IDs before hash lookup. For rebalancing, a same-operation internal cone is flattened only when the interior nodes have a single consumer, while output references are included in the fanout count. This matters in a multi-output network: reusing an output as someone else's intermediate result must not cause that shared computation to be silently removed. A topological induction over gate IDs proves the functional equivalence of these associative, commutative and idempotent rewrites; a reverse reachability pass from \emph{all} output roots preserves every live shared gate.
++A text format is a good external interface but a poor internal representation for repeated graph operations. Instead of parsing a netlist for rebalancing, serializing it, then parsing again for area recovery, Round 5.1 stores a typed gate table $v\mapsto(\mathrm{op},a,b)$ and an explicit output list. Structural hashing interns identical immutable gates; reachability pruning discards dead nodes at the final serialization step. For commutative AND2/OR2 nodes the builder sorts input IDs before hash lookup. For rebalancing, a same-operation internal cone is flattened only when the interior nodes have a single consumer, while output references are included in the fanout count. An interior gate used by two consumers cannot simply be dissolved into one of them: the other consumer still needs that signal. In graph terms, only \emph{unshared} associative interiors can be freely re-parenthesized without requiring a separate replacement for the other use. This matters in a multi-output network: reusing an output as someone else's intermediate result must not cause that shared computation to be silently removed. A topological induction over gate IDs proves the functional equivalence of these associative, commutative and idempotent rewrites; a reverse reachability pass from \emph{all} output roots preserves every live shared gate.
+ 
+ If a new gate is created only after its fanins exist, its arrival can be stored immediately:
+ \begin{equation}
+@@ -519,6 +549,9 @@
+ \end{equation}
+ Topological induction proves this stored arrival correct. This is a real \emph{incremental arrival-time} computation, but the implementation does \textbf{not} claim incremental global area accounting. A replacement may free an entire private cone, but a gate that still serves another output remains live. Exact area is recomputed after reachability pruning to avoid charging errors.
+ 
++\paragraph{Follow one gate through the builder.} The input Netlist assigns every gate an ID greater than its fanin IDs. The in-memory parser stores that ordered graph as nodes $(\mathrm{op},a,b)$; the builder can therefore compute $T(v)$ immediately after a new node is created. When two AND2 nodes receive the same two operands in opposite orders, sorting their IDs makes their hash keys identical, which is legal because $u\land v=v\land u$. The key does \emph{not} unify arbitrary Boolean-equivalent but structurally different expressions: that would require more algebraic reasoning. After transformations, the serializer traces backward from \emph{every} output, discards nodes outside the union of their ancestor sets, and renumbers the rest. Induction over this topological order explains both semantic preservation and why a gate feeding multiple outputs must be counted only once.\par
++\textbf{Limits of the proof.} This reasoning assumes each local rewrite implements the intended Boolean identity and that its new dependencies remain acyclic. The actual program still needs parser validation, full-DAG rescoring and independent netlist checks; a correct identity on paper cannot rule out an indexing bug in C++.
++
+ \subsection{Why this is not just another heuristic}
+ Round 5.1 keeps the same mapping policies and internal cost ranking as Round 5. The typed DAG covers the high-frequency candidate balancing/recovery passes, but the final phase/algebraic alternatives still serialize and reparse netlists; the system is not entirely text-free. The aim is to change the \emph{cost of executing} the optimization, not its mathematical candidate space. Accordingly, functional identity and equal output netlists are strong regression checks. In a first WSL paired run all 25 Round 5 and 5.1 outputs were byte-identical; the second had the same per-case areas and delays. Under a clock-bounded search, this remains an empirical property rather than a cross-platform guarantee. In particular, the source uses elapsed-time checks before later modern and legacy candidates, additional postprocessor eligibility thresholds, and periodic time checks for selected BDD orders; none constitutes a hard preemption mechanism for all stages. Since the candidate set is timing-dependent, two correct executions can output different valid netlists while using the same lexicographic ranking. The comparison to Round 5.1 therefore supports an engineering-efficiency claim, not a deterministic-output or optimality theorem.
+ 
+@@ -554,6 +587,14 @@
+ This small mask is the bridge between an arbitrary gate cone and generic Boolean synthesis. Candidate realizations include SOP, complemented SOP/POS, shallow factoring and one-variable Shannon decompositions. All use AND2, OR2 and NOT. The search is \emph{not} complete and should not be called an exact minimum-area optimizer.
+ 
+ \subsection{Why gate sharing makes local estimates dangerous}
++\paragraph{A cut mask that can be checked by hand.} Return to the example's second output $f_2=b\lor(\neg a\land c)$. Treat $(a,b,c)$ as formal cut leaves and number assignments by $s=4a+2b+c$. The rows where $f_2=1$ are $s=1,2,3,6,7$, so its 8-bit truth-function mask is
++\[
++ M_{f_2,\{a,b,c\}}=2^1+2^2+2^3+2^6+2^7=206=\texttt{0xCE}.
++\]
++A local resynthesizer can check candidate expressions against these eight bits \emph{before} considering gate costs. Equality on all formal boundary assignments guarantees equality for the actual boundary signals, even if they are not independently realizable; the guarantee is sufficient, not necessarily a minimal test. It says nothing yet about cycles, the output interface, or area.
++
++\paragraph{Count the surviving DAG, not the rewritten text.} Let $L(G)$ be the set of gates reachable from \emph{any} primary output. With prices $a(v)$, the exact area is $A(G)=\sum_{v\in L(G)}a(v)$. If a candidate ``eliminates'' a gate which still feeds another output, that gate remains in $L(G)$ and its area is not saved. Our running example shows this sharply: after replacing gate $8$, gate $7$ is no longer used by $8$, but must remain because it is still the first output. The original and rewritten circuits both cost $11$; the benefit is delay, not area. A valid local rewrite therefore needs both semantic equality and a complete live-DAG cost check.
++
+ Suppose a cut replacement seems to save a gate $g$. If another output still references $g$, deleting one use does not eliminate its physical cost. Conversely, a rewrite can free several upstream private nodes at once. The implementation conservatively estimates removable gates through reference counts and counts the candidate local cone cost without treating speculative gates from rejected alternatives as free. Only after an actual candidate is produced does it prune and measure the complete graph, retaining it when true area drops and the deadline remains met.
+ 
+ \subsection{Outcome: a successful hypothesis but costly implementation}
+@@ -639,7 +680,7 @@
+ \section{Reflection and next steps}
+ \textbf{Research lesson.} A mathematical identity can certify equivalence; a cost model determines whether the identity is economically useful; a benchmark reports how a particular implementation behaved; and an adoption rule explains why that behavior warranted changing the default. Treating these as separate levels of reasoning is the central habit this project developed. The largest early improvements came from changing the search representation and acknowledging global timing; the later rounds taught us when \emph{not} to trade a large amount of computation for a tiny area gain.
+ 
+-The project begins with a basic identity from discrete mathematics, but the practical problem quickly becomes one of \emph{shared structure, global constraints and resource-aware search}. The most decisive insight was not a particular identity by itself. It was learning when the relevant object changed: from a Boolean function, to an ROBDD of shared cofactors, to a priced physical gate DAG, to a deadline-constrained graph, and finally to an algorithm that consumes computation and memory while exploring candidate graphs.
++The project begins with a basic identity from discrete mathematics, but the practical problem quickly becomes one of \emph{shared structure, global constraints and resource-aware search}. The running example gives a compact test of this lesson: a cofactor is a function, a BDD edge is a structural reference, a gate is a charged physical operation, and a path is a timed dependency. Saving a reference, eliminating a live gate, and shortening the critical path are three different events. The most decisive insight was not a particular identity by itself. It was learning when the relevant object changed: from a Boolean function, to an ROBDD of shared cofactors, to a priced physical gate DAG, to a deadline-constrained graph, and finally to an algorithm that consumes computation and memory while exploring candidate graphs.
+ 
+ An area-optimization algorithm can be mathematically sound and still be the wrong engineering choice when its marginal improvement is dwarfed by synthesis time. Preserving that negative result demonstrates an appropriate stopping criterion, especially under a rubric that rewards deep understanding and justified conceptual application. We therefore freeze Round 5.1 as the principal Stage 1 engineering baseline and preserve Rounds 6.0/6.1 as exploration branches, subject to the students' final submission choice.
+ 

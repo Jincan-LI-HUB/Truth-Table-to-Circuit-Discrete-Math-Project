@@ -1,0 +1,2 @@
+PASS: exhaustive 8/8 assignments; baseline area=11 delay=7; rewritten area=11 delay=5
+Wrote /mnt/data/UFUG2106_Stage1_Writing_Draft_v0_8_Editorial/shared/data/worked_example_truth_table.csv

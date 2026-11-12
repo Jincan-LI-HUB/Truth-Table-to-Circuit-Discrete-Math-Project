@@ -1,0 +1,2 @@
+rm -f synth
+g++ -O2 -std=c++17 -Wall -Wextra src/synth.cpp -o synth

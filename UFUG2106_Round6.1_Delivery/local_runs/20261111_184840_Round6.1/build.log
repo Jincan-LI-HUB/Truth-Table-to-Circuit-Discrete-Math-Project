@@ -1,0 +1,6 @@
+rm -rf build
+mkdir -p build
+g++ -O2 -std=c++17 -pipe -DNDEBUG -o build/synth_reference src/synth_round51.cpp
+g++ -O2 -std=c++17 -pipe -DNDEBUG -o build/synth_round60 src/synth_round60.cpp
+g++ -O2 -std=c++17 -pipe -DNDEBUG -o build/synth_round61 src/synth_round61.cpp
+g++ -O2 -std=c++17 -pipe -DNDEBUG -o build/cut_postprocess61 src/cut_postprocess61.cpp

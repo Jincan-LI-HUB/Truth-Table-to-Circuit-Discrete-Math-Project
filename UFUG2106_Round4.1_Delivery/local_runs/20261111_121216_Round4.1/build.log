@@ -1,0 +1,15 @@
+rm -rf build
+mkdir -p build
+g++ -O2 -std=c++17 -Wall -Wextra src/synth_strict.cpp -o build/synth_strict
+src/synth_strict.cpp: In function ‘std::string run_synth(const std::string&, const Opt&, std::chrono::_V2::steady_clock::time_point)’:
+src/synth_strict.cpp:69:80: warning: unused variable ‘D’ [-Wunused-variable]
+   69 |  const int aa=data.aa,da=data.da,ao=data.ao,doo=data.doo,an=data.an,dn=data.dn,D=data.D;
+      |                                                                                ^
+mkdir -p build
+g++ -O2 -std=c++17 -Wall -Wextra src/synth_balanced.cpp -o build/synth_balanced
+src/synth_balanced.cpp: In function ‘std::string run_synth(const std::string&, const Opt&, std::chrono::_V2::steady_clock::time_point)’:
+src/synth_balanced.cpp:69:80: warning: unused variable ‘D’ [-Wunused-variable]
+   69 |  const int aa=data.aa,da=data.da,ao=data.ao,doo=data.doo,an=data.an,dn=data.dn,D=data.D;
+      |                                                                                ^
+mkdir -p build
+g++ -O2 -std=c++17 -Wall -Wextra src/synth_fast.cpp -o build/synth_fast

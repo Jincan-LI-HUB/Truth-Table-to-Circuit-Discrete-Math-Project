@@ -1,0 +1,731 @@
+{
+  "checks": 144,
+  "passed": 144,
+  "source_archives": [
+    "UFUG2106_Round5.1_Delivery.zip",
+    "UFUG2106_Round6.1_Delivery.zip"
+  ],
+  "scope": "Generator manifests vs archived synthetic test files; does not verify hidden Stage 2 distribution",
+  "details": [
+    {
+      "suite": "holdout_v1",
+      "file": "case_000.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_001.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_002.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_003.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_004.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_005.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_006.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_007.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_008.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_009.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_010.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_011.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_012.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_013.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_014.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_015.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_016.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_017.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_018.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_019.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_020.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_021.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_022.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_023.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_024.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_025.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_026.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_027.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_028.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_029.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_030.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_031.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_032.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_033.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_034.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_035.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_036.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_037.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_038.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_039.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_040.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_041.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_042.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_043.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_044.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_045.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_046.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_047.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_048.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_049.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_050.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_051.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_052.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_053.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_054.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_055.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_056.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_057.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_058.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_059.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_060.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_061.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_062.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_063.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_064.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_065.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_066.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_067.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_068.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_069.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_070.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_071.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_072.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_073.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_074.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_075.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_076.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_077.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_078.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_v1",
+      "file": "case_079.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_000.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_001.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_002.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_003.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_004.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_005.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_006.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_007.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_008.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_009.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_010.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_011.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_012.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_013.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_014.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_large_v1",
+      "file": "case_015.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_000.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_001.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_002.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_003.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_004.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_005.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_006.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_007.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_008.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_009.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_010.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_011.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_012.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_013.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_014.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_015.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_016.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_017.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_018.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_019.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_020.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_021.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_022.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_023.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_024.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_025.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_026.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_027.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_028.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_029.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_030.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_031.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_032.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_033.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_034.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_035.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_036.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_037.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_038.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_fresh_v1",
+      "file": "case_039.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_large_v1",
+      "file": "case_000.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_large_v1",
+      "file": "case_001.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_large_v1",
+      "file": "case_002.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_large_v1",
+      "file": "case_003.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_large_v1",
+      "file": "case_004.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_large_v1",
+      "file": "case_005.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_large_v1",
+      "file": "case_006.txt",
+      "sha256_match": true
+    },
+    {
+      "suite": "holdout_round61_large_v1",
+      "file": "case_007.txt",
+      "sha256_match": true
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+--- v0.4/technical_report/main.tex
++++ v0.5/technical_report/main.tex
+@@ -1,5 +1,5 @@
+ \documentclass[journal,10pt]{IEEEtran}
+-% UFUG2106 Stage 1 Technical Report — evidence-based manuscript draft.
++% UFUG2106 Stage 1 Technical Report — v0.5 narrative and contribution revision.
+ % Compile from technical_report/: pdflatex main; bibtex main; pdflatex main x2
+ \usepackage[T1]{fontenc}
+ \usepackage{lmodern}
+@@ -24,11 +24,11 @@
+ \begin{document}
+ \title{From Truth Tables to Timing-Constrained Gate DAGs:\\Representation, Global Sharing, and Evidence-Based Synthesis}
+ \author{Jincan LI (50032637), Zeyun DU (50025854)%
+-\thanks{Stage 1 research manuscript, Draft v0.4 (mathematical consistency review). Individual contributions, AI-assistance disclosure, and the actual Canvas submission remain subject to student confirmation.}}
++\thanks{Stage 1 research manuscript, Draft v0.5 (research narrative review). Individual contributions, AI-assistance disclosure, and the actual Canvas submission remain subject to student confirmation.}}
+ \markboth{UFUG2106 Stage 1: Truth Table to Circuit}{UFUG2106 Stage 1: Truth Table to Circuit}
+ \maketitle
+ \begin{abstract}
+-We study the construction of an equivalent acyclic combinational gate network from a complete multi-output truth table under input-dependent costs for two-input AND, two-input OR and NOT gates. Our design combines Shannon decomposition and shared reduced ordered binary decision diagrams with representation diversification, complemented-edge sharing, affine recognition, cost-aware rewriting, and timing-constrained area recovery. The engineering implementation subsequently eliminates repeated BDD and implicant computations and replaces text-oriented intermediate transformations with a typed in-memory DAG. On the 25 released Stage 1 instances, the frozen Round 5.1 candidate passes every official functional check and meets every delay target, with aggregate gate area 529,014. In two paired WSL evaluations against its Round 5 predecessor, the reported median synthesis runtime changes from 72.188 to 55.488 ms and from 60.827 to 55.077 ms, without changing reported case-level area or delay. We also evaluate bounded four-input cut rewriting: it reduces area in new generated families, but fails a predeclared runtime-cost criterion on the local Stage 1 evaluation. We separate Boolean-equivalence proofs from empirical performance observations, document the validation protocol, and make no claim of global optimality or hidden-case generalization.
++A complete truth table determines a Boolean function but not a low-cost, timing-feasible implementation. We examine how a course-project synthesizer can progress from an exact Shannon/ROBDD construction to a shared, priced gate DAG under AND2/OR2/NOT costs and a synthesis-time budget. The first problem is architectural: varying decision orders and mapping forms eliminates the baseline's timing-target misses. The second is global: complemented functions, shared fanout and required-time analysis let the mapper trade local delay for area without discarding correctness. The third is computational: caching and typed in-memory graphs reduce redundant synthesis work. On all 25 released Stage 1 cases, our frozen Round 5.1 research candidate passes the official checks, meets every delay target, and has aggregate area 529,014. Two paired WSL runs against Round 5 give median runtimes of 72.188 versus 55.488 ms and 60.827 versus 55.077 ms, with unchanged reported area and delay. A bounded cut-rewriting branch finds additional area savings on released and generated functions but fails our predeclared runtime criterion. We distinguish universal equivalence arguments from implementation-specific and empirical claims, and do not infer hidden-case or global-optimality guarantees.
+ \end{abstract}
+ \begin{IEEEkeywords}
+ Logic synthesis, Shannon expansion, ROBDD, Boolean functions, technology mapping, timing analysis, combinational DAG, empirical reproducibility.
+@@ -39,9 +39,11 @@
+ 
+ The released UFUG2106 Stage 1 task requires a single-threaded program that reads one complete table and emits a topologically ordered netlist using only three gate types. Its official evaluator reports pass/fail, area, circuit delay, synthesis runtime, and whether the circuit satisfies the designated delay target~\cite{coursehandout}. The numerical grading formula has not been published. We therefore do not equate aggregate area across the 25 published instances with a course score.
+ 
+-Our central design question is how to navigate three separate costs: \emph{network area}, \emph{network propagation delay}, and \emph{the time required to synthesize the network}. We found it useful to organize development as four phases. First, a reduced ordered binary decision diagram (ROBDD) provides an exact and shared representation. Second, multiple equivalent mappings and a portfolio of variable orderings improve circuit quality. Third, graph-level polarity selection and required-time-aware rewriting exploit sharing and slack. Fourth, immutable-structure caching and typed in-memory gate graphs reduce the computational overhead of exploring the same candidate space. A later cut-rewriting experiment tests whether additional Boolean functions can be recovered locally at acceptable cost.
+-
+-Our claimed contribution is \emph{a reproducible course-project synthesis pipeline and a disciplined optimization study}, not the invention of ROBDDs, De Morgan transformations, or cut rewriting. These foundations originate in the established literature~\cite{bryant1986,mishchenko2006}.
++The central challenge is not to find one more Boolean identity. It is to decide \emph{which representation should be mapped, which gate structures should be shared, and which improvements justify the synthesis time spent discovering them}. This gives three linked research questions: \emph{(RQ1)} can an exact truth-table construction be diversified enough to satisfy the specified delay targets at lower area? \emph{(RQ2)} how should a shared, priced gate DAG exploit complements and timing slack without confusing local gate savings with global savings? \emph{(RQ3)} after circuit-quality gains become small, can the same search be made substantially cheaper, and do more expensive local rewrites warrant inclusion?
++
++The development stages answer these questions in sequence rather than constituting independent features. Round 1 establishes an exact Shannon/ROBDD baseline, but its delay misses expose a representation problem. Round 2 widens the mapping portfolio. Round 3 shows that the \emph{mapped network}---not just the BDD---must be evaluated against global sharing and required time. Round 4 finds further area savings but makes additional search costly. Rounds 4.1--5.1 then focus on an efficiency-preserving implementation, before Rounds 6.0--6.1 deliberately test the value of an additional local rewrite family.
++
++The contributions of this course-project study are \emph{(i)} a reproducible implementation combining established exact representations with case-dependent gate mapping and timing recovery; \emph{(ii)} an engineering refinement that reduces repeated synthesis computation while preserving measured circuit quality; and \emph{(iii)} evidence-backed adoption decisions that include a negative result for costly cut rewriting. These are integration and experimental contributions, \emph{not} claims to have invented ROBDDs, De Morgan transformations, or cut rewriting~\cite{bryant1986,mishchenko2006}. Every measured comparison below is explicitly attributed to its archive or paired experiment.
+ 
+ \section{Formal Problem and Evaluation Contract}
+ Let $F:\{0,1\}^{n}\rightarrow\{0,1\}^{m}$ be the multi-output function represented by the complete truth table, where $1\le n\le18$ and $m\ge1$. Input vector $x=(x_0,\ldots,x_{n-1})$ indexes rows with $x_0$ most significant. The target network is a directed acyclic graph $G=(V,E)$ with source nodes for the constant zero and the $n$ primary inputs. Every remaining node is one of $\Lset=\{\AND,\OR,\NOT\}$; every output references a previously defined signal. Fanout and sharing are permitted.
+@@ -81,7 +83,7 @@
+ Induct on the remaining decision levels. Terminals are exact. Assuming both child cofactors are exact, substitute them into (\ref{eq:shannon}); the result equals the parent for both possible values of the decision variable. The recursive mapping implements this expression with legal gates. Structural hashing replaces duplicated nodes only with equal functions, and dead-gate removal deletes only signals not reaching an output. Repeat for all $m$ roots.
+ \end{IEEEproof}
+ 
+-Round 1 validated this construction on all 25 published cases but met only 12 target delays. This established that a proof of \emph{functional correctness} does not automatically solve \emph{timing-constrained optimization}.
++Round 1 validated this construction on all 25 published cases but met only 12 target delays. The failure mode is informative: Shannon's identity certifies \emph{which function} is computed, but says nothing about \emph{which graph shape} will meet a deadline. This observation justifies retaining the proof-producing decomposition while treating representation and gate mapping as optimization variables in Round 2.
+ 
+ \subsection{A small multi-output example}
+ Let the primary inputs be $a,b,c$ and the outputs be $f_1=(a\land b)\lor(\neg a\land c)$ and $f_2=f_1\lor b$. Shannon cofactors at $a$ give $(f_1|_{a=0},f_1|_{a=1})=(c,b)$ and $(f_2|_{a=0},f_2|_{a=1})=(b\lor c,b)$. The cofactor $b$ is shared, while sharing the \emph{physical} gate for $f_1$ is a separate mapping choice. With primary IDs $1=a,2=b,3=c$ and ID $0$ the constant zero, one legal topological construction is
+@@ -119,9 +121,10 @@
+  f=\neg x\land\big(\neg u\land f_{00}\lor u\land f_{01}\big)\\
+  \lor x\land\big(\neg v\land f_{10}\lor v\land f_{11}\big).
+ \end{multline}
+-Balancing the branch computations changes gate critical paths without changing the Boolean function. For outputs of small essential support, SOP/POS candidates use prime implicants followed by a deterministic greedy cover. Every selected cube is an implicant, and the chosen cubes cover the full on-set; hence the cover is exact, although generally \emph{not minimum-area}. These alternatives allow the selector to measure completed circuits instead of betting on one representation.
++Balancing the branch computations changes gate critical paths without changing the Boolean function. For outputs of small essential support, SOP/POS candidates use prime implicants followed by a deterministic greedy cover. Every selected cube is an implicant, and the chosen cubes cover the full on-set; hence the cover is exact, although generally \emph{not minimum-area}. These alternatives allow the selector to measure completed circuits instead of betting on one representation. The Round 2 archive records 25/25 target-met cases and area $790{,}243$, compared with 12/25 and $1{,}103{,}455$ for the baseline. Yet a better candidate portfolio still leaves one structural limitation: a local cofactor or mapping choice does not know whether its output will be shared, complemented, or given slack by the \emph{rest of the network}. That is the motivation for global, timing-aware recovery in Round 3.
+ 
+ \section{Cost-Aware Gate Mapping and Timing Recovery}
++The preceding section chooses among equivalent \emph{descriptions} of Boolean functions. This section instead asks about their \emph{joint realization}: a gate shared by two outputs is charged once, but its arrival affects every downstream consumer. Polarity, balancing, and required-time optimization therefore operate on the whole costed DAG, rather than independently minimizing each output expression.
+ \subsection{Complemented functions and affine recognition}
+ Round 3 uses complemented-edge BDD references. A reference consists of a node identity and one inversion bit; complements can therefore share a common normalized subgraph. This saves BDD construction and may expose mapping opportunities, but it does not declare a physical NOT to have zero cost. Each emitted inverter is still charged under (\ref{eq:area}).
+ 
+@@ -184,6 +187,7 @@
+ \end{figure}
+ 
+ \section{A More Efficient Synthesis Engine}
++The area improvements of Rounds 3--4 exposed a different bottleneck. More candidates or more local rewrite passes can reduce circuit cost, but also consume the finite time available for synthesis. We therefore changed the optimization target of the \emph{program itself}: first eliminate identical work, then reduce representation overhead, instead of immediately removing potentially useful search candidates. The empirical claim to test is lower synthesis time with unchanged completed-candidate semantics, not a new Boolean identity.
+ \subsection{Reuse without changing fixed-candidate semantics}
+ Let $B(F,\pi)$ denote a completed reduced BDD for the input table and a fixed variable order $\pi$; let $M(B,\theta)$ map that graph under one candidate configuration $\theta$. Several portfolio members reuse the same $\pi$. In Round 5, we build $B(F,\pi)$ once and share it read-only:
+ \begin{equation}
+@@ -233,6 +237,7 @@
+ Algorithm~\ref{alg:synth} follows the frozen control-flow hierarchy: typed rebalancing/recovery occur per mapping candidate, whereas the Round 4 algebra/phase alternatives are considered only after portfolio/legacy candidate selection. The dead-code guarded reverse-order phase branch is not claimed as executed. The frozen source is the authoritative implementation. A search decision can be wall-clock-dependent. Thus a faster implementation preserves the function of each fixed candidate but may complete a different candidate set by the cutoff, a distinction visible in an earlier container rerun of one case.
+ 
+ \section{Exploration Beyond the Adopted Candidate}
++Once Round 5.1 had made the existing search cheaper, the next question was whether its preferred representations still missed locally equivalent gate structures. The cut-rewriting branch deliberately tests a \emph{different} hypothesis from caching: local truth functions can be resynthesized under the legal gate library, but the global area benefit may be too small relative to the cost of enumerating and checking cuts. The result is informative even if the branch is not adopted.
+ A final experiment asks whether already optimized gate DAGs contain local functions poorly realized by the existing BDD-origin structure. Round 6.0 enumerates up to four boundary signals for an internal node, simulates its cut function as a mask of at most $2^4=16$ bits, and generates exact alternative SOP, complemented SOP/POS, factored, and Shannon realizations. For a cut $C$ at $v$,
+ \begin{equation}
+  M_{v,C}=\sum_{s=0}^{2^{|C|}-1} f_{v,C}(s)\,2^s.
+@@ -258,6 +263,8 @@
+ 
+ \section{Experimental Methodology and Results}
+ \subsection{Protocol and scope of inference}
++Our experimental argument has three distinct stages: establish a correct legal circuit, compare its measured cost with an appropriate baseline, and decide whether the gain is worth the additional synthesis work. A proof of a Boolean identity addresses the first stage but cannot establish the second; a smaller area total cannot, by itself, establish the third. We therefore report status, deadline feasibility, area and runtime separately, and reserve same-run paired measurements for runtime claims.
++
+ We evaluated archived source snapshots using the course Linux x86 evaluator. For each published case we record the official status, whether the target was met, circuit area, circuit delay, and measured synthesis runtime. Independent simulation checks gate legality and Boolean functions; small cases were exhaustively enumerated while larger cases used deterministic sampling in the independent checker. The official evaluator is the primary full-case correctness reference. We also ran generated structure families to probe regressions. We do \emph{not} infer unseen Stage 2 performance or claim that local wall-clock runtime is identical to a designated grading server.
+ 
+ Figure~\ref{fig:history} shows one designated WSL archive per round; these archives were not an interleaved experiment, so the plot supports an \emph{area evolution} story, not a causal cross-round runtime claim. For performance comparisons, Fig.~\ref{fig:paired} instead uses official CSVs from each same-run paired benchmark. Precise source ZIP names and member paths are retained alongside the CSV tables in the supplementary evidence manifest.
+@@ -311,7 +318,22 @@
+ \end{figure}
+ 
+ \section{Discussion, Threats to Validity, and Conclusions}
++\textbf{What changed the research direction?} Three observations governed the sequence. First, Round 1's 13 missed delay targets showed that exactness does not imply a useful gate architecture; this justified representation diversification. Second, the large area reduction around Round 3's required-time development path showed the importance of optimizing a shared graph under a global deadline, while the sequential nature of that record precludes isolated causal attribution. Third, the small public-case area gains and large synthesis-time penalties of the cut branch motivated a predeclared stopping rule, not another unbounded parameter sweep.
++
++\textbf{Why freeze Round 5.1?} The lowest archived area and the selected engineering baseline are not identical. R4.1 Strict recorded $528{,}910$, just $104$ below the R5.1 total $529{,}014$ (about $0.020\%$). R5.1 was selected for engineering efficiency, supported by within-run paired comparisons with R5, while its comparison to R4.1 Strict is not a same-run runtime experiment. R6.1 yielded another modest area reduction but breached the \emph{predeclared} local median-runtime tolerance. Without a published numerical grading formula, this is a transparent design choice, not a claim that R5.1 maximizes the official score.
++
+ We distinguish four levels of evidence. Boolean identities and structural inductions prove function preservation for correctly applied transformations. Gate parsing, topological invariants and full-DAG rescoring address implementation correctness. The official evaluator and independent simulator provide empirical checks of emitted circuits. Finally, comparisons over released and synthetic instances support \emph{measured} performance findings. No level proves global minimum-area synthesis for arbitrary functions, optimal search under deadline constraints, or success on unseen case distributions.
++\begin{table}[!t]
++\centering\footnotesize\setlength{\tabcolsep}{3pt}
++\caption{What each evidence layer establishes---and does not.}\label{tab:claimscope}
++\begin{tabularx}{\columnwidth}{@{}p{.27\columnwidth}X@{}}\toprule
++\textbf{Evidence} & \textbf{Permitted inference}\\\midrule
++Identity / DAG proof & Function preservation under stated preconditions; not area optimality.\\
++Evaluator / checker & Correctness of evaluated netlists and observed constraints; not all possible inputs.\\
++Paired benchmark & Runtime and cost differences on that machine and run; not a universal speedup.\\
++Synthetic holdout & Regression evidence for sampled families; not future Stage 2 distribution.\\\bottomrule
++\end{tabularx}
++\end{table}
+ 
+ The main lesson is that \emph{reusable structure and global constraints matter at different points}. An ROBDD removes identical Boolean subproblems; alternative mappings explore equivalent representations; required-time propagation makes timing slack available for area recovery; and typed-DAG engineering reduces overhead that would otherwise obscure the value of further search. Conversely, cut-based rewriting demonstrates that finding additional correct optimizations is not sufficient: their execution cost must also justify adoption.
+ 
+@@ -359,7 +381,7 @@
+ \end{table}
+ 
+ \section{Reproducibility and Data Lineage}
+-The v0.2 archive additionally retains the original Round 3 and 4 ablation CSVs, both Round 6.1 budget JSON files, the research-freeze SHA-256 manifest and the labeled terminal transcription for the single-case Peak RSS. Its plotting script regenerates the new ablation figures from normalized CSVs. The original authorship identifiers are confirmed, but individual roles and the final AI-assistance statement still require review. The accompanying manuscript archive retains: (i) verbatim selected official evaluator CSVs, (ii) a SHA-256 source-archive manifest, (iii) a source-linked evidence matrix, (iv) Python extraction and plotting scripts, and (v) generated figure PDFs and PNGs. The extraction code checks that each selected official CSV has exactly 25 cases and all report PASS. It does not modify runtime values or impute missing cases. A re-analysis of complete historical runs requires the separately archived local-results ZIP files, which are not replicated inside this writing package to avoid duplicating large netlists. Compiling this paper uses the system IEEEtran class, pdfLaTeX; an editable BibTeX database is also supplied, while this self-contained draft uses a corresponding inline bibliography.
++The accompanying evidence archive retains the original Round 3 and 4 ablation CSVs, both Round 6.1 budget JSON files, the research-freeze SHA-256 manifest and the labeled terminal transcription for the single-case Peak RSS. Its plotting script regenerates the new ablation figures from normalized CSVs. The original authorship identifiers are confirmed, but individual roles and the final AI-assistance statement still require review. The accompanying manuscript archive retains: (i) verbatim selected official evaluator CSVs, (ii) a SHA-256 source-archive manifest, (iii) a source-linked evidence matrix, (iv) Python extraction and plotting scripts, and (v) generated figure PDFs and PNGs. The extraction code checks that each selected official CSV has exactly 25 cases and all report PASS. It does not modify runtime values or impute missing cases. A re-analysis of complete historical runs requires the separately archived local-results ZIP files, which are not replicated inside this writing package to avoid duplicating large netlists. Compiling this paper uses the system IEEEtran class, pdfLaTeX; an editable BibTeX database is also supplied, while this self-contained draft uses a corresponding inline bibliography.
+ 
+ \begin{thebibliography}{9}
+ \bibitem{shannon1949} C. E. Shannon, ``The synthesis of two-terminal switching circuits,'' \emph{Bell System Technical Journal}, vol. 28, no. 1, pp. 59--98, 1949.

@@ -1,0 +1,62 @@
+{
+  "seed": 1633320465,
+  "designed_before_testing": true,
+  "rows": [
+    {
+      "case": "case_000.txt",
+      "kind": "local_lookups",
+      "n": 12,
+      "m": 8,
+      "sha256": "f20bec904c046792d7af1198eba6d3bc2cebfd33c6beb96ba35df48e40ca27ba"
+    },
+    {
+      "case": "case_001.txt",
+      "kind": "shared_ensemble",
+      "n": 14,
+      "m": 10,
+      "sha256": "6ec0b99c7c97c952662fd1eab29447f72c4423484790274f7a5abf5bb53f9672"
+    },
+    {
+      "case": "case_002.txt",
+      "kind": "xor_of_lookups",
+      "n": 16,
+      "m": 12,
+      "sha256": "1cab87377e58509e4953c9bc6f15176a2ce6ef56fd8efc1cc64b2220955d1389"
+    },
+    {
+      "case": "case_003.txt",
+      "kind": "cascaded_mux",
+      "n": 17,
+      "m": 14,
+      "sha256": "5a53f28214a9d7bd0cb9db2f7bcbe25a552c8cb5a4b69f89490ac065901326b3"
+    },
+    {
+      "case": "case_004.txt",
+      "kind": "local_lookups",
+      "n": 12,
+      "m": 8,
+      "sha256": "0bf8738e4ba51e84930a43601f60e104db9accf3d3c42448a5e814836ed95f22"
+    },
+    {
+      "case": "case_005.txt",
+      "kind": "shared_ensemble",
+      "n": 14,
+      "m": 10,
+      "sha256": "fef1968ebdd357ab623c7d6b661b08adf38080a72b6ae170b1594f68c7792db3"
+    },
+    {
+      "case": "case_006.txt",
+      "kind": "xor_of_lookups",
+      "n": 16,
+      "m": 12,
+      "sha256": "71bd00fd8606b4e55e11483be87a250d3f2109207e37f9684b10bce98f033892"
+    },
+    {
+      "case": "case_007.txt",
+      "kind": "cascaded_mux",
+      "n": 17,
+      "m": 14,
+      "sha256": "5ab402c7097312f38e0826dc02a022b77eb24c7f722e0280bfb0c4b2feeadae4"
+    }
+  ]
+}

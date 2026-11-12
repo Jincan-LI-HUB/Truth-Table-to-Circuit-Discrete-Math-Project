@@ -1,0 +1,22 @@
+R5_STAGE stage=bdd order=influence-desc cache_hit=0 nodes=38465 elapsed_ms=13.267
+R5_STAGE stage=mapping order=influence-desc elapsed_ms=181.478
+R5_STAGE stage=trial_total index=0 order=influence-desc elapsed_ms=341.493
+R5_STAGE stage=bdd order=influence-desc cache_hit=1 nodes=38465 elapsed_ms=0.000
+R5_STAGE stage=mapping order=influence-desc elapsed_ms=67.017
+R5_STAGE stage=trial_total index=1 order=influence-desc elapsed_ms=156.317
+R5_STAGE stage=bdd order=natural cache_hit=0 nodes=38721 elapsed_ms=7.957
+R5_STAGE stage=mapping order=natural elapsed_ms=145.744
+R5_STAGE stage=trial_total index=3 order=natural elapsed_ms=254.697
+R5_STAGE stage=bdd order=influence-desc cache_hit=1 nodes=38465 elapsed_ms=0.000
+R5_STAGE stage=mapping order=influence-desc elapsed_ms=141.576
+R5_STAGE stage=trial_total index=4 order=influence-desc elapsed_ms=230.449
+R5_STAGE stage=bdd order=reverse cache_hit=0 nodes=27066 elapsed_ms=14.156
+R5_STAGE stage=mapping order=reverse elapsed_ms=85.670
+R5_STAGE stage=trial_total index=5 order=reverse elapsed_ms=165.018
+R5_STAGE stage=bdd order=rotate cache_hit=0 nodes=40431 elapsed_ms=13.084
+R5_STAGE stage=mapping order=rotate elapsed_ms=148.682
+R5_STAGE stage=trial_total index=6 order=rotate elapsed_ms=267.375
+R5_STAGE stage=bdd order=influence-asc cache_hit=0 nodes=40526 elapsed_ms=14.330
+R5_STAGE stage=mapping order=influence-asc elapsed_ms=147.296
+R5_STAGE stage=trial_total index=7 order=influence-asc elapsed_ms=253.201
+completed=7 chosen=5 area=124475 delay=70

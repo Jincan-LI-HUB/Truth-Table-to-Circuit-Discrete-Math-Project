@@ -1,0 +1,27 @@
+{
+  "round4_1_reference": {
+    "count": 25,
+    "pass_count": 25,
+    "target_met": 25,
+    "area_sum": 529014,
+    "median_runtime_ms": 87.041,
+    "max_runtime_ms": 2477.652,
+    "sum_runtime_ms": 8695.436
+  },
+  "round5": {
+    "count": 25,
+    "pass_count": 25,
+    "target_met": 25,
+    "area_sum": 529014,
+    "median_runtime_ms": 68.861,
+    "max_runtime_ms": 1787.182,
+    "sum_runtime_ms": 6030.508
+  },
+  "byte_identical": 25,
+  "metric_changes": [],
+  "all_pass": true,
+  "all_targets": true,
+  "same_area_delay": true,
+  "same_netlists": true,
+  "median_runtime_reduction_pct": 20.89
+}

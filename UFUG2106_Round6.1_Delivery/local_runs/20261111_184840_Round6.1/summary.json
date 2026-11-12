@@ -1,0 +1,80 @@
+{
+  "official_pairs": {
+    "1": {
+      "reference": {
+        "cases": 25,
+        "pass": 25,
+        "target_met": 25,
+        "area_sum": 529014,
+        "median_runtime_ms": 54.572,
+        "runtime_sum_ms": 7371.348
+      },
+      "round61": {
+        "cases": 25,
+        "pass": 25,
+        "target_met": 25,
+        "area_sum": 528854,
+        "median_runtime_ms": 80.731,
+        "runtime_sum_ms": 6154.935
+      }
+    },
+    "2": {
+      "reference": {
+        "cases": 25,
+        "pass": 25,
+        "target_met": 25,
+        "area_sum": 529014,
+        "median_runtime_ms": 50.224,
+        "runtime_sum_ms": 5182.265
+      },
+      "round61": {
+        "cases": 25,
+        "pass": 25,
+        "target_met": 25,
+        "area_sum": 528839,
+        "median_runtime_ms": 74.083,
+        "runtime_sum_ms": 5875.605
+      }
+    }
+  },
+  "holdouts": {
+    "holdout_round61_fresh_v1": {
+      "reference": {
+        "cases": 40,
+        "pass": 40,
+        "target_met": 40,
+        "area_sum": 11186,
+        "median_runtime_ms": 7.852,
+        "runtime_sum_ms": 610.9
+      },
+      "round61": {
+        "cases": 40,
+        "pass": 40,
+        "target_met": 40,
+        "area_sum": 10858,
+        "median_runtime_ms": 10.762,
+        "runtime_sum_ms": 734.873
+      }
+    },
+    "holdout_round61_large_v1": {
+      "reference": {
+        "cases": 8,
+        "pass": 8,
+        "target_met": 8,
+        "area_sum": 67275,
+        "median_runtime_ms": 68.093,
+        "runtime_sum_ms": 591.703
+      },
+      "round61": {
+        "cases": 8,
+        "pass": 8,
+        "target_met": 8,
+        "area_sum": 67047,
+        "median_runtime_ms": 94.327,
+        "runtime_sum_ms": 780.357
+      }
+    }
+  },
+  "per_case_area_improved": 10,
+  "per_case_area_regressed": 0
+}

@@ -1,0 +1,205 @@
+{
+  "source_zip_sha256": "7f4392d1d229ced5a9ae9c3094b7043c3cc6c9b3bc0de869af02d7391f878051",
+  "source": "20261111_134547_Round5.1",
+  "summary_from_archive": {
+    "runs": {
+      "1": {
+        "round5": {
+          "pass_count": 25,
+          "target_count": 25,
+          "area": 529014,
+          "median_runtime_ms": 72.188,
+          "sum_runtime_ms": 7866.005,
+          "max_runtime_ms": 2438.256
+        },
+        "round51": {
+          "pass_count": 25,
+          "target_count": 25,
+          "area": 529014,
+          "median_runtime_ms": 55.488,
+          "sum_runtime_ms": 6517.229,
+          "max_runtime_ms": 2453.455
+        }
+      },
+      "2": {
+        "round5": {
+          "pass_count": 25,
+          "target_count": 25,
+          "area": 529014,
+          "median_runtime_ms": 60.827,
+          "sum_runtime_ms": 6648.879,
+          "max_runtime_ms": 2057.688
+        },
+        "round51": {
+          "pass_count": 25,
+          "target_count": 25,
+          "area": 529014,
+          "median_runtime_ms": 55.077,
+          "sum_runtime_ms": 5877.434,
+          "max_runtime_ms": 1825.894
+        }
+      }
+    },
+    "byte_identical_run1": 25,
+    "per_case_byte_checks": [
+      {
+        "case": "case_001.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_002.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_003.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_004.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_005.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_006.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_007.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_008.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_009.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_010.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_011.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_012.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_013.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_014.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_015.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_016.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_017.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_018.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_019.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_020.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_021.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_022.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_023.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_024.output.txt",
+        "identical": true
+      },
+      {
+        "case": "case_025.output.txt",
+        "identical": true
+      }
+    ],
+    "mean_of_run_medians": {
+      "round5": 66.5075,
+      "round51": 55.2825
+    },
+    "median_reduction_pct": 16.877795737322852,
+    "generated_110": {
+      "count": 110,
+      "pass_count": 110,
+      "target_count": 96,
+      "area": 2210,
+      "area_equal": true,
+      "delay_equal": true
+    },
+    "holdout_v1": {
+      "count": 80,
+      "pass_count": 80,
+      "target_count": 80,
+      "area": 22821,
+      "area_equal": true,
+      "delay_equal": true
+    },
+    "holdout_large_v1": {
+      "count": 16,
+      "pass_count": 16,
+      "target_count": 16,
+      "area": 157944,
+      "area_equal": true,
+      "delay_equal": true
+    },
+    "stress": {
+      "count": 2,
+      "pass_count": 2,
+      "target_count": 2,
+      "area": 109626,
+      "area_equal": true,
+      "delay_equal": true
+    }
+  },
+  "verified": {
+    "each_run_25_pass_target_and_area_delay_equal": true,
+    "faster_cases": [
+      {
+        "run": 1,
+        "n": 25,
+        "runtime_faster": 23
+      },
+      {
+        "run": 2,
+        "n": 25,
+        "runtime_faster": 21
+      }
+    ],
+    "run1_netlist_identical": 25,
+    "independent_25_matches": true,
+    "exhaustive_official": 13,
+    "sampled_official": 12,
+    "holdout_total": 208,
+    "holdout_area_delay_equal": true
+  }
+}

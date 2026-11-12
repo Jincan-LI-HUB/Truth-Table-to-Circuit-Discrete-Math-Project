@@ -1,0 +1,5 @@
+Version: Round2
+Source SHA-256: f9fd99fe1f17849e33bc018b658000b313aabbbfd3833b11e13016cb116255ab
+Source origin: round2.cpp from the conversation's prior experiments
+No changes to the original synthesis algorithms; only the filename src/synth.cpp and build wrapper are standardized.
+Reference CSV: earlier official-evaluator result, NOT a user-local reproduction.

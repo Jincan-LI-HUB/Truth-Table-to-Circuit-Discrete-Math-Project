@@ -1,0 +1,4 @@
+rm -rf build
+mkdir -p build
+g++ -O2 -std=c++17 -pipe -DNDEBUG -o build/synth_reference src/synth_round5.cpp
+g++ -O2 -std=c++17 -pipe -DNDEBUG -o build/synth_round51 src/synth_round51.cpp

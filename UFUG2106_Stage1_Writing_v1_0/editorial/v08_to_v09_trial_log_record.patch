@@ -1,0 +1,88 @@
+--- v0.8/trial_log_record/main.tex
++++ v0.9/trial_log_record/main.tex
+@@ -1,4 +1,4 @@
+-%!LW recipe=pdflatex
++%!LW recipe=pdflatex-bibtex
+ \documentclass[a4paper,10pt]{article}
+ 
+ % ============================================================
+@@ -252,7 +252,7 @@
+ \textbf{Purpose.} This document records the \emph{path of reasoning}: what prompted each new algorithm, why the mathematical construction works, what the measurements show, and why the next experiment followed. It is intended for later self-study and transparent public research presentation. It is \emph{not} a replacement for the shorter Stage 1 technical report or for the primary evidence ZIPs.
+ \end{tcolorbox}
+ \vfill
+-\textbf{Version status:} Draft v0.8, with verified author names and a frozen Round 5.1 research source. Individual roles, AI-use disclosure and actual Canvas submission remain to be confirmed.\par
++\textbf{Version status:} Stage 1 research draft v0.9, backed by the frozen Round 5.1 research source and the archived experimental record.\par
+ \end{titlepage}
+ % The round-level contents deliberately suppress the many nested subsections.
+ \setcounter{tocdepth}{1}
+@@ -276,7 +276,7 @@
+ \begin{equation}\label{eq:logdelay}
+  T(v)=\max_{u\in\mathrm{fanin}(v)}T(u)+d_{\operatorname{op}(v)},\quad D(G)=\max_{y\in\mathrm{outputs}}T(y),
+ \end{equation}
+-with source arrival zero (for NOT, the maximum has one argument). Finally, the synthesizer runtime $T_{\rm synth}$ is the wall-clock time of the \emph{program constructing $G$}, not the propagation delay $D(G)$. These are dimensionally and conceptually different. The official evaluator additionally distinguishes the Boolean/format/limit status \texttt{PASS} from \texttt{target\_met}. The provided project instructions and evaluator interface do not reveal a numerical grading formula, so our totals across cases are engineering diagnostics rather than an official grade.
++with source arrival zero (for NOT, the maximum has one argument). Finally, the synthesizer runtime $T_{\rm synth}$ is the wall-clock time of the \emph{program constructing $G$}, not the propagation delay $D(G)$. These are dimensionally and conceptually different. The official evaluator additionally distinguishes the Boolean/format/limit status \texttt{PASS} from \texttt{target\_met}. The provided project instructions and evaluator interface~\cite{coursehandout} do not reveal a numerical grading formula, so our totals across cases are engineering diagnostics rather than an official grade.
+ 
+ \subsection{A short notation guide}
+ The same symbols recur at different stages of the project. The distinction between the Boolean function and its implementation matters throughout:
+@@ -389,7 +389,7 @@
+ Before comparing elaborate heuristics, we need a constructor that never relies on guessing hidden circuit structure. A complete table does not disclose the network that produced it, and many distinct networks can implement exactly the same function. The logical target should therefore be \emph{equivalence to the table}, not reconstruction of a hypothetical unique original gate diagram.
+ 
+ \subsection{The mathematical step: Shannon decomposition}
+-Pick any variable $x_i$ and restrict the function to its two possible values: $f_0=f|_{x_i=0}$ and $f_1=f|_{x_i=1}$. The Shannon identity is
++Pick any variable $x_i$ and restrict the function to its two possible values: $f_0=f|_{x_i=0}$ and $f_1=f|_{x_i=1}$. The Shannon identity, a foundation of switching-network synthesis~\cite{shannon1949}, is
+ \begin{equation}\label{eq:logshannon}
+  f=\neg x_i\land f_0\;\lor\;x_i\land f_1.
+ \end{equation}
+@@ -435,7 +435,7 @@
+ The derivation simply substitutes Shannon's identity into both cofactors. Its advantage is structural: four gated terms can often be computed in parallel and combined with a balanced OR structure, which may shorten the critical path. Its disadvantage is equally important: an expansion can duplicate shared subfunctions and inflate area. It belongs in a \emph{portfolio}, not as an unconditional rewrite.
+ 
+ \subsection{Small-support SOP and POS}
+-The next route does not begin with a BDD at all. A variable is \emph{essential} if its two cofactors differ. When a function depends only on a few essential variables, directly enumerate cubes (partial assignments), derive prime implicants, and select a greedy cover of the function's on-set. An SOP is exact if every selected cube implies the function and their union covers all true minterms. This is worth proving as two inclusions. Every selected cube lies inside the on-set, hence the SOP never outputs $1$ where $f=0$; coverage ensures the SOP never outputs $0$ where $f=1$. Consequently it agrees with $f$ on the entire domain. A POS-like implementation can be obtained by covering the complement and negating its result. The optimization is incomplete because greedy cover is not guaranteed minimal, and prime enumeration can become exponential, so the implementation restricts support size.
++The next route does not begin with a BDD at all. A variable is \emph{essential} if its two cofactors differ. When a function depends only on a few essential variables, directly enumerate cubes (partial assignments), derive prime implicants, and select a greedy cover of the function's on-set. An SOP is exact if every selected cube implies the function and their union covers all true minterms. This is worth proving as two inclusions. Every selected cube lies inside the on-set, hence the SOP never outputs $1$ where $f=0$; coverage ensures the SOP never outputs $0$ where $f=1$. Consequently it agrees with $f$ on the entire domain. A POS-like implementation can be obtained by covering the complement and negating its result. The optimization is incomplete because greedy cover is not guaranteed minimal, and prime enumeration can become exponential, so the implementation restricts support size. These are familiar issues in classical two-level logic minimization~\cite{brayton1984}.
+ 
+ \paragraph{A cover on the running example.} Since $f_2=b\lor(\neg a\land c)$, the cube $b$ covers all rows with $b=1$, while $\neg a\land c$ covers the remaining true row with $a=0,b=0,c=1$. Both cubes imply $f_2$, and together they cover its complete on-set: the expression is therefore exact, not merely a plausible simplification. Distributivity also yields the POS
+ \[
+@@ -608,7 +608,7 @@
+ \begin{equation}
+  M_{v,C}=\sum_{s=0}^{2^k-1}f_{v,C}(s)\,2^s.
+ \end{equation}
+-This small mask is the bridge between an arbitrary gate cone and generic Boolean synthesis. Candidate realizations include SOP, complemented SOP/POS, shallow factoring and one-variable Shannon decompositions. All use AND2, OR2 and NOT. The search is \emph{not} complete and should not be called an exact minimum-area optimizer.
++This small mask is the bridge between an arbitrary gate cone and generic Boolean synthesis; classical DAG-aware AIG rewriting offers a related but more comprehensive rewrite-library approach~\cite{mishchenko2006,abc}. Candidate realizations include SOP, complemented SOP/POS, shallow factoring and one-variable Shannon decompositions. All use AND2, OR2 and NOT. The search is \emph{not} complete and should not be called an exact minimum-area optimizer.
+ 
+ \subsection{Why gate sharing makes local estimates dangerous}
+ \paragraph{A cut mask that can be checked by hand.} Return to the example's second output $f_2=b\lor(\neg a\land c)$. Treat $(a,b,c)$ as formal cut leaves and number assignments by $s=4a+2b+c$. The rows where $f_2=1$ are $s=1,2,3,6,7$, so its 8-bit truth-function mask is
+@@ -661,6 +661,15 @@
+ \begin{tcolorbox}[colback=ResearchRose!16,colframe=ResearchRose,title=Decision after Round 6.1: No-Go for automatic promotion]
+ \textbf{Learning:} the hypothesis ``cut rewriting can reduce area'' is supported, while the stronger hypothesis ``the current bounded rewriting implementation is worth its runtime'' is rejected under our predeclared local criterion. The appropriate research response is to preserve the evidence and stop incremental threshold tuning, not to erase the unsuccessful branch.
+ \end{tcolorbox}
++
++\section{How We Constructed Non-Official Test Cases}
++\textbf{Motivation.} Repeatedly modifying a synthesizer after checking the same 25 Stage 1 inputs risks learning incidental features of those particular Boolean tables. More importantly, the public set alone cannot tell us whether an optimization helps affine parity-like functions, mux-heavy structures, sparse products, shared outputs, or dense random truth tables equally. We therefore constructed additional functions from \emph{generative descriptions} and only then expanded them into complete truth tables. This is not a new scoring system, and these cases are not professor-provided Stage 2 data.
++
++\textbf{Construction.} A deterministic generator chooses a function family, a fixed pseudorandom seed, $n$ input variables, $m$ outputs, legal gate prices, and a delay target. For each assignment $x\in\{0,1\}^n$ it evaluates every output and serializes the resulting $m$-bit row. Thus the generator produces a legal complete instance, not a hand-selected Netlist. The mixed family includes affine functions (parity of selected inputs), sparse SOP, threshold functions, selector-based MUX, arithmetic bits, shared intermediate predicates, and dense deterministic truth bits. A separate large-function family composes local lookup tables, XORs, shared ensembles, and cascaded multiplexors. The scripts and case-hash manifests are preserved in \texttt{shared/test\_generation/}; the original truth tables are retained separately rather than redistributed in a public writing package.
++
++\textbf{Evaluation protocol.} The Round 5.1 test record has an 80-case mixed set and a 16-case large structured set, plus 110 older regression cases and two stress cases. Round 6.1 was additionally evaluated on a newly seeded 40-case mixed set and an 8-case large set after its budget was selected. In contrast, the 25/35/45-ms cut-search budget sweep was conducted on development sets; it should not be mislabeled an untouched holdout. Each run checks functionality, legality, target delay, area, and synthesis time against the appropriate frozen comparator. A deterministic seed makes a suite repeatable but does not make it representative of an unknown deployment distribution.
++
++\textbf{Research lesson.} A regression suite answers \emph{did this change break previously checked behavior?}; a frozen generated holdout asks \emph{does the promising trend persist on a different specified family?}; only the later official Stage 2 release will answer the separate question of generalization to the next course distribution. These distinctions stop an attractive Stage 1 result from being exaggerated into a universal claim.
+ 
+ \section{How did we guard against benchmark overfitting?}
+ A public benchmark is a finite development set. Repeatedly adjusting thresholds until its aggregate area decreases risks overfitting the properties of those 25 released functions. We therefore distinguish \emph{development evidence}, \emph{repeated regression tests}, and \emph{fresh generated holdouts} frozen after the candidate choices. Functions were generated from affine, sparse, threshold, multiplexing, arithmetic, dense and structured graph-related families across different sizes. Fresh holdout results were not used for further parameter tuning in the corresponding finalized experiments.
+@@ -727,15 +736,10 @@
+ 
+ For the later Stage 2 release, we should not reuse the published Stage 1 cases as though they were new holdouts. The actual submitted Stage 1 source should first be frozen, then both the old and any improved algorithm can be evaluated on the new release and on the original cases under matched conditions. This future work is outside the current Stage 1 record.
+ 
++
+ \section*{Contribution and tool-use disclosure (individual details pending)}
+ The authors are Jincan LI and Zeyun DU. The collaboration model described by the team is initially independent exploration, followed by comparison, discussion and integration into a shared line of work. We do not infer a named person's specific code, experiment or mathematical proof contribution from that broad description. The final public record should include verified names, actual assignments and an accurate account of AI-assisted drafting/coding/verification, in accordance with the course policy. No unsupported attribution is added to this draft.
+ 
+-\begin{thebibliography}{9}
+-\bibitem{shannon1949} C. E. Shannon, ``The synthesis of two-terminal switching circuits,'' \emph{Bell System Technical Journal}, vol. 28, no. 1, pp. 59--98, 1949.
+-\bibitem{bryant1986} R. E. Bryant, ``Graph-based algorithms for Boolean function manipulation,'' \emph{IEEE Transactions on Computers}, vol. C-35, no. 8, pp. 677--691, 1986, doi: 10.1109/TC.1986.1676819.
+-\bibitem{brayton1984} R. K. Brayton, G. D. Hachtel, C. McMullen, and A. L. Sangiovanni-Vincentelli, \emph{Logic Minimization Algorithms for VLSI Synthesis}. Kluwer, 1984.
+-\bibitem{mishchenko2006} A. Mishchenko, S. Chatterjee, and R. K. Brayton, ``DAG-aware AIG rewriting: A fresh look at combinational logic synthesis,'' in \emph{Proc. 43rd ACM/IEEE Design Automation Conf.}, 2006, pp. 532--535, doi: 10.1145/1146909.1147048.
+-\bibitem{abc} Berkeley Logic Synthesis and Verification Group, ``ABC: A system for sequential synthesis and verification,'' \url{https://github.com/berkeley-abc/abc} (accessed Nov. 2026).
+-\bibitem{coursehandout} UFUG2106 Course Staff, \emph{Final Project (Tentative): Truth Table to Circuit}, instructor-distributed specification, 2026.
+-\end{thebibliography}
++\bibliographystyle{IEEEtran}
++\bibliography{../shared/bibliography/references}
+ \end{document}
