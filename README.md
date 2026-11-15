@@ -8,7 +8,9 @@ A research and implementation archive for constructing **functionally equivalent
 **Implementation:** C++17 · Python for testing, analysis, and visualization  
 **Status:** Stage 1 completed; Stage 2 not yet documented
 
-**Start here:** [Technical Report (PDF)](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf) · [Research Trial Log (PDF)](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.pdf) · [Round 5.1 source](UFUG2106_Round5.1_Delivery/src/synth_round51.cpp) · [Development history](#research-development-rounds) · [Build & reproduce](#build-and-reproduce)
+> **Want to run or verify the project?** Start with **[QUICK_START.md](QUICK_START.md)** to execute the recommended **Round 5.1** synthesizer, compare it against Round 5 and earlier/later rounds, and inspect our recorded local evaluator results.
+
+**Start here:** **[Quick Start](QUICK_START.md)** · [Technical Report (PDF)](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf) · [Research Trial Log (PDF)](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.pdf) · [Round 5.1 source](UFUG2106_Round5.1_Delivery/src/synth_round51.cpp) · [Development history](#research-development-rounds)
 
 ---
 
@@ -151,6 +153,8 @@ We retain the **original round-by-round directories at repository root**. Stage 
 Read the **Technical Report** to understand the final algorithm and evidence. Read the **Trial Log** to understand why the project evolved as it did.
 
 ## 6. Build and reproduce
+
+For the shortest route to a working executable, a **Round 5 versus Round 5.1 comparison**, other historical versions, and links to actual WSL results, use **[QUICK_START.md](QUICK_START.md)**. The commands below are retained as a brief reference.
 
 ### Environment
 
