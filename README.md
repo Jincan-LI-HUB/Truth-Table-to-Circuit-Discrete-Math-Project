@@ -1,231 +1,130 @@
 # Truth Table to Circuit
-### Timing-Constrained Boolean Logic Synthesis · UFUG2106 Discrete Mathematics
 
-A research and implementation archive for constructing **functionally equivalent, area-efficient, timing-feasible multi-output combinational circuits** from complete Boolean truth tables.
+**UFUG2106 Discrete Mathematics · HKUST (Guangzhou)**  
+**Stage 1–Stage 2 Boolean synthesis: source, experiments, and research reports**
 
-**Course:** UFUG2106 Discrete Mathematics · The Hong Kong University of Science and Technology (Guangzhou)  
-**Authors:** Jincan LI · Zeyun DU (Group 2)  
-**Implementation:** C++17 · Python for testing, analysis, and visualization  
-**Status:** Stage 1 completed; Stage 2 not yet documented
+**Contributors:** Jincan LI and Zeyun DU (Group 2)  
+**Core implementation:** C++17 · **Evaluation/research tools:** Python 3, shell scripts, LaTeX
 
-> **Want to run or verify the project?** Start with **[QUICK_START.md](QUICK_START.md)** to execute the recommended **Round 5.1** synthesizer, compare it against Round 5 and earlier/later rounds, and inspect our recorded local evaluator results.
+[**Quick Start**](QUICK_START.md) · [**Final Project Report (PDF)**](Stage%202%20Formal%20Report/main.pdf) · [**Unified Research Trial Log (PDF)**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) · [**Final R10.0 source**](UFUG2106_Round10_0_Delivery/submission/synth.cpp) · [**Course specification**](Final_Project.pdf)
 
-**Start here:** **[Quick Start](QUICK_START.md)** · [Technical Report (PDF)](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf) · [Research Trial Log (PDF)](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.pdf) · [Round 5.1 source](UFUG2106_Round5.1_Delivery/src/synth_round51.cpp) · [Development history](#research-development-rounds)
+## Overview
 
----
+The project synthesizes a **functionally equivalent, acyclic multi-output combinational circuit** from a complete Boolean truth table. The generated netlist uses only `AND2`, `OR2`, and `NOT` gates, and must respect per-instance gate costs and synthesis resource limits. The principal circuit-quality measures are:
 
-## 1. Problem and objective
+- **Area:** sum of the given area costs of the emitted gates;
+- **Circuit delay:** longest output-path delay under the given gate-delay costs;
+- **Synthesis runtime / memory:** resources used by the synthesis *program*, not by the circuit.
 
-A complete truth table specifies the outputs of a Boolean function, but not an efficient physical realization. Direct minterm expansion can reproduce any table, yet tends to duplicate intermediate expressions and introduce unnecessary gate area and path delay.
+Functional validity (`PASS`) and satisfaction of the target delay are distinct evaluator outcomes. The project does not assume an undisclosed grading formula or claim globally minimum circuit area.
 
-**Stage 1** asks us to synthesize an acyclic, topologically ordered **gate DAG** from a complete truth table, supporting multiple output functions, instance-specific area/delay costs, and a critical-delay target.
+This repository preserves both the **development process** and the **final Stage 2 solution**. The final method is a resource-aware synthesis pipeline that creates a legal candidate, maps alternative Boolean representations into a shared gate DAG, and then selectively applies bounded Boolean cut resynthesis under full-network area/timing acceptance checks.
 
-Only three gate primitives are allowed:
+## Final Stage 2 solver — R10.0
 
-| Gate | Function |
-|---|---|
-| `AND2` | Two-input conjunction |
-| `OR2` | Two-input disjunction |
-| `NOT` | One-input complement |
+**Selected independent Stage 2 candidate:** [`UFUG2106_Round10_0_Delivery/submission/`](UFUG2106_Round10_0_Delivery/submission/) — `synth.cpp` plus the adjacent required headers. The complete delivery also contains a Makefile, tests, historical comparison sources, controlled experiments, and explanatory documents. R10.0 is the research-frozen solver analyzed in the Formal Report. It is **not represented as a verified teammate-integrated final release**, and unreleased grading cases have not been tested. Its historical delivery README retains its candidate-freeze wording for provenance.
 
-The **circuit area** is the sum of priced *live* gates. Its **delay** is the maximum arrival time over outputs, computed using the given gate-delay costs. Shared intermediate nodes may reduce area across outputs, but create dependencies that a local rewrite must account for.
+### Main approach
 
-The practical objectives are:
+1. **Exact construction and representation diversity:** build candidate circuits through Shannon/BDD-based plans and other available Boolean forms; detect simple structures where the time/resource budget warrants a specialized path.
+2. **Cost-aware mapped network:** map to permitted gates, share reusable signals with structural hashing, and recover circuit timing/area on the output-reachable DAG.
+3. **Bounded four-leaf rewriting:** represent cut functions by complete truth signatures; explore SOP- and Shannon-oriented alternatives subject to pruning and resource checks.
+4. **Global selection and guarded refinement:** compare completed networks rather than accepting a purely local gate-count estimate. The ordinary default employs the R8.6 `extra_sop` selection and an optional R10.0 `repeat_sop` pass, accepted only for strict whole-network area reduction while meeting the target.
+5. **Final serialization:** prune unused gates and produce a topologically ordered netlist. Short-limit and RAM-guarded cases may take different source-defined paths.
 
-1. Preserve **exact Boolean equivalence** at every output.
-2. Meet the **specified delay target**, while reducing mapped gate area.
-3. Limit the **computational cost of synthesis** itself.
+For formal definitions, pseudocode, correctness assumptions, implementation details and experimental results, see [`Stage 2 Formal Report/main.pdf`](Stage%202%20Formal%20Report/main.pdf) and its [LaTeX source](Stage%202%20Formal%20Report/main.tex).
 
-The course evaluator measures correctness, target satisfaction, area, circuit delay, and synthesis runtime separately. The actual grading function is not assumed.
+### Public-case comparison
 
-## 2. Main Stage 1 result
+The report's **first matched public-bank evaluation repeat** compares the actually submitted Stage 1 solver (Z1) with R10.0 on the same 50 released truth tables (25 from each stage):
 
-The selected **research-frozen implementation is Round 5.1**. It met all timing targets on the 25 released Stage 1 cases and significantly reduced total area relative to our first ROBDD baseline.
-
-| Metric | Round 1 | **Round 5.1** |
+| Metric | Submitted Stage 1 (Z1) | Final Stage 2 (R10.0) |
 |---|---:|---:|
-| Functional PASS | 25/25 | **25/25** |
-| Delay target met | 12/25 | **25/25** |
-| Aggregate gate area | 1,103,455 | **529,014** |
-| Change in aggregate area | — | **−52.1%** |
-| Median synthesis runtime (selected archived WSL run) | 5.455 ms | 55.488 ms |
+| Functional PASS | 50/50 | **50/50** |
+| Delay target met | 50/50 | **50/50** |
+| Sum of weighted gate area | 1,144,244 | **1,019,547** |
+| Net area change | — | **−124,697 (−10.90%)** |
 
-The baseline was deliberately simple: the area decrease does **not** establish global minimum area, and the more sophisticated search has a runtime cost.
+R10.0 has smaller area on 18 cases and larger area on 32; the aggregate improvement is concentrated in a subset of cases. A second paired repeat confirmed the same direction of the per-case differences, while exact runtime and area values can vary with time-bounded search. The result is a **whole-solver comparison**, not a claim that the final SOP pass alone produced the aggregate gain.
 
-![Area evolution across Stage 1 research rounds](UFUG2106_Stage1_Writing_v1_0/shared/figures/area_evolution.png)
+Evidence: [`matched_case_metrics.csv`](Stage%202%20Formal%20Report/data/matched_case_metrics.csv), [numerical check](Stage%202%20Formal%20Report/verify.py), and the casewise appendix in the formal report. No hidden-case performance is claimed.
 
-The chart is derived from [archived round-history data](UFUG2106_Stage1_Writing_v1_0/shared/data/round_history.csv). More informative than independent historical timings are the **two paired WSL comparisons** of Round 5 against Round 5.1, each with identical total area and per-case delay:
+## Stage 1: an essential part of the project
 
-| Paired experiment | Round 5 median | Round 5.1 median | Runtime change |
-|---|---:|---:|---:|
-| Run 1 | 72.188 ms | 55.488 ms | −23.13% |
-| Run 2 | 60.827 ms | 55.077 ms | −9.45% |
+Stage 1 includes two distinct contributions that the repository and reports keep separate:
 
-Data: [paired benchmark CSV](UFUG2106_Stage1_Writing_v1_0/shared/data/paired_benchmarks.csv). The historical medians below are **not all measured in the same paired experiment** and should not be interpreted as a controlled speed ranking.
+- **Formally submitted Stage 1 solution (Z1):** developed by Zeyun Du and used as the actual submitted-method comparator in the final report. Its original source may be held in the separate peer-review materials, rather than the root delivery directories; see the report for provenance.
+- **Independent Stage 1 research path (J51):** developed by Jincan Li across Rounds 1–6.1. The selected Round 5.1 research freeze achieved **25/25 PASS**, **25/25 delay targets met**, and **529,014 total area** on the released Stage 1 bank. Its typed-DAG and early cut-rewriting investigations contributed important design foundations for Stage 2.
 
-## 3. Algorithm: from a truth table to a shared gate DAG
+See the [Stage 1 Technical Report](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf), [Stage 1 Trial Log](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.pdf), and [Round 5.1 frozen evidence](Stage1_Freeze_Round5.1_Verified/).
 
-### 3.1 Shannon decomposition and ROBDDs
+### Stage 1 area and runtime trajectory
 
-The construction begins with **Shannon expansion**: recursively split a Boolean function by one variable into two cofactors, then reconstruct the function using a multiplexer-like decomposition. A **reduced ordered binary decision diagram (ROBDD)** merges equivalent subfunctions and removes redundant decisions.
+These figures are **selected historical WSL observations**, not a nine-way paired timing experiment. R5.1 is the preferred *research efficiency baseline*, not the formally submitted Z1 implementation.
 
-This gives an exact symbolic representation and a reliable functional baseline. However, the number of BDD nodes does not directly equal the area of a mapped `AND2`/`OR2`/`NOT` circuit. Variable ordering, cofactor sharing, and gate polarity have a substantial effect on the output network.
+| Research Round | PASS | Delay targets | Total area | Median synthesis time |
+|---|---:|---:|---:|---:|
+| R1 | 25/25 | 12/25 | 1,103,455 | 5.455 ms |
+| R2 | 25/25 | 25/25 | 790,243 | 36.427 ms |
+| R3 | 25/25 | 25/25 | 533,705 | 68.486 ms |
+| R4 | 25/25 | 25/25 | 528,910 | 127.568 ms |
+| R4.1 Balanced | 25/25 | 25/25 | 529,014 | 102.615 ms |
+| R5 | 25/25 | 25/25 | 529,014 | 68.861 ms |
+| **R5.1** | **25/25** | **25/25** | **529,014** | **55.488 ms** |
+| R6.0 | 25/25 | 25/25 | 528,738 | 114.610 ms |
+| R6.1 | 25/25 | 25/25 | 528,854 | 80.731 ms |
 
-### 3.2 Candidate portfolio and technology mapping
+![Archived Stage 1 area trajectory](UFUG2106_Stage1_Writing_v1_0/shared/figures/area_evolution.png)
 
-Instead of committing to one representation, the synthesizer explores alternative variable orders, Shannon-based constructions, and selected two-level SOP/POS forms. Each completed candidate is mapped to the permitted gate set, with **structural hashing** to share identical gates across logic cones and outputs.
+R5.1's typed in-memory DAG improved the R5 paired median by **23.13%** and **9.45%** in the two recorded reverse-order runs while retaining the same aggregate area and per-case delay. Its subsequent cut-rewriting experiments gained a small amount of area at additional search cost. See [paired evidence](UFUG2106_Stage1_Writing_v1_0/shared/data/paired_benchmarks.csv) and [archived round history](UFUG2106_Stage1_Writing_v1_0/shared/data/round_history.csv).
 
-The portfolio addresses a central observation: **different truth tables favor different decompositions**. The smallest symbolic representation is not necessarily the best final gate circuit.
 
-### 3.3 Timing-aware mapped-network optimization
+## Research evolution and evidence
 
-After mapping, the algorithm can improve the *actual* gate DAG:
+The history is preserved as reproducible source, mathematical reasoning and controlled/archived evaluation evidence—not as a claim that each round was run simultaneously:
 
-- **Associative rebalancing** restructures AND/OR trees to shorten important paths.
-- **Complemented/polarity-aware mapping** explores De Morgan equivalents and reuse of inverted signals.
-- **Algebraic rewriting and area recovery** consider factoring, absorption, and alternative local realizations.
-- **Required-time and slack analysis** reject transformations that would violate the delay constraint.
-- **Exact live-DAG scoring** accounts for dead-gate pruning and sharing before accepting a proposed change.
-
-A naive local gate-count reduction is insufficient: shared ancestors and downstream outputs can change which gates remain live. The [Technical Report](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf) develops the mathematical construction, invariants, and acceptance criteria.
-
-### 3.4 Round 5.1: typed, in-memory DAG processing
-
-Round 5.1 accelerates the main post-mapping **rebalancing** and **area recovery** stages by replacing repeated intermediate netlist parsing/serialization with a typed in-memory gate representation.
-
-Gate nodes carry an operation and fanin indices; arrival times are computed incrementally when nodes are created. Structural hash-consing avoids duplicate gates, and a complete live-DAG evaluation determines final candidate area and delay.
-
-**Scope of the claim:** this is an engineering optimization, not a new Boolean identity or a completely text-free synthesis pipeline. Some final alternatives still use legacy representations; global area is not maintained by a purely local incremental counter.
-
-Source: [`synth_round51.cpp`](UFUG2106_Round5.1_Delivery/src/synth_round51.cpp) · [`typed_netgraph.hpp`](UFUG2106_Round5.1_Delivery/src/typed_netgraph.hpp) · [mathematical design](UFUG2106_Round5.1_Delivery/docs/ROUND5_1_MATHEMATICAL_DESIGN.md)
-
-### 3.5 Experimental cut rewriting (Rounds 6.0 and 6.1)
-
-Additional work investigated **four-feasible-cut rewriting**. For each bounded local cut, the engine evaluates a small truth function over formal cut inputs, constructs alternative SOP/POS/factored candidates, and accepts only globally feasible improvements.
-
-Round 6.1 added caching of symbolic covers and a time budget to reduce repeated local search. Although both variants lowered area slightly on the released cases, the additional synthesis time outweighed those savings under our research selection criteria. **They are archived as experiments; Round 5.1 remains the default research freeze.**
-
-Read [Round 6.0 design](UFUG2106_Round6.0_Prototype/docs/ROUND6_0_MATHEMATICAL_DESIGN.md) and [Round 6.1 design](UFUG2106_Round6.1_Delivery/docs/ROUND6_1_MATHEMATICAL_DESIGN.md) for the cut formalism and experiments.
-
-## 4. Research development rounds
-
-The following values come from **selected archived WSL Stage 1 evaluations**. Each row represents one recorded round, not one simultaneous nine-way controlled run.
-
-| Round | Main change | PASS | Target met | Area sum | Median runtime |
-|---|---|---:|---:|---:|---:|
-| [1](UFUG2106_Round1_Delivery/) | Fixed-order ROBDD correctness baseline | 25/25 | 12/25 | 1,103,455 | 5.455 ms |
-| [2](UFUG2106_Round2_Delivery/) | BDD / Shannon / implicant representation portfolio | 25/25 | 25/25 | 790,243 | 36.427 ms |
-| [3](UFUG2106_Round3_Delivery/) | Complemented-edge mapping, balance, timing-aware recovery | 25/25 | 25/25 | 533,705 | 68.486 ms |
-| [4](UFUG2106_Round4_Delivery/) | Polarity and algebraic mapped-network optimization | 25/25 | 25/25 | 528,910 | 127.568 ms |
-| [4.1 Balanced](UFUG2106_Round4.1_Delivery/) | Runtime/quality trade-off variants | 25/25 | 25/25 | 529,014 | 102.615 ms |
-| [5](UFUG2106_Round5_Delivery/) | Caching, candidate pruning, lighter metric collection | 25/25 | 25/25 | 529,014 | 68.861 ms |
-| **[5.1](UFUG2106_Round5.1_Delivery/)** | **Typed in-memory DAG and incremental arrival tracking** | **25/25** | **25/25** | **529,014** | **55.488 ms** |
-| [6.0](UFUG2106_Round6.0_Prototype/) | Bounded four-input-cut rewriting | 25/25 | 25/25 | 528,738 | 114.610 ms |
-| [6.1](UFUG2106_Round6.1_Delivery/) | Cached, budgeted cut rewriting | 25/25 | 25/25 | 528,854 | 80.731 ms |
-
-**Interpretation:** Round 2 solved baseline delay infeasibility. Round 3 delivered the largest further area gain. Round 4 achieved slightly lower area with greater search cost. Rounds 4.1–5.1 improved the implementation efficiency while keeping almost all the area benefit. Rounds 6.0–6.1 explored a real but costly additional optimization direction.
-
-See the [Round History](UFUG2106_Stage1_Writing_v1_0/shared/data/round_history.csv), [paired WSL results](UFUG2106_Stage1_Writing_v1_0/shared/data/paired_benchmarks.csv), and each delivery's `results/` and `local_runs/` for case-level evidence.
-
-## 5. Where to find things
-
-We retain the **original round-by-round directories at repository root**. Stage 1 and Stage 2 are identified here, not separated into artificial top-level stage folders.
-
-| Path | Contents |
+| Research interval | Main problem addressed |
 |---|---|
-| [`Final Project (Tentative).pdf`](Final%20Project%20%28Tentative%29.pdf) | Project handout and task definition |
-| [`baseline/`](baseline/) | Early BDD baseline |
-| [`UFUG2106_Round*_Delivery/`](UFUG2106_Round1_Delivery/) | Historical C++ implementations, design documents, results and reproduction logs (Rounds 1–5.1, 6.1) |
-| [`UFUG2106_Round6.0_Prototype/`](UFUG2106_Round6.0_Prototype/) | Experimental cut-rewrite branch |
-| [`UFUG2106_Round5.1_Delivery/src/`](UFUG2106_Round5.1_Delivery/src/) | Main selected synthesis source |
-| [`UFUG2106_Stage1_Round5.1_Freeze_20261111/`](UFUG2106_Stage1_Round5.1_Freeze_20261111/) | Frozen source snapshot, verification and benchmark evidence |
-| [`UFUG2106_Stage1_Writing_v1_0/`](UFUG2106_Stage1_Writing_v1_0/) | Technical paper, long-form trial log, figures, BibTeX, data, scripts |
-| [`data/stage1/`](data/stage1/) | Released Stage 1 truth tables |
-| [`learning/`](learning/) | Supplementary logic-synthesis study notes |
+| **R1–R3** | From an exact baseline to diversified, timing-aware mapped circuits |
+| **R4–R5.1** | Better physical mapping and less synthesis overhead through typed-DAG operations |
+| **R6.0–R6.1** | Initial bounded cut rewriting, with a real area–runtime trade-off |
+| **[R7–R7.2](UFUG2106_Round7_2_Delivery/)** | Reduce short-budget failure risk and recover useful low-cost candidates |
+| **[R8 prototype](UFUG2106_Round8_Prototype/) – [R8.7](UFUG2106_Round8_7_Delivery/)** | Four-leaf cut resynthesis, structural sharing, candidate order, guarded search, controlled SOP quotas |
+| **[R9.0](UFUG2106_Round9_0_Delivery/) – [R9.1](UFUG2106_Round9_1_Delivery/)** | Short-limit screening, optional library versus Repeat SOP, source-only deployment controls |
+| **[R10.0](UFUG2106_Round10_0_Delivery/) – [R10.1](UFUG2106_Round10_1_Delivery/)** | Freeze selected default; test reduced root caps and nominal budgets, retain R10.0 |
 
-### Two complementary papers
+The [**unified Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) is the comprehensive research record: motivations, mathematical derivations, source changes, negative results, per-round decisions and cross-version visualizations. The [**Final Report**](Stage%202%20Formal%20Report/main.pdf) focuses on the *solution*, retaining only the historical comparisons needed to explain major design decisions.
 
-| Artifact | Reading purpose |
+## Repository guide
+
+| Location | Role |
 |---|---|
-| **[Stage 1 Technical Report v1.0 (PDF)](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf)** · [LaTeX source](UFUG2106_Stage1_Writing_v1_0/technical_report/main.tex) | Problem formulation, exact constructions, mapping, invariants, ablations, results and limitations |
-| **[Trial Log & Research Development Record v1.0 (PDF)](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.pdf)** · [LaTeX source](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.tex) | Motivation for each experiment, mathematical derivations, alternative approaches, negative results and adoption decisions |
+| [`Final_Project.pdf`](Final_Project.pdf) | Official project specification |
+| [`data/stage1/`](data/stage1/), [`data/stage2/`](data/stage2/) | Released truth-table inputs (25 per bank) |
+| [`UFUG2106_Round10_0_Delivery/`](UFUG2106_Round10_0_Delivery/) | **Selected research-frozen R10.0 implementation**, exact checking, experiments and evidence |
+| [`UFUG2106_Round10_1_Delivery/`](UFUG2106_Round10_1_Delivery/) | Post-freeze budget-ablation experiment; **not** the selected final solver |
+| [`UFUG2106_Round7_2_Delivery/`](UFUG2106_Round7_2_Delivery/), [`UFUG2106_Round8_6_Delivery/`](UFUG2106_Round8_6_Delivery/), [`UFUG2106_Round9_1_Delivery/`](UFUG2106_Round9_1_Delivery/) | Representative early, core and late Stage 2 iterations; all other named Round folders remain at root |
+| [`Stage 2 Formal Report/`](Stage%202%20Formal%20Report/) | Canonical `main.tex`, `main.pdf`, data, figures, reproducibility scripts |
+| [`Stage 2 Formal Report/Research_Trial_Log/`](Stage%202%20Formal%20Report/Research_Trial_Log/) | Complete integrated Stage 1–Stage 2 research log |
+| [`UFUG2106_Stage1_Writing_v1_0/`](UFUG2106_Stage1_Writing_v1_0/) | Archived Stage 1 papers, figures, data and scripts |
+| [`Stage1_Freeze_Round5.1_Verified/`](Stage1_Freeze_Round5.1_Verified/) | Stage 1 frozen research baseline and supporting evidence |
+| [`Stage 2 Formal Report/UFUG2106_Final_Algorithm_Audit_v1/stage1_zeyun/`](Stage%202%20Formal%20Report/UFUG2106_Final_Algorithm_Audit_v1/stage1_zeyun/) | Archived Z1 submitted Stage 1 implementation and corresponding audit evidence |
+| [`baseline/`](baseline/) | Early synthesis baseline |
 
-Read the **Technical Report** to understand the final algorithm and evidence. Read the **Trial Log** to understand why the project evolved as it did.
+Large duplicated reconstruction workspaces, old manuscript drafts, machine-generated build outputs and local backup archives are excluded from new Git commits by [`.gitignore`](.gitignore). Original per-round source, explanatory documents, and selected CSV/JSON evidence are retained. Local ZIP/RAR feedback bundles are ignored by default; normalized evidence tables are included. The archive documents observed public cases only.
 
-## 6. Build and reproduce
+## Build, test and reproduce
 
-For the shortest route to a working executable, a **Round 5 versus Round 5.1 comparison**, other historical versions, and links to actual WSL results, use **[QUICK_START.md](QUICK_START.md)**. The commands below are retained as a brief reference.
+**First-time reader:** follow **[QUICK_START.md](QUICK_START.md)** to compile R10.0's independent `submission/` tree, synthesize and exhaustively verify one released case, run both 25-case public banks, and regenerate the final paper from tracked sources. The full R10.0 policy ablation runner is described in [its delivery README](UFUG2106_Round10_0_Delivery/README.md). To reproduce the earlier paired R5/R5.1 trials, use the [Stage 1 delivery guide](UFUG2106_Round5.1_Delivery/README.md).
 
-### Environment
+The merged Trial Log is available as a complete PDF, and its CSV/plots explain iteration decisions. Its **editable LaTeX reconstruction** additionally requires the Stage 1/Stage 2 body sources, palette, figure set and merge scripts; see that log's own [README](Stage%202%20Formal%20Report/Research_Trial_Log/README.md).
 
-- Linux / WSL2 and `g++` or another C++17-capable compiler
-- `make` and Python 3
-- The provided evaluator and truth tables for reproducing the released 25-case experiment
-- Optional: a LaTeX installation with `pdflatex` and BibTeX for rebuilding the papers
+## Research integrity and attribution
 
-### Build Round 5.1 and verify one case
+Jincan Li carried out the independent Stage 1 research line and the Stage 2 algorithm-development/implementation work documented here; Zeyun Du authored the formally submitted Stage 1 solver. The project's final report records individual contributions and any review/collaboration separately; this repository documentation does not retroactively reassign authorship of historical submissions. Generative AI tools were used for implementation assistance, experiment automation, data consolidation and manuscript support, with source inspection, numerical checks and verification documented in the project materials.
 
-From the repository root:
+The public release is a **research and coursework archive**, not a formally verified synthesis engine or a promise of success on unreleased cases.
 
-~~~bash
-cd UFUG2106_Round5.1_Delivery
-make
+## Repository integrity and evidence scope
 
-./build/synth_round51 ../data/stage1/case_001.txt /tmp/round51_case001.net
-
-python3 tools/verify_netlist.py \
-  ../data/stage1/case_001.txt \
-  /tmp/round51_case001.net
-~~~
-
-The Makefile also builds `build/synth_reference`, the frozen Round 5 comparator. The synthesizer writes a **gate netlist**, not a rendered schematic image.
-
-### Evaluate all released Stage 1 cases
-
-From the **repository root**, after building:
-
-~~~bash
-./evaluator \
-  ./UFUG2106_Round5.1_Delivery/build/synth_round51 \
-  ./data/stage1 \
-  --report /tmp/round51_metrics.csv
-~~~
-
-For the more complete paired reproduction with independent verification, holdout regression, source checksums and report-ready evidence:
-
-~~~bash
-cd UFUG2106_Round5.1_Delivery
-bash run_round5_1_local.sh ../evaluator ../data/stage1
-~~~
-
-This runner follows the [Round 5.1 delivery procedure](UFUG2106_Round5.1_Delivery/README.md). The source is also preserved in the [Stage 1 frozen snapshot](UFUG2106_Stage1_Round5.1_Freeze_20261111/). Research source freezing should not be confused with independently verifying the exact file eventually uploaded to a course submission portal.
-
-### Rebuild the research papers
-
-~~~bash
-cd UFUG2106_Stage1_Writing_v1_0
-
-bash build_papers.sh
-python3 shared/scripts/make_figures.py
-~~~
-
-The [shared materials](UFUG2106_Stage1_Writing_v1_0/shared/) include figure-generation code, source CSVs, references, synthetic holdout generators, manifests, and additional verification scripts.
-
-## 7. Key conclusions
-
-- **Equivalence is necessary but not sufficient:** exact BDD-based construction can still yield expensive or slow circuits.
-- **Representations are optimization choices:** different Shannon orders, two-level forms and mapped alternatives favor different functions.
-- **Global sharing changes local economics:** a smaller local replacement does not always reduce the live network's total area.
-- **Timing and area must be considered together:** required-time constraints determine whether a rewrite is feasible.
-- **The synthesis algorithm also has a cost:** Round 6 shows that a circuit-quality improvement can be outweighed by the time needed to find it.
-
-These points, together with the mathematical proofs and complete evaluation evidence, are expanded in the two papers linked above.
-
-## 8. Status and contributors
-
-**Stage 1:** completed; **Round 5.1 is the selected research freeze**, while Rounds 6.0–6.1 remain accessible as follow-up experiments.  
-**Stage 2:** not yet represented by reported results. Future work will be added to **this same repository**, with its scope identified in the README.
-
-Jincan LI and Zeyun DU initially explored possible synthesis strategies independently, then compared, reviewed and integrated the approaches. Generative AI was extensively used for C++ implementation, experimental automation, data integration, research support and manuscript development; the reports document the verification process and division of responsibility in more detail.
-
-Measured values refer to the named released tests and archived runs; the project does not claim globally minimum gate area or predict unreleased Stage 2 performance.
+All named R7/R8/R9/R10 research-delivery directories and both public banks have been checked on GitHub `main`. The documentation and scientific values are based on archived results; source-defined time budgets are cooperative, not universal hard runtime bounds. Full reconstruction of the merged Trial Log requires its archived `tex/` bodies, `shared/palette.tex`, full referenced figure set, and merge/plot scripts in addition to the precompiled PDF.

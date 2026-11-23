@@ -1,121 +1,157 @@
 # Quick Start — Truth Table to Circuit
 
-This guide uses the **existing repository and its original implementations**. No separate release repository or code rewrite is required.
+This guide reproduces the **final Stage 2 R10.0 synthesizer** using the existing repository layout. The historical Round 5.1 Stage 1 research implementation remains available and is covered below.
 
-**Recommended Stage 1 implementation: Round 5.1** (`UFUG2106_Round5.1_Delivery`). Round 5 is its direct comparison baseline; Rounds 1–4.1 and 6.0–6.1 document the wider development history. For methodology and all archived metrics, see the [main README](README.md) and the [Technical Report](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf).
+## Requirements
 
-## 1. Run the recommended version (Round 5.1)
+- Linux or WSL2 (recommended); `g++` with C++17 support; GNU `make`; Python 3.
+- For the official released-benchmark evaluation: the **course-provided** `evaluator` at repository root and the `data/stage1/`, `data/stage2/` folders.
+- For numerical checks/figure reproduction: Python packages `pandas`, `matplotlib` (install in a virtual environment if needed).
+- For report compilation: `pdflatex`, `bibtex`, IEEEtran and the packages used by `main.tex`. The compiled `.bbl` is **not committed** because `.gitignore` excludes build intermediates.
 
-**Requirements:** Linux / WSL2, a C++17 compiler (`g++`), `make`, and Python 3 for optional independent verification. All commands below start at the **repository root**.
+All paths below are relative to the **repository root** unless otherwise stated. Commands are intended to be copied into a Bash shell (including WSL Ubuntu).
+
+## 1. Clone and build the final synthesizer
 
 ```bash
-# Build the frozen research implementation.
-make -C UFUG2106_Round5.1_Delivery -j1
+git clone https://github.com/Jincan-LI-HUB/Truth-Table-to-Circuit-Discrete-Math-Project.git
+cd Truth-Table-to-Circuit-Discrete-Math-Project
 
-# Run one truth table and write a gate netlist.
-./UFUG2106_Round5.1_Delivery/build/synth_round51 \
-  data/stage1/case_001.txt /tmp/round51_case001.output.txt
-
-# Optional second check (full enumeration for n <= 13,
-# deterministic sampling for larger n).
-python3 UFUG2106_Round5.1_Delivery/tools/verify_netlist.py \
-  data/stage1/case_001.txt /tmp/round51_case001.output.txt
+# Build only the exact standalone Stage 2 submission source and its headers.
+make -C UFUG2106_Round10_0_Delivery build/submission_synth -j2
 ```
 
-The output is an **AND2/OR2/NOT gate netlist**, not a rendered circuit image.
+This compiles `UFUG2106_Round10_0_Delivery/submission/synth.cpp`, with headers placed alongside it, into `UFUG2106_Round10_0_Delivery/build/submission_synth`.
 
-### Run the instructor-provided evaluator on all 25 Stage 1 cases
+**Note:** the original `UFUG2106_Round10_0_Delivery/README.md` calls this an independent candidate freeze, reflecting the historical state when that README was written. The project's Formal Report identifies R10.0 as the selected **independent research-final Stage 2 candidate**; this is not evidence of a teammate-integrated final submission or hidden-test result.
 
-The repository currently contains the `evaluator` binary and `data/stage1/`. If the checked-out binary lacks executable permissions (common on Windows-mounted WSL folders), copy it to a Linux temporary directory:
+## 2. Synthesize and verify one input
+
+```bash
+SOLVER="$(realpath UFUG2106_Round10_0_Delivery/build/submission_synth)"
+CASE="$(realpath data/stage2/case_001.txt)"
+NET="/tmp/ufug2106_case001.net"
+
+"$SOLVER" "$CASE" "$NET"
+
+# Independent all-assignments netlist check against the truth table.
+make -C UFUG2106_Round10_0_Delivery build/verify_exhaustive -j2
+UFUG2106_Round10_0_Delivery/build/verify_exhaustive "$CASE" "$NET"
+```
+
+Expected verifier behavior: a `PASS exact_assignments=... area=... delay=... target=...` summary. The verifier checks Boolean equivalence for every truth-table assignment; passing that check **alone** does not certify the external evaluator's runtime/memory requirements.
+
+The output is a gate netlist, **not** a rendered circuit image. The R10.0 default Repeat SOP pass is conditional and may not run on a short-budget case.
+
+## 3. Run the official released-case evaluator
+
+The course evaluator is a platform-dependent executable. On Windows-mounted WSL file systems, it may lack executable permissions; copy it to the Linux temporary directory to avoid altering the tracked original:
 
 ```bash
 cp evaluator /tmp/ufug2106_evaluator
 chmod +x /tmp/ufug2106_evaluator
 
 EVAL=/tmp/ufug2106_evaluator
-CASES="$(realpath data/stage1)"
-ROUND51="$(realpath UFUG2106_Round5.1_Delivery/build/synth_round51)"
+SOLVER="$(realpath UFUG2106_Round10_0_Delivery/build/submission_synth)"
 
-"$EVAL" "$ROUND51" "$CASES" --report /tmp/round51_stage1.csv
+"$EVAL" "$SOLVER" "$(realpath data/stage1)" \
+  --report /tmp/r100_stage1.csv
+"$EVAL" "$SOLVER" "$(realpath data/stage2)" \
+  --report /tmp/r100_stage2.csv
 ```
 
-The documented two-argument evaluator interface is `evaluator PROGRAM BENCHMARK_FOLDER`; `--report` is supported by the evaluator version used in the archived experiments. If using another evaluator version that does not support it, omit that optional flag.
+The documented basic interface is `evaluator PROGRAM BENCHMARK_FOLDER`. The archived evaluator accepts the optional `--report FILE` argument; omit it if you have a different version lacking that option.
 
-## 2. Compare Round 5 and Round 5.1
+Each released bank contains 25 cases. The CSV output reports case-specific PASS, target attainment, area, delay and synthesis runtime. For the archived matched three-solver comparison and source provenance, refer to [`Stage 2 Formal Report/data/matched_case_metrics.csv`](Stage%202%20Formal%20Report/data/matched_case_metrics.csv) and the report's evaluation section.
 
-Round 5.1 retains the principal synthesis strategy from Round 5 while improving the efficiency of postprocessing with typed in-memory DAG operations. **This is the most directly interpretable paired comparison** in the archive.
+### Full R10.0 historical evaluation and ablations
 
-After completing Section 1:
+The original delivery provides a full verification-and-comparison runner:
 
 ```bash
-make -C UFUG2106_Round5_Delivery -j1
+# Local compilation, cold-build checks, independent fixtures (no official scores):
+bash UFUG2106_Round10_0_Delivery/run_round100.sh --local-only
 
-ROUND5="$(realpath UFUG2106_Round5_Delivery/build/synth_round5)"
-"$EVAL" "$ROUND5" "$CASES" --report /tmp/round5_stage1.csv
+# Quicker public case comparison (four configurations, one repeat):
+bash UFUG2106_Round10_0_Delivery/run_round100.sh --quick
+
+# Full historical experiment (six configurations, two repeats, both banks):
+bash UFUG2106_Round10_0_Delivery/run_round100.sh
 ```
 
-The two CSV files contain per-case results to compare: functional `PASS`, `target_met`, `area`, `delay`, and `runtime_ms`.
+The full experiment runs **600 policy-case evaluations**, takes substantially more work than a single solver check, and generates local `results/` and `feedback/` files. The `.gitignore` omits generated binaries, LaTeX intermediates, and ZIP/RAR feedback archives; it does **not** blanket-ignore tracked/archived CSVs and research source.
 
-For the **full original WSL paired protocol** (two reversed-order evaluations, independent checks, generated/holdout regression tests, and source/environment fingerprints), use:
+## 4. Build the earlier Stage 1 research freeze
+
+The independent **Round 5.1** line is retained for historical comparison and study:
 
 ```bash
-bash UFUG2106_Round5.1_Delivery/run_round5_1_local.sh "$EVAL" "$CASES"
+make -C UFUG2106_Round5.1_Delivery -j1
+
+./UFUG2106_Round5.1_Delivery/build/synth_round51 \
+  data/stage1/case_001.txt /tmp/round51_case001.net
+
+python3 UFUG2106_Round5.1_Delivery/tools/verify_netlist.py \
+  data/stage1/case_001.txt /tmp/round51_case001.net
 ```
 
-This extended runner saves **new** experimental evidence under `UFUG2106_Round5.1_Delivery/local_runs/`. It is not necessary for a quick demonstration; the prior successful runs are already archived below.
+Round 5.1 was an **independent research baseline**, not the Stage 1 code formally submitted by Zeyun Du. For source lineage, archived evaluations and all intermediate experiments, consult the Stage 1 Technical Report and the unified Research Trial Log.
 
-## 3. Run any other research round
-
-Every main synthesizer accepts the same interface: `PROGRAM INPUT_FILE OUTPUT_FILE`. Build the selected version, then supply its executable to the evaluator as in Sections 1–2.
-
-| Version | Build from repository root | Main executable (relative to repository root) |
-|---|---|---|
-| Round 1 (ROBDD baseline) | `make -C UFUG2106_Round1_Delivery` | `UFUG2106_Round1_Delivery/synth` |
-| Round 2 | `make -C UFUG2106_Round2_Delivery` | `UFUG2106_Round2_Delivery/synth` |
-| Round 3 | `make -C UFUG2106_Round3_Delivery` | `UFUG2106_Round3_Delivery/synth` |
-| Round 4 | `make -C UFUG2106_Round4_Delivery` | `UFUG2106_Round4_Delivery/synth` |
-| Round 4.1 (Balanced) | `make -C UFUG2106_Round4.1_Delivery` | `UFUG2106_Round4.1_Delivery/build/synth_balanced` |
-| Round 5 | `make -C UFUG2106_Round5_Delivery` | `UFUG2106_Round5_Delivery/build/synth_round5` |
-| **Round 5.1 (recommended)** | `make -C UFUG2106_Round5.1_Delivery` | **`UFUG2106_Round5.1_Delivery/build/synth_round51`** |
-| Round 6.0 (experimental) | `make -C UFUG2106_Round6.0_Prototype` | `UFUG2106_Round6.0_Prototype/build/synth_round60` |
-| Round 6.1 (experimental) | `make -C UFUG2106_Round6.1_Delivery` | `UFUG2106_Round6.1_Delivery/build/synth_round61` |
-
-For example, compare the earliest correctness baseline with Round 5.1:
+## 5. Rebuild and verify the Formal Report
 
 ```bash
-make -C UFUG2106_Round1_Delivery
-ROUND1="$(realpath UFUG2106_Round1_Delivery/synth)"
-"$EVAL" "$ROUND1" "$CASES" --report /tmp/round1_stage1.csv
+cd "Stage 2 Formal Report"
+
+# Recompute the casewise appendix and verify the already archived CSV metrics.
+python3 build_casewise.py
+python3 verify.py
+
+# Rebuild vector statistical and algorithm figures (requires matplotlib/pandas).
+python3 figures.py
+
+# Regenerate the bibliography and PDF from tracked TeX/BibTeX sources.
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+bibtex main
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-Or test the later cut-rewriting experiment:
+Because the repository does not track `.bbl`, a clean clone should run `bibtex main` after the first `pdflatex` pass. This does not alter the experimental data.
 
-```bash
-make -C UFUG2106_Round6.1_Delivery
-ROUND61="$(realpath UFUG2106_Round6.1_Delivery/build/synth_round61)"
-"$EVAL" "$ROUND61" "$CASES" --report /tmp/round61_stage1.csv
-```
+PDFs available without recompiling:
 
-Round 4.1 also provides `synth_strict` and `synth_fast` variants. Rounds 6.0/6.1 include separate cut-postprocessor tools. Their own round READMEs explain these additional *ablations*, rather than treating them as the main executable.
+- [**Formal Report**](Stage%202%20Formal%20Report/main.pdf): final R10.0 algorithm and Stage 1/Stage 2 comparison.
+- [**Unified Research Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf): detailed Stage 1–Stage 2 decisions, mathematics, controls, and cross-version data.
+- [**Stage 1 Technical Report**](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf): earlier rigorous treatment of representation, mapping and optimization.
 
-**Important comparison note:** historical runtimes were not all measured together on identical machines. Rerunning versions on the same machine is preferable to interpreting archived median runtimes as a fully controlled ranking. The later Round 6 experiments reduced area slightly but incurred additional synthesis time; **Round 5.1 remains the recommended efficiency baseline**.
+## 6. Interpreting results responsibly
 
-## 4. Where are our actual local results?
+- `PASS` means the evaluator accepted the generated solution; meeting a preferred delay target is a separate field.
+- Circuit delay and synthesis runtime are different quantities.
+- Area totals are **weighted gate counts**, not operation counts or universally comparable hardware costs across differently priced cases.
+- Published values in the project documents refer to the cited public-case runs. They may differ slightly from a fresh run because some search decisions depend on elapsed time.
+- The final 50-case public evaluation compares **Z1 (submitted Stage 1)** against **R10.0 (research-frozen Stage 2)**; J51 is a distinct Stage 1 research baseline, not a substitute for Z1.
 
-These are **recorded results from completed experiments**, not hypothetical outputs of the commands above.
+For navigation, return to the [repository README](README.md).
 
-| Evidence | Repository location |
+
+## 7. Access the full research history
+
+- [Stage 1 independent R1–R6.1 technical report](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf) and [original trial log](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.pdf).
+- [Complete Stage 1 + Stage 2 Trial Log](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) and [casewise/variant CSV index](Stage%202%20Formal%20Report/Research_Trial_Log/data/stage2_all_variant_index.csv).
+- [R8.6 controlled root/time-quota experiment](UFUG2106_Round8_6_Delivery/README.md) and [R10.1 final parameter-ablation decision](UFUG2106_Round10_1_Delivery/docs/02_RELEASE_DECISION.md).
+
+The merged Trial Log PDF is available immediately. To regenerate its LaTeX from source, the full `Research_Trial_Log` editable bundle must contain `shared/palette.tex`, `tex/stage1_body.tex`, `tex/stage2_body.tex`, referenced figure PDFs, and the merge/plot scripts. Those source files may need to be restored from the complete research-log archive if absent in an older clone; do not mistake an existing PDF for proof of source-level reproducibility.
+
+## 8. Troubleshooting
+
+| Symptom | Action |
 |---|---|
-| **Round 5.1 WSL reproduction report** | [Local reproduction report (2026-11-11)](Stage1_Freeze_Round5.1_Verified/evidence/report_ready/Round5.1_Local_Reproduction_Report_20261111.md) |
-| **Paired Run 1: Round 5 vs 5.1** | [Round 5 CSV](UFUG2106_Round5.1_Delivery/results/paired/run1_reference.csv) · [Round 5.1 CSV](UFUG2106_Round5.1_Delivery/results/paired/run1_round51.csv) |
-| **Paired Run 2: reversed order** | [Round 5 CSV](UFUG2106_Round5.1_Delivery/results/paired/run2_reference.csv) · [Round 5.1 CSV](UFUG2106_Round5.1_Delivery/results/paired/run2_round51.csv) |
-| **Saved 25 Round 5.1 netlists** | [Frozen benchmark outputs](UFUG2106_Stage1_Round5.1_Freeze_20261111/benchmark/run1_round51_outputs/) |
-| **Independent verification** | [Netlist verification log](UFUG2106_Stage1_Round5.1_Freeze_20261111/benchmark/independent_verification.log) |
-| **Reproduction environment and source checksums** | [Environment](UFUG2106_Stage1_Round5.1_Freeze_20261111/environment.txt) · [Freeze manifest](UFUG2106_Stage1_Round5.1_Freeze_20261111/FREEZE_MANIFEST.json) |
-| **Other rounds' evaluator CSVs** | The `results/` folders within each [Round 1](UFUG2106_Round1_Delivery/results/), [Round 3](UFUG2106_Round3_Delivery/results/), [Round 4](UFUG2106_Round4_Delivery/results/), [Round 5](UFUG2106_Round5_Delivery/results/), [Round 6.0](UFUG2106_Round6.0_Prototype/results/), and [Round 6.1](UFUG2106_Round6.1_Delivery/results/) directories |
+| `g++` or `make` not found | Install a C++17-capable build toolchain in Linux/WSL |
+| Course evaluator reports `Permission denied` | Copy the tracked binary into `/tmp` and run `chmod +x` on the copy |
+| Evaluator command does not recognize `--report` | Omit the optional flag if using a different evaluator version |
+| Output passes the exhaustive verifier but fails the external evaluator | Inspect output validity, case-specific delay, resource limits and evaluator diagnostics separately |
+| Fresh report build reports `IEEEtran.bst` missing | Install the TeX IEEE/BibTeX style packages and rerun the documented sequence |
+| Repeated metrics differ slightly | Respect wall-clock sensitivity of bounded search; use same-run paired comparisons for causal claims |
 
-In the archived paired WSL experiments, Round 5.1 achieved **25/25 PASS**, **25/25 delay targets met**, and **529,014 aggregate area** in both runs; the recorded median synthesis runtimes were **55.488 ms** and **55.077 ms**.
-
-The [root README](README.md#4-research-development-rounds) summarizes the other rounds' recorded results. For mathematical derivations, detailed ablations, and failed or deferred ideas, see the [Technical Report](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf) and [Trial Log](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.pdf).
-
-*The official evaluator's PASS status and delay-target satisfaction are different conditions; the reported area sum is descriptive, not a published course grade. Stage 2 performance is not claimed here.*
+Return to the [main README](README.md) for research background and the full repository map.
