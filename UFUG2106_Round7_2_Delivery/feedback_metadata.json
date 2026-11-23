@@ -1,0 +1,9 @@
+{
+  "milestone": "7.2",
+  "script_exit_code": 0,
+  "results_available": true,
+  "host": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "disclaimer": "Contains original official evaluator outputs, not an official score formula.",
+  "contains_private_input_data": false
+}

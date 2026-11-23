@@ -1,0 +1,37 @@
+case,variant,local_wall_ms,limit_ms,exceeds_local_limit,exit_code,exact,verify,official_exit,official_excerpt,official_status,official_reason,official_runtime
+stress_001.txt,frozen_explicit_extra,179.174,100,True,0,True,PASS exact_assignments=1048576 area=0 delay=0 target=170,0,"PASS stress_001.txt | n=20 m=3 exit_code=0 area=0 delay=0 runtime_ms=93.927 target_delay=170 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round9_0_Delivery/results/20261122_192303_311650892/stress/stress_001_frozen_explicit_extra_official.csv
+
+",PASS,,93.927
+stress_001.txt,new_default,90.159,100,False,0,True,PASS exact_assignments=1048576 area=0 delay=0 target=170,0,"PASS stress_001.txt | n=20 m=3 exit_code=0 area=0 delay=0 runtime_ms=31.581 target_delay=170 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round9_0_Delivery/results/20261122_192303_311650892/stress/stress_001_new_default_official.csv
+
+",PASS,,31.581
+stress_001.txt,submission_default,82.278,100,False,0,True,PASS exact_assignments=1048576 area=0 delay=0 target=170,0,"PASS stress_001.txt | n=20 m=3 exit_code=0 area=0 delay=0 runtime_ms=29.413 target_delay=170 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round9_0_Delivery/results/20261122_192303_311650892/stress/stress_001_submission_default_official.csv
+
+",PASS,,29.413
+stress_002.txt,frozen_explicit_extra,176.34,100,True,0,True,PASS exact_assignments=1048576 area=309 delay=24 target=170,0,"PASS stress_002.txt | n=20 m=3 exit_code=0 area=309 delay=24 runtime_ms=77.023 target_delay=170 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round9_0_Delivery/results/20261122_192303_311650892/stress/stress_002_frozen_explicit_extra_official.csv
+
+",PASS,,77.023
+stress_002.txt,new_default,91.771,100,False,0,True,PASS exact_assignments=1048576 area=309 delay=24 target=170,0,"PASS stress_002.txt | n=20 m=3 exit_code=0 area=309 delay=24 runtime_ms=21.321 target_delay=170 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round9_0_Delivery/results/20261122_192303_311650892/stress/stress_002_new_default_official.csv
+
+",PASS,,21.321
+stress_002.txt,submission_default,112.533,100,True,0,True,PASS exact_assignments=1048576 area=309 delay=24 target=170,0,"PASS stress_002.txt | n=20 m=3 exit_code=0 area=309 delay=24 runtime_ms=26.222 target_delay=170 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round9_0_Delivery/results/20261122_192303_311650892/stress/stress_002_submission_default_official.csv
+
+",PASS,,26.222
+stress_003.txt,frozen_explicit_extra,69.334,100,False,0,True,PASS exact_assignments=262144 area=2107 delay=62 target=170,0,"PASS stress_003.txt | n=18 m=3 exit_code=0 area=2107 delay=62 runtime_ms=28.469 target_delay=170 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round9_0_Delivery/results/20261122_192303_311650892/stress/stress_003_frozen_explicit_extra_official.csv
+
+",PASS,,28.469
+stress_003.txt,new_default,61.074,100,False,0,True,PASS exact_assignments=262144 area=2107 delay=62 target=170,0,"PASS stress_003.txt | n=18 m=3 exit_code=0 area=2107 delay=62 runtime_ms=27.985 target_delay=170 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round9_0_Delivery/results/20261122_192303_311650892/stress/stress_003_new_default_official.csv
+
+",PASS,,27.985
+stress_003.txt,submission_default,50.899,100,False,0,True,PASS exact_assignments=262144 area=2107 delay=62 target=170,0,"PASS stress_003.txt | n=18 m=3 exit_code=0 area=2107 delay=62 runtime_ms=30.337 target_delay=170 target_met=yes delay_excess=0
+1/1 passed; report: /mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round9_0_Delivery/results/20261122_192303_311650892/stress/stress_003_submission_default_official.csv
+
+",PASS,,30.337

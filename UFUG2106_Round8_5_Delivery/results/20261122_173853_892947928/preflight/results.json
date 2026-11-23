@@ -1,0 +1,356 @@
+[
+  {
+    "case": "case_003.txt",
+    "policy": "dual_shannon_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 546.73,
+    "verify": "PASS exact_assignments=1048576 area=16213 delay=65 target=65",
+    "net_sha256": "fbfa15167b05ace7dbc7431867b063fd3351acd03aaa2972cc279860267c7c6a",
+    "stages": [
+      "R85_STAGE policy=dual_shannon_first mode=shannon cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=44.4247 wall_ms=460.274 area=17092 delay=48 accepted=1",
+      "R85_STAGE policy=dual_shannon_first mode=sop cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=74.7414 wall_ms=537.816 area=16213 delay=65 accepted=1"
+    ]
+  },
+  {
+    "case": "case_003.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 535.823,
+    "verify": "PASS exact_assignments=1048576 area=16213 delay=65 target=65",
+    "net_sha256": "fbfa15167b05ace7dbc7431867b063fd3351acd03aaa2972cc279860267c7c6a",
+    "stages": [
+      "R85_STAGE policy=dual_sop_first mode=sop cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=74.7646 wall_ms=480.042 area=16213 delay=65 accepted=1",
+      "R85_STAGE policy=dual_sop_first mode=shannon cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=42.2867 wall_ms=525.012 area=17092 delay=48 accepted=0"
+    ]
+  },
+  {
+    "case": "case_003.txt",
+    "policy": "dense_sop_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 558.945,
+    "verify": "PASS exact_assignments=1048576 area=15943 delay=65 target=65",
+    "net_sha256": "a49a437e2bf583aacba732c0a46e3e7321612dad80480fd856942b581a515fbc",
+    "stages": [
+      "R85_STAGE policy=dense_sop_first mode=sop cap=1100 visited=1100 work_hit=0 wall_hit=0 stage_ms=84.2126 wall_ms=496.736 area=15943 delay=65 accepted=1",
+      "R85_STAGE policy=dense_sop_first mode=shannon cap=1100 visited=1100 work_hit=0 wall_hit=0 stage_ms=47.842 wall_ms=547.633 area=17044 delay=48 accepted=0"
+    ]
+  },
+  {
+    "case": "case_003.txt",
+    "policy": "budget_reclaim",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 559.344,
+    "verify": "PASS exact_assignments=1048576 area=15773 delay=65 target=65",
+    "net_sha256": "e03e5cb23003c4c5346d44913bb09c0bf9bda8123bceb228cb23f16de710ffea",
+    "stages": [
+      "R85_STAGE policy=budget_reclaim mode=shannon cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=44.7386 wall_ms=458.196 area=17092 delay=48 accepted=1",
+      "R85_STAGE policy=budget_reclaim mode=sop cap=1200 visited=1200 work_hit=0 wall_hit=0 stage_ms=87.6585 wall_ms=548.446 area=15773 delay=65 accepted=1"
+    ]
+  },
+  {
+    "case": "case_005.txt",
+    "policy": "dual_shannon_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 908.893,
+    "verify": "PASS exact_assignments=131072 area=105876 delay=68 target=69",
+    "net_sha256": "06bafea3e8a2c5a705333f24390978f916cccdc8bbe613f1cadc09a1c12dd4ae",
+    "stages": [
+      "R85_STAGE policy=dual_shannon_first mode=shannon cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=94.0742 wall_ms=771.658 area=110422 delay=46 accepted=1",
+      "R85_STAGE policy=dual_shannon_first mode=sop cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=104.529 wall_ms=895.716 area=105876 delay=68 accepted=1"
+    ]
+  },
+  {
+    "case": "case_005.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 850.8,
+    "verify": "PASS exact_assignments=131072 area=105876 delay=68 target=69",
+    "net_sha256": "06bafea3e8a2c5a705333f24390978f916cccdc8bbe613f1cadc09a1c12dd4ae",
+    "stages": [
+      "R85_STAGE policy=dual_sop_first mode=sop cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=103.623 wall_ms=728.646 area=105876 delay=68 accepted=1",
+      "R85_STAGE policy=dual_sop_first mode=shannon cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=92.2346 wall_ms=840.889 area=110422 delay=46 accepted=0"
+    ]
+  },
+  {
+    "case": "case_005.txt",
+    "policy": "dense_sop_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 869.07,
+    "verify": "PASS exact_assignments=131072 area=104366 delay=68 target=69",
+    "net_sha256": "4571af6e53bf346a65869369ca22c1bdddf18bfca5edb968b3d133769c9f36fc",
+    "stages": [
+      "R85_STAGE policy=dense_sop_first mode=sop cap=1100 visited=1100 work_hit=0 wall_hit=0 stage_ms=119.348 wall_ms=744.493 area=104366 delay=68 accepted=1",
+      "R85_STAGE policy=dense_sop_first mode=shannon cap=1100 visited=1100 work_hit=0 wall_hit=0 stage_ms=94.4809 wall_ms=858.363 area=109983 delay=46 accepted=0"
+    ]
+  },
+  {
+    "case": "case_005.txt",
+    "policy": "budget_reclaim",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 875.6,
+    "verify": "PASS exact_assignments=131072 area=103641 delay=68 target=69",
+    "net_sha256": "0b17626fee5dd24398dce54971f8f0cf2457e4ceefb0b51e1177cee08940c1da",
+    "stages": [
+      "R85_STAGE policy=budget_reclaim mode=shannon cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=89.5381 wall_ms=724.452 area=110422 delay=46 accepted=1",
+      "R85_STAGE policy=budget_reclaim mode=sop cap=1200 visited=1200 work_hit=0 wall_hit=0 stage_ms=114.216 wall_ms=862.775 area=103641 delay=68 accepted=1"
+    ]
+  },
+  {
+    "case": "case_016.txt",
+    "policy": "dual_shannon_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 35.466,
+    "verify": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a",
+    "stages": []
+  },
+  {
+    "case": "case_016.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 29.832,
+    "verify": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a",
+    "stages": []
+  },
+  {
+    "case": "case_016.txt",
+    "policy": "dense_sop_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 32.121,
+    "verify": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a",
+    "stages": []
+  },
+  {
+    "case": "case_016.txt",
+    "policy": "budget_reclaim",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 31.582,
+    "verify": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a",
+    "stages": []
+  },
+  {
+    "case": "case_017.txt",
+    "policy": "dual_shannon_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 136.712,
+    "verify": "PASS exact_assignments=4096 area=14164 delay=49 target=57",
+    "net_sha256": "5fb196b0b7fea4241d0a90e82dd9fb9bc346112974ac673d76e67736742d39aa",
+    "stages": [
+      "R85_STAGE policy=dual_shannon_first mode=shannon cap=600 visited=600 work_hit=0 wall_hit=0 stage_ms=26.1765 wall_ms=92.878 area=14164 delay=49 accepted=1",
+      "R85_STAGE policy=dual_shannon_first mode=sop cap=600 visited=600 work_hit=0 wall_hit=0 stage_ms=34.7995 wall_ms=129.005 area=14164 delay=49 accepted=0"
+    ]
+  },
+  {
+    "case": "case_017.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 127.127,
+    "verify": "PASS exact_assignments=4096 area=14164 delay=49 target=57",
+    "net_sha256": "0ed63ce2fb841d8b319520c836482f615ca39b931eae568287c7b587000bcb25",
+    "stages": [
+      "R85_STAGE policy=dual_sop_first mode=sop cap=600 visited=600 work_hit=0 wall_hit=0 stage_ms=35.798 wall_ms=91.9919 area=14164 delay=49 accepted=1",
+      "R85_STAGE policy=dual_sop_first mode=shannon cap=600 visited=600 work_hit=0 wall_hit=0 stage_ms=24.952 wall_ms=118.914 area=14164 delay=49 accepted=0"
+    ]
+  },
+  {
+    "case": "case_017.txt",
+    "policy": "dense_sop_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 125.872,
+    "verify": "PASS exact_assignments=4096 area=14164 delay=49 target=57",
+    "net_sha256": "0ed63ce2fb841d8b319520c836482f615ca39b931eae568287c7b587000bcb25",
+    "stages": [
+      "R85_STAGE policy=dense_sop_first mode=sop cap=600 visited=600 work_hit=0 wall_hit=0 stage_ms=34.9522 wall_ms=89.1018 area=14164 delay=49 accepted=1",
+      "R85_STAGE policy=dense_sop_first mode=shannon cap=600 visited=600 work_hit=0 wall_hit=0 stage_ms=25.949 wall_ms=117.253 area=14164 delay=49 accepted=0"
+    ]
+  },
+  {
+    "case": "case_017.txt",
+    "policy": "budget_reclaim",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 142.355,
+    "verify": "PASS exact_assignments=4096 area=14154 delay=49 target=57",
+    "net_sha256": "6d0d1fdd0e5015313f0525e36e676ba0b7f05e547b3925357ae07ae263c1e4f4",
+    "stages": [
+      "R85_STAGE policy=budget_reclaim mode=shannon cap=600 visited=600 work_hit=0 wall_hit=0 stage_ms=26.6194 wall_ms=84.2594 area=14164 delay=49 accepted=1",
+      "R85_STAGE policy=budget_reclaim mode=sop cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=48.7526 wall_ms=135.304 area=14154 delay=49 accepted=1"
+    ]
+  },
+  {
+    "case": "case_021.txt",
+    "policy": "dual_shannon_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 369.394,
+    "verify": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "net_sha256": "cd30744344300a81e80ada4b4938f7cf1eae5b6c4adaea3a099932db4d6d52de",
+    "stages": [
+      "R85_STAGE policy=dual_shannon_first mode=shannon cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=37.1149 wall_ms=304.341 area=22590 delay=69 accepted=0",
+      "R85_STAGE policy=dual_shannon_first mode=sop cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=51.7373 wall_ms=359.149 area=22576 delay=69 accepted=1"
+    ]
+  },
+  {
+    "case": "case_021.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 371.688,
+    "verify": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "net_sha256": "cd30744344300a81e80ada4b4938f7cf1eae5b6c4adaea3a099932db4d6d52de",
+    "stages": [
+      "R85_STAGE policy=dual_sop_first mode=sop cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=55.087 wall_ms=323.834 area=22576 delay=69 accepted=1",
+      "R85_STAGE policy=dual_sop_first mode=shannon cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=35.2719 wall_ms=363.849 area=22590 delay=69 accepted=0"
+    ]
+  },
+  {
+    "case": "case_021.txt",
+    "policy": "dense_sop_first",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 390.756,
+    "verify": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "net_sha256": "8a3669960701846e9124bc3087865e7e46b3cd24e7a7791a52b2935841899fc9",
+    "stages": [
+      "R85_STAGE policy=dense_sop_first mode=sop cap=1100 visited=1100 work_hit=0 wall_hit=0 stage_ms=63.8998 wall_ms=336.038 area=22576 delay=69 accepted=1",
+      "R85_STAGE policy=dense_sop_first mode=shannon cap=1100 visited=1100 work_hit=0 wall_hit=0 stage_ms=41.6329 wall_ms=382.854 area=22590 delay=69 accepted=0"
+    ]
+  },
+  {
+    "case": "case_021.txt",
+    "policy": "budget_reclaim",
+    "data_origin": "actual_Stage2",
+    "elapsed_ms": 403.087,
+    "verify": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "net_sha256": "72da2c4f00976448a8def992bc697c28e3759c14f7c0d26384a888c0d43dc0b5",
+    "stages": [
+      "R85_STAGE policy=budget_reclaim mode=shannon cap=900 visited=900 work_hit=0 wall_hit=0 stage_ms=38.3949 wall_ms=323.205 area=22590 delay=69 accepted=0",
+      "R85_STAGE policy=budget_reclaim mode=sop cap=1200 visited=1200 work_hit=0 wall_hit=0 stage_ms=65.3126 wall_ms=392.121 area=22576 delay=69 accepted=1"
+    ]
+  },
+  {
+    "case": "synthetic_001.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=32 area=64 delay=17 target=61",
+    "net_sha256": "187fd080ccb39c3c6d7e9d6ae03f86c282742233b25f6fcc2aa7cffac9f8c15b"
+  },
+  {
+    "case": "synthetic_002.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=256 area=407 delay=40 target=79",
+    "net_sha256": "33e20ab2b1d1dfdba210eaf320b3b7205b8c10142fffb78ab06d22756b5ee7d3"
+  },
+  {
+    "case": "synthetic_003.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=32 area=36 delay=10 target=75",
+    "net_sha256": "bd40074ca86c60b04a49863f1a0d88e604c76f227580563203b254b9b18f1364"
+  },
+  {
+    "case": "synthetic_004.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=128 area=8 delay=5 target=60",
+    "net_sha256": "14ccd03378e8d39a0034651864e2129867d14c3607a3386bcfb28c8209e2c776"
+  },
+  {
+    "case": "synthetic_005.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=128 area=30 delay=16 target=61",
+    "net_sha256": "82188e47e54214c94faa44135aba7bd34b8dc0a27e7526c0b661694ca2ac3559"
+  },
+  {
+    "case": "synthetic_006.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=32 area=30 delay=14 target=46",
+    "net_sha256": "80fc667e3f9a1e384b15ebfd692dba2d7753a590499381bf3e1bc019d80bafef"
+  },
+  {
+    "case": "synthetic_007.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=128 area=168 delay=15 target=51",
+    "net_sha256": "de6c2bc2cbdea886a84cb2d0b6625a6447f471d91277bbd866d5858c5d50b12d"
+  },
+  {
+    "case": "synthetic_008.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=256 area=63 delay=10 target=76",
+    "net_sha256": "c10112b5277135dcf1a52f8ca4329588b978741fbf65e6c13c8b75e08cbf4c86"
+  },
+  {
+    "case": "synthetic_009.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=256 area=82 delay=31 target=88",
+    "net_sha256": "37b4eddfc7b21dd35e3bfbb4941997351c88f31ba625bb0bf58dde18329ef96b"
+  },
+  {
+    "case": "synthetic_010.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=512 area=13 delay=5 target=86",
+    "net_sha256": "26fe3350028d0e1c9c02562c2f1a01b46d7d9d206ae668253e897da8367fd323"
+  },
+  {
+    "case": "synthetic_011.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=1024 area=223 delay=21 target=64",
+    "net_sha256": "f370f79a86e5488be3a0c77f220cef2bab781d1d9cf404549c6b8db8ee8b9f6a"
+  },
+  {
+    "case": "synthetic_012.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=128 area=8 delay=8 target=87",
+    "net_sha256": "7aa518f46a66dd5ae640e48171fd43cc109a65cebd0a03efcfaded220aad3ae0"
+  },
+  {
+    "case": "synthetic_013.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=256 area=161 delay=25 target=59",
+    "net_sha256": "1884c60d268a91367aae5e2aa109ca76f8d3b5437be0e9bca226e27c1a5b06a6"
+  },
+  {
+    "case": "synthetic_014.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=256 area=28 delay=5 target=79",
+    "net_sha256": "2747b4250013d0e353fd42d8967d16abef5747edcf59f64abfc0c602956b0e80"
+  },
+  {
+    "case": "synthetic_015.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=1024 area=42 delay=9 target=90",
+    "net_sha256": "7ce4425830eda7f45846065f621236e859318a72aaeb1cd456f3be1dd26a78ef"
+  },
+  {
+    "case": "synthetic_016.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=1024 area=53 delay=5 target=64",
+    "net_sha256": "7fb98066918fdaca2a90b11a865831abc8e64d4fe268a0a898d161f64dd6317d"
+  },
+  {
+    "case": "synthetic_017.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=512 area=178 delay=24 target=95",
+    "net_sha256": "fc5c764d85deb1e4e6149806c75e3f733900e4be709d27933ba4d3dad332b2a5"
+  },
+  {
+    "case": "synthetic_018.txt",
+    "policy": "dual_sop_first",
+    "data_origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=1024 area=711 delay=54 target=53",
+    "net_sha256": "04f75a67f9a09b575f2637e6cc7ea1a3566b9e946ccf63a620b65ce4332c593f"
+  }
+]

@@ -1,0 +1,13 @@
+bank,policy,n,area_sum,delay_sum,wall_sum_ms,runtime_geomean_ratio,area_improved,area_worsened
+dev,frozen,4,38903,138,1346.644,1.0,0,0
+dev,library,4,38894,138,1293.195,0.9283,1,0
+dev,repeat_sop,4,38896,138,1270.022,0.9337,1,0
+dev,repeat_shannon,4,38890,138,1341.281,1.033,2,0
+stage2,frozen,25,501133,1170,12797.011,1.0,0,0
+stage2,library,25,501708,1171,12861.393,1.0295,9,1
+stage2,repeat_sop,25,500436,1170,13145.876,1.0544,6,1
+stage2,repeat_shannon,25,501445,1170,13123.588,1.0645,3,1
+lockbox,frozen,4,25307,146,1119.345,1.0,0,0
+lockbox,library,4,25307,146,1276.482,1.1997,0,0
+lockbox,repeat_sop,4,25302,146,1218.674,1.1025,1,0
+lockbox,repeat_shannon,4,25293,146,1204.553,1.0416,1,0

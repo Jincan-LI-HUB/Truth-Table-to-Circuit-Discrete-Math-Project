@@ -1,0 +1,16 @@
+run,variant,elapsed_direct_ms,exit_code,independent_verify,net_sha256,primary_trial_count,status_line,legacy_skipped,legacy_candidate_count,trace_log
+1,r51,104.671,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=6 chosen=2 area=1781 delay=36,False,0,run1_r51.profile.log
+1,r71_guard,28.652,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=5 chosen=2 area=1781 delay=36,True,0,run1_r71_guard.profile.log
+1,r71_policy_off,117.963,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=8 chosen=2 area=1781 delay=36,False,3,run1_r71_policy_off.profile.log
+1,r71_legacy_merge,44.867,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=5 chosen=2 area=1781 delay=36,True,0,run1_r71_legacy_merge.profile.log
+1,r71_legacy_cover,46.478,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=5 chosen=2 area=1781 delay=36,True,0,run1_r71_legacy_cover.profile.log
+2,r71_legacy_cover,46.636,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=5 chosen=2 area=1781 delay=36,True,0,run2_r71_legacy_cover.profile.log
+2,r71_legacy_merge,44.084,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=5 chosen=2 area=1781 delay=36,True,0,run2_r71_legacy_merge.profile.log
+2,r71_policy_off,117.202,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=8 chosen=2 area=1781 delay=36,False,3,run2_r71_policy_off.profile.log
+2,r71_guard,26.942,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=5 chosen=2 area=1781 delay=36,True,0,run2_r71_guard.profile.log
+2,r51,103.992,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=6 chosen=2 area=1781 delay=36,False,0,run2_r51.profile.log
+3,r51,101.589,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=6 chosen=2 area=1781 delay=36,False,0,run3_r51.profile.log
+3,r71_guard,28.127,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=5 chosen=2 area=1781 delay=36,True,0,run3_r71_guard.profile.log
+3,r71_policy_off,119.336,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=8 chosen=2 area=1781 delay=36,False,3,run3_r71_policy_off.profile.log
+3,r71_legacy_merge,45.108,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=5 chosen=2 area=1781 delay=36,True,0,run3_r71_legacy_merge.profile.log
+3,r71_legacy_cover,46.865,0,PASS,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a,5,completed=5 chosen=2 area=1781 delay=36,True,0,run3_r71_legacy_cover.profile.log

@@ -1,0 +1,82 @@
+ 190:     if(needed[id]>=std::numeric_limits<int>::max()/4)continue;
+ 191:     auto x=g.nodes[id];int rem=needed[id]-delay(c,x.op);
+ 192:     needed[x.a]=std::min(needed[x.a],rem);
+ 193:     if(x.op!=2)needed[x.b]=std::min(needed[x.b],rem);
+ 194:   }
+ 195:   // Deterministic root selection: stride reproduces Round8.1's sampling,
+ 196:   // priority chooses likely reclaimable, live roots without introducing any
+ 197:   // case-ID dependence. Selected IDs are visited in original topological order.
+ 198:   std::vector<unsigned char>root_selected(sz,0);
+ 199:   std::vector<int>arrival(sz,0);
+ 200:   for(int id=g.n+1;id<sz;++id){
+ 201:     auto node=g.nodes[id];
+ 202:     arrival[id]=std::max(arrival[node.a],node.op==2?0:arrival[node.b])+delay(c,node.op);
+ 203:   }
+ 204:   if(sampling=="priority"){
+ 205:     std::vector<std::pair<long long,int>>ranked;
+ 206:     ranked.reserve(sz);
+ 207:     for(int id=g.n+1;id<sz;++id){
+ 208:       if(needed[id]>=std::numeric_limits<int>::max()/4 ||!use[id])continue;
+ 209:       auto x=g.nodes[id];
+ 210:       long long potential=cost(c,x.op)*16LL;
+ 211:       // Privately owned one-hop predecessors are more likely reclaimable.
+ 212:       if(x.a>g.n&&use[x.a]==1)potential+=8LL*cost(c,g.nodes[x.a].op);
+ 213:       if(x.op!=2&&x.b>g.n&&use[x.b]==1)potential+=8LL*cost(c,g.nodes[x.b].op);
+ 214:       // Extra slack permits more structural alternatives; bounded to avoid
+ 215:       // suppressing high-area critical cones entirely.
+ 216:       // Exact timing remains checked after candidate emission.
+ 217:       potential+=std::min(8,std::max(0,needed[id]-arrival[id]));
+ 218:       ranked.push_back({-potential,id});
+ 219:     }
+ 220:     std::sort(ranked.begin(),ranked.end());
+ 221:     for(int j=0;j<std::min(maxroots,int(ranked.size()));++j)
+ 222:       root_selected[ranked[j].second]=1;
+ 223:   }else{
+ 224:     const int stride=std::max(1,(sz-g.n+maxroots-1)/maxroots);
+ 225:     for(int id=g.n+1;id<sz;++id)if((id-g.n)%stride==0)
+ 226:       root_selected[id]=1;
+ 227:   }
+ 228:   // Bounded cut sets per node. Every cut is a true separating frontier.
+ 229:   std::vector<std::vector<std::vector<int>>>cuts(sz);
+ 230:   for(int id=0;id<=g.n;++id)cuts[id].push_back({id});
+ 231:   Builder b(g);std::vector<int>mapped(sz,-1);
+ 232:   std::iota(mapped.begin(),mapped.begin()+g.n+1,0);
+ 233:   for(int id=g.n+1;id<sz;++id){
+ 234:     auto x=g.nodes[id];
+ 235:     std::vector<std::vector<int>>poss;
+ 236:     if(x.op==2){poss=cuts[x.a];}
+ 237:     else for(auto&a:cuts[x.a])for(auto&z:cuts[x.b]){
+ 238:       auto u=unite(a,z);if(u.size()<=K)poss.push_back(std::move(u));
+ 239:     }
+ 240:     std::sort(poss.begin(),poss.end(),[](auto&a,auto&z){
+ 241:       if(a.size()!=z.size())return a.size()>z.size();return a<z;
+ 242:     });
+ 243:     poss.erase(std::unique(poss.begin(),poss.end()),poss.end());
+ 244:     cuts[id].push_back({id});
+ 245:     // Retain at least one cut for each cardinality when available.
+ 246:     std::set<int>seen_sizes;
+ 247:     for(auto&u:poss)if(u.size()>=1&&u.size()<=K && !seen_sizes.count(int(u.size()))){
+ 248:       cuts[id].push_back(u);seen_sizes.insert(int(u.size()));
+ 249:     }
+ 250:     for(auto&u:poss){
+ 251:       if(cuts[id].size()>=9)break;
+ 252:       if(u.size()<2||u.size()>K)continue;
+ 253:       if(std::find(cuts[id].begin(),cuts[id].end(),u)==cuts[id].end())cuts[id].push_back(u);
+ 254:     }
+ 255:     int da=mapped[x.a],dz=x.op==2?0:mapped[x.b];
+ 256:     mapped[id]=b.add(x.op,da,dz,c);
+ 257:     if(!root_selected[id]||!use[id])continue;
+ 258:     ++out.stats.eligible_roots;
+ 259:     // Deterministic quota, checked only at the boundary between complete roots.
+ 260:     // A time deadline remains as an emergency protection, NOT a progress target.
+ 261:     if(work_roots>0 && out.stats.visited_roots>=uint64_t(work_roots)){
+ 262:       out.stats.work_limit_hit=true;break;
+ 263:     }
+ 264:     if((out.stats.eligible_roots&31)==0 && Clock::now()>deadline){out.stats.budget_hit=true;break;}
+ 265:     ++out.stats.visited_roots;
+ 266:     int original=mapped[id],chosen=original,score=std::numeric_limits<int>::max();
+ 267:     // Evaluate local expression area relative to the same mapped cut frontier.
+ 268:     for(int ci=1;ci<int(cuts[id].size());++ci){
+ 269:       const auto&lv=cuts[id][ci];int k=int(lv.size());
+ 270:       if(k<2||k>4)continue;
+ 271:       ++out.stats.cuts;

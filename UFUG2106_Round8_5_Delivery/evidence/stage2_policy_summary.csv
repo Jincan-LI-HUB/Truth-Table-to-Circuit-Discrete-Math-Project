@@ -1,0 +1,7 @@
+policy,cases,area_sum,delay_sum,wall_hits,local_time_sum_ms
+adaptive_dual,25,502618,1157,0,8386.72
+mixed33_dual,25,499684,1169,3,9908.16
+mixed66_dual,25,499035,1169,2,9578.48
+topology_dual,25,500072,1169,0,8984.08
+topq_dense,25,502649,1155,2,9405.88
+topq_dual,25,503764,1155,0,8918.04

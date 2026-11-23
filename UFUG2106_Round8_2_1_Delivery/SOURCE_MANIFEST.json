@@ -1,0 +1,33 @@
+{
+  "round": "8.2.1",
+  "freeze_parent": {
+    "file": "UFUG2106_Round8_2_Delivery/src/synth_round82.cpp",
+    "sha256": "07ca91581854fe3802ae0165674a3352771f1745ea85beee6608ee720f9a1caa"
+  },
+  "sha256": {
+    "Makefile": "3a6f4dec41e7ea0ff36e5fbb8a9b0c0d0fb847dfb36735d0b3a3c63234bac4ce",
+    "README.md": "60c3a3876e256e6fe0d04c4e39fa9c2fd6a092c6a332f4bdcb527ae5b94bcba2",
+    "RELEASE_NOTES.md": "cb60ce1fb3aef240d059460dbf6b82d8992e699de9f52f86bb6f5f4440eef261",
+    "docs/02_MATHEMATICAL_RESOURCE_DESIGN.md": "c41d083f1c02d6d4735c3a6f3b6c1ee869fee8fd2f801105aafe5ba642557115",
+    "docs/03_TEST_EVIDENCE_AND_LIMITATIONS.md": "d135d73e98300c7cbdf2656b9325be8b9477b7f4c85eec60738b3af0dafdbd49",
+    "docs/04_OFFICIAL_PROTOCOL.md": "87627092076b590c7c3303340b362c354c517120d3f993e3f30aedce8e6f842b",
+    "run_round821.sh": "71703ad834e4fd56b5a9eb322e42f5357a29f27fd3f8cfc51bf7fc41142a013b",
+    "src/algebraic_mapper.hpp": "33d9d02a4fe2cbb14934e334bb8433260e9763541b6f78fcbd969b2e88220667",
+    "src/polarity_mapper.hpp": "46e8183e644071ca45792499bb6e3961dacda9e0243a98071e409473419e375a",
+    "src/r81_cut.hpp": "6309a74da44fc06ee6cb0528911a5b704a1e0db25361ea381488aca287f3144a",
+    "src/r821_resource.hpp": "b621c9485682786d2d1e582bc8196108fb192b84b1ac529da8a6ed5a24ddd466",
+    "src/r82_archive.hpp": "56d4b45774a14e8206c4123f454e0c788da685c62cd656f108f668dc9e50c196",
+    "src/r82_cut.hpp": "8aecf8da224cc29db6734e17d2f69d258d6945ef3d073b8eac63c8177805a04d",
+    "src/r8_structural.hpp": "5bb7e3c54197e9b7769c85f0b35bbc93591860c134f30950ac33144620069600",
+    "src/source_patch.diff": "9828758f384b656e0dd2b2b2b44e8258ff82bfd809d37532ea06a1db97d5e419",
+    "src/synth_round821.cpp": "7de901424217ad0258e0cfae15f87e8c1a36f40f3c471fe44e7d0e20814200d0",
+    "src/typed_netgraph.hpp": "55030bc9a51ff435e15285c0e9cb36db4032625a45b42993d4f1434290e04950",
+    "tests/generate_resource_cases.py": "0b3e02c85ed2d8c115e406b2fb4db797b37bcb8885e64227cd7f88de79f02a6b",
+    "tests/verify_exhaustive.cpp": "b6fbf1928b2787ed50bd8fbb88daffa188ab36bc06a9ed7d2212f9e87dce67e3",
+    "tools/export_feedback.py": "8f96347f64d084588342ad6d36e34ecae56b85be25713b6e68f6adc0e3e5be17",
+    "tools/peak_runner.cpp": "71b3041b4c8a0e204aa472f961a4c2abbf0bef7c13d10da37a667f326f0daad5",
+    "tools/run_official.py": "80d2cc1dc1a5f19c685d9eb7b2e7d33f1aafdbc7289677de9f28eabea94690ce",
+    "tools/run_resources.py": "fd423ec201d0cb07590058e6080a566b19387964aa51020b80928690414c3fa7",
+    "tools/verify_source.py": "0e649ccf0c7874d09992312f2ec425a2a8e3b8654b767133ce216c049e2b6493"
+  }
+}

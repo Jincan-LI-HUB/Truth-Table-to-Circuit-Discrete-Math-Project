@@ -1,0 +1,25 @@
+case,variant,wall_ms,net_sha256,verify,short_path
+stress_001.txt,new_default,94.739,63bc21d9e974a0156e1034e79ef15bf3a8772c7c60eaec4a494be53ef583ec5b,PASS exact_assignments=1048576 area=0 delay=0 target=170,True
+stress_001.txt,new_explicit,93.271,63bc21d9e974a0156e1034e79ef15bf3a8772c7c60eaec4a494be53ef583ec5b,PASS exact_assignments=1048576 area=0 delay=0 target=170,True
+stress_001.txt,frozen_extra,209.683,63bc21d9e974a0156e1034e79ef15bf3a8772c7c60eaec4a494be53ef583ec5b,PASS exact_assignments=1048576 area=0 delay=0 target=170,False
+stress_001.txt,submission,85.486,63bc21d9e974a0156e1034e79ef15bf3a8772c7c60eaec4a494be53ef583ec5b,PASS exact_assignments=1048576 area=0 delay=0 target=170,True
+stress_002.txt,new_default,68.669,cf8a31eaf05289d34df4c12392400bfca892a0daa92faf513ec7289ae1e77d1c,PASS exact_assignments=1048576 area=309 delay=24 target=170,True
+stress_002.txt,new_explicit,59.689,cf8a31eaf05289d34df4c12392400bfca892a0daa92faf513ec7289ae1e77d1c,PASS exact_assignments=1048576 area=309 delay=24 target=170,True
+stress_002.txt,frozen_extra,179.809,dcf26dcd8260597f92bb9155ce903575ffe522d39d2a05296266879c2621cecd,PASS exact_assignments=1048576 area=309 delay=24 target=170,False
+stress_002.txt,submission,80.682,cf8a31eaf05289d34df4c12392400bfca892a0daa92faf513ec7289ae1e77d1c,PASS exact_assignments=1048576 area=309 delay=24 target=170,True
+stress_003.txt,new_default,62.294,513ac776486c43e2b284e6eb31f7eb783d4a79d14a5b3aa93fe4f3f058e90dcc,PASS exact_assignments=262144 area=2107 delay=62 target=170,False
+stress_003.txt,new_explicit,68.604,513ac776486c43e2b284e6eb31f7eb783d4a79d14a5b3aa93fe4f3f058e90dcc,PASS exact_assignments=262144 area=2107 delay=62 target=170,False
+stress_003.txt,frozen_extra,56.142,513ac776486c43e2b284e6eb31f7eb783d4a79d14a5b3aa93fe4f3f058e90dcc,PASS exact_assignments=262144 area=2107 delay=62 target=170,False
+stress_003.txt,submission,58.333,513ac776486c43e2b284e6eb31f7eb783d4a79d14a5b3aa93fe4f3f058e90dcc,PASS exact_assignments=262144 area=2107 delay=62 target=170,False
+holdout_016.txt,new_default,9.767,c745f4152d17cb21a0d8864ea3364ea75fcc6229af87b1c6a5a3007dd1422c00,PASS exact_assignments=1024 area=205 delay=26 target=140,False
+holdout_016.txt,new_explicit,9.98,c745f4152d17cb21a0d8864ea3364ea75fcc6229af87b1c6a5a3007dd1422c00,PASS exact_assignments=1024 area=205 delay=26 target=140,False
+holdout_016.txt,frozen_extra,8.812,c745f4152d17cb21a0d8864ea3364ea75fcc6229af87b1c6a5a3007dd1422c00,PASS exact_assignments=1024 area=205 delay=26 target=140,False
+holdout_016.txt,submission,8.526,c745f4152d17cb21a0d8864ea3364ea75fcc6229af87b1c6a5a3007dd1422c00,PASS exact_assignments=1024 area=205 delay=26 target=140,False
+holdout_021.txt,new_default,9.433,a84d5e6c6d878400cbe57191927151a2b09e3aebd01ce45dfaa3dec13fbaa861,PASS exact_assignments=128 area=174 delay=12 target=140,False
+holdout_021.txt,new_explicit,12.568,a84d5e6c6d878400cbe57191927151a2b09e3aebd01ce45dfaa3dec13fbaa861,PASS exact_assignments=128 area=174 delay=12 target=140,False
+holdout_021.txt,frozen_extra,10.005,a84d5e6c6d878400cbe57191927151a2b09e3aebd01ce45dfaa3dec13fbaa861,PASS exact_assignments=128 area=174 delay=12 target=140,False
+holdout_021.txt,submission,10.469,a84d5e6c6d878400cbe57191927151a2b09e3aebd01ce45dfaa3dec13fbaa861,PASS exact_assignments=128 area=174 delay=12 target=140,False
+holdout_036.txt,new_default,18.803,86ddce779f5463d12279967bee3f3c49e01be74e701b3be3222864039b713e1a,PASS exact_assignments=16384 area=686 delay=34 target=170,False
+holdout_036.txt,new_explicit,17.977,86ddce779f5463d12279967bee3f3c49e01be74e701b3be3222864039b713e1a,PASS exact_assignments=16384 area=686 delay=34 target=170,False
+holdout_036.txt,frozen_extra,17.317,86ddce779f5463d12279967bee3f3c49e01be74e701b3be3222864039b713e1a,PASS exact_assignments=16384 area=686 delay=34 target=170,False
+holdout_036.txt,submission,16.469,86ddce779f5463d12279967bee3f3c49e01be74e701b3be3222864039b713e1a,PASS exact_assignments=16384 area=686 delay=34 target=170,False

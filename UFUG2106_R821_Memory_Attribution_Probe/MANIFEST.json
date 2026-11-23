@@ -1,0 +1,11 @@
+{
+  "files": {
+    "README.md": "289d461a8670a635e401c334625e4f969a524379f3b745e786c4aeeaa65f5faa",
+    "docs/OFFICIAL_LOG_DIAGNOSIS.md": "46f8037ab069aca9de0ddfa9843dd25cb73422272df8e38aaabe8ff06c7a27b9",
+    "run_probe.sh": "4fd18ddde7b0448fa567ca6689a91c00a286754e53ecc5a7d88e35c94ab1b9e9",
+    "src/lightweight_mem_runner.c": "95367abfcbdb147707d15d55865e025cb6c87c974c4c6cab7be9467f3766fb14",
+    "src/tiny_wire.c": "9ca2077856c00f7d463a3d10425450230b46f2780a4b05bd07d507aa501ff68a",
+    "tools/attribution.py": "f0e175be81e2a1f77f4c1d8777d67c51b475c9ed33784a65100ae02d4030f667",
+    "tools/export_feedback.py": "413dca4b3dfb79e7b4bacf58ad41fc2c118f298f1f3f6ba4a53bf24c2ffd1ac8"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "seed": 2026112290,
+  "course_hidden": false,
+  "frozen_before_round91_algorithm": true,
+  "do_not_tune_on_lockbox": true,
+  "cases": [
+    {
+      "group": "dev",
+      "file": "hard_bank/dev/hard_001.txt",
+      "family": "random",
+      "n": 9,
+      "m": 4,
+      "sha256": "42bac6eef69e13560dacdd38b1912d69d1facb1644a22184ee0a072eca0004bf"
+    },
+    {
+      "group": "dev",
+      "file": "hard_bank/dev/hard_002.txt",
+      "family": "random",
+      "n": 10,
+      "m": 6,
+      "sha256": "078395c70743a51b04e8fb8547532f5f2e8bef1ccbbc4b3459df0c53936252ac"
+    },
+    {
+      "group": "dev",
+      "file": "hard_bank/dev/hard_003.txt",
+      "family": "shared",
+      "n": 11,
+      "m": 5,
+      "sha256": "7488087841979494fa8ddb651ab7578ccac8f2aaa6adbf8a519b76893abb0dbe"
+    },
+    {
+      "group": "dev",
+      "file": "hard_bank/dev/hard_004.txt",
+      "family": "random",
+      "n": 12,
+      "m": 8,
+      "sha256": "05ad5be46e20b5e8dc7ea7ee4a1623aa856b192045f77306f4001c1cb308dad4"
+    },
+    {
+      "group": "lockbox",
+      "file": "hard_bank/lockbox/hard_005.txt",
+      "family": "random",
+      "n": 9,
+      "m": 5,
+      "sha256": "e3b068752adf1e3c4f57a4341d653a4f762ad192be5fcf4bf245396fca92cb5e"
+    },
+    {
+      "group": "lockbox",
+      "file": "hard_bank/lockbox/hard_006.txt",
+      "family": "shared",
+      "n": 10,
+      "m": 8,
+      "sha256": "66b19f67dcacab37440b58a8cf125e881238220500beeb52c79c1d6cb05053e9"
+    },
+    {
+      "group": "lockbox",
+      "file": "hard_bank/lockbox/hard_007.txt",
+      "family": "random",
+      "n": 11,
+      "m": 6,
+      "sha256": "ebdd5ef821c71f678e0bd04e094425067b467a4b1815be21901ebb622058166b"
+    },
+    {
+      "group": "lockbox",
+      "file": "hard_bank/lockbox/hard_008.txt",
+      "family": "shared",
+      "n": 12,
+      "m": 10,
+      "sha256": "9039dc275ac781f9dedb14ca711305edf72624860f2db3a4182eaeb1d897e19c"
+    }
+  ]
+}

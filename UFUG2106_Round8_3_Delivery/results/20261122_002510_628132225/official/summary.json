@@ -1,0 +1,4169 @@
+{
+  "milestone": "Round8.3",
+  "official_results": true,
+  "runs": 2,
+  "quick": false,
+  "fingerprints": {
+    "synth_round821": "77cd1db9de418bad796062bba8403b4790665a0c7cc8eb4f4e48466aeaae377f",
+    "synth_round83": "faca42b4ee25516e90301873351ae6a5cf31d2348c31ec6a172bef0190e40156",
+    "evaluator": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca"
+  },
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "records": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r821_fast_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 526355,
+      "delay_sum_passed": 1190,
+      "median_runtime_ms": 141.564
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r821_dual_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 526095,
+      "delay_sum_passed": 1208,
+      "median_runtime_ms": 162.202
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r83_fast_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 527028,
+      "delay_sum_passed": 1188,
+      "median_runtime_ms": 119.038
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r83_stable_dual",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 527342,
+      "delay_sum_passed": 1209,
+      "median_runtime_ms": 162.084
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r83_stable_adp",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 528878,
+      "delay_sum_passed": 1167,
+      "median_runtime_ms": 160.069
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r83_dense_dual",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 526944,
+      "delay_sum_passed": 1211,
+      "median_runtime_ms": 181.156
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r821_fast_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 501304,
+      "delay_sum_passed": 1137,
+      "median_runtime_ms": 91.331
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r821_dual_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 493922,
+      "delay_sum_passed": 1169,
+      "median_runtime_ms": 131.044
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r83_fast_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 502717,
+      "delay_sum_passed": 1137,
+      "median_runtime_ms": 58.628
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r83_stable_dual",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 500072,
+      "delay_sum_passed": 1169,
+      "median_runtime_ms": 87.518
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r83_stable_adp",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 508322,
+      "delay_sum_passed": 1101,
+      "median_runtime_ms": 88.82
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r83_dense_dual",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 497885,
+      "delay_sum_passed": 1169,
+      "median_runtime_ms": 126.208
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r83_dense_dual",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 526944,
+      "delay_sum_passed": 1211,
+      "median_runtime_ms": 182.077
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r83_stable_adp",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 528878,
+      "delay_sum_passed": 1167,
+      "median_runtime_ms": 166.066
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r83_stable_dual",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 527342,
+      "delay_sum_passed": 1209,
+      "median_runtime_ms": 173.514
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r83_fast_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 527028,
+      "delay_sum_passed": 1188,
+      "median_runtime_ms": 120.113
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r821_dual_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 526095,
+      "delay_sum_passed": 1208,
+      "median_runtime_ms": 156.678
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r821_fast_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 526355,
+      "delay_sum_passed": 1190,
+      "median_runtime_ms": 131.627
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r83_dense_dual",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 497885,
+      "delay_sum_passed": 1169,
+      "median_runtime_ms": 125.492
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r83_stable_adp",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 508322,
+      "delay_sum_passed": 1101,
+      "median_runtime_ms": 88.673
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r83_stable_dual",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 500072,
+      "delay_sum_passed": 1169,
+      "median_runtime_ms": 87.156
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r83_fast_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 502717,
+      "delay_sum_passed": 1137,
+      "median_runtime_ms": 59.521
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r821_dual_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 494622,
+      "delay_sum_passed": 1169,
+      "median_runtime_ms": 131.944
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r821_fast_area",
+      "evaluator_exit": 0,
+      "pass": 25,
+      "target_met": 25,
+      "area_passed": 501304,
+      "delay_sum_passed": 1137,
+      "median_runtime_ms": 90.348
+    }
+  ],
+  "paired": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r821_fast_area",
+      "vs": "r821_dual_area",
+      "area_delta": 260,
+      "identical_area": 20,
+      "identical_delay": 23,
+      "runtime_ratio_geomean": 0.8572098112901777,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7797897085286384
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 5,
+          "delay_delta": 0,
+          "runtime_ratio": 0.693415026064072
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.752009617454963
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.757190619206826
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.2046017699115044
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.728698613993872
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7868440323182709
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8347292630960251
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8727635910777919
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 217,
+          "delay_delta": -17,
+          "runtime_ratio": 0.6385226227770764
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0993029695407237
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6364854321493589
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6722260758093265
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8212590850790936
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8173558066707537
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.55806528716793
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1854711854711852
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.2841180403017858
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 32,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6596820074146723
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.2028131868131868
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8715743912138154
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0871727567866272
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.2528834567051126
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 2,
+          "delay_delta": -1,
+          "runtime_ratio": 0.9230095709158942
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9207337749205701
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r821_dual_area",
+      "vs": "r821_dual_area",
+      "area_delta": 0,
+      "identical_area": 25,
+      "identical_delay": 25,
+      "runtime_ratio_geomean": 1.0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r83_fast_area",
+      "vs": "r821_dual_area",
+      "area_delta": 933,
+      "identical_area": 19,
+      "identical_delay": 23,
+      "runtime_ratio_geomean": 0.7331046175257303,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6883843003357389
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 5,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6339010071359886
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6107801622048374
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5281674748439638
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8830973451327432
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5909343186673661
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6820809425414431
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7107560061714788
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7338873750015413
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 548,
+          "delay_delta": -19,
+          "runtime_ratio": 0.5611820264646747
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9744103886183519
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 342,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5029671602739402
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5404202263567797
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7517662462590851
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7444286116680198
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.48451478522160757
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9816959816959817
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.084041638811957
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 32,
+          "delay_delta": 0,
+          "runtime_ratio": 0.572557573587163
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9993846153846154
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7917977227220225
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0262485321544519
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.3003959373386125
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 2,
+          "delay_delta": -1,
+          "runtime_ratio": 0.7678610869934852
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8180438397651475
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r83_stable_dual",
+      "vs": "r821_dual_area",
+      "area_delta": 1247,
+      "identical_area": 19,
+      "identical_delay": 23,
+      "runtime_ratio_geomean": 0.8550137602277077,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7760659101457222
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7762000860367427
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7298935723000892
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7609387269386136
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0092035398230088
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8727504960883151
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7523411572486634
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.036779075747557
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": -5,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0300612816118173
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 677,
+          "delay_delta": -1,
+          "runtime_ratio": 0.7320139960412088
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8720519430917596
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 551,
+          "delay_delta": 2,
+          "runtime_ratio": 0.8507593250794001
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7115751025102949
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.841882214621633
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8376965519526783
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7289660588677184
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0459030459030458
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9552096265877185
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 18,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6867280622148789
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.976
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8589990048399151
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0017959522000415
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9745222929936305
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8261610306740426
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9129045818546664
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r83_stable_adp",
+      "vs": "r821_dual_area",
+      "area_delta": 2783,
+      "identical_area": 18,
+      "identical_delay": 22,
+      "runtime_ratio_geomean": 0.8815755000430509,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8106915354154397
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7912849840578976
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7293552819103669
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.824688939439322
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1297345132743362
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0049266701639943
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7434324190360408
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0551098376313275
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": -5,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0454864921517615
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 1468,
+          "delay_delta": -27,
+          "runtime_ratio": 0.7551705864933527
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9662942805308888
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 1294,
+          "delay_delta": -13,
+          "runtime_ratio": 0.803332046119049
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7027289250248043
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8267368533561351
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8742585289877884
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7199771221744177
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1786071786071788
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1520389647598128
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 18,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6960757582540115
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9784615384615385
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8522726818565131
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.996615320853768
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9950077466001033
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 2,
+          "delay_delta": -1,
+          "runtime_ratio": 0.8140012280688871
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.87366339347095
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r83_dense_dual",
+      "vs": "r821_dual_area",
+      "area_delta": 849,
+      "identical_area": 20,
+      "identical_delay": 23,
+      "runtime_ratio_geomean": 0.9325431868503001,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8149527332734414
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8223531049142164
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7894182362530887
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9387512244088433
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8725663716814158
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.050148636422386
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7738210582785482
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.224678568804643
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": -5,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1666440611089877
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 496,
+          "delay_delta": 1,
+          "runtime_ratio": 0.8114820529605212
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8943951112384226
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 354,
+          "delay_delta": 2,
+          "runtime_ratio": 1.0157854502754375
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7953042821645258
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9530488456605386
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8671834871505973
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8800536092330806
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.201058201058201
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.156336548562697
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8264266732864253
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9851428571428571
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8994268837101487
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0308074877391724
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9848510931313479
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8401668908334883
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9373780680403561
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r821_fast_area",
+      "vs": "r821_dual_area",
+      "area_delta": 7382,
+      "identical_area": 19,
+      "identical_delay": 22,
+      "runtime_ratio_geomean": 0.782675847922777,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 2,
+          "runtime_ratio": 0.6177361579098418
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8656460834727274
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 1324,
+          "delay_delta": -13,
+          "runtime_ratio": 0.7227348666499313
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7693132380360472
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 6000,
+          "delay_delta": -21,
+          "runtime_ratio": 0.8594482752678166
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.67575471140781
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0028559771521826
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0036807612891643
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8857092542044553
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9849030708526334
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7901259896367606
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6653308379782199
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8594821312798528
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7825065389901139
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6705407290481259
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9678766345555109
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7214189612872198
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8954071786954843
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9716427953474959
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.49665413347025994
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 14,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7659078991596638
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8788672566371681
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5069820437255843
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7651170599188059
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 38,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7717949507231209
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r821_dual_area",
+      "vs": "r821_dual_area",
+      "area_delta": 0,
+      "identical_area": 25,
+      "identical_delay": 25,
+      "runtime_ratio_geomean": 1.0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r83_fast_area",
+      "vs": "r821_dual_area",
+      "area_delta": 8795,
+      "identical_area": 14,
+      "identical_delay": 22,
+      "runtime_ratio_geomean": 0.7192904647145093,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 2,
+          "runtime_ratio": 0.6161523825720937
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8551199243118441
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 2029,
+          "delay_delta": -13,
+          "runtime_ratio": 0.6964284168520555
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7536047234307024
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 6582,
+          "delay_delta": -21,
+          "runtime_ratio": 0.8328324899777475
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 6,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5949223134636971
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9895552835577315
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9877008708142563
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9908426521088316
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9833590667352892
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7798587548331098
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.3975480423667901
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 8,
+          "delay_delta": 0,
+          "runtime_ratio": 0.755710801501299
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6788136720308552
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5726588598069087
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0099263763232116
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 12,
+          "delay_delta": 0,
+          "runtime_ratio": 0.4990107207432075
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.760903126206098
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9770258579255983
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.42467659384161793
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 14,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7291159663865546
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8671150442477875
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 96,
+          "delay_delta": 0,
+          "runtime_ratio": 0.4867298334589816
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6387243979121515
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 38,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7120265340987795
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r83_stable_dual",
+      "vs": "r821_dual_area",
+      "area_delta": 6150,
+      "identical_area": 14,
+      "identical_delay": 25,
+      "runtime_ratio_geomean": 0.8540937397408928,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9302607383156709
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8763383994633384
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 1965,
+          "delay_delta": 0,
+          "runtime_ratio": 0.844736545969201
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0351926662523308
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 3843,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9286271291228025
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.830411472794943
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0053039575683393
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0522488553730138
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8834199172316632
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0483787956767885
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8363239432915122
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5843877564858891
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8000811512898204
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7406914828114456
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.793370287434382
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.986081095930552
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 12,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6803197350557953
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8612504824392127
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9895222531961934
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6909794113262552
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 3,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8467173109243697
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8545132743362832
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 294,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7164604893427455
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": -5,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9494139373035011
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 22,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8059527290823366
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r83_stable_adp",
+      "vs": "r821_dual_area",
+      "area_delta": 14400,
+      "identical_area": 14,
+      "identical_delay": 22,
+      "runtime_ratio_geomean": 0.8703752654669693,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9283155645787051
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9055906813298001
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 4176,
+          "delay_delta": -26,
+          "runtime_ratio": 0.836091081429672
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.019841516469857
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 9293,
+          "delay_delta": -27,
+          "runtime_ratio": 0.9298313073411789
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8339265670230993
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1279477764177885
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9946135200646379
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9794840186669016
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9768399382398354
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8349930298008891
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5713346081343152
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8178259393041277
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.752207986680656
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8012701442678315
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.014211933628805
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 12,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6890253925155698
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8679081435739096
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.965875228299529
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7355937256720719
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 3,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8666756302521009
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9636106194690266
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 883,
+          "delay_delta": -15,
+          "runtime_ratio": 0.7528784867384004
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": -5,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0014193705930832
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 22,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8167828687813913
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r83_dense_dual",
+      "vs": "r821_dual_area",
+      "area_delta": 3963,
+      "identical_area": 14,
+      "identical_delay": 25,
+      "runtime_ratio_geomean": 0.9425850507210867,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.004942654577536
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9484417837307664
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 1315,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9176592540013677
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0300652579241765
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 2525,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9599476107079233
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9767826549299935
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0126478988168095
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0230720890564684
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8806022717266884
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8874575869959757
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8557983102106135
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8343181748016425
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.807278351632654
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9911897507433647
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0044320720852717
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": -4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9861622661496035
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8666538016209956
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.010766125156205
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8281930664369835
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 3,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9125324369747899
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9487433628318583
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 112,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9282605715852238
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": -9,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1524144562131802
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 7,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8768437145686157
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r83_dense_dual",
+      "vs": "r821_dual_area",
+      "area_delta": 849,
+      "identical_area": 20,
+      "identical_delay": 23,
+      "runtime_ratio_geomean": 0.9353225044131293,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8510429141078584
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8765858074334519
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8342694391879087
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9698523647765874
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8792144595064304
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.107662091925942
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8609364490130871
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.213040947307145
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": -5,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1954326708280678
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 496,
+          "delay_delta": 1,
+          "runtime_ratio": 0.8083282206176161
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0183459236731092
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 354,
+          "delay_delta": 2,
+          "runtime_ratio": 1.0258787700010363
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8133484617686868
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9447833277864298
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8486146344677626
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8835951627970756
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9879819729594391
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0929983445320868
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8022422603681092
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8676481748501177
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8781926813994431
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0701248799231509
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.048954614992351
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.813932539062869
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8726980673604801
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r83_stable_adp",
+      "vs": "r821_dual_area",
+      "area_delta": 2783,
+      "identical_area": 18,
+      "identical_delay": 22,
+      "runtime_ratio_geomean": 0.9325054712272227,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8478920818648154
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8234915970245201
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8059500627580014
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8093317219754377
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0199860966284324
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.994044054833018
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8248175666197997
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0710480358998165
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": -5,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0599190696843208
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 1468,
+          "delay_delta": -27,
+          "runtime_ratio": 1.0001415828967861
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.148435200627882
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 1294,
+          "delay_delta": -13,
+          "runtime_ratio": 1.0798207779576023
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.3190461938435012
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8977117117574877
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8271464105689718
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7415987452754994
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9496745117676515
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9651377933586522
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 18,
+          "delay_delta": 0,
+          "runtime_ratio": 0.724330033972406
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8655232602261516
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8252251861946192
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0714549619448754
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1942886282508924
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 2,
+          "delay_delta": -1,
+          "runtime_ratio": 0.8208823593155988
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8983114554382986
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r83_stable_dual",
+      "vs": "r821_dual_area",
+      "area_delta": 1247,
+      "identical_area": 19,
+      "identical_delay": 23,
+      "runtime_ratio_geomean": 0.8858155589261978,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8205772926992461
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8143506553140129
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8053018838386475
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8112996472432715
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0168578380257214
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0125266460683577
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8210280771240083
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.064335241800591
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": -5,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1074560563703904
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 677,
+          "delay_delta": -1,
+          "runtime_ratio": 0.73796152091494
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0351221426469146
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 551,
+          "delay_delta": 2,
+          "runtime_ratio": 0.8299782350455629
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7816368192762474
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8325538028469588
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8261539221823214
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7273031136708406
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0768652979469204
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1117927743694616
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 18,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7148071566360384
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.864005464066176
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8340553995454921
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0673908224340503
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9836817950025497
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8165555321536162
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.846343992588711
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r83_fast_area",
+      "vs": "r821_dual_area",
+      "area_delta": 933,
+      "identical_area": 19,
+      "identical_delay": 23,
+      "runtime_ratio_geomean": 0.7454673371888102,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7336964319452909
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 5,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6744781758786718
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6638340881688122
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.541089626339169
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9870524852276678
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6371663752564809
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7697832668249026
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.701195923690784
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7666232655510027
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 548,
+          "delay_delta": -19,
+          "runtime_ratio": 0.5805410039800526
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0422839203374865
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 342,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5375864020856089
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.574812048547983
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7696442952849627
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7331565248904556
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.47672674602970544
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8471457185778668
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0780017528483787
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 32,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5757568342448379
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8687106321621006
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7860386528607606
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.06037094509717
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1951385347611763
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 2,
+          "delay_delta": -1,
+          "runtime_ratio": 0.7785915971971763
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7846005708815055
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r821_dual_area",
+      "vs": "r821_dual_area",
+      "area_delta": 0,
+      "identical_area": 25,
+      "identical_delay": 25,
+      "runtime_ratio_geomean": 1.0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r821_fast_area",
+      "vs": "r821_dual_area",
+      "area_delta": 260,
+      "identical_area": 20,
+      "identical_delay": 23,
+      "runtime_ratio_geomean": 0.8041183971117949,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8097269515484962
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 5,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7129540952206027
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7461033735515537
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6778890122811602
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0697775460549184
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7639417818335689
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.816847599787497
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8126754647744102
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8401115663973245
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 217,
+          "delay_delta": -17,
+          "runtime_ratio": 0.6261306967451665
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9391739429019916
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6214173529669699
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6239094795431094
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7471882280310864
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7847782756234968
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5279184771895542
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0322984476715074
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.981302950628104
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 32,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6430939767291057
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8606663125142293
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8133603254811915
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1515554570309614
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.190039095699473
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 2,
+          "delay_delta": -1,
+          "runtime_ratio": 0.8763292100845194
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8350634447900982
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r83_dense_dual",
+      "vs": "r821_dual_area",
+      "area_delta": 3263,
+      "identical_area": 14,
+      "identical_delay": 25,
+      "runtime_ratio_geomean": 0.9545110171030277,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.964566435320679
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.934446519122542
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 1315,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8932857979034747
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9884791284336859
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 1825,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9321113988410598
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9442953661566964
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9961448879608064
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9873964392737528
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0020377425356604
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.173286991062562
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9055049049402323
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8687573554863276
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8317878930492573
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8279115175441336
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9551130708935979
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.001612666764404
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": -4,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0273409343052882
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9840085287846482
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0565612981896633
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8779806445176095
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 3,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8717684555356173
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.005437540781556
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 112,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9122092473728078
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": -9,
+          "delay_delta": 0,
+          "runtime_ratio": 1.137141514581944
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 7,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8723731315600252
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r83_stable_adp",
+      "vs": "r821_dual_area",
+      "area_delta": 13700,
+      "identical_area": 14,
+      "identical_delay": 22,
+      "runtime_ratio_geomean": 0.8800438898905333,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9268437996488001
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8712029523105685
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 4176,
+          "delay_delta": -26,
+          "runtime_ratio": 0.8073984994412814
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0034227620961869
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 8593,
+          "delay_delta": -27,
+          "runtime_ratio": 0.885814819998085
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8149697473184289
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0897919845795518
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9790234443856867
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9797111721449454
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9874213836477989
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8413086811886883
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5805815160955348
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8076390874263822
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7750383359328904
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8980872748933943
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.104236915408298
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 12,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7377037877410823
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9971215351812366
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9600412719257105
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7284578802088529
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 3,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8569904644660518
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0709780323352427
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 883,
+          "delay_delta": -15,
+          "runtime_ratio": 0.7382087833715705
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": -5,
+          "delay_delta": 0,
+          "runtime_ratio": 1.001568847389802
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 22,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7943426572182826
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r83_stable_dual",
+      "vs": "r821_dual_area",
+      "area_delta": 5450,
+      "identical_area": 14,
+      "identical_delay": 25,
+      "runtime_ratio_geomean": 0.8566894625163707,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9089493268667949
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8848065729610337
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 1965,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8243537487362317
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9775262897258876
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 3143,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8897744096654815
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8171311782739431
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9959039434583568
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9799048122686409
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9102507309293877
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9253558424362794
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8538399701978315
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.568196607822776
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8109202707636007
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7624569183004978
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8026035726479582
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0046180911889753
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 12,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7221654621695991
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9994669509594882
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.935747115655192
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.702467657720576
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 3,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8322518048658347
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9682447618357138
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 294,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7488979970613255
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": -5,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9727535924331535
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 22,
+          "delay_delta": 0,
+          "runtime_ratio": 0.801838013908333
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r83_fast_area",
+      "vs": "r821_dual_area",
+      "area_delta": 8095,
+      "identical_area": 14,
+      "identical_delay": 22,
+      "runtime_ratio_geomean": 0.7323829730921763,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 2,
+          "runtime_ratio": 0.6221360481645622
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8228649360757166
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 2029,
+          "delay_delta": -13,
+          "runtime_ratio": 0.702425371148832
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6965830638818492
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 5882,
+          "delay_delta": -21,
+          "runtime_ratio": 0.7926471377417397
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 6,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6017012079017211
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.055095976226809
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9879252600035254
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9836094622131656
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9735187024164184
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7586468769810927
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.40168224299065425
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 8,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7893709012698091
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7094473215797198
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5478689786934191
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0047280457410936
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 12,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5113293761478241
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9539445628997868
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9365913141356346
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.44402873391200237
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 14,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7166517130576304
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9982599869499021
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 96,
+          "delay_delta": 0,
+          "runtime_ratio": 0.49743510427138915
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6957648699448252
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 38,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7383129603609968
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r821_dual_area",
+      "vs": "r821_dual_area",
+      "area_delta": 0,
+      "identical_area": 25,
+      "identical_delay": 25,
+      "runtime_ratio_geomean": 1.0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r821_fast_area",
+      "vs": "r821_dual_area",
+      "area_delta": 6682,
+      "identical_area": 19,
+      "identical_delay": 22,
+      "runtime_ratio_geomean": 0.8150122099968342,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_delta": 0,
+          "delay_delta": 2,
+          "runtime_ratio": 0.6255435237059955
+        },
+        {
+          "case": "case_002.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8384821448760011
+        },
+        {
+          "case": "case_003.txt",
+          "area_delta": 1324,
+          "delay_delta": -13,
+          "runtime_ratio": 0.7373511413824296
+        },
+        {
+          "case": "case_004.txt",
+          "area_delta": 4,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6892132016662297
+        },
+        {
+          "case": "case_005.txt",
+          "area_delta": 5300,
+          "delay_delta": -21,
+          "runtime_ratio": 0.823270560035187
+        },
+        {
+          "case": "case_006.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6809242690466915
+        },
+        {
+          "case": "case_007.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9922094610874628
+        },
+        {
+          "case": "case_008.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.2524237616781244
+        },
+        {
+          "case": "case_009.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0196686453442012
+        },
+        {
+          "case": "case_010.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.1835484938762
+        },
+        {
+          "case": "case_011.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8108712559391931
+        },
+        {
+          "case": "case_012.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6254620976116304
+        },
+        {
+          "case": "case_013.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9343332292385982
+        },
+        {
+          "case": "case_014.txt",
+          "area_delta": 2,
+          "delay_delta": 0,
+          "runtime_ratio": 0.8022819125069646
+        },
+        {
+          "case": "case_015.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.6576926709139382
+        },
+        {
+          "case": "case_016.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.0256560621609736
+        },
+        {
+          "case": "case_017.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7558119856337869
+        },
+        {
+          "case": "case_018.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.001279317697228
+        },
+        {
+          "case": "case_019.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.9440015007972986
+        },
+        {
+          "case": "case_020.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5062356579866307
+        },
+        {
+          "case": "case_021.txt",
+          "area_delta": 14,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7520526436589743
+        },
+        {
+          "case": "case_022.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 1.2071340535054012
+        },
+        {
+          "case": "case_023.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.5202570910559464
+        },
+        {
+          "case": "case_024.txt",
+          "area_delta": 0,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7729036560965259
+        },
+        {
+          "case": "case_025.txt",
+          "area_delta": 38,
+          "delay_delta": 0,
+          "runtime_ratio": 0.7925640980036943
+        }
+      ]
+    }
+  ],
+  "known_ram_evaluator_discrepancy_not_retested": true
+}

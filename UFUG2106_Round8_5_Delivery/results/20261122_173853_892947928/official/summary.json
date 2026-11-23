@@ -1,0 +1,577 @@
+{
+  "milestone": "Round8.5",
+  "course_official_evaluator_used": true,
+  "runs": 2,
+  "quick": false,
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "fingerprints": {
+    "evaluator": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca",
+    "r84_executable": "1dad2942d6134d370f49c44ea9376f96075b44b20fc439f99341679d9967898c",
+    "r85_executable": "eda75ccb9ce3ee7f8b900df5f34ccd41b86521c492ef3cce17b013b0eaefe57e"
+  },
+  "records": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r84_topq_dual",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 149.984
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r84_topq_dense",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526156,
+      "median_ms": 168.964
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r84_mixed66",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526318,
+      "median_ms": 160.708
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_shannon_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 152.365
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_sop_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 148.846
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_dense_sop_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526156,
+      "median_ms": 170.94
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_budget_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135,
+      "median_ms": 164.654
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r84_topq_dual",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 93.72
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r84_topq_dense",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 495943,
+      "median_ms": 101.818
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r84_mixed66",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 499031,
+      "median_ms": 90.805
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_shannon_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 92.541
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_sop_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 90.418
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_dense_sop_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 495943,
+      "median_ms": 101.451
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_budget_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999,
+      "median_ms": 104.917
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_budget_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135,
+      "median_ms": 167.015
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_dense_sop_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526156,
+      "median_ms": 171.162
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_sop_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 144.08
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_shannon_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 149.555
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r84_mixed66",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526318,
+      "median_ms": 150.053
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r84_topq_dense",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526156,
+      "median_ms": 172.256
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r84_topq_dual",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 149.737
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_budget_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999,
+      "median_ms": 120.595
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_dense_sop_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 495943,
+      "median_ms": 105.69
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_sop_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 93.153
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_shannon_first",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 92.429
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r84_mixed66",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 499031,
+      "median_ms": 94.057
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r84_topq_dense",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 495943,
+      "median_ms": 103.744
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r84_topq_dual",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 94.082
+    }
+  ],
+  "paired": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r84_topq_dual",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r84_topq_dense",
+      "reference": "r84_topq_dual",
+      "delta_area": -37,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.070207546290767
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r84_mixed66",
+      "reference": "r84_topq_dual",
+      "delta_area": 125,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0561074548622875
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_shannon_first",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0161697494254809
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_sop_first",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0160477189367567
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_dense_sop_first",
+      "reference": "r84_topq_dual",
+      "delta_area": -37,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.070867385563896
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_budget_reclaim",
+      "reference": "r84_topq_dual",
+      "delta_area": -58,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0248627763918778
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r84_topq_dual",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r84_topq_dense",
+      "reference": "r84_topq_dual",
+      "delta_area": -1842,
+      "area_equal": 20,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0204105030052673
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r84_mixed66",
+      "reference": "r84_topq_dual",
+      "delta_area": 1246,
+      "area_equal": 20,
+      "delay_equal": 24,
+      "geomean_runtime_ratio": 0.9824019285856078
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_shannon_first",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0032709768684211
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_sop_first",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0024985595606093
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_dense_sop_first",
+      "reference": "r84_topq_dual",
+      "delta_area": -1842,
+      "area_equal": 20,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0314089535126607
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_budget_reclaim",
+      "reference": "r84_topq_dual",
+      "delta_area": -2786,
+      "area_equal": 19,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0106942183464669
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_budget_reclaim",
+      "reference": "r84_topq_dual",
+      "delta_area": -58,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0191375243121887
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_dense_sop_first",
+      "reference": "r84_topq_dual",
+      "delta_area": -37,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.014255928815676
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_sop_first",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 0.9563137754643976
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_shannon_first",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0079700231913518
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r84_mixed66",
+      "reference": "r84_topq_dual",
+      "delta_area": 125,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 0.9482809361958499
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r84_topq_dense",
+      "reference": "r84_topq_dual",
+      "delta_area": -37,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0256759169874454
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r84_topq_dual",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_budget_reclaim",
+      "reference": "r84_topq_dual",
+      "delta_area": -2786,
+      "area_equal": 19,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.1047259677235208
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_dense_sop_first",
+      "reference": "r84_topq_dual",
+      "delta_area": -1842,
+      "area_equal": 20,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0373962120253646
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_sop_first",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 0.9985742536819856
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_shannon_first",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0178537277970474
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r84_mixed66",
+      "reference": "r84_topq_dual",
+      "delta_area": 1246,
+      "area_equal": 20,
+      "delay_equal": 24,
+      "geomean_runtime_ratio": 1.0140165254136237
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r84_topq_dense",
+      "reference": "r84_topq_dual",
+      "delta_area": -1842,
+      "area_equal": 20,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0580127659231542
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r84_topq_dual",
+      "reference": "r84_topq_dual",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0
+    }
+  ],
+  "no_positive_RAM_assessment": true
+}

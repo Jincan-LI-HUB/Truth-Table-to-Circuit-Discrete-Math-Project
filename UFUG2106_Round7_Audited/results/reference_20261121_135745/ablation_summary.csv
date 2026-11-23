@@ -1,0 +1,5 @@
+run,stage,variant,pass,cases,targets,paired_pass,area_sum_valid,area_sum_complete,area_improved,area_equal,area_regressed,runtime_geomean_ratio_common_pass,failures
+1,stage1,default,25,25,25,25,529014,True,0,25,0,0.980541,
+1,stage2,default,24,25,24,24,506754,False,0,24,0,0.945277,case_016.txt
+2,stage1,default,25,25,25,25,529014,True,0,25,0,1.041156,
+2,stage2,default,24,25,24,24,506754,False,0,24,0,0.913382,case_016.txt

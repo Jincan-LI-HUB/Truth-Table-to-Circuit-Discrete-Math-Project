@@ -1,0 +1,10 @@
+case,variant,limit_ms,local_wall_ms,exceeds_local_limit,exact,official_status,official_runtime
+stress_001.txt,frozen_explicit_extra,100,179.174,True,True,PASS,93.927
+stress_001.txt,new_default,100,90.159,False,True,PASS,31.581
+stress_001.txt,submission_default,100,82.278,False,True,PASS,29.413
+stress_002.txt,frozen_explicit_extra,100,176.34,True,True,PASS,77.023
+stress_002.txt,new_default,100,91.771,False,True,PASS,21.321
+stress_002.txt,submission_default,100,112.533,True,True,PASS,26.222
+stress_003.txt,frozen_explicit_extra,100,69.334,False,True,PASS,28.469
+stress_003.txt,new_default,100,61.074,False,True,PASS,27.985
+stress_003.txt,submission_default,100,50.899,False,True,PASS,30.337

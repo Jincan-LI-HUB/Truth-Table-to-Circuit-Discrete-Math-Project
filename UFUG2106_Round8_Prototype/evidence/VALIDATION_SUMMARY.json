@@ -1,0 +1,38 @@
+{
+  "milestone": "Round8.0 research prototype",
+  "date": "2026-11-21",
+  "validated_scope": "local Linux direct run, not official user WSL evaluator",
+  "stage2_exhaustive_cases": 25,
+  "stage2_total_cases": 25,
+  "stage2_total_area_before": 508535,
+  "stage2_onepass_area_saved": 12,
+  "stage2_iterated_area_saved": 55,
+  "stage2_iterated_improved_cases": [
+    "case_021"
+  ],
+  "random_exhaustive_boolean_checks": 980,
+  "official_round8_evaluator": "NOT_RUN",
+  "case021_gate_counts": {
+    "baseline": {
+      "AND2": 5391,
+      "OR2": 6401,
+      "NOT": 16
+    },
+    "iterated": {
+      "AND2": 5325,
+      "OR2": 6544,
+      "NOT": 16
+    }
+  },
+  "notes": [
+    "Metadata-only offline ablations use real saved R7.2 netlists but do not by themselves check truth equivalence.",
+    "The integrated Stage2 direct-run results were separately exhaustively verified on original input truth tables.",
+    "The synthetic evaluator used solely to test the feedback script was deleted; no synthetic scores are packaged."
+  ],
+  "pareto_control": {
+    "r8_iterate": "case021 22535/70",
+    "r8_iterate_strict": "case021 22590/69",
+    "equivalence_both": "PASS exhaustive 65536 assignments",
+    "official_score_unknown": true
+  }
+}

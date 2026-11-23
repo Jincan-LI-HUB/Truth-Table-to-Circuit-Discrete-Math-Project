@@ -1,0 +1,25 @@
+{
+  "scope": "isolated symbolic cover kernels only, not full synthesis or official evaluator",
+  "stage2_case": "case_016.txt",
+  "case_sha256": "dc034201fcd57ac963f7b038694c3bf8da3b9146882d02d134467e560af10873",
+  "platform": {
+    "processor": "AMD EPYC 9V74 80-Core Processor",
+    "environment": "assistant Linux container, not user WSL"
+  },
+  "legacy_mean_10_repetitions_ms": [
+    62.3666,
+    66.2571,
+    64.9869,
+    67.0962
+  ],
+  "optimized_mean_10_repetitions_ms": [
+    21.1053,
+    22.3578,
+    20.894,
+    22.6707
+  ],
+  "chosen_cube_sequences_identical": true,
+  "additional_random_ablation_comparisons": 10656,
+  "compiler_flags": "g++ -O2 -std=c++17",
+  "limitations": "No full Round7 synthesis/evaluator executed in assistant environment. User must run WSL official evaluator on both stages."
+}

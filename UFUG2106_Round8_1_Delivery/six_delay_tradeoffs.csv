@@ -1,0 +1,7 @@
+stage,case,area_before,area_after,delay_before,delay_after,area_saved,delay_increase,adp_ratio,log_weight_breakeven
+stage1,case_010.txt,4712,3065,32,61,1647,29,1.23995,0.6666
+stage1,case_012.txt,5359,3778,25,40,1581,15,1.12797,0.7438
+stage2,case_003.txt,19494,15207,39,63,4287,24,1.26014,0.5179
+stage2,case_005.txt,112221,106770,40,57,5451,17,1.35578,0.1406
+stage2,case_021.txt,22590,22534,69,70,56,1,1.01198,0.1725
+stage2,case_023.txt,2986,1968,25,40,1018,15,1.05452,0.8871

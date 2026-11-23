@@ -1,0 +1,52 @@
+{
+  "status": "converted",
+  "normalization": "Only whitespace layout changed; exact truth tokens and numeric parameters retained.",
+  "cases": [
+    {
+      "file": "stress_001.txt",
+      "n": 20,
+      "m": 3,
+      "runtime_limit": 100,
+      "ram_limit": 0,
+      "input_sha256": "75df5284c482c4dce2b932e034f7e4a7d29ec5efc6aaad5d251da3954315e64c",
+      "canonical_sha256": "e078455a821ee7990bac5401eba37608b331070a75aa16510838e1602447e690",
+      "input_bytes": 4194329,
+      "canonical_bytes": 4194329,
+      "truth_table_preserved": true,
+      "costs_and_limits_preserved": true
+    },
+    {
+      "file": "stress_002.txt",
+      "n": 20,
+      "m": 3,
+      "runtime_limit": 100,
+      "ram_limit": 0,
+      "input_sha256": "68d64e6663cf0aa0b8997d6b98183c916b250d6fb4bf13f8ace171f7ca78ffa9",
+      "canonical_sha256": "b17263f8ccab8c98bee0a037454c86599ebf293298f52380da18c5d863fcdb3a",
+      "input_bytes": 4194329,
+      "canonical_bytes": 4194329,
+      "truth_table_preserved": true,
+      "costs_and_limits_preserved": true
+    },
+    {
+      "file": "stress_003.txt",
+      "n": 18,
+      "m": 3,
+      "runtime_limit": 100,
+      "ram_limit": 0,
+      "input_sha256": "916a0a2857058805c6bd0711d5bbad56c9752cb756bd15283d673c950546ce98",
+      "canonical_sha256": "3f76e0b2bed5ed9d6ac3ef5ccb605374cf68343b9c97d30137b68c00557ecd8e",
+      "input_bytes": 1048601,
+      "canonical_bytes": 1048601,
+      "truth_table_preserved": true,
+      "costs_and_limits_preserved": true
+    }
+  ],
+  "candidate": {
+    "parent_sha256": "6d21a7d3cf80a8662f4f42a965e84c50d6cffcef7766a4d2dccf282c204078d8",
+    "candidate_sha256": "d2cf83acbbc772dcfc07b476ba6d78ba1cde2847b71950b738e65cfdd0f5a317",
+    "path": "/mnt/data/r87_deep_audit/preflight/standalone_extra_sop/src/synth_round86.cpp",
+    "changed_behavior": "Only the no-environment-variable R86 default changed from baseline to extra_sop",
+    "compilation": "g++ -O2 -std=c++17 -pipe -DNDEBUG src/synth_round86.cpp -o synth_submission_candidate"
+  }
+}

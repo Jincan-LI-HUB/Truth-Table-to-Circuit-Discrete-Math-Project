@@ -1,0 +1,151 @@
+case,policy,area,delay,target,local_ms,wall_hits,verified,selected_topq,sha256
+case_001,topology_dual,2046,32,41,153.671,0,full,visited=900 scored=842;visited=900 scored=842,664488abd354450ee71e97e2286f20d660a1f1180b3eb1d486e14050b8c9b736
+case_001,topq_dual,2046,32,41,121.297,0,full,visited=900 scored=0;visited=900 scored=0,664488abd354450ee71e97e2286f20d660a1f1180b3eb1d486e14050b8c9b736
+case_001,topq_dense,2046,32,41,138.695,0,full,visited=975 scored=0;visited=975 scored=0,664488abd354450ee71e97e2286f20d660a1f1180b3eb1d486e14050b8c9b736
+case_001,adaptive_dual,2046,34,41,88.823,0,full,visited=220 scored=0;visited=220 scored=0;visited=975 scored=0,88017a7179bca7b1ca0da47c4590005eb7f4329d59869c8daa31544350a5ab08
+case_002,topology_dual,58697,68,86,1354.402,0,full,visited=900 scored=900;visited=900 scored=900,978402f539562929d8264a87eb509ae76b3b6e688241e7eb097baf428df988b0
+case_002,topq_dual,58695,68,86,1464.211,0,full,visited=900 scored=0;visited=900 scored=0,792eb6c25449be067d1dd7c7ef7afe9659bdf8798bd4103d401488bb039eab59
+case_002,topq_dense,58687,68,86,1220.676,0,full,visited=1100 scored=0;visited=1100 scored=0,7811040e2705d32f4926c6f7361ef2576273c753d13b3e03b0a81618bfdb4e4c
+case_002,adaptive_dual,58695,68,86,1074.476,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,b1fcc5f237a100fa91fdfc6d0d2ab06f022da2e776f7644381275d6eedcfdfc4
+case_003,topology_dual,17283,65,65,485.735,0,full,visited=900 scored=501;visited=900 scored=501,f598074911fc6d71435d9cd281936bc107bc563d8f8d143975d304643e6b96df
+case_003,topq_dual,17600,65,65,468.818,0,full,visited=900 scored=0;visited=900 scored=0,44eada249578ba7807f63e9e8bcefd265154f777210ca00bba1e12f0c9708848
+case_003,topq_dense,17183,65,65,493.567,0,full,visited=1100 scored=0;visited=1100 scored=0,66701135938fd2e068242a316032f4b5d28ffda9a49c8a3448db0fc392e639cd
+case_003,adaptive_dual,17183,65,65,549.235,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,66701135938fd2e068242a316032f4b5d28ffda9a49c8a3448db0fc392e639cd
+case_004,topology_dual,928,23,42,92.318,0,full,visited=603 scored=603;visited=603 scored=603,bee26a270fd1be4e3dfacb77791efb295d6c7c1eadaf8f8bd22b69f52d6be68a
+case_004,topq_dual,928,23,42,86.808,0,full,visited=603 scored=0;visited=603 scored=0,bee26a270fd1be4e3dfacb77791efb295d6c7c1eadaf8f8bd22b69f52d6be68a
+case_004,topq_dense,928,23,42,91.067,0,full,visited=603 scored=0;visited=603 scored=0,bee26a270fd1be4e3dfacb77791efb295d6c7c1eadaf8f8bd22b69f52d6be68a
+case_004,adaptive_dual,932,23,42,76.944,0,full,visited=220 scored=0;visited=220 scored=0;visited=603 scored=0,698224cbc5a1be7dbc6968ddb878ec33206658e7107cf07f82b3bd52aaf4532d
+case_005,topology_dual,106771,67,69,1424.176,0,full,visited=900 scored=663;visited=900 scored=663,ef9e9c631f65ca2b6b41dff69e59c0718d3d6d85b75e13214ac1f7af5961e988
+case_005,topq_dual,110045,53,69,1370.511,0,full,visited=900 scored=0;visited=900 scored=0,a8f0ff335bdb3f5dc272bed32a0389037f5946f89db764152ab137c802b7ff8f
+case_005,topq_dense,109546,53,69,1610.699,1,full,visited=1100 scored=0;visited=1055 scored=0,d04a309cb509b608b83978c4ef79513fb6c111e67e8fdfbc4b9aed95f664dcdd
+case_005,adaptive_dual,109442,53,69,1324.411,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,2dd10d3f0280b3c471e3211e726cd7b73d374a9b922d11c18db08fb7d259d249
+case_006,topology_dual,8818,49,56,152.094,0,full,visited=900 scored=493;visited=900 scored=493,548fadc545afa3e8494997b7dd78dc197397168f2018546800ae6203ec5c2c95
+case_006,topq_dual,8826,49,56,154.221,0,full,visited=900 scored=0;visited=900 scored=0,a9bbec4db80bd0557b5bf31f1d0663432177ed2df4c7d52d78b75feccef440d4
+case_006,topq_dense,8826,49,56,197.271,0,full,visited=1100 scored=0;visited=1100 scored=0,84f501bab508a5bf5c48c280077dd8d20b01bead9cdad0fbe77ce3c9ed5b1226
+case_006,adaptive_dual,8826,49,56,116.385,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,84f501bab508a5bf5c48c280077dd8d20b01bead9cdad0fbe77ce3c9ed5b1226
+case_007,topology_dual,1250,52,52,14.027,0,full,,2f62816e594b1221c9ab1ab6d84fb103bad6176740838e501f540778d5227208
+case_007,topq_dual,1250,52,52,14.457,0,full,,2f62816e594b1221c9ab1ab6d84fb103bad6176740838e501f540778d5227208
+case_007,topq_dense,1250,52,52,16.477,0,full,,2f62816e594b1221c9ab1ab6d84fb103bad6176740838e501f540778d5227208
+case_007,adaptive_dual,1250,52,52,12.137,0,full,,2f62816e594b1221c9ab1ab6d84fb103bad6176740838e501f540778d5227208
+case_008,topology_dual,952,30,36,14.542,0,full,,550c44d6de0f12f4b2b1b4fbc3ce5f2adcb6558a4421b71b690c2f003a4fa1cb
+case_008,topq_dual,952,30,36,12.08,0,full,,550c44d6de0f12f4b2b1b4fbc3ce5f2adcb6558a4421b71b690c2f003a4fa1cb
+case_008,topq_dense,952,30,36,11.335,0,full,,550c44d6de0f12f4b2b1b4fbc3ce5f2adcb6558a4421b71b690c2f003a4fa1cb
+case_008,adaptive_dual,952,30,36,12.738,0,full,,550c44d6de0f12f4b2b1b4fbc3ce5f2adcb6558a4421b71b690c2f003a4fa1cb
+case_009,topology_dual,1169,25,40,10.591,0,full,,b9ce57cc489c2ec0fb709d3deb5597c1455463af667b250075927e96886a8cba
+case_009,topq_dual,1169,25,40,12.369,0,full,,b9ce57cc489c2ec0fb709d3deb5597c1455463af667b250075927e96886a8cba
+case_009,topq_dense,1169,25,40,12.099,0,full,,b9ce57cc489c2ec0fb709d3deb5597c1455463af667b250075927e96886a8cba
+case_009,adaptive_dual,1169,25,40,10.863,0,full,,b9ce57cc489c2ec0fb709d3deb5597c1455463af667b250075927e96886a8cba
+case_010,topology_dual,235,22,23,3.595,0,full,,1a0f5d8d5e5a36ff6b0f47cda4de771ff869b50c624aa638aae88542d18abbab
+case_010,topq_dual,235,22,23,3.585,0,full,,1a0f5d8d5e5a36ff6b0f47cda4de771ff869b50c624aa638aae88542d18abbab
+case_010,topq_dense,235,22,23,3.272,0,full,,1a0f5d8d5e5a36ff6b0f47cda4de771ff869b50c624aa638aae88542d18abbab
+case_010,adaptive_dual,235,22,23,3.561,0,full,,1a0f5d8d5e5a36ff6b0f47cda4de771ff869b50c624aa638aae88542d18abbab
+case_011,topology_dual,52463,62,79,1086.815,0,full,visited=900 scored=346;visited=900 scored=346,62d0fd0c6e7db542bd472bf61b1245e8ba6355bca942c904305bb5f98ae2538a
+case_011,topq_dual,52459,62,79,1042.286,0,full,visited=900 scored=0;visited=900 scored=0,de07c2ff727525c310315c9552f8361bba35d1ff4df307f46f93c1098ae0198e
+case_011,topq_dense,52459,62,79,1126.688,0,full,visited=1100 scored=0;visited=1100 scored=0,57f9a97668d68b9a1f205fd4bd14eb85739eeb3ad025d41447c4eb37175d9127
+case_011,adaptive_dual,52461,62,79,951.291,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,0f409a7b19d516c9ab27604f4b51f81646582906f6dba30a6b79c73034283116
+case_012,topology_dual,4141,38,43,115.527,0,full,visited=600 scored=244;visited=600 scored=244,eea170bc83a6ebd1f1b5a48f3805e6a96324c6c8539206032e88812ebcb65708
+case_012,topq_dual,4143,38,43,115.576,0,full,visited=600 scored=0;visited=600 scored=0,feab14134fe3b5ec640bf55f5dfdad25aa4b351235d1b9e38de7767818f485b4
+case_012,topq_dense,4143,38,43,117.339,0,full,visited=600 scored=0;visited=600 scored=0,feab14134fe3b5ec640bf55f5dfdad25aa4b351235d1b9e38de7767818f485b4
+case_012,adaptive_dual,4141,38,43,117.935,0,full,visited=220 scored=0;visited=220 scored=0;visited=1051 scored=0,ada6a286715df355e8ec5724769a07f716cc88e79f97bedc94488bb350e8c9e2
+case_013,topology_dual,115714,66,78,1548.025,0,full,visited=900 scored=780;visited=900 scored=780,0512e3f3043dbb08b19090eea4d2f46472229bba1ad6f1a8c0fdfcce9d0b6e1c
+case_013,topq_dual,115726,66,78,1634.991,0,full,visited=900 scored=0;visited=900 scored=0,d54723476d23d7f2da1e3f94421078d146f8e648d7cbeaedcf6420da4f8d3644
+case_013,topq_dense,115726,66,78,1706.618,1,full,visited=1100 scored=0;visited=1055 scored=0,62310e71f50d21a9a047c3fcbea647a997b8a25ac1a456e05c1792bb95b50687
+case_013,adaptive_dual,115726,66,78,1773.524,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,62310e71f50d21a9a047c3fcbea647a997b8a25ac1a456e05c1792bb95b50687
+case_014,topology_dual,62511,66,83,796.989,0,full,visited=900 scored=900;visited=900 scored=900,e1778ba2738a10c151552269ce6ae2db735a1fc81b3547c9b66e6bff7ab06403
+case_014,topq_dual,62535,66,83,805.088,0,full,visited=900 scored=0;visited=900 scored=0,64d5e866ffcb3ee2a0b43a29817a356a3c9bf123ed318d1cdbdf46ff21c6190c
+case_014,topq_dense,62535,66,83,873.845,0,full,visited=1100 scored=0;visited=1100 scored=0,64d5e866ffcb3ee2a0b43a29817a356a3c9bf123ed318d1cdbdf46ff21c6190c
+case_014,adaptive_dual,62535,66,83,733.963,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,64d5e866ffcb3ee2a0b43a29817a356a3c9bf123ed318d1cdbdf46ff21c6190c
+case_015,topology_dual,7654,48,55,153.002,0,full,visited=900 scored=341;visited=900 scored=341,3162cf20b999028e8b462376cfa8acb377bb142566463b89581f677692f5cdca
+case_015,topq_dual,7650,48,55,157.355,0,full,visited=900 scored=0;visited=900 scored=0,9523eb6ec9cb6e46df1c7abb07a14f62ec8ab652a246cb2f1dd93dc50387d111
+case_015,topq_dense,7650,48,55,173.944,0,full,visited=1100 scored=0;visited=1100 scored=0,cb91627eabe5a85e9adb796f1fb64bc78c6a1c75431ced0fd24fab4187d91842
+case_015,adaptive_dual,7650,48,55,113.657,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,cb91627eabe5a85e9adb796f1fb64bc78c6a1c75431ced0fd24fab4187d91842
+case_016,topology_dual,1781,36,42,33.349,0,full,,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a
+case_016,topq_dual,1781,36,42,33.494,0,full,,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a
+case_016,topq_dense,1781,36,42,35.609,0,full,,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a
+case_016,adaptive_dual,1781,36,42,33.058,0,full,,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a
+case_017,topology_dual,14168,49,57,160.634,0,full,visited=600 scored=592;visited=600 scored=592,0e82a1ab2cac9c7e354390c6e37159d08957f1a52753668714a5e8f88d899846
+case_017,topq_dual,14188,49,57,148.185,0,full,visited=600 scored=0;visited=600 scored=0,f8e644f7c5a9dc8a5caf4a3d61ccfb4e99ceeba1846f7249f341d7a4a9d6d5b3
+case_017,topq_dense,14188,49,57,158.735,0,full,visited=600 scored=0;visited=600 scored=0,f8e644f7c5a9dc8a5caf4a3d61ccfb4e99ceeba1846f7249f341d7a4a9d6d5b3
+case_017,adaptive_dual,14182,49,57,190.421,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,1f954de05d8f26d5d012d5f3a33c5139872d6f756ea8b0e9688dd56537cfdb7d
+case_018,topology_dual,709,42,42,9.148,0,full,,86c536c225ba0c7af71a9e24e749ae2f216eb79a12b588356d8465d72dcec03f
+case_018,topq_dual,709,42,42,7.599,0,full,,86c536c225ba0c7af71a9e24e749ae2f216eb79a12b588356d8465d72dcec03f
+case_018,topq_dense,709,42,42,7.906,0,full,,86c536c225ba0c7af71a9e24e749ae2f216eb79a12b588356d8465d72dcec03f
+case_018,adaptive_dual,709,42,42,22.552,0,full,,86c536c225ba0c7af71a9e24e749ae2f216eb79a12b588356d8465d72dcec03f
+case_019,topology_dual,711,28,35,10.675,0,full,,fb399291d0fd7e4dd39c9af4a34d2bfc02db31428cac3c0533fe6403ad995d23
+case_019,topq_dual,711,28,35,9.237,0,full,,fb399291d0fd7e4dd39c9af4a34d2bfc02db31428cac3c0533fe6403ad995d23
+case_019,topq_dense,711,28,35,9.57,0,full,,fb399291d0fd7e4dd39c9af4a34d2bfc02db31428cac3c0533fe6403ad995d23
+case_019,adaptive_dual,711,28,35,9.188,0,full,,fb399291d0fd7e4dd39c9af4a34d2bfc02db31428cac3c0533fe6403ad995d23
+case_020,topology_dual,2918,39,49,109.731,0,full,visited=900 scored=554;visited=900 scored=554,dbc2b75e456e0a171149b361f845204acce2673f8d4c5f8df8719d400d2a6724
+case_020,topq_dual,2918,39,49,105.184,0,full,visited=900 scored=0;visited=900 scored=0,dbc2b75e456e0a171149b361f845204acce2673f8d4c5f8df8719d400d2a6724
+case_020,topq_dense,2918,39,49,132.527,0,full,visited=1100 scored=0;visited=1100 scored=0,ebf184084b4c841c0f4b5f5d91d1f59aab119c17844d4c5df1d4a1b7360c04e8
+case_020,adaptive_dual,2918,39,49,91.3,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,ebf184084b4c841c0f4b5f5d91d1f59aab119c17844d4c5df1d4a1b7360c04e8
+case_021,topology_dual,22579,69,70,433.782,0,full,visited=900 scored=462;visited=900 scored=462,52518bcf7edd6ca20ba63e2aadcf379f92c6200903313d4172b6be10634bc9b6
+case_021,topq_dual,22589,69,70,422.814,0,full,visited=900 scored=0;visited=900 scored=0,057edd8edeb5d587c08b02e353f951877160a332c64440972dad9db32c5ac741
+case_021,topq_dense,22589,69,70,456.918,0,full,visited=1100 scored=0;visited=1100 scored=0,057edd8edeb5d587c08b02e353f951877160a332c64440972dad9db32c5ac741
+case_021,adaptive_dual,22590,69,70,418.9,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,9ea9d313184c83a20c78a6b9429839151e964e6be14ccb1c1d22d3c07778d3e0
+case_022,topology_dual,794,28,33,15.032,0,full,,3f6d318b508c60e4c71b1f147c439a0cdc97f2669b7a3e6be1e26b93387f5a3a
+case_022,topq_dual,794,28,33,12.836,0,full,,3f6d318b508c60e4c71b1f147c439a0cdc97f2669b7a3e6be1e26b93387f5a3a
+case_022,topq_dense,794,28,33,14.183,0,full,,3f6d318b508c60e4c71b1f147c439a0cdc97f2669b7a3e6be1e26b93387f5a3a
+case_022,adaptive_dual,794,28,33,13.739,0,full,,3f6d318b508c60e4c71b1f147c439a0cdc97f2669b7a3e6be1e26b93387f5a3a
+case_023,topology_dual,2397,40,40,108.905,0,full,visited=900 scored=619;visited=900 scored=619,990a5f5bdd2922443f43244439d2d74bae332531e92e959f1ac23496ba8219be
+case_023,topq_dual,2397,40,40,105.975,0,full,visited=900 scored=0;visited=900 scored=0,990a5f5bdd2922443f43244439d2d74bae332531e92e959f1ac23496ba8219be
+case_023,topq_dense,2215,40,40,136.817,0,full,visited=1100 scored=0;visited=1100 scored=0,82c2fc6c70cc1c34499da060aa33cc3db2e63741d5bff26ba3605aa62b60327d
+case_023,adaptive_dual,2271,40,40,80.82,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,a3b40834cdba5702ca6d9079e65b6c50548fd77cd543b49a85acc1c43e44901f
+case_024,topology_dual,6894,52,63,168.602,0,full,visited=900 scored=557;visited=900 scored=557,116010e0d56fab468ef89138727ee8b0b599b4b7eb11596297077a5d85689ccb
+case_024,topq_dual,6903,52,63,148.056,0,full,visited=900 scored=0;visited=900 scored=0,0b809c6b701ba6e79d9b779fc9a714e7e8271f3de3ec3af036073927a93add25
+case_024,topq_dense,6894,52,63,184.977,0,full,visited=1100 scored=0;visited=1100 scored=0,45a155e6e2f9cdcdae8dea176d9d7bb463f3fc7c6d3350d74b651daafff24850
+case_024,adaptive_dual,6904,52,63,118.538,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,e8c66d87869d351600c55d98931c9b10bc17c26d02f49e5a980c2c58d3ef9d86
+case_025,topology_dual,6489,73,80,528.713,0,full,visited=900 scored=493;visited=900 scored=493,8f138f814e76c7300b06d29a23b5b36873de482459fa6c7e0a4672278ea75f3f
+case_025,topq_dual,6515,73,80,461.006,0,full,visited=900 scored=0;visited=900 scored=0,d3d1da4086ee20f853cb6b7b8b6b7d4d1bfe283af9ce2f9b505e5decfef6188a
+case_025,topq_dense,6515,73,80,475.049,0,full,visited=1100 scored=0;visited=1100 scored=0,96507bb6b1220b8c59cdaa8bc86736e7f0755337d91aef598ae56568e57fcb91
+case_025,adaptive_dual,6515,73,80,448.257,0,full,visited=220 scored=0;visited=220 scored=0;visited=1100 scored=0,96507bb6b1220b8c59cdaa8bc86736e7f0755337d91aef598ae56568e57fcb91
+case_001,mixed33_dual,2046,32,41,119.063,0,full,visited=900 scored=851;visited=900 scored=851,664488abd354450ee71e97e2286f20d660a1f1180b3eb1d486e14050b8c9b736
+case_001,mixed66_dual,2046,32,41,127.31,0,full,visited=900 scored=900;visited=900 scored=900,95871575f8922162f1e8c72aca4c9263c0ce80fe7182253f40623945e4ef51e9
+case_002,mixed33_dual,58697,68,86,1298.564,0,full,visited=900 scored=900;visited=900 scored=900,978402f539562929d8264a87eb509ae76b3b6e688241e7eb097baf428df988b0
+case_002,mixed66_dual,58697,68,86,1233.988,0,full,visited=900 scored=900;visited=900 scored=900,978402f539562929d8264a87eb509ae76b3b6e688241e7eb097baf428df988b0
+case_003,mixed33_dual,16842,65,65,562.608,0,full,visited=900 scored=541;visited=900 scored=541,fd4f1b3a28b20f6d6bc0c1c685f8375fc5eaa7ac434db1fa2fcd0d524e69260e
+case_003,mixed66_dual,16517,65,65,546.534,0,full,visited=900 scored=751;visited=900 scored=751,41aa35f4567a6969f9c1fe0780228963ef35db5c2cf7777b485c308ac7bd8bfd
+case_004,mixed33_dual,928,23,42,99.699,0,full,visited=603 scored=603;visited=603 scored=603,bee26a270fd1be4e3dfacb77791efb295d6c7c1eadaf8f8bd22b69f52d6be68a
+case_004,mixed66_dual,928,23,42,86.268,0,full,visited=603 scored=603;visited=603 scored=603,bee26a270fd1be4e3dfacb77791efb295d6c7c1eadaf8f8bd22b69f52d6be68a
+case_005,mixed33_dual,107029,67,69,1613.762,1,full,visited=900 scored=663;visited=863 scored=626,7b6b25f47d8fb1e357f3ef8340b4f9b4080e919a73c905a5850eb6029452c92e
+case_005,mixed66_dual,106771,67,69,1622.082,0,full,visited=900 scored=663;visited=900 scored=663,ef9e9c631f65ca2b6b41dff69e59c0718d3d6d85b75e13214ac1f7af5961e988
+case_006,mixed33_dual,8818,49,56,197.628,0,full,visited=900 scored=493;visited=900 scored=493,ee5434987880cacdffd1c2333ce31f19200231c41f042e22af4960093870859a
+case_006,mixed66_dual,8818,49,56,181.293,0,full,visited=900 scored=600;visited=900 scored=600,90b01ffa993114ed44e946875293b96301255de2706dfaf85745256710209bdc
+case_007,mixed33_dual,1250,52,52,13.757,0,full,,2f62816e594b1221c9ab1ab6d84fb103bad6176740838e501f540778d5227208
+case_007,mixed66_dual,1250,52,52,14.938,0,full,,2f62816e594b1221c9ab1ab6d84fb103bad6176740838e501f540778d5227208
+case_008,mixed33_dual,952,30,36,16.216,0,full,,550c44d6de0f12f4b2b1b4fbc3ce5f2adcb6558a4421b71b690c2f003a4fa1cb
+case_008,mixed66_dual,952,30,36,12.071,0,full,,550c44d6de0f12f4b2b1b4fbc3ce5f2adcb6558a4421b71b690c2f003a4fa1cb
+case_009,mixed33_dual,1169,25,40,11.595,0,full,,b9ce57cc489c2ec0fb709d3deb5597c1455463af667b250075927e96886a8cba
+case_009,mixed66_dual,1169,25,40,12.118,0,full,,b9ce57cc489c2ec0fb709d3deb5597c1455463af667b250075927e96886a8cba
+case_010,mixed33_dual,235,22,23,4.017,0,full,,1a0f5d8d5e5a36ff6b0f47cda4de771ff869b50c624aa638aae88542d18abbab
+case_010,mixed66_dual,235,22,23,3.728,0,full,,1a0f5d8d5e5a36ff6b0f47cda4de771ff869b50c624aa638aae88542d18abbab
+case_011,mixed33_dual,52463,62,79,1131.645,0,full,visited=900 scored=346;visited=900 scored=346,62d0fd0c6e7db542bd472bf61b1245e8ba6355bca942c904305bb5f98ae2538a
+case_011,mixed66_dual,52463,62,79,1064.818,0,full,visited=900 scored=631;visited=900 scored=631,62d0fd0c6e7db542bd472bf61b1245e8ba6355bca942c904305bb5f98ae2538a
+case_012,mixed33_dual,4141,38,43,128.783,0,full,visited=600 scored=331;visited=600 scored=331,b3a7f09b296180798cc1763e50c61f8766b55c547772fab0a3b5f08b065f2e61
+case_012,mixed66_dual,4145,38,43,151.216,0,full,visited=600 scored=445;visited=600 scored=445,2eb58ea27535d1bcb69209f75fffc664db350fca071c80f09d2cef764c082453
+case_013,mixed33_dual,115710,66,78,1987.92,2,full,visited=895 scored=895;visited=831 scored=831,fc55f73b4f3891f021cdf089150526a530423d74c4d267f5cc94a8fc23d9b0b4
+case_013,mixed66_dual,115710,66,78,1804.314,2,full,visited=895 scored=895;visited=831 scored=831,fc55f73b4f3891f021cdf089150526a530423d74c4d267f5cc94a8fc23d9b0b4
+case_014,mixed33_dual,62511,66,83,981.016,0,full,visited=900 scored=900;visited=900 scored=900,e1778ba2738a10c151552269ce6ae2db735a1fc81b3547c9b66e6bff7ab06403
+case_014,mixed66_dual,62511,66,83,933.131,0,full,visited=900 scored=900;visited=900 scored=900,e1778ba2738a10c151552269ce6ae2db735a1fc81b3547c9b66e6bff7ab06403
+case_015,mixed33_dual,7654,48,55,165.51,0,full,visited=900 scored=385;visited=900 scored=385,b7287d2e731384c7e9d09daa1295694a0d58c0b9eb9c10fa3d6352785817c378
+case_015,mixed66_dual,7652,48,55,172.623,0,full,visited=900 scored=676;visited=900 scored=676,453fea572c2ba243d3f9e370eec365c9619fe4379bd2c8fb2c910b88aaace60b
+case_016,mixed33_dual,1781,36,42,34.437,0,full,,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a
+case_016,mixed66_dual,1781,36,42,36.843,0,full,,176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a
+case_017,mixed33_dual,14164,49,57,197.694,0,full,visited=600 scored=600;visited=600 scored=600,5fb196b0b7fea4241d0a90e82dd9fb9bc346112974ac673d76e67736742d39aa
+case_017,mixed66_dual,14164,49,57,188.475,0,full,visited=600 scored=600;visited=600 scored=600,5fb196b0b7fea4241d0a90e82dd9fb9bc346112974ac673d76e67736742d39aa
+case_018,mixed33_dual,709,42,42,8.641,0,full,,86c536c225ba0c7af71a9e24e749ae2f216eb79a12b588356d8465d72dcec03f
+case_018,mixed66_dual,709,42,42,7.307,0,full,,86c536c225ba0c7af71a9e24e749ae2f216eb79a12b588356d8465d72dcec03f
+case_019,mixed33_dual,711,28,35,10.529,0,full,,fb399291d0fd7e4dd39c9af4a34d2bfc02db31428cac3c0533fe6403ad995d23
+case_019,mixed66_dual,711,28,35,11.405,0,full,,fb399291d0fd7e4dd39c9af4a34d2bfc02db31428cac3c0533fe6403ad995d23
+case_020,mixed33_dual,2918,39,49,123.978,0,full,visited=900 scored=618;visited=900 scored=618,635c4665d17b0aefd65470cd99444ce89a0ff4cd327adc004a1242614d698161
+case_020,mixed66_dual,2918,39,49,121.501,0,full,visited=900 scored=700;visited=900 scored=700,6b27eba84d7e195e9d3f6ac27289cbc7fec952ae85ca1d7f96b944251ec7c8ea
+case_021,mixed33_dual,22576,69,70,447.555,0,full,visited=900 scored=467;visited=900 scored=467,4f86e804cea55da7b750cf0be1e9804cdc9c5e3c29678de9273858af22ba3f94
+case_021,mixed66_dual,22576,69,70,493.043,0,full,visited=900 scored=600;visited=900 scored=600,87d89df5f6a0577435097dedf4da272cd573005ac8c3f9c8718fc332b7658bef
+case_022,mixed33_dual,794,28,33,14.51,0,full,,3f6d318b508c60e4c71b1f147c439a0cdc97f2669b7a3e6be1e26b93387f5a3a
+case_022,mixed66_dual,794,28,33,12.688,0,full,,3f6d318b508c60e4c71b1f147c439a0cdc97f2669b7a3e6be1e26b93387f5a3a
+case_023,mixed33_dual,2177,40,40,111.887,0,full,visited=900 scored=674;visited=900 scored=674,13521b99da71bd8300a3bcaa6d1cb734ffca326ece2c2b428a791a9ec0cc99a6
+case_023,mixed66_dual,2140,40,40,116.776,0,full,visited=900 scored=742;visited=900 scored=742,63c61dcfa92467967f7f100a20fb6bf178f18a9ecb4d5f906b3c253f80bb449c
+case_024,mixed33_dual,6894,52,63,165.69,0,full,visited=900 scored=623;visited=900 scored=623,376fc6e321400531631d808305b9bebe1f8ff5eba88d424c9f543acfea05525b
+case_024,mixed66_dual,6890,52,63,161.788,0,full,visited=900 scored=663;visited=900 scored=663,11e0dc593065f4a00aeb237637ccc3d19c3352c99461486c5033f004e3570d9d
+case_025,mixed33_dual,6515,73,80,461.46,0,full,visited=900 scored=538;visited=900 scored=538,14ce5cd8d715d2bcd60246e0d9bac2c0c269251311317e47985d4a652f4b45f8
+case_025,mixed66_dual,6488,73,80,462.223,0,full,visited=900 scored=623;visited=900 scored=623,343bc2db6669faccd94a0219f76743e50d3e9f67633ea8a51bd2794146d4827c

@@ -1,0 +1,64 @@
+--- frozen_Round8.2/synth_round82.cpp
++++ Round8.2.1/synth_round821.cpp
+@@ -8,6 +8,7 @@
+ #include "r81_cut.hpp"
+ #include "r82_archive.hpp"
+ #include "r82_cut.hpp"
++#include "r821_resource.hpp"
+ #include <bits/stdc++.h>
+ using namespace std;
+ struct BKey {int v,lo,hi;bool operator==(const BKey&o)const{return v==o.v && lo==o.lo && hi==o.hi;}};
+@@ -948,7 +949,27 @@
+  for(int k=0;k<(1<<n);k++)if(!(in>>line))return 4;
+  int aa,da,ao,dor,an,dn,target;
+  if(!(in>>aa>>da>>ao>>dor>>an>>dn>>target))return 5;
+- long long limit=0;in>>limit;
++ long long limit=0,ram_kb=0;
++ if(in>>limit){if(!(in>>ram_kb))in.clear();}else in.clear();
++ if(limit<0||ram_kb<0){std::cerr<<"R821_ERROR negative_resource_limit\n";return 13;}
++ const r51::Costs r821_costs{aa,da,ao,dor,an,dn};
++ const bool r821_try_compact=(ram_kb>0 && !r821::bdd_admitted(n,m,ram_kb));
++ if(r821_try_compact){
++   const auto p=r821::compact_probe(argv[1],n,m,r821_costs,target,ram_kb);
++   if(p.solved){
++     std::ofstream out(argv[2]);out<<p.netlist;
++     std::cerr<<"R821_RESOURCE result=solved path="<<p.reason
++       <<" n="<<n<<" m="<<m<<" ram_kb="<<ram_kb
++       <<" support="<<p.support<<" area="<<p.area<<" delay="<<p.delay<<"\n";
++     return out?0:7;
++   }
++   if(ram_kb>0 && !r821::bdd_admitted(n,m,ram_kb)){
++     std::cerr<<"R821_RESOURCE result=declined_bdd ram_kb="<<ram_kb
++       <<" estimate_bytes="<<r821::bdd_reservation_estimate_bytes(n,m)
++       <<" fallback="<<p.reason<<" support="<<p.support<<"\n";
++     return 14; // Explicit failure is safer than silently exceeding RAM cap.
++   }
++ }
+  auto start=r71_launch;
+  // Optional ablation: UFUG_R71_POLICY=off restores the R7 portfolio.
+  const char* r71_env=std::getenv("UFUG_R71_POLICY");
+@@ -1046,6 +1067,24 @@
+     <<" candidate_area="<<z.area<<" candidate_delay="<<z.delay
+     <<" improved="<<(improved?1:0)<<" incumbent_area="<<b.area<<"\n";
+  }
++ // After a feasible first pass, do not put an already valid circuit at risk
++ // by launching more unbounded BDD candidates under a tight memory cap.
++ // The budget bound is conservative and is NOT a proof of total RSS usage.
++ if(ram_kb>0 && b.valid && b.delay<=target &&
++    r821::saturation_mul(uint64_t(ram_kb),1024ULL) <
++      r821::saturation_mul(r821::bdd_reservation_estimate_bytes(n,m),2ULL)){
++   std::ofstream out(argv[2]);out<<best;
++   std::cerr<<"R821_RESOURCE result=conservative_optional_skip"
++     <<" ram_kb="<<ram_kb<<" area="<<b.area<<" delay="<<b.delay<<"\n";
++   return out?0:7;
++ }
++ // Zero cost and zero delay are global lower bounds under positive gate costs.
++ // Preserve the incumbent and skip ALL optional BDD/legacy/cut passes.
++ if(b.valid && b.area==0 && b.delay==0){
++   std::ofstream out(argv[2]);out<<best;
++   std::cerr<<"R821_RESOURCE result=zero_area_early_exit\n";
++   return out?0:7;
++ }
+  // A distinct legacy representation remains valuable: complementary normalization
+  // should not erase earlier, smaller Area solutions. Only attempt this low-cost
+  // fallback for moderate input dimensions and adequate declared runtime budgets.

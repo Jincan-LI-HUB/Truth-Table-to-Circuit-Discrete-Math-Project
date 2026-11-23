@@ -1,0 +1,14 @@
+{
+  "round": "8.1",
+  "frozen_parent_sha256": "9ec7dc97161d3dc906dfad7960e0fc232b8e2cf0399908c6c4e99b756d8bacd8",
+  "files": {
+    "algebraic_mapper.hpp": "33d9d02a4fe2cbb14934e334bb8433260e9763541b6f78fcbd969b2e88220667",
+    "optimize_cut.cpp": "ce7e1b7b77956dbca7159c7d0c9193f49d6aba56fa05eb6e26cf6015d2084eb6",
+    "polarity_mapper.hpp": "46e8183e644071ca45792499bb6e3961dacda9e0243a98071e409473419e375a",
+    "r81_cut.hpp": "6309a74da44fc06ee6cb0528911a5b704a1e0db25361ea381488aca287f3144a",
+    "r8_structural.hpp": "5bb7e3c54197e9b7769c85f0b35bbc93591860c134f30950ac33144620069600",
+    "synth_round8.cpp": "9ec7dc97161d3dc906dfad7960e0fc232b8e2cf0399908c6c4e99b756d8bacd8",
+    "synth_round81.cpp": "a12ed21f9d48862be0771d0d15801c81bb280bbff908d8d90932cf43a53d4181",
+    "typed_netgraph.hpp": "55030bc9a51ff435e15285c0e9cb36db4032625a45b42993d4f1434290e04950"
+  }
+}

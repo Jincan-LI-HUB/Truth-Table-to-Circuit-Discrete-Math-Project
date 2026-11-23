@@ -1,0 +1,23 @@
+{
+  "milestone": "UFUG2106 Round 7",
+  "packaging": "offline source-derived bootstrap based on local frozen Round 5.1",
+  "upstream_git_blob": "68ec9f54b27081641ac10358f81eef260acfcbdb",
+  "official_round7_full_evaluator_test": "NOT RUN; must execute on WSL",
+  "files": {
+    "Makefile": "425c20511d1fa71029037494318d53c6b6699d59568a5521e2b94fe9ccf79e5f",
+    "README.md": "b8253923c34381e50a3b4c9b4df69af48484a03a80db0a8f1d9bc9476be4f0a5",
+    "bootstrap_round7.py": "b3ccbcfa160f6b2fec580542c2ab729d5aa2d684d062d2a9064bb96567395bd2",
+    "docs/CHANGELOG.md": "dd2ee691dec795b7b4c3d23a135ea5721a374882c86e12fb0c7bd6ff1992efb9",
+    "docs/EXPERIMENT_REPORT.md": "cdbec2b6151dd8d58865dfb4e1a18a721fae5ba265a8d221d77b76f99720d38d",
+    "docs/MATHEMATICAL_DESIGN.md": "46f0e2d51413bce32cf65ab822d1f6d556f520f2f80c4f0dfaf186a0ad8f124c",
+    "results/baseline/round51_stage1.csv": "f183110ca501d6aced95f17e8d99c1959587ea16e38a0f6e699cfb596e0ca391",
+    "results/baseline/round51_stage2.csv": "27638d5618196c8574c0449f4d6387683073a2fdcd586d82eb07362e4f6a5586",
+    "results/kernel_microbenchmark.json": "77d91db9e141b9c91faaad7286fe24b2fb564bb3cd9c18b60761da369ae2d9f3",
+    "run_round7.sh": "1dc151a63aa08bd9379cfc7b3e2109965d7384a539657563cfff2c4919d02809",
+    "src/README.md": "b432e92e71aeca9f0ad73f25c21eb3727a29ef6ff930fe69afabd19ed5b60d6d",
+    "tests/bench_cover_kernel.py": "4f37ab2bf3cc25c022586e3772c4d3299cc73943d1450a83b4d4c95f333f540f",
+    "tests/test_bootstrap.py": "2e2b515cb09a7133832ded9c7e343f0cd847df565fd6fc25079e5e6f507c731b",
+    "tests/test_exact_cover.py": "1c998205f0ea7ab6dee2f74df7062ff4d21b55d848b3866a50bc91cbbf734cdf",
+    "tools/run_benchmarks.py": "3f70a6992bf60341029f60751a13500b339dacd6a002f160ff5fc642c3a725e6"
+  }
+}

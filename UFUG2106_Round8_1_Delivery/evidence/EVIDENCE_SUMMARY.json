@@ -1,0 +1,61 @@
+{
+  "local_correctness": {
+    "full_stage2_truth_table_verified_cases": 25,
+    "integrated_modes": [
+      "r81_branch",
+      "r81_strict"
+    ],
+    "exhaustive_integrated_mode_case_checks": 50,
+    "synthetic_random_dags": 180,
+    "synthetic_exhaustive_mode_checks": 720
+  },
+  "baseline_stage2_area": 508535,
+  "integrated": {
+    "r81_branch": {
+      "case_count": 25,
+      "area_sum": 500696,
+      "area_saved": 7839,
+      "improved_cases": 17,
+      "target_met": 25,
+      "max_local_wall_ms": 1848.85,
+      "area_ratio": 0.984585131800171
+    },
+    "r81_strict": {
+      "case_count": 25,
+      "area_sum": 508352,
+      "area_saved": 183,
+      "improved_cases": 14,
+      "target_met": 25,
+      "max_local_wall_ms": 1723.43,
+      "area_ratio": 0.999640142763035
+    }
+  },
+  "offline": {
+    "sop": {
+      "case_count": 25,
+      "area_saved": 6747,
+      "improved_cases": 21
+    },
+    "shannon": {
+      "case_count": 25,
+      "area_saved": 6820,
+      "improved_cases": 19
+    },
+    "all": {
+      "case_count": 25,
+      "area_saved": 5542,
+      "improved_cases": 22
+    },
+    "choices": {
+      "case_count": 25,
+      "area_saved": 5109,
+      "improved_cases": 23
+    },
+    "r80_then_cut": {
+      "case_count": 25,
+      "area_saved": 5250,
+      "improved_cases": 22
+    }
+  },
+  "interpretation": "Local container full-truth-table checks; NOT official WSL evaluator; Stage 1 full 25 cases unavailable in container."
+}

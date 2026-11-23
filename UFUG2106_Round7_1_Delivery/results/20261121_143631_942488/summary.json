@@ -1,0 +1,662 @@
+{
+  "experiment": "Round7.1 paired official evaluator",
+  "runs": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r51",
+      "csv": "run1_stage1_r51.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 48.361,
+        "max_passed_runtime_ms": 1307.193,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r71_guard",
+      "csv": "run1_stage1_r71_guard.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529025,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 48.926,
+        "max_passed_runtime_ms": 1396.364,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r71_policy_off",
+      "csv": "run1_stage1_r71_policy_off.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 46.267,
+        "max_passed_runtime_ms": 1213.423,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r71_legacy_merge",
+      "csv": "run1_stage1_r71_legacy_merge.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529025,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 47.198,
+        "max_passed_runtime_ms": 1492.343,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r71_legacy_cover",
+      "csv": "run1_stage1_r71_legacy_cover.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529025,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 50.387,
+        "max_passed_runtime_ms": 1352.783,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r51",
+      "csv": "run1_stage2_r51.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 35.193,
+        "max_passed_runtime_ms": 797.929,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r71_guard",
+      "csv": "run1_stage2_r71_guard.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 31.268,
+        "max_passed_runtime_ms": 871.542,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r71_policy_off",
+      "csv": "run1_stage2_r71_policy_off.csv",
+      "evaluator_exit": 1,
+      "metrics": {
+        "total": 25,
+        "passed": 24,
+        "target_met": 24,
+        "area_sum_of_passed": 506754,
+        "area_sum_complete": false,
+        "median_passed_runtime_ms": 31.165,
+        "max_passed_runtime_ms": 773.615,
+        "failures": [
+          "case_016.txt"
+        ]
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r71_legacy_merge",
+      "csv": "run1_stage2_r71_legacy_merge.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 30.038,
+        "max_passed_runtime_ms": 715.386,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r71_legacy_cover",
+      "csv": "run1_stage2_r71_legacy_cover.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 31.702,
+        "max_passed_runtime_ms": 692.628,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r71_legacy_cover",
+      "csv": "run2_stage1_r71_legacy_cover.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529025,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 48.666,
+        "max_passed_runtime_ms": 1147.099,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r71_legacy_merge",
+      "csv": "run2_stage1_r71_legacy_merge.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529025,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 48.279,
+        "max_passed_runtime_ms": 1156.497,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r71_policy_off",
+      "csv": "run2_stage1_r71_policy_off.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 49.934,
+        "max_passed_runtime_ms": 1166.907,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r71_guard",
+      "csv": "run2_stage1_r71_guard.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529025,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 48.648,
+        "max_passed_runtime_ms": 1156.386,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r51",
+      "csv": "run2_stage1_r51.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 49.453,
+        "max_passed_runtime_ms": 1169.284,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r71_legacy_cover",
+      "csv": "run2_stage2_r71_legacy_cover.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 32.069,
+        "max_passed_runtime_ms": 726.34,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r71_legacy_merge",
+      "csv": "run2_stage2_r71_legacy_merge.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 31.19,
+        "max_passed_runtime_ms": 689.763,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r71_policy_off",
+      "csv": "run2_stage2_r71_policy_off.csv",
+      "evaluator_exit": 1,
+      "metrics": {
+        "total": 25,
+        "passed": 24,
+        "target_met": 24,
+        "area_sum_of_passed": 506754,
+        "area_sum_complete": false,
+        "median_passed_runtime_ms": 31.496499999999997,
+        "max_passed_runtime_ms": 710.81,
+        "failures": [
+          "case_016.txt"
+        ]
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r71_guard",
+      "csv": "run2_stage2_r71_guard.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 31.427,
+        "max_passed_runtime_ms": 686.38,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r51",
+      "csv": "run2_stage2_r51.csv",
+      "evaluator_exit": 0,
+      "metrics": {
+        "total": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_sum_complete": true,
+        "median_passed_runtime_ms": 32.508,
+        "max_passed_runtime_ms": 735.365,
+        "failures": []
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r71_guard",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0005704898925771,
+      "common_area_delta": 11,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r71_policy_off",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0,
+      "common_area_delta": 0,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r71_legacy_merge",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0005704898925771,
+      "common_area_delta": 11,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r71_legacy_cover",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0005704898925771,
+      "common_area_delta": 11,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r71_guard",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0,
+      "common_area_delta": 0,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r71_policy_off",
+      "common_passed": 24,
+      "gmean_area_ratio": 1.0,
+      "common_area_delta": 0,
+      "new_failures": [
+        "case_016.txt"
+      ],
+      "failure_recovered": []
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r71_legacy_merge",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0,
+      "common_area_delta": 0,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r71_legacy_cover",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0,
+      "common_area_delta": 0,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r71_legacy_cover",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0005704898925771,
+      "common_area_delta": 11,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r71_legacy_merge",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0005704898925771,
+      "common_area_delta": 11,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r71_policy_off",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0,
+      "common_area_delta": 0,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r71_guard",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0005704898925771,
+      "common_area_delta": 11,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r71_legacy_cover",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0,
+      "common_area_delta": 0,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r71_legacy_merge",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0,
+      "common_area_delta": 0,
+      "new_failures": [],
+      "failure_recovered": []
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r71_policy_off",
+      "common_passed": 24,
+      "gmean_area_ratio": 1.0,
+      "common_area_delta": 0,
+      "new_failures": [
+        "case_016.txt"
+      ],
+      "failure_recovered": []
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r71_guard",
+      "common_passed": 25,
+      "gmean_area_ratio": 1.0,
+      "common_area_delta": 0,
+      "new_failures": [],
+      "failure_recovered": []
+    }
+  ],
+  "conditions": {
+    "repetitions": 2,
+    "variants": [
+      "r51",
+      "r71_guard",
+      "r71_policy_off",
+      "r71_legacy_merge",
+      "r71_legacy_cover"
+    ],
+    "stage1_and_stage2": true,
+    "default_policy": "guard"
+  },
+  "machine": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "evaluator_sha256": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca",
+    "r51_sha256": "99733eacba2e84799e282087f9d93a307a1616c50cfb5d105a431b0a125db1e4",
+    "r71_sha256": "235c8e44b8d4fea73c04092fe05faf87cda7446ec82022306abf6416d4f8024a"
+  },
+  "joint_comparisons": [
+    {
+      "run": 1,
+      "variant": "r71_guard",
+      "common_passed": 50,
+      "joint_gmean_area_ratio": 1.0002852042755492,
+      "joint_common_area_delta": 11,
+      "old_failures_recovered": {
+        "stage1": [],
+        "stage2": []
+      },
+      "new_failures": {
+        "stage1": [],
+        "stage2": []
+      }
+    },
+    {
+      "run": 1,
+      "variant": "r71_policy_off",
+      "common_passed": 49,
+      "joint_gmean_area_ratio": 1.0,
+      "joint_common_area_delta": 0,
+      "old_failures_recovered": {
+        "stage1": [],
+        "stage2": []
+      },
+      "new_failures": {
+        "stage1": [],
+        "stage2": [
+          "case_016.txt"
+        ]
+      }
+    },
+    {
+      "run": 1,
+      "variant": "r71_legacy_merge",
+      "common_passed": 50,
+      "joint_gmean_area_ratio": 1.0002852042755492,
+      "joint_common_area_delta": 11,
+      "old_failures_recovered": {
+        "stage1": [],
+        "stage2": []
+      },
+      "new_failures": {
+        "stage1": [],
+        "stage2": []
+      }
+    },
+    {
+      "run": 1,
+      "variant": "r71_legacy_cover",
+      "common_passed": 50,
+      "joint_gmean_area_ratio": 1.0002852042755492,
+      "joint_common_area_delta": 11,
+      "old_failures_recovered": {
+        "stage1": [],
+        "stage2": []
+      },
+      "new_failures": {
+        "stage1": [],
+        "stage2": []
+      }
+    },
+    {
+      "run": 2,
+      "variant": "r71_guard",
+      "common_passed": 50,
+      "joint_gmean_area_ratio": 1.0002852042755492,
+      "joint_common_area_delta": 11,
+      "old_failures_recovered": {
+        "stage1": [],
+        "stage2": []
+      },
+      "new_failures": {
+        "stage1": [],
+        "stage2": []
+      }
+    },
+    {
+      "run": 2,
+      "variant": "r71_policy_off",
+      "common_passed": 49,
+      "joint_gmean_area_ratio": 1.0,
+      "joint_common_area_delta": 0,
+      "old_failures_recovered": {
+        "stage1": [],
+        "stage2": []
+      },
+      "new_failures": {
+        "stage1": [],
+        "stage2": [
+          "case_016.txt"
+        ]
+      }
+    },
+    {
+      "run": 2,
+      "variant": "r71_legacy_merge",
+      "common_passed": 50,
+      "joint_gmean_area_ratio": 1.0002852042755492,
+      "joint_common_area_delta": 11,
+      "old_failures_recovered": {
+        "stage1": [],
+        "stage2": []
+      },
+      "new_failures": {
+        "stage1": [],
+        "stage2": []
+      }
+    },
+    {
+      "run": 2,
+      "variant": "r71_legacy_cover",
+      "common_passed": 50,
+      "joint_gmean_area_ratio": 1.0002852042755492,
+      "joint_common_area_delta": 11,
+      "old_failures_recovered": {
+        "stage1": [],
+        "stage2": []
+      },
+      "new_failures": {
+        "stage1": [],
+        "stage2": []
+      }
+    }
+  ],
+  "diagnostics_exit": 0,
+  "release_gate_public_50_pass_target": true
+}

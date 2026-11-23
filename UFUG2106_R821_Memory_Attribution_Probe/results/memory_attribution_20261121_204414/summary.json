@@ -1,0 +1,444 @@
+{
+  "purpose": "measure attribution of official MEMORY_LIMIT, NOT official release gate",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "evaluator_sha256": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca",
+  "solver_sha256": "77cd1db9de418bad796062bba8403b4790665a0c7cc8eb4f4e48466aeaae377f",
+  "tiny_sha256": "14611a8db1582f0e71053aedf5651439416092b2923069b74218657f19ef6945",
+  "records": [
+    {
+      "id": "01_n20_ram0_patched_file",
+      "n": 20,
+      "ram_limit_kib": 0,
+      "variant": "patched",
+      "mode": "file",
+      "input_sha256": "62b5ec50f80ebb544ba7e384674928368763a6ead585e92fb28909d462fbb35b",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.4917,
+        "log": "results/memory_attribution_20261121_204414/cases/01_n20_ram0_patched_file/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 0,
+        "wall_s": 2.7997,
+        "log": "results/memory_attribution_20261121_204414/cases/01_n20_ram0_patched_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "PASS",
+          "area": "0",
+          "delay": "0",
+          "runtime_ms": "295.739",
+          "target_met": "yes"
+        }
+      ],
+      "reported_memory_limit": null,
+      "status": "PASS"
+    },
+    {
+      "id": "02_n20_ram0_tiny_file",
+      "n": 20,
+      "ram_limit_kib": 0,
+      "variant": "tiny",
+      "mode": "file",
+      "input_sha256": "62b5ec50f80ebb544ba7e384674928368763a6ead585e92fb28909d462fbb35b",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.0374,
+        "log": "results/memory_attribution_20261121_204414/cases/02_n20_ram0_tiny_file/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 0,
+        "wall_s": 2.6021,
+        "log": "results/memory_attribution_20261121_204414/cases/02_n20_ram0_tiny_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "PASS",
+          "area": "0",
+          "delay": "0",
+          "runtime_ms": "11.692",
+          "target_met": "yes"
+        }
+      ],
+      "reported_memory_limit": null,
+      "status": "PASS"
+    },
+    {
+      "id": "03_n20_ram9000_patched_file",
+      "n": 20,
+      "ram_limit_kib": 9000,
+      "variant": "patched",
+      "mode": "file",
+      "input_sha256": "82ddff0be6b768657683f59be88ae84e7ce5f3b6fa06da47440dacea680faa50",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.2924,
+        "log": "results/memory_attribution_20261121_204414/cases/03_n20_ram9000_patched_file/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 1,
+        "wall_s": 1.7072,
+        "log": "results/memory_attribution_20261121_204414/cases/03_n20_ram9000_patched_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "FAIL",
+          "area": "",
+          "delay": "",
+          "runtime_ms": "",
+          "target_met": ""
+        }
+      ],
+      "reported_memory_limit": true,
+      "status": "FAIL"
+    },
+    {
+      "id": "04_n20_ram9000_tiny_file",
+      "n": 20,
+      "ram_limit_kib": 9000,
+      "variant": "tiny",
+      "mode": "file",
+      "input_sha256": "82ddff0be6b768657683f59be88ae84e7ce5f3b6fa06da47440dacea680faa50",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.0324,
+        "log": "results/memory_attribution_20261121_204414/cases/04_n20_ram9000_tiny_file/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 1,
+        "wall_s": 1.6141,
+        "log": "results/memory_attribution_20261121_204414/cases/04_n20_ram9000_tiny_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "FAIL",
+          "area": "",
+          "delay": "",
+          "runtime_ms": "",
+          "target_met": ""
+        }
+      ],
+      "reported_memory_limit": true,
+      "status": "FAIL"
+    },
+    {
+      "id": "05_n12_ram9000_patched_file",
+      "n": 12,
+      "ram_limit_kib": 9000,
+      "variant": "patched",
+      "mode": "file",
+      "input_sha256": "100bcffd6a926d4a469e384de48ea4631be9dd5a08d0a61f5ab7d9109fb25c3d",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.0427,
+        "log": "results/memory_attribution_20261121_204414/cases/05_n12_ram9000_patched_file/direct.log"
+      },
+      "direct_netlist": "12",
+      "official": {
+        "exit_code": 1,
+        "wall_s": 0.669,
+        "log": "results/memory_attribution_20261121_204414/cases/05_n12_ram9000_patched_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "FAIL",
+          "area": "",
+          "delay": "",
+          "runtime_ms": "",
+          "target_met": ""
+        }
+      ],
+      "reported_memory_limit": true,
+      "status": "FAIL"
+    },
+    {
+      "id": "06_n12_ram9000_tiny_file",
+      "n": 12,
+      "ram_limit_kib": 9000,
+      "variant": "tiny",
+      "mode": "file",
+      "input_sha256": "100bcffd6a926d4a469e384de48ea4631be9dd5a08d0a61f5ab7d9109fb25c3d",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.0331,
+        "log": "results/memory_attribution_20261121_204414/cases/06_n12_ram9000_tiny_file/direct.log"
+      },
+      "direct_netlist": "12",
+      "official": {
+        "exit_code": 1,
+        "wall_s": 0.7092,
+        "log": "results/memory_attribution_20261121_204414/cases/06_n12_ram9000_tiny_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "FAIL",
+          "area": "",
+          "delay": "",
+          "runtime_ms": "",
+          "target_met": ""
+        }
+      ],
+      "reported_memory_limit": true,
+      "status": "FAIL"
+    },
+    {
+      "id": "07_n20_ram9000_patched_folder",
+      "n": 20,
+      "ram_limit_kib": 9000,
+      "variant": "patched",
+      "mode": "folder",
+      "input_sha256": "82ddff0be6b768657683f59be88ae84e7ce5f3b6fa06da47440dacea680faa50",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.2843,
+        "log": "results/memory_attribution_20261121_204414/cases/07_n20_ram9000_patched_folder/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 1,
+        "wall_s": 1.7161,
+        "log": "results/memory_attribution_20261121_204414/cases/07_n20_ram9000_patched_folder/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "FAIL",
+          "area": "",
+          "delay": "",
+          "runtime_ms": "",
+          "target_met": ""
+        }
+      ],
+      "reported_memory_limit": true,
+      "status": "FAIL"
+    },
+    {
+      "id": "08_n20_ram9000_tiny_folder",
+      "n": 20,
+      "ram_limit_kib": 9000,
+      "variant": "tiny",
+      "mode": "folder",
+      "input_sha256": "82ddff0be6b768657683f59be88ae84e7ce5f3b6fa06da47440dacea680faa50",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.0327,
+        "log": "results/memory_attribution_20261121_204414/cases/08_n20_ram9000_tiny_folder/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 1,
+        "wall_s": 1.5523,
+        "log": "results/memory_attribution_20261121_204414/cases/08_n20_ram9000_tiny_folder/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "FAIL",
+          "area": "",
+          "delay": "",
+          "runtime_ms": "",
+          "target_met": ""
+        }
+      ],
+      "reported_memory_limit": true,
+      "status": "FAIL"
+    },
+    {
+      "id": "09_n20_ram16000_patched_file",
+      "n": 20,
+      "ram_limit_kib": 16000,
+      "variant": "patched",
+      "mode": "file",
+      "input_sha256": "46aa919a1536c9db18d22a739f514f01d799feceaf02a19afcfd520b384336c4",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.2907,
+        "log": "results/memory_attribution_20261121_204414/cases/09_n20_ram16000_patched_file/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 1,
+        "wall_s": 1.7535,
+        "log": "results/memory_attribution_20261121_204414/cases/09_n20_ram16000_patched_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "FAIL",
+          "area": "",
+          "delay": "",
+          "runtime_ms": "",
+          "target_met": ""
+        }
+      ],
+      "reported_memory_limit": true,
+      "status": "FAIL"
+    },
+    {
+      "id": "10_n20_ram16000_tiny_file",
+      "n": 20,
+      "ram_limit_kib": 16000,
+      "variant": "tiny",
+      "mode": "file",
+      "input_sha256": "46aa919a1536c9db18d22a739f514f01d799feceaf02a19afcfd520b384336c4",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.0299,
+        "log": "results/memory_attribution_20261121_204414/cases/10_n20_ram16000_tiny_file/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 1,
+        "wall_s": 1.6084,
+        "log": "results/memory_attribution_20261121_204414/cases/10_n20_ram16000_tiny_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "FAIL",
+          "area": "",
+          "delay": "",
+          "runtime_ms": "",
+          "target_met": ""
+        }
+      ],
+      "reported_memory_limit": true,
+      "status": "FAIL"
+    },
+    {
+      "id": "11_n20_ram32768_patched_file",
+      "n": 20,
+      "ram_limit_kib": 32768,
+      "variant": "patched",
+      "mode": "file",
+      "input_sha256": "4b4c4f7d0a1a71af06db56f0de7fd43137559af47ac19ec1c789d4d64478f05f",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.3332,
+        "log": "results/memory_attribution_20261121_204414/cases/11_n20_ram32768_patched_file/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 0,
+        "wall_s": 2.6268,
+        "log": "results/memory_attribution_20261121_204414/cases/11_n20_ram32768_patched_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "PASS",
+          "area": "0",
+          "delay": "0",
+          "runtime_ms": "110.537",
+          "target_met": "yes"
+        }
+      ],
+      "reported_memory_limit": null,
+      "status": "PASS"
+    },
+    {
+      "id": "12_n20_ram32768_tiny_file",
+      "n": 20,
+      "ram_limit_kib": 32768,
+      "variant": "tiny",
+      "mode": "file",
+      "input_sha256": "4b4c4f7d0a1a71af06db56f0de7fd43137559af47ac19ec1c789d4d64478f05f",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.0337,
+        "log": "results/memory_attribution_20261121_204414/cases/12_n20_ram32768_tiny_file/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 0,
+        "wall_s": 2.5067,
+        "log": "results/memory_attribution_20261121_204414/cases/12_n20_ram32768_tiny_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "PASS",
+          "area": "0",
+          "delay": "0",
+          "runtime_ms": "13.914",
+          "target_met": "yes"
+        }
+      ],
+      "reported_memory_limit": null,
+      "status": "PASS"
+    },
+    {
+      "id": "13_n20_ram65536_patched_file",
+      "n": 20,
+      "ram_limit_kib": 65536,
+      "variant": "patched",
+      "mode": "file",
+      "input_sha256": "144274735250dbd3549c65674a0f06ca4cfe2b462ba11e7fc3832cfb2a3ba32b",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.2975,
+        "log": "results/memory_attribution_20261121_204414/cases/13_n20_ram65536_patched_file/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 0,
+        "wall_s": 2.5999,
+        "log": "results/memory_attribution_20261121_204414/cases/13_n20_ram65536_patched_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "PASS",
+          "area": "0",
+          "delay": "0",
+          "runtime_ms": "117.474",
+          "target_met": "yes"
+        }
+      ],
+      "reported_memory_limit": null,
+      "status": "PASS"
+    },
+    {
+      "id": "14_n20_ram65536_tiny_file",
+      "n": 20,
+      "ram_limit_kib": 65536,
+      "variant": "tiny",
+      "mode": "file",
+      "input_sha256": "144274735250dbd3549c65674a0f06ca4cfe2b462ba11e7fc3832cfb2a3ba32b",
+      "direct": {
+        "exit_code": 0,
+        "wall_s": 0.0321,
+        "log": "results/memory_attribution_20261121_204414/cases/14_n20_ram65536_tiny_file/direct.log"
+      },
+      "direct_netlist": "20",
+      "official": {
+        "exit_code": 0,
+        "wall_s": 2.4863,
+        "log": "results/memory_attribution_20261121_204414/cases/14_n20_ram65536_tiny_file/official.log"
+      },
+      "official_report": [
+        {
+          "case": "case_001.txt",
+          "status": "PASS",
+          "area": "0",
+          "delay": "0",
+          "runtime_ms": "36.860",
+          "target_met": "yes"
+        }
+      ],
+      "reported_memory_limit": null,
+      "status": "PASS"
+    }
+  ],
+  "experimental_note": "tiny_wire is correct ONLY for f=x_last fixtures; it is NOT a project solver"
+}

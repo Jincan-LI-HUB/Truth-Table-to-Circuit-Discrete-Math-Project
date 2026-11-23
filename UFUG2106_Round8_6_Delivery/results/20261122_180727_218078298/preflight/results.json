@@ -1,0 +1,303 @@
+[
+  {
+    "file": "case_003.txt",
+    "policy": "baseline",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=1048576 area=16213 delay=65 target=65",
+    "net_sha256": "fbfa15167b05ace7dbc7431867b063fd3351acd03aaa2972cc279860267c7c6a"
+  },
+  {
+    "file": "case_003.txt",
+    "policy": "extra_sop",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=1048576 area=15773 delay=65 target=65",
+    "net_sha256": "e03e5cb23003c4c5346d44913bb09c0bf9bda8123bceb228cb23f16de710ffea"
+  },
+  {
+    "file": "case_003.txt",
+    "policy": "time_reclaim",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=1048576 area=16213 delay=65 target=65",
+    "net_sha256": "fbfa15167b05ace7dbc7431867b063fd3351acd03aaa2972cc279860267c7c6a"
+  },
+  {
+    "file": "case_003.txt",
+    "policy": "combined",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=1048576 area=15773 delay=65 target=65",
+    "net_sha256": "e03e5cb23003c4c5346d44913bb09c0bf9bda8123bceb228cb23f16de710ffea"
+  },
+  {
+    "file": "case_003.txt",
+    "policy": "reverse_allocation",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=1048576 area=16213 delay=65 target=65",
+    "net_sha256": "fbfa15167b05ace7dbc7431867b063fd3351acd03aaa2972cc279860267c7c6a"
+  },
+  {
+    "file": "case_005.txt",
+    "policy": "baseline",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=131072 area=105876 delay=68 target=69",
+    "net_sha256": "06bafea3e8a2c5a705333f24390978f916cccdc8bbe613f1cadc09a1c12dd4ae"
+  },
+  {
+    "file": "case_005.txt",
+    "policy": "extra_sop",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=131072 area=103641 delay=68 target=69",
+    "net_sha256": "0b17626fee5dd24398dce54971f8f0cf2457e4ceefb0b51e1177cee08940c1da"
+  },
+  {
+    "file": "case_005.txt",
+    "policy": "time_reclaim",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=131072 area=105876 delay=68 target=69",
+    "net_sha256": "06bafea3e8a2c5a705333f24390978f916cccdc8bbe613f1cadc09a1c12dd4ae"
+  },
+  {
+    "file": "case_005.txt",
+    "policy": "combined",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=131072 area=103641 delay=68 target=69",
+    "net_sha256": "0b17626fee5dd24398dce54971f8f0cf2457e4ceefb0b51e1177cee08940c1da"
+  },
+  {
+    "file": "case_005.txt",
+    "policy": "reverse_allocation",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=131072 area=105876 delay=68 target=69",
+    "net_sha256": "06bafea3e8a2c5a705333f24390978f916cccdc8bbe613f1cadc09a1c12dd4ae"
+  },
+  {
+    "file": "case_016.txt",
+    "policy": "baseline",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a"
+  },
+  {
+    "file": "case_016.txt",
+    "policy": "extra_sop",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a"
+  },
+  {
+    "file": "case_016.txt",
+    "policy": "time_reclaim",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a"
+  },
+  {
+    "file": "case_016.txt",
+    "policy": "combined",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a"
+  },
+  {
+    "file": "case_016.txt",
+    "policy": "reverse_allocation",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a"
+  },
+  {
+    "file": "case_017.txt",
+    "policy": "baseline",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=4096 area=14164 delay=49 target=57",
+    "net_sha256": "5fb196b0b7fea4241d0a90e82dd9fb9bc346112974ac673d76e67736742d39aa"
+  },
+  {
+    "file": "case_017.txt",
+    "policy": "extra_sop",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=4096 area=14154 delay=49 target=57",
+    "net_sha256": "6d0d1fdd0e5015313f0525e36e676ba0b7f05e547b3925357ae07ae263c1e4f4"
+  },
+  {
+    "file": "case_017.txt",
+    "policy": "time_reclaim",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=4096 area=14164 delay=49 target=57",
+    "net_sha256": "5fb196b0b7fea4241d0a90e82dd9fb9bc346112974ac673d76e67736742d39aa"
+  },
+  {
+    "file": "case_017.txt",
+    "policy": "combined",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=4096 area=14154 delay=49 target=57",
+    "net_sha256": "6d0d1fdd0e5015313f0525e36e676ba0b7f05e547b3925357ae07ae263c1e4f4"
+  },
+  {
+    "file": "case_017.txt",
+    "policy": "reverse_allocation",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=4096 area=14156 delay=49 target=57",
+    "net_sha256": "ce8d0670947a2dfa2db64faebabe6e359fbdb4e2eca5b5a8e1a57ef507c3e97d"
+  },
+  {
+    "file": "case_021.txt",
+    "policy": "baseline",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "net_sha256": "cd30744344300a81e80ada4b4938f7cf1eae5b6c4adaea3a099932db4d6d52de"
+  },
+  {
+    "file": "case_021.txt",
+    "policy": "extra_sop",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "net_sha256": "72da2c4f00976448a8def992bc697c28e3759c14f7c0d26384a888c0d43dc0b5"
+  },
+  {
+    "file": "case_021.txt",
+    "policy": "time_reclaim",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "net_sha256": "cd30744344300a81e80ada4b4938f7cf1eae5b6c4adaea3a099932db4d6d52de"
+  },
+  {
+    "file": "case_021.txt",
+    "policy": "combined",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "net_sha256": "72da2c4f00976448a8def992bc697c28e3759c14f7c0d26384a888c0d43dc0b5"
+  },
+  {
+    "file": "case_021.txt",
+    "policy": "reverse_allocation",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "net_sha256": "cd30744344300a81e80ada4b4938f7cf1eae5b6c4adaea3a099932db4d6d52de"
+  },
+  {
+    "file": "synthetic_001.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=32 area=64 delay=17 target=61",
+    "net_sha256": "187fd080ccb39c3c6d7e9d6ae03f86c282742233b25f6fcc2aa7cffac9f8c15b"
+  },
+  {
+    "file": "synthetic_002.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=256 area=407 delay=40 target=79",
+    "net_sha256": "33e20ab2b1d1dfdba210eaf320b3b7205b8c10142fffb78ab06d22756b5ee7d3"
+  },
+  {
+    "file": "synthetic_003.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=32 area=36 delay=10 target=75",
+    "net_sha256": "bd40074ca86c60b04a49863f1a0d88e604c76f227580563203b254b9b18f1364"
+  },
+  {
+    "file": "synthetic_004.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=128 area=8 delay=5 target=60",
+    "net_sha256": "14ccd03378e8d39a0034651864e2129867d14c3607a3386bcfb28c8209e2c776"
+  },
+  {
+    "file": "synthetic_005.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=128 area=30 delay=16 target=61",
+    "net_sha256": "82188e47e54214c94faa44135aba7bd34b8dc0a27e7526c0b661694ca2ac3559"
+  },
+  {
+    "file": "synthetic_006.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=32 area=30 delay=14 target=46",
+    "net_sha256": "80fc667e3f9a1e384b15ebfd692dba2d7753a590499381bf3e1bc019d80bafef"
+  },
+  {
+    "file": "synthetic_007.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=128 area=168 delay=15 target=51",
+    "net_sha256": "de6c2bc2cbdea886a84cb2d0b6625a6447f471d91277bbd866d5858c5d50b12d"
+  },
+  {
+    "file": "synthetic_008.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=256 area=63 delay=10 target=76",
+    "net_sha256": "c10112b5277135dcf1a52f8ca4329588b978741fbf65e6c13c8b75e08cbf4c86"
+  },
+  {
+    "file": "synthetic_009.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=256 area=82 delay=31 target=88",
+    "net_sha256": "37b4eddfc7b21dd35e3bfbb4941997351c88f31ba625bb0bf58dde18329ef96b"
+  },
+  {
+    "file": "synthetic_010.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=512 area=13 delay=5 target=86",
+    "net_sha256": "26fe3350028d0e1c9c02562c2f1a01b46d7d9d206ae668253e897da8367fd323"
+  },
+  {
+    "file": "synthetic_011.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=1024 area=223 delay=21 target=64",
+    "net_sha256": "f370f79a86e5488be3a0c77f220cef2bab781d1d9cf404549c6b8db8ee8b9f6a"
+  },
+  {
+    "file": "synthetic_012.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=128 area=8 delay=8 target=87",
+    "net_sha256": "7aa518f46a66dd5ae640e48171fd43cc109a65cebd0a03efcfaded220aad3ae0"
+  },
+  {
+    "file": "synthetic_013.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=256 area=161 delay=25 target=59",
+    "net_sha256": "1884c60d268a91367aae5e2aa109ca76f8d3b5437be0e9bca226e27c1a5b06a6"
+  },
+  {
+    "file": "synthetic_014.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=256 area=28 delay=5 target=79",
+    "net_sha256": "2747b4250013d0e353fd42d8967d16abef5747edcf59f64abfc0c602956b0e80"
+  },
+  {
+    "file": "synthetic_015.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=1024 area=42 delay=9 target=90",
+    "net_sha256": "7ce4425830eda7f45846065f621236e859318a72aaeb1cd456f3be1dd26a78ef"
+  },
+  {
+    "file": "synthetic_016.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=1024 area=53 delay=5 target=64",
+    "net_sha256": "7fb98066918fdaca2a90b11a865831abc8e64d4fe268a0a898d161f64dd6317d"
+  },
+  {
+    "file": "synthetic_017.txt",
+    "policy": "baseline",
+    "origin": "fresh_synthetic_v1",
+    "verify": "PASS exact_assignments=512 area=178 delay=24 target=95",
+    "net_sha256": "fc5c764d85deb1e4e6149806c75e3f733900e4be709d27933ba4d3dad332b2a5"
+  },
+  {
+    "file": "synthetic_018.txt",
+    "policy": "baseline",
+    "origin": "actual_Stage2",
+    "verify": "PASS exact_assignments=1024 area=711 delay=54 target=53",
+    "net_sha256": "04f75a67f9a09b575f2637e6cc7ea1a3566b9e946ccf63a620b65ce4332c593f"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "clean_build": "PASS",
+  "truth_check": "PASS exact_assignments=2048 area=1758 delay=48 target=75",
+  "source_sha256": "6d21a7d3cf80a8662f4f42a965e84c50d6cffcef7766a4d2dccf282c204078d8",
+  "binary_sha256": "7212d1f2d867017562dbf2bc028173e4ab65ad912379a2e4ba8f8be5ec1d967d"
+}

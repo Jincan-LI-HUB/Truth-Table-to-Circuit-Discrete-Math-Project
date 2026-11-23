@@ -1,0 +1,166 @@
+--- /mnt/data/UFUG2106_Round8_3_Delivery/src/synth_round83.cpp	2026-11-21 16:11:55.488708406 +0000
++++ /mnt/data/UFUG2106_Round8_4_Delivery/src/synth_round84.cpp	2026-11-21 17:18:24.936995781 +0000
+@@ -9,6 +9,7 @@
+ #include "r82_archive.hpp"
+ #include "r82_cut.hpp"
+ #include "r83_cut.hpp"
++#include "r84_cut.hpp"
+ #include "r821_resource.hpp"
+ #include <bits/stdc++.h>
+ using namespace std;
+@@ -971,8 +972,10 @@
+      return 14; // Explicit failure is safer than silently exceeding RAM cap.
+    }
+  }
++ const char* r84env_early=std::getenv("UFUG_R84_POLICY");
++ const bool r84enabled=(r84env_early==nullptr || std::string(r84env_early)!="off");
+  const char* r83env_early=std::getenv("UFUG_R83_POLICY");
+- const bool r83enabled=(r83env_early==nullptr || std::string(r83env_early)!="off");
++ const bool r83enabled=(!r84enabled && (r83env_early==nullptr || std::string(r83env_early)!="off"));
+  auto start=r71_launch;
+  // Optional ablation: UFUG_R71_POLICY=off restores the R7 portfolio.
+  const char* r71_env=std::getenv("UFUG_R71_POLICY");
+@@ -1268,7 +1271,7 @@
+  // Round 8: independent structural alternatives, each rigorously checked on
+  // the fully rebuilt live DAG. Baseline incumbent is preserved as fallback.
+  const char* r8env=std::getenv("UFUG_R8_POLICY");
+- std::string r8policy=r83enabled?"off":(r8env?r8env:((!std::getenv("UFUG_R82_POLICY") || std::string(std::getenv("UFUG_R82_POLICY"))!="off")?"off":"iterate"));
++ std::string r8policy=(r83enabled||r84enabled)?"off":(r8env?r8env:((!std::getenv("UFUG_R82_POLICY") || std::string(std::getenv("UFUG_R82_POLICY"))!="off")?"off":"iterate"));
+  if(r8policy!="iterate" && r8policy!="iterate_strict" && r8policy!="all" && r8policy!="off" && r8policy!="reuse" &&
+     r8policy!="factor" && r8policy!="phase"){
+    std::cerr<<"R8_ERROR policy="<<r8policy<<"\n";return 10;
+@@ -1321,7 +1324,7 @@
+  // Parent output remains the incumbent; only exact whole-graph cost gains
+  // satisfying declared timing can replace it. No case-specific rules.
+  const char* r81raw=std::getenv("UFUG_R81_POLICY");
+- const std::string r81policy=r83enabled?"off":((!std::getenv("UFUG_R82_POLICY") || std::string(std::getenv("UFUG_R82_POLICY"))!="off")?"off":(r81raw?r81raw:"branch"));
++ const std::string r81policy=(r83enabled||r84enabled)?"off":((!std::getenv("UFUG_R82_POLICY") || std::string(std::getenv("UFUG_R82_POLICY"))!="off")?"off":(r81raw?r81raw:"branch"));
+  if(r81policy!="off" && r81policy!="sop" && r81policy!="shannon" &&
+     r81policy!="all" && r81policy!="choices" && r81policy!="branch" &&
+     r81policy!="branch_strict" && r81policy!="reverse"){
+@@ -1395,8 +1398,8 @@
+  // R8.1 is disabled for this binary unless R82 policy is explicitly off.
+  const char* r82raw=std::getenv("UFUG_R82_POLICY");
+  const char* r83raw=std::getenv("UFUG_R83_POLICY");
+- const std::string r83policy=r83raw?r83raw:"stable_dual_area";
+- const std::string r82policy=r83enabled?"off":(r82raw?r82raw:"fast_adp");
++ const std::string r83policy=r84enabled?"off":(r83raw?r83raw:"stable_dual_area");
++ const std::string r82policy=(r83enabled||r84enabled)?"off":(r82raw?r82raw:"fast_adp");
+  const bool r82active=r82policy!="off";
+  if(r82policy!="off" && r82policy!="fast_area" && r82policy!="fast_slack" &&
+     r82policy!="fast_adp" && r82policy!="dual_area" && r82policy!="dual_slack" &&
+@@ -1536,6 +1539,114 @@
+      }
+    }
+  }
++
++ // Round 8.4: priority-consistent Top-Q, and independently budgeted pilot->focus.
++ // Search on the frozen incumbent, never on a partially rewritten candidate;
++ // final metric acceptance is for the complete live DAG.
++ const std::string r84policy=r84env_early?r84env_early:"topology_dual";
++ if(r84policy!="off"){
++   const std::vector<std::string> allowed={"topq_fast","topq_dual","topq_dense",
++      "topq_adp","topq_strict","topology_dual","adaptive_dual",
++      "mixed33_dual","mixed66_dual"};
++   if(std::find(allowed.begin(),allowed.end(),r84policy)==allowed.end()){
++     std::cerr<<"R84_ERROR unknown policy="<<r84policy<<"\n";return 24;
++   }
++   if(limit>=1000 && b.valid && b.delay<=target){
++     const r51::Costs c{aa,da,ao,dor,an,dn};
++     const auto base=r51::parse(best,n,m);
++     const auto bm=base.metric(c);
++     const double already=std::chrono::duration<double,std::milli>(Clock::now()-start).count();
++     if(bm.valid && bm.delay<=target && already<0.65*double(limit)){
++       const bool dual=r84policy!="topq_fast";
++       const std::string objective=r84policy=="topq_adp"?"adp":
++                                    r84policy=="topq_strict"?"strict":"area";
++       const std::string sampling=r84policy=="topology_dual"?"priority":
++          r84policy=="mixed33_dual"?"priority_mixed33":
++          r84policy=="mixed66_dual"?"priority_mixed66":"priority_topq";
++       const std::vector<std::string> modes=dual?std::vector<std::string>{"shannon","sop"}:
++                                                std::vector<std::string>{"shannon"};
++       int cap=r84policy=="topq_dense"?1100:(dual?900:1200);
++       if(limit<=2000 && m>=20)cap=std::min(cap,600);
++       if(const char* e=std::getenv("UFUG_R84_ROOT_CAP")){
++         try{cap=std::clamp(std::stoi(e),100,1500);}catch(...){}
++       }
++       const double search_budget=std::min(360.,0.15*double(limit));
++       const auto begin=Clock::now();
++       r82::Point original{"baseline",bm.area,bm.delay},selected=original;
++       std::string chosen_net=best;
++       auto elapsed_run=[&](){return std::chrono::duration<double,std::milli>(Clock::now()-begin).count();};
++       auto elapsed_all=[&](){return std::chrono::duration<double,std::milli>(Clock::now()-start).count();};
++       struct Record{std::string mode;long long area;int delay;uint64_t visited;double elapsed;bool valid;};
++       std::vector<Record> trials;
++       auto try_one=[&](const std::string &mode,int work,double allowance,const std::string &kind)->bool{
++         if(elapsed_run()>=search_budget || elapsed_all()>=0.77*double(limit))return false;
++         const double remaining=std::min(allowance,search_budget-elapsed_run());
++         if(remaining<5.0)return false;
++         const auto result=r84cut::rewrite(base,c,target,mode,remaining,1500,sampling,work);
++         const auto cm=result.graph.metric(c);
++         const bool valid=cm.valid && cm.delay<=target;
++         trials.push_back({mode,valid?cm.area:bm.area,valid?cm.delay:bm.delay,
++            result.stats.visited_roots,result.stats.elapsed_ms,valid});
++         bool accepted=false;
++         if(valid){
++           r82::Point cand{mode,cm.area,cm.delay};
++           if(r82::eligible(original,cand,target,objective) &&
++              (selected.mode=="baseline" || r82::better(cand,selected,objective))){
++             selected=cand;chosen_net=result.graph.serialize();accepted=true;
++           }
++         }
++         if(const char* p=std::getenv("UFUG_R84_PROFILE"))if(*p=='1'){
++           std::cerr<<"R84_STAGE policy="<<r84policy<<" phase="<<kind<<" mode="<<mode
++             <<" cap="<<work<<" visited="<<result.stats.visited_roots
++             <<" scored="<<result.stats.ranked_topq_visited
++             <<" cuts="<<result.stats.cuts<<" materializations="<<result.stats.materializations
++             <<" work_hit="<<result.stats.work_limit_hit<<" wall_hit="<<result.stats.budget_hit
++             <<" elapsed_ms="<<result.stats.elapsed_ms<<" area="<<cm.area<<" delay="<<cm.delay
++             <<" updated="<<accepted<<"\n";
++         }
++         return true;
++       };
++       if(r84policy=="adaptive_dual"){
++         // Low-cost deterministic *quality* pilots. Gain per completed root,
++         // not wall-time, decides which branch gets a larger follow-up budget.
++         int pilot=220,focus=1100;
++         if(const char* e=std::getenv("UFUG_R84_PILOT_ROOTS")){
++           try{pilot=std::clamp(std::stoi(e),80,450);}catch(...){}
++         }
++         if(const char* e=std::getenv("UFUG_R84_FOCUS_ROOTS")){
++           try{focus=std::clamp(std::stoi(e),pilot,1500);}catch(...){}
++         }
++         const double pilot_allow=std::min(55.,search_budget*0.24);
++         bool a=try_one("shannon",pilot,pilot_allow,"pilot");
++         bool z=try_one("sop",pilot,pilot_allow,"pilot");
++         if(a && z){
++           auto&u=trials[0];auto&v=trials[1];
++           // Cross multiplication avoids float-dependent tie-breaking.
++           const long long gu=std::max(0LL,bm.area-u.area);
++           const long long gv=std::max(0LL,bm.area-v.area);
++           const bool sop_wins=gv*std::max<uint64_t>(1,u.visited)>gu*std::max<uint64_t>(1,v.visited);
++           const std::string champion=sop_wins?"sop":"shannon";
++           if(const char* p=std::getenv("UFUG_R84_PROFILE"))if(*p=='1')
++              std::cerr<<"R84_ALLOCATION pilot="<<pilot<<" focus="<<focus
++               <<" shannon_gain="<<gu<<" sop_gain="<<gv<<" champion="<<champion<<"\n";
++           try_one(champion,focus,std::min(185.,search_budget*0.58),"focus");
++         }
++       }else{
++         for(size_t j=0;j<modes.size();++j){
++           const double per=dual?std::min(180.,search_budget*0.54):std::min(260.,search_budget);
++           if(!try_one(modes[j],cap,per,"full"))break;
++         }
++       }
++       if(selected.mode!="baseline"){
++         best=std::move(chosen_net);b.area=selected.area;b.delay=selected.delay;
++       }
++       if(const char* p=std::getenv("UFUG_R84_PROFILE"))if(*p=='1')
++          std::cerr<<"R84_FINAL policy="<<r84policy<<" chosen="<<selected.mode
++                   <<" area="<<b.area<<" delay="<<b.delay
++                   <<" branches="<<trials.size()<<" total_ms="<<elapsed_run()<<"\n";
++     }
++   }
++ }
+  ofstream out(argv[2]);out<<best;
+  cerr<<"completed="<<completed<<" chosen="<<chosen<<" area="<<b.area<<" delay="<<b.delay<<'\n';
+  if(r71_trace)std::cerr<<"R71_TRACE event=finish total_ms="<<r71_elapsed()

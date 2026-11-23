@@ -1,0 +1,5 @@
+ru_maxrss_kib=14016
+VmPeak:	    2684 kB
+VmSize:	    2684 kB
+VmHWM:	    1344 kB
+VmRSS:	    1344 kB

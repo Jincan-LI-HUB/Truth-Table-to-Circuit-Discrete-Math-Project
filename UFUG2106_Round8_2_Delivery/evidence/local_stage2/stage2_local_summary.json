@@ -1,0 +1,48 @@
+{
+  "comparison_type": "nonofficial_same_container_study",
+  "configurations": {
+    "stride_area": {
+      "cases": 25,
+      "area_sum": 502387,
+      "median_ms_unofficial": 108.918,
+      "delay_sum": 1156,
+      "budget_hits": 4
+    },
+    "priority_area": {
+      "cases": 25,
+      "area_sum": 502167,
+      "median_ms_unofficial": 126.009,
+      "delay_sum": 1137,
+      "budget_hits": 3
+    },
+    "priority_adp": {
+      "cases": 25,
+      "area_sum": 508376,
+      "median_ms_unofficial": 113.863,
+      "delay_sum": 1101,
+      "budget_hits": 3
+    },
+    "priority_slack": {
+      "cases": 25,
+      "area_sum": 505810,
+      "median_ms_unofficial": 115.034,
+      "delay_sum": 1109,
+      "budget_hits": 3
+    },
+    "priority_dual_area": {
+      "cases": 25,
+      "area_sum": 499963,
+      "median_ms_unofficial": 141.489,
+      "delay_sum": 1169,
+      "budget_hits": 15
+    },
+    "priority_dual_strict": {
+      "cases": 25,
+      "area_sum": 508278,
+      "median_ms_unofficial": 145.879,
+      "delay_sum": 1101,
+      "budget_hits": 12
+    }
+  },
+  "fully_verified_netlists": 50
+}

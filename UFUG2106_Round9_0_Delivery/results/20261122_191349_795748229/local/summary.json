@@ -1,0 +1,6 @@
+{
+  "checks": 64,
+  "cases": 16,
+  "source_only_cold_build": "tested_separately",
+  "course_hidden": false
+}

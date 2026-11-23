@@ -1,0 +1,16 @@
+{
+  "milestone": "7.2",
+  "frozen_upstream_git_blob": "68ec9f54b27081641ac10358f81eef260acfcbdb",
+  "bootstrap_chain": [
+    "Round5.1",
+    "Round7",
+    "Round7.1",
+    "Round7.2"
+  ],
+  "source_sha256": {
+    "synth_round72.cpp": "d7c0dac7ddb173d8cd76f8ae0ebae9160856a1e0ab443e162584bdd2c15bff9e",
+    "typed_netgraph.hpp": "55030bc9a51ff435e15285c0e9cb36db4032625a45b42993d4f1434290e04950",
+    "polarity_mapper.hpp": "46e8183e644071ca45792499bb6e3961dacda9e0243a98071e409473419e375a",
+    "algebraic_mapper.hpp": "33d9d02a4fe2cbb14934e334bb8433260e9763541b6f78fcbd969b2e88220667"
+  }
+}

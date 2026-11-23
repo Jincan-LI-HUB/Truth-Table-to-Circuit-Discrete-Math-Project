@@ -1,0 +1,17 @@
+{
+  "milestone": "Round 7",
+  "upstream_git_blob": "68ec9f54b27081641ac10358f81eef260acfcbdb",
+  "upstream_normalized_blob": "68ec9f54b27081641ac10358f81eef260acfcbdb",
+  "source_hashes": {
+    "synth_round51.cpp": "cf90d0b110e6f45d1d508db351c95f10e7d704824fc34e17e6a5f5b783e20759",
+    "typed_netgraph.hpp": "55030bc9a51ff435e15285c0e9cb36db4032625a45b42993d4f1434290e04950",
+    "polarity_mapper.hpp": "46e8183e644071ca45792499bb6e3961dacda9e0243a98071e409473419e375a",
+    "algebraic_mapper.hpp": "33d9d02a4fe2cbb14934e334bb8433260e9763541b6f78fcbd969b2e88220667"
+  },
+  "round7_source_sha256": "90672a86a49405d2a8996569ceb2536f16e66b54b0df9bf9989dded35980c47c",
+  "changes": [
+    "exact hash-neighbor implicant merging",
+    "exact packed-bitset greedy cover",
+    "independent ablation switches and cover-stage profiling"
+  ]
+}

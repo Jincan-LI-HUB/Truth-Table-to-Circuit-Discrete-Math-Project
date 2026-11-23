@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-21",
+  "status": "pre-study, not Round 8 implementation",
+  "files": {
+    "ROUND8_RESEARCH_DESIGN_v0.md": "a29d9160e224cc25a900e157518de0d5624a02d0af13fe4c44dca25578385c07",
+    "structural_baseline.csv": "4c160ababc15fe84b9e8a50812ae52d87f1305597cba3dffd8e351c323346df6",
+    "profile_structure.py": "acb9335472c9005b474f067a22ebaed64c05a420520f25ef586bef95db6b8539"
+  }
+}

@@ -1,0 +1,45 @@
+--- /mnt/data/round83_work/UFUG2106_Round8_3_Delivery/src/r82_cut.hpp	2026-11-21 16:07:01.878174560 +0000
++++ /mnt/data/round83_work/UFUG2106_Round8_3_Delivery/src/r83_cut.hpp	2026-11-21 16:06:55.465119691 +0000
+@@ -16,13 +16,13 @@
+ #include <string>
+ #include <unordered_map>
+ #include <vector>
+-namespace r82cut {
++namespace r83cut {
+ using r51::Graph;using r51::Builder;using r51::Costs;using Clock=std::chrono::steady_clock;
+ struct Stats {
+   uint64_t eligible_roots=0,visited_roots=0,cuts=0,verified_functions=0;
+   uint64_t sop_candidates=0,shannon_candidates=0,selected=0,materializations=0;
+   uint64_t timing_reject=0,invalid_cut=0,zero_gain_choices=0;
+-  bool budget_hit=false;double elapsed_ms=0;
++  bool budget_hit=false,work_limit_hit=false;double elapsed_ms=0;
+ };
+ struct Result {Graph graph;Stats stats;};
+ inline int cost(const Costs&c,int op){return op==0?c.aa:op==1?c.ao:c.an;}
+@@ -177,7 +177,7 @@
+ }
+ inline Result rewrite(const Graph&g,const Costs&c,int target,
+                       const std::string&mode,double budget_ms=100.0,int maxroots=2500,
+-                      const std::string&sampling="stride"){
++                      const std::string&sampling="stride",int work_roots=0){
+   auto started=Clock::now(),deadline=started+std::chrono::microseconds((long long)(budget_ms*1000.0));
+   Result out;out.graph=g;if(!g.valid)return out;
+   const int sz=int(g.nodes.size()),K=4;
+@@ -256,6 +256,11 @@
+     mapped[id]=b.add(x.op,da,dz,c);
+     if(!root_selected[id]||!use[id])continue;
+     ++out.stats.eligible_roots;
++    // Deterministic quota, checked only at the boundary between complete roots.
++    // A time deadline remains as an emergency protection, NOT a progress target.
++    if(work_roots>0 && out.stats.visited_roots>=uint64_t(work_roots)){
++      out.stats.work_limit_hit=true;break;
++    }
+     if((out.stats.eligible_roots&31)==0 && Clock::now()>deadline){out.stats.budget_hit=true;break;}
+     ++out.stats.visited_roots;
+     int original=mapped[id],chosen=original,score=std::numeric_limits<int>::max();
+@@ -315,4 +320,4 @@
+   out.stats.elapsed_ms=std::chrono::duration<double,std::milli>(Clock::now()-started).count();
+   return out;
+ }
+-} // namespace r82cut
++} // namespace r83cut

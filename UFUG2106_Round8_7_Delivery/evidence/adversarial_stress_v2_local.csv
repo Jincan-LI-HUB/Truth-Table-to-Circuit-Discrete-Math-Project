@@ -1,0 +1,7 @@
+case,policy,supervisor_wall_ms,limit_ms,wall_exceeds_limit,exit_code,exact,verify
+stress_001.txt,r86_baseline,129.046,100,True,0,True,PASS exact_assignments=1048576 area=0 delay=0 target=170
+stress_001.txt,r86_extra_sop,125.351,100,True,0,True,PASS exact_assignments=1048576 area=0 delay=0 target=170
+stress_002.txt,r86_baseline,120.136,100,True,0,True,PASS exact_assignments=1048576 area=309 delay=24 target=170
+stress_002.txt,r86_extra_sop,123.927,100,True,0,True,PASS exact_assignments=1048576 area=309 delay=24 target=170
+stress_003.txt,r86_baseline,41.39,100,False,0,True,PASS exact_assignments=262144 area=2107 delay=62 target=170
+stress_003.txt,r86_extra_sop,42.467,100,False,0,True,PASS exact_assignments=262144 area=2107 delay=62 target=170

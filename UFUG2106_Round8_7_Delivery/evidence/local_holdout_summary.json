@@ -1,0 +1,79 @@
+{
+  "records": 216,
+  "case_count": 36,
+  "variants": {
+    "r86_baseline": {
+      "runs": 72,
+      "exact_pass": 72,
+      "target_met": 72,
+      "runtime_within_limit": 72,
+      "runtime_near_limit_90pct": 0,
+      "wall_hit_events": 0,
+      "median_wall_ms": 35.71445,
+      "p95_wall_ms": 220.2546,
+      "max_rss_kib": 36292,
+      "total_area": 32712,
+      "total_delay": 1848,
+      "failures": [],
+      "repeat_compared": 36,
+      "repeat_area_delay_equal": 36,
+      "repeat_net_sha_equal": 36
+    },
+    "r86_extra_sop": {
+      "runs": 72,
+      "exact_pass": 72,
+      "target_met": 72,
+      "runtime_within_limit": 72,
+      "runtime_near_limit_90pct": 0,
+      "wall_hit_events": 0,
+      "median_wall_ms": 34.555,
+      "p95_wall_ms": 270.1149,
+      "max_rss_kib": 36288,
+      "total_area": 32712,
+      "total_delay": 1848,
+      "failures": [],
+      "repeat_compared": 36,
+      "repeat_area_delay_equal": 36,
+      "repeat_net_sha_equal": 36
+    },
+    "r85_reclaim": {
+      "runs": 72,
+      "exact_pass": 72,
+      "target_met": 72,
+      "runtime_within_limit": 72,
+      "runtime_near_limit_90pct": 0,
+      "wall_hit_events": 0,
+      "median_wall_ms": 31.31405,
+      "p95_wall_ms": 219.1849,
+      "max_rss_kib": 36332,
+      "total_area": 32712,
+      "total_delay": 1848,
+      "failures": [],
+      "repeat_compared": 36,
+      "repeat_area_delay_equal": 36,
+      "repeat_net_sha_equal": 36
+    }
+  },
+  "pairwise": {
+    "r86_extra_sop_vs_baseline": {
+      "paired_exact": 72,
+      "area_equal": 72,
+      "delay_equal": 72,
+      "area_improved": 0,
+      "area_degraded": 0,
+      "delta_total_area": 0,
+      "geomean_wall_ratio": 0.9682241090297671
+    },
+    "r85_reclaim_vs_baseline": {
+      "paired_exact": 72,
+      "area_equal": 72,
+      "delay_equal": 72,
+      "area_improved": 0,
+      "area_degraded": 0,
+      "delta_total_area": 0,
+      "geomean_wall_ratio": 0.9361585717330528
+    }
+  },
+  "warnings": [],
+  "official_hidden_cases_used": false
+}

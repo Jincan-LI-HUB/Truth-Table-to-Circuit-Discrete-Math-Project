@@ -1,0 +1,15 @@
+id,inputs,ram_limit_kib,binary,mode,official,reason,official_exit,direct_ru_maxrss_kib,direct_vmpeak_kib,tiny_inside_ru_maxrss_kib,tiny_inside_vmhwm_kib,tiny_inside_vmpeak_kib,input_sha256
+01_n20_ram0_patched_file,20,0,patched,file,PASS,,0,35624,51184,,,,62b5ec50f80ebb544ba7e384674928368763a6ead585e92fb28909d462fbb35b
+02_n20_ram0_tiny_file,20,0,tiny,file,PASS,,0,1536,2684,28128,1344,2684,62b5ec50f80ebb544ba7e384674928368763a6ead585e92fb28909d462fbb35b
+03_n20_ram9000_patched_file,20,9000,patched,file,FAIL,MEMORY_LIMIT,1,3840,6816,,,,82ddff0be6b768657683f59be88ae84e7ce5f3b6fa06da47440dacea680faa50
+04_n20_ram9000_tiny_file,20,9000,tiny,file,FAIL,MEMORY_LIMIT,1,1536,2684,27964,1344,2684,82ddff0be6b768657683f59be88ae84e7ce5f3b6fa06da47440dacea680faa50
+05_n12_ram9000_patched_file,12,9000,patched,file,FAIL,MEMORY_LIMIT,1,4032,6972,,,,100bcffd6a926d4a469e384de48ea4631be9dd5a08d0a61f5ab7d9109fb25c3d
+06_n12_ram9000_tiny_file,12,9000,tiny,file,FAIL,MEMORY_LIMIT,1,1536,2684,14016,1344,2684,100bcffd6a926d4a469e384de48ea4631be9dd5a08d0a61f5ab7d9109fb25c3d
+07_n20_ram9000_patched_folder,20,9000,patched,folder,FAIL,MEMORY_LIMIT,1,3840,6816,,,,82ddff0be6b768657683f59be88ae84e7ce5f3b6fa06da47440dacea680faa50
+08_n20_ram9000_tiny_folder,20,9000,tiny,folder,FAIL,MEMORY_LIMIT,1,1536,2684,28136,1344,2684,82ddff0be6b768657683f59be88ae84e7ce5f3b6fa06da47440dacea680faa50
+09_n20_ram16000_patched_file,20,16000,patched,file,FAIL,MEMORY_LIMIT,1,3840,6816,,,,46aa919a1536c9db18d22a739f514f01d799feceaf02a19afcfd520b384336c4
+10_n20_ram16000_tiny_file,20,16000,tiny,file,FAIL,MEMORY_LIMIT,1,1536,2684,28132,1344,2684,46aa919a1536c9db18d22a739f514f01d799feceaf02a19afcfd520b384336c4
+11_n20_ram32768_patched_file,20,32768,patched,file,PASS,,0,3840,6816,,,,4b4c4f7d0a1a71af06db56f0de7fd43137559af47ac19ec1c789d4d64478f05f
+12_n20_ram32768_tiny_file,20,32768,tiny,file,PASS,,0,1536,2684,28124,1344,2684,4b4c4f7d0a1a71af06db56f0de7fd43137559af47ac19ec1c789d4d64478f05f
+13_n20_ram65536_patched_file,20,65536,patched,file,PASS,,0,3840,6816,,,,144274735250dbd3549c65674a0f06ca4cfe2b462ba11e7fc3832cfb2a3ba32b
+14_n20_ram65536_tiny_file,20,65536,tiny,file,PASS,,0,1536,2684,28132,1344,2684,144274735250dbd3549c65674a0f06ca4cfe2b462ba11e7fc3832cfb2a3ba32b

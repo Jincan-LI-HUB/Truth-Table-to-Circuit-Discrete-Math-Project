@@ -1,0 +1,228 @@
+{
+  "hidden": false,
+  "evaluator_sha256": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca",
+  "frozen_source": "f846b2c055bfd5ad8d252dd1dcaa6770040b290bff6dc2bddc0ab27ff77e4010",
+  "candidate_source": "345982dc0c27bd9862e03bf4b8e14a4741eeaba756212e2ccda114f040f4fb9f",
+  "records": [
+    {
+      "stage": "stage1",
+      "run": 1,
+      "policy": "r90_frozen",
+      "sha256": "e9a671d099c6dac3a7de3640cc08a3d5d7b216ed752b13b953fc8a9b8824e835",
+      "passed": 25,
+      "target_met": 25,
+      "area": 526135,
+      "delay": 1212,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage1",
+      "run": 1,
+      "policy": "r91_off",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 526135,
+      "delay": 1212,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage1",
+      "run": 1,
+      "policy": "r91_library",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 525832,
+      "delay": 1213,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage1",
+      "run": 1,
+      "policy": "r91_repeat_sop",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 525582,
+      "delay": 1212,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage1",
+      "run": 1,
+      "policy": "r91_repeat_shannon",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 525737,
+      "delay": 1211,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage2",
+      "run": 1,
+      "policy": "r90_frozen",
+      "sha256": "e9a671d099c6dac3a7de3640cc08a3d5d7b216ed752b13b953fc8a9b8824e835",
+      "passed": 25,
+      "target_met": 25,
+      "area": 494999,
+      "delay": 1170,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage2",
+      "run": 1,
+      "policy": "r91_off",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 494999,
+      "delay": 1170,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage2",
+      "run": 1,
+      "policy": "r91_library",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 494639,
+      "delay": 1171,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage2",
+      "run": 1,
+      "policy": "r91_repeat_sop",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 493965,
+      "delay": 1170,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage2",
+      "run": 1,
+      "policy": "r91_repeat_shannon",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 494518,
+      "delay": 1170,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage1",
+      "run": 2,
+      "policy": "r91_repeat_shannon",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 525737,
+      "delay": 1211,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage1",
+      "run": 2,
+      "policy": "r91_repeat_sop",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 525582,
+      "delay": 1212,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage1",
+      "run": 2,
+      "policy": "r91_library",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 525832,
+      "delay": 1213,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage1",
+      "run": 2,
+      "policy": "r91_off",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 526135,
+      "delay": 1212,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage1",
+      "run": 2,
+      "policy": "r90_frozen",
+      "sha256": "e9a671d099c6dac3a7de3640cc08a3d5d7b216ed752b13b953fc8a9b8824e835",
+      "passed": 25,
+      "target_met": 25,
+      "area": 526135,
+      "delay": 1212,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage2",
+      "run": 2,
+      "policy": "r91_repeat_shannon",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 494518,
+      "delay": 1170,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage2",
+      "run": 2,
+      "policy": "r91_repeat_sop",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 493965,
+      "delay": 1170,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage2",
+      "run": 2,
+      "policy": "r91_library",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 494639,
+      "delay": 1171,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage2",
+      "run": 2,
+      "policy": "r91_off",
+      "sha256": "10774d65688a30b9278dad86231af2803d3974e94813c49d65293587c5168488",
+      "passed": 25,
+      "target_met": 25,
+      "area": 494999,
+      "delay": 1170,
+      "exit_code": 0
+    },
+    {
+      "stage": "stage2",
+      "run": 2,
+      "policy": "r90_frozen",
+      "sha256": "e9a671d099c6dac3a7de3640cc08a3d5d7b216ed752b13b953fc8a9b8824e835",
+      "passed": 25,
+      "target_met": 25,
+      "area": 494999,
+      "delay": 1170,
+      "exit_code": 0
+    }
+  ]
+}

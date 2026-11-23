@@ -1,0 +1,456 @@
+{
+  "environment": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "processor": "x86_64",
+    "r7_binary_sha256": "b2295f0c122ee132a0ff83474ba4720cbe52fe905d8c2f2a3dbdd914fa31b805",
+    "r51_binary_sha256": "99733eacba2e84799e282087f9d93a307a1616c50cfb5d105a431b0a125db1e4",
+    "evaluator_sha256": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca"
+  },
+  "runs": [
+    {
+      "command": [
+        "/tmp/r7_evaluator_5aka0j7t/evaluator",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round5.1_Delivery/build/synth_round51",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/data/stage1",
+        "--report",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run1_stage1_round51.csv"
+      ],
+      "exit_code": 0,
+      "csv": "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run1_stage1_round51.csv",
+      "sha256": "37840acf24ea9a2754cec63b0ac046d74b792eb81237602812b1011c8b63a9dc",
+      "metrics": {
+        "total_cases": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_sum_is_complete": true,
+        "median_passed_runtime_ms": 52.52,
+        "max_passed_runtime_ms": 1280.101,
+        "failure_cases": []
+      },
+      "iteration": 1,
+      "stage": "stage1",
+      "variant": "round51"
+    },
+    {
+      "command": [
+        "/tmp/r7_evaluator_5aka0j7t/evaluator",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/build/synth_round7",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/data/stage1",
+        "--report",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run1_stage1_default.csv"
+      ],
+      "exit_code": 0,
+      "csv": "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run1_stage1_default.csv",
+      "sha256": "b2fe02f0ad1ebeaba07fe8ea676a59802d6ac338de52acb767046904a2900cd1",
+      "metrics": {
+        "total_cases": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_sum_is_complete": true,
+        "median_passed_runtime_ms": 54.126,
+        "max_passed_runtime_ms": 1434.859,
+        "failure_cases": []
+      },
+      "iteration": 1,
+      "stage": "stage1",
+      "variant": "default"
+    },
+    {
+      "command": [
+        "/tmp/r7_evaluator_5aka0j7t/evaluator",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round5.1_Delivery/build/synth_round51",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/data/stage2",
+        "--report",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run1_stage2_round51.csv"
+      ],
+      "exit_code": 0,
+      "csv": "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run1_stage2_round51.csv",
+      "sha256": "3e5493dce73d53b92c840b32e4243f6941890ebd57a66dbec0b86d48289ea34a",
+      "metrics": {
+        "total_cases": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_sum_is_complete": true,
+        "median_passed_runtime_ms": 34.553,
+        "max_passed_runtime_ms": 868.945,
+        "failure_cases": []
+      },
+      "iteration": 1,
+      "stage": "stage2",
+      "variant": "round51"
+    },
+    {
+      "command": [
+        "/tmp/r7_evaluator_5aka0j7t/evaluator",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/build/synth_round7",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/data/stage2",
+        "--report",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run1_stage2_default.csv"
+      ],
+      "exit_code": 1,
+      "csv": "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run1_stage2_default.csv",
+      "sha256": "82ad35817022f2bec3c8074e071183fe1e09dacdaaa9b90b69283835dd368633",
+      "metrics": {
+        "total_cases": 25,
+        "passed": 24,
+        "target_met": 24,
+        "area_sum_of_passed": 506754,
+        "area_sum_is_complete": false,
+        "median_passed_runtime_ms": 33.462999999999994,
+        "max_passed_runtime_ms": 778.155,
+        "failure_cases": [
+          "case_016.txt"
+        ]
+      },
+      "iteration": 1,
+      "stage": "stage2",
+      "variant": "default"
+    },
+    {
+      "command": [
+        "/tmp/r7_evaluator_5aka0j7t/evaluator",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/build/synth_round7",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/data/stage1",
+        "--report",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run2_stage1_default.csv"
+      ],
+      "exit_code": 0,
+      "csv": "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run2_stage1_default.csv",
+      "sha256": "be8ae55134e5ea4ee2416647652edb9e6fb22a08f21b3ef7e126a76781fe5962",
+      "metrics": {
+        "total_cases": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_sum_is_complete": true,
+        "median_passed_runtime_ms": 50.844,
+        "max_passed_runtime_ms": 1269.288,
+        "failure_cases": []
+      },
+      "iteration": 2,
+      "stage": "stage1",
+      "variant": "default"
+    },
+    {
+      "command": [
+        "/tmp/r7_evaluator_5aka0j7t/evaluator",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round5.1_Delivery/build/synth_round51",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/data/stage1",
+        "--report",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run2_stage1_round51.csv"
+      ],
+      "exit_code": 0,
+      "csv": "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run2_stage1_round51.csv",
+      "sha256": "db250c040acd4c406b12f942e4b4aeee41e57958f51c605f2519af41d3b3fe35",
+      "metrics": {
+        "total_cases": 25,
+        "passed": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_sum_is_complete": true,
+        "median_passed_runtime_ms": 48.921,
+        "max_passed_runtime_ms": 1330.422,
+        "failure_cases": []
+      },
+      "iteration": 2,
+      "stage": "stage1",
+      "variant": "round51"
+    },
+    {
+      "command": [
+        "/tmp/r7_evaluator_5aka0j7t/evaluator",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/build/synth_round7",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/data/stage2",
+        "--report",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run2_stage2_default.csv"
+      ],
+      "exit_code": 1,
+      "csv": "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run2_stage2_default.csv",
+      "sha256": "1dcd8b430a9d79a8fe40650b02ce4ddfa113002f079994357351164713f22664",
+      "metrics": {
+        "total_cases": 25,
+        "passed": 24,
+        "target_met": 24,
+        "area_sum_of_passed": 506754,
+        "area_sum_is_complete": false,
+        "median_passed_runtime_ms": 35.203,
+        "max_passed_runtime_ms": 752.512,
+        "failure_cases": [
+          "case_016.txt"
+        ]
+      },
+      "iteration": 2,
+      "stage": "stage2",
+      "variant": "default"
+    },
+    {
+      "command": [
+        "/tmp/r7_evaluator_5aka0j7t/evaluator",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round5.1_Delivery/build/synth_round51",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/data/stage2",
+        "--report",
+        "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run2_stage2_round51.csv"
+      ],
+      "exit_code": 1,
+      "csv": "/mnt/e/canfiles/Common courses study/大学通识/26-27 Fall/UFUG 2106 Discrete Math/assignment/Final Project/UFUG2106_Round7_Delivery/results/round7/20261121_135745/run2_stage2_round51.csv",
+      "sha256": "4c28cf36f3c007c905eb8f858dcc94bb3f62ad22c65b97a74613494b62c5fa28",
+      "metrics": {
+        "total_cases": 25,
+        "passed": 24,
+        "target_met": 24,
+        "area_sum_of_passed": 506754,
+        "area_sum_is_complete": false,
+        "median_passed_runtime_ms": 38.4025,
+        "max_passed_runtime_ms": 902.017,
+        "failure_cases": [
+          "case_016.txt"
+        ]
+      },
+      "iteration": 2,
+      "stage": "stage2",
+      "variant": "round51"
+    }
+  ],
+  "frozen_baseline": {
+    "stage1": {
+      "total_cases": 25,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum_of_passed": 529014,
+      "area_sum_is_complete": true,
+      "median_passed_runtime_ms": 54.177,
+      "max_passed_runtime_ms": 1310.072,
+      "failure_cases": []
+    },
+    "stage2": {
+      "total_cases": 25,
+      "passed": 24,
+      "target_met": 24,
+      "area_sum_of_passed": 506754,
+      "area_sum_is_complete": false,
+      "median_passed_runtime_ms": 39.019999999999996,
+      "max_passed_runtime_ms": 815.038,
+      "failure_cases": [
+        "case_016.txt"
+      ]
+    }
+  },
+  "comparisons": [
+    {
+      "iteration": 1,
+      "stage": "stage1",
+      "variant": "default",
+      "baseline": "paired",
+      "common_passed_count": 25,
+      "aggregate_common_area_old": 529014,
+      "aggregate_common_area_new": 529014,
+      "common_area_improved_cases": [],
+      "common_area_regressed_cases": [],
+      "common_area_equal_cases": [
+        "case_001.txt",
+        "case_002.txt",
+        "case_003.txt",
+        "case_004.txt",
+        "case_005.txt",
+        "case_006.txt",
+        "case_007.txt",
+        "case_008.txt",
+        "case_009.txt",
+        "case_010.txt",
+        "case_011.txt",
+        "case_012.txt",
+        "case_013.txt",
+        "case_014.txt",
+        "case_015.txt",
+        "case_016.txt",
+        "case_017.txt",
+        "case_018.txt",
+        "case_019.txt",
+        "case_020.txt",
+        "case_021.txt",
+        "case_022.txt",
+        "case_023.txt",
+        "case_024.txt",
+        "case_025.txt"
+      ],
+      "delay_regressed_cases": [],
+      "geometric_mean_area_ratio": 1.0,
+      "failure_recovery": [],
+      "new_failures": []
+    },
+    {
+      "iteration": 1,
+      "stage": "stage2",
+      "variant": "default",
+      "baseline": "paired",
+      "common_passed_count": 24,
+      "aggregate_common_area_old": 506754,
+      "aggregate_common_area_new": 506754,
+      "common_area_improved_cases": [],
+      "common_area_regressed_cases": [],
+      "common_area_equal_cases": [
+        "case_001.txt",
+        "case_002.txt",
+        "case_003.txt",
+        "case_004.txt",
+        "case_005.txt",
+        "case_006.txt",
+        "case_007.txt",
+        "case_008.txt",
+        "case_009.txt",
+        "case_010.txt",
+        "case_011.txt",
+        "case_012.txt",
+        "case_013.txt",
+        "case_014.txt",
+        "case_015.txt",
+        "case_017.txt",
+        "case_018.txt",
+        "case_019.txt",
+        "case_020.txt",
+        "case_021.txt",
+        "case_022.txt",
+        "case_023.txt",
+        "case_024.txt",
+        "case_025.txt"
+      ],
+      "delay_regressed_cases": [],
+      "geometric_mean_area_ratio": 1.0,
+      "failure_recovery": [],
+      "new_failures": [
+        "case_016.txt"
+      ]
+    },
+    {
+      "iteration": 2,
+      "stage": "stage1",
+      "variant": "default",
+      "baseline": "paired",
+      "common_passed_count": 25,
+      "aggregate_common_area_old": 529014,
+      "aggregate_common_area_new": 529014,
+      "common_area_improved_cases": [],
+      "common_area_regressed_cases": [],
+      "common_area_equal_cases": [
+        "case_001.txt",
+        "case_002.txt",
+        "case_003.txt",
+        "case_004.txt",
+        "case_005.txt",
+        "case_006.txt",
+        "case_007.txt",
+        "case_008.txt",
+        "case_009.txt",
+        "case_010.txt",
+        "case_011.txt",
+        "case_012.txt",
+        "case_013.txt",
+        "case_014.txt",
+        "case_015.txt",
+        "case_016.txt",
+        "case_017.txt",
+        "case_018.txt",
+        "case_019.txt",
+        "case_020.txt",
+        "case_021.txt",
+        "case_022.txt",
+        "case_023.txt",
+        "case_024.txt",
+        "case_025.txt"
+      ],
+      "delay_regressed_cases": [],
+      "geometric_mean_area_ratio": 1.0,
+      "failure_recovery": [],
+      "new_failures": []
+    },
+    {
+      "iteration": 2,
+      "stage": "stage2",
+      "variant": "default",
+      "baseline": "paired",
+      "common_passed_count": 24,
+      "aggregate_common_area_old": 506754,
+      "aggregate_common_area_new": 506754,
+      "common_area_improved_cases": [],
+      "common_area_regressed_cases": [],
+      "common_area_equal_cases": [
+        "case_001.txt",
+        "case_002.txt",
+        "case_003.txt",
+        "case_004.txt",
+        "case_005.txt",
+        "case_006.txt",
+        "case_007.txt",
+        "case_008.txt",
+        "case_009.txt",
+        "case_010.txt",
+        "case_011.txt",
+        "case_012.txt",
+        "case_013.txt",
+        "case_014.txt",
+        "case_015.txt",
+        "case_017.txt",
+        "case_018.txt",
+        "case_019.txt",
+        "case_020.txt",
+        "case_021.txt",
+        "case_022.txt",
+        "case_023.txt",
+        "case_024.txt",
+        "case_025.txt"
+      ],
+      "delay_regressed_cases": [],
+      "geometric_mean_area_ratio": 1.0,
+      "failure_recovery": [],
+      "new_failures": []
+    }
+  ],
+  "joint_comparisons": [
+    {
+      "iteration": 1,
+      "variant": "default",
+      "stages": [
+        "stage1",
+        "stage2"
+      ],
+      "common_passed_count": 49,
+      "joint_geometric_mean_area_ratio": 1.0,
+      "common_area_sum_before": 1035768,
+      "common_area_sum_after": 1035768,
+      "newly_recovered_failures": {
+        "stage1": [],
+        "stage2": []
+      },
+      "new_regressions": {
+        "stage1": [],
+        "stage2": [
+          "case_016.txt"
+        ]
+      }
+    },
+    {
+      "iteration": 2,
+      "variant": "default",
+      "stages": [
+        "stage1",
+        "stage2"
+      ],
+      "common_passed_count": 49,
+      "joint_geometric_mean_area_ratio": 1.0,
+      "common_area_sum_before": 1035768,
+      "common_area_sum_after": 1035768,
+      "newly_recovered_failures": {
+        "stage1": [],
+        "stage2": []
+      },
+      "new_regressions": {
+        "stage1": [],
+        "stage2": []
+      }
+    }
+  ]
+}

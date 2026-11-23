@@ -1,0 +1,16 @@
+{
+  "manifest_sha256": "d20f2ed1376f0edc63f3fb488d508972fa767344d4163e9829105d514f6ea529",
+  "source_sha256": {
+    "r86": "6d21a7d3cf80a8662f4f42a965e84c50d6cffcef7766a4d2dccf282c204078d8",
+    "r85": "fa0421e3fbb9d1058a3b389e00ba57c85e9ca0cf44e7f5cd2e4428545bb7d969"
+  },
+  "executables_sha256": {
+    "synth_round86": "7212d1f2d867017562dbf2bc028173e4ab65ad912379a2e4ba8f8be5ec1d967d",
+    "synth_round85_frozen": "0ec1665d41df94fdaebed970eef0e5fd0e46e3a808d89c8bf6d050e489cd5111",
+    "verify_exhaustive": "5d7ff94b2075e4669dbf25264bdcbc3ba1eb69b458349e9379082d7ecd4ec74c"
+  },
+  "cases": 36,
+  "runs": 2,
+  "candidate_count": 3,
+  "no_hidden_claim": true
+}

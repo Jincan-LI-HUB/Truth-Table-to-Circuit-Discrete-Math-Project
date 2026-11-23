@@ -1,0 +1,26 @@
+{
+  "purpose": "Stress only. Deliberately tighten runtime of existing independent truth tables; no official hidden-case claim.",
+  "cases": [
+    {
+      "file": "stress_001.txt",
+      "source_holdout": "holdout_001.txt",
+      "runtime_limit_ms": 100,
+      "sha256": "989189aec7cb5b358674f7121d1c93106fec5be7cc9ca9cb3f401794db739fd4",
+      "size_bytes": 4194325
+    },
+    {
+      "file": "stress_002.txt",
+      "source_holdout": "holdout_002.txt",
+      "runtime_limit_ms": 100,
+      "sha256": "7fcbf340a35770d1de9e5e7d0a620e6ce3097f341de759081d9d3fd0c344241a",
+      "size_bytes": 4194325
+    },
+    {
+      "file": "stress_003.txt",
+      "source_holdout": "holdout_034.txt",
+      "runtime_limit_ms": 100,
+      "sha256": "1b293bbbfd0138396a6ce68dd284a1de2a6eb6f43d8683b5aef85c33f32c5fc0",
+      "size_bytes": 1048597
+    }
+  ]
+}

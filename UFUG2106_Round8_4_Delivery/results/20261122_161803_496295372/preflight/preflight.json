@@ -1,0 +1,266 @@
+[
+  {
+    "case": "003",
+    "policy": "topology_dual",
+    "net_sha256": "75e03b7c642fae7685e0fd7ae59c7c97d803c88cebae47e227e812ee00f72502",
+    "elapsed_ms_local": 1630.103,
+    "verified": "PASS exact_assignments=1048576 area=17359 delay=65 target=65",
+    "stage_logs": [
+      "R84_STAGE policy=topology_dual phase=full mode=shannon cap=900 visited=900 scored=501 cuts=6808 materializations=24029 work_hit=1 wall_hit=0 elapsed_ms=114.217 area=17952 delay=52 updated=1",
+      "R84_STAGE policy=topology_dual phase=full mode=sop cap=900 visited=863 scored=483 cuts=6525 materializations=26100 work_hit=0 wall_hit=1 elapsed_ms=184.466 area=17359 delay=65 updated=1"
+    ]
+  },
+  {
+    "case": "003",
+    "policy": "topq_dual",
+    "net_sha256": "aefbae89007ebb842d16e8a6573534aa856d4aa728da2966230168b715bb03b5",
+    "elapsed_ms_local": 1483.594,
+    "verified": "PASS exact_assignments=1048576 area=16235 delay=65 target=65",
+    "stage_logs": [
+      "R84_STAGE policy=topq_dual phase=full mode=shannon cap=900 visited=900 scored=900 cuts=6749 materializations=23703 work_hit=0 wall_hit=0 elapsed_ms=122.566 area=17092 delay=48 updated=1",
+      "R84_STAGE policy=topq_dual phase=full mode=sop cap=900 visited=895 scored=895 cuts=6709 materializations=26836 work_hit=0 wall_hit=1 elapsed_ms=185.703 area=16235 delay=65 updated=1"
+    ]
+  },
+  {
+    "case": "003",
+    "policy": "topq_dense",
+    "net_sha256": "3807cf792cb684530590282b40baccce8e807f380c26ad2a12b117b7053371e0",
+    "elapsed_ms_local": 1501.681,
+    "verified": "PASS exact_assignments=1048576 area=16496 delay=65 target=65",
+    "stage_logs": [
+      "R84_STAGE policy=topq_dense phase=full mode=shannon cap=1100 visited=1100 scored=1100 cuts=8276 materializations=29084 work_hit=0 wall_hit=0 elapsed_ms=132.892 area=17044 delay=48 updated=1",
+      "R84_STAGE policy=topq_dense phase=full mode=sop cap=1100 visited=959 scored=959 cuts=7186 materializations=28744 work_hit=0 wall_hit=1 elapsed_ms=181.713 area=16496 delay=65 updated=1"
+    ]
+  },
+  {
+    "case": "003",
+    "policy": "adaptive_dual",
+    "net_sha256": "8c314c5953a231ca00155b7bea211a2bddafbe55cfc246d99a828fd8c8b7d799",
+    "elapsed_ms_local": 1501.131,
+    "verified": "PASS exact_assignments=1048576 area=16284 delay=65 target=65",
+    "stage_logs": [
+      "R84_STAGE policy=adaptive_dual phase=pilot mode=shannon cap=220 visited=220 scored=220 cuts=1416 materializations=4801 work_hit=0 wall_hit=0 elapsed_ms=46.9106 area=18860 delay=48 updated=1",
+      "R84_STAGE policy=adaptive_dual phase=pilot mode=sop cap=220 visited=220 scored=220 cuts=1416 materializations=5664 work_hit=0 wall_hit=0 elapsed_ms=55.0179 area=17982 delay=65 updated=1",
+      "R84_STAGE policy=adaptive_dual phase=focus mode=sop cap=1100 visited=1023 scored=1023 cuts=7685 materializations=30740 work_hit=0 wall_hit=1 elapsed_ms=192.529 area=16284 delay=65 updated=1"
+    ]
+  },
+  {
+    "case": "003",
+    "policy": "mixed33_dual",
+    "net_sha256": "cf6294c0f3ce7e26efa32fd317fa05c6a44dd8d14e3362bd2d4a04c3916d0825",
+    "elapsed_ms_local": 1311.015,
+    "verified": "PASS exact_assignments=1048576 area=16877 delay=65 target=65",
+    "stage_logs": [
+      "R84_STAGE policy=mixed33_dual phase=full mode=shannon cap=900 visited=900 scored=541 cuts=6682 materializations=23495 work_hit=0 wall_hit=0 elapsed_ms=127.722 area=17882 delay=52 updated=1",
+      "R84_STAGE policy=mixed33_dual phase=full mode=sop cap=900 visited=895 scored=536 cuts=6651 materializations=26604 work_hit=0 wall_hit=1 elapsed_ms=182.188 area=16877 delay=65 updated=1"
+    ]
+  },
+  {
+    "case": "005",
+    "policy": "topology_dual",
+    "net_sha256": "d81e228b74c6340b979fc2eb1257b676688184411ba30712206033b43f223069",
+    "elapsed_ms_local": 1995.707,
+    "verified": "PASS exact_assignments=131072 area=109449 delay=67 target=69",
+    "stage_logs": [
+      "R84_STAGE policy=topology_dual phase=full mode=shannon cap=900 visited=900 scored=663 cuts=5943 materializations=20263 work_hit=1 wall_hit=0 elapsed_ms=176.332 area=110050 delay=46 updated=1",
+      "R84_STAGE policy=topology_dual phase=full mode=sop cap=900 visited=543 scored=306 cuts=3777 materializations=15108 work_hit=0 wall_hit=1 elapsed_ms=162.163 area=109449 delay=67 updated=1"
+    ]
+  },
+  {
+    "case": "005",
+    "policy": "topq_dual",
+    "net_sha256": "373108a6c96852b0ee5f6bbddd9ebf7aae15f211e102551e4bfa4d09cfb9e40a",
+    "elapsed_ms_local": 1928.096,
+    "verified": "PASS exact_assignments=131072 area=108340 delay=68 target=69",
+    "stage_logs": [
+      "R84_STAGE policy=topq_dual phase=full mode=shannon cap=900 visited=895 scored=895 cuts=5454 materializations=18244 work_hit=0 wall_hit=1 elapsed_ms=185.764 area=110428 delay=46 updated=1",
+      "R84_STAGE policy=topq_dual phase=full mode=sop cap=900 visited=543 scored=543 cuts=3323 materializations=13292 work_hit=0 wall_hit=1 elapsed_ms=154.123 area=108340 delay=68 updated=1"
+    ]
+  },
+  {
+    "case": "005",
+    "policy": "topq_dense",
+    "net_sha256": "68d028852458bb7c37ff0a9b728adebf969e48e32c284e7d75d6883d895f6138",
+    "elapsed_ms_local": 1902.913,
+    "verified": "PASS exact_assignments=131072 area=108603 delay=68 target=69",
+    "stage_logs": [
+      "R84_STAGE policy=topq_dense phase=full mode=shannon cap=1100 visited=927 scored=927 cuts=5646 materializations=18884 work_hit=0 wall_hit=1 elapsed_ms=185.358 area=110348 delay=46 updated=1",
+      "R84_STAGE policy=topq_dense phase=full mode=sop cap=1100 visited=511 scored=511 cuts=3130 materializations=12520 work_hit=0 wall_hit=1 elapsed_ms=148.031 area=108603 delay=68 updated=1"
+    ]
+  },
+  {
+    "case": "005",
+    "policy": "adaptive_dual",
+    "net_sha256": "34f94cb0f2a085cc5b6d0c9a9012047b29a7337a2a4e50e127c94a61994851c0",
+    "elapsed_ms_local": 1895.701,
+    "verified": "PASS exact_assignments=131072 area=106998 delay=68 target=69",
+    "stage_logs": [
+      "R84_STAGE policy=adaptive_dual phase=pilot mode=shannon cap=220 visited=191 scored=191 cuts=1175 materializations=3938 work_hit=0 wall_hit=1 elapsed_ms=64.3774 area=111841 delay=46 updated=1",
+      "R84_STAGE policy=adaptive_dual phase=pilot mode=sop cap=220 visited=159 scored=159 cuts=980 materializations=3920 work_hit=0 wall_hit=1 elapsed_ms=65.6433 area=111125 delay=58 updated=1",
+      "R84_STAGE policy=adaptive_dual phase=focus mode=sop cap=1100 visited=735 scored=735 cuts=4484 materializations=17936 work_hit=0 wall_hit=1 elapsed_ms=190.644 area=106998 delay=68 updated=1"
+    ]
+  },
+  {
+    "case": "005",
+    "policy": "mixed33_dual",
+    "net_sha256": "375c6d4b0b0233f4c712924355b999f29125cb8f8f9d900c8ebef3e79e9a10de",
+    "elapsed_ms_local": 2001.013,
+    "verified": "PASS exact_assignments=131072 area=110050 delay=46 target=69",
+    "stage_logs": [
+      "R84_STAGE policy=mixed33_dual phase=full mode=shannon cap=900 visited=900 scored=663 cuts=5943 materializations=20263 work_hit=0 wall_hit=0 elapsed_ms=229.279 area=110050 delay=46 updated=1",
+      "R84_STAGE policy=mixed33_dual phase=full mode=sop cap=900 visited=351 scored=114 cuts=2599 materializations=10396 work_hit=0 wall_hit=1 elapsed_ms=105.677 area=110743 delay=67 updated=0"
+    ]
+  },
+  {
+    "case": "016",
+    "policy": "topology_dual",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a",
+    "elapsed_ms_local": 79.289,
+    "verified": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "stage_logs": []
+  },
+  {
+    "case": "016",
+    "policy": "topq_dual",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a",
+    "elapsed_ms_local": 67.125,
+    "verified": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "stage_logs": []
+  },
+  {
+    "case": "016",
+    "policy": "topq_dense",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a",
+    "elapsed_ms_local": 64.198,
+    "verified": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "stage_logs": []
+  },
+  {
+    "case": "016",
+    "policy": "adaptive_dual",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a",
+    "elapsed_ms_local": 63.678,
+    "verified": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "stage_logs": []
+  },
+  {
+    "case": "016",
+    "policy": "mixed33_dual",
+    "net_sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a",
+    "elapsed_ms_local": 65.765,
+    "verified": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "stage_logs": []
+  },
+  {
+    "case": "017",
+    "policy": "topology_dual",
+    "net_sha256": "0e82a1ab2cac9c7e354390c6e37159d08957f1a52753668714a5e8f88d899846",
+    "elapsed_ms_local": 282.836,
+    "verified": "PASS exact_assignments=4096 area=14168 delay=49 target=57",
+    "stage_logs": [
+      "R84_STAGE policy=topology_dual phase=full mode=shannon cap=600 visited=600 scored=592 cuts=4194 materializations=14672 work_hit=1 wall_hit=0 elapsed_ms=46.1237 area=14168 delay=49 updated=1",
+      "R84_STAGE policy=topology_dual phase=full mode=sop cap=600 visited=600 scored=592 cuts=4194 materializations=16776 work_hit=1 wall_hit=0 elapsed_ms=70.7178 area=14168 delay=49 updated=0"
+    ]
+  },
+  {
+    "case": "017",
+    "policy": "topq_dual",
+    "net_sha256": "5fb196b0b7fea4241d0a90e82dd9fb9bc346112974ac673d76e67736742d39aa",
+    "elapsed_ms_local": 323.454,
+    "verified": "PASS exact_assignments=4096 area=14164 delay=49 target=57",
+    "stage_logs": [
+      "R84_STAGE policy=topq_dual phase=full mode=shannon cap=600 visited=600 scored=600 cuts=4194 materializations=14658 work_hit=0 wall_hit=0 elapsed_ms=62.8475 area=14164 delay=49 updated=1",
+      "R84_STAGE policy=topq_dual phase=full mode=sop cap=600 visited=600 scored=600 cuts=4194 materializations=16776 work_hit=0 wall_hit=0 elapsed_ms=87.3625 area=14164 delay=49 updated=0"
+    ]
+  },
+  {
+    "case": "017",
+    "policy": "topq_dense",
+    "net_sha256": "5fb196b0b7fea4241d0a90e82dd9fb9bc346112974ac673d76e67736742d39aa",
+    "elapsed_ms_local": 296.252,
+    "verified": "PASS exact_assignments=4096 area=14164 delay=49 target=57",
+    "stage_logs": [
+      "R84_STAGE policy=topq_dense phase=full mode=shannon cap=600 visited=600 scored=600 cuts=4194 materializations=14658 work_hit=0 wall_hit=0 elapsed_ms=61.5651 area=14164 delay=49 updated=1",
+      "R84_STAGE policy=topq_dense phase=full mode=sop cap=600 visited=600 scored=600 cuts=4194 materializations=16776 work_hit=0 wall_hit=0 elapsed_ms=85.6901 area=14164 delay=49 updated=0"
+    ]
+  },
+  {
+    "case": "017",
+    "policy": "adaptive_dual",
+    "net_sha256": "cc2edc5eee5b548a497035cea84bf20a947021b45a9f2db98b1cc21b6ac86dea",
+    "elapsed_ms_local": 312.991,
+    "verified": "PASS exact_assignments=4096 area=14158 delay=49 target=57",
+    "stage_logs": [
+      "R84_STAGE policy=adaptive_dual phase=pilot mode=shannon cap=220 visited=220 scored=220 cuts=1410 materializations=4854 work_hit=0 wall_hit=0 elapsed_ms=39.4499 area=14164 delay=49 updated=1",
+      "R84_STAGE policy=adaptive_dual phase=pilot mode=sop cap=220 visited=220 scored=220 cuts=1410 materializations=5640 work_hit=0 wall_hit=0 elapsed_ms=46.6553 area=14164 delay=49 updated=0",
+      "R84_STAGE policy=adaptive_dual phase=focus mode=shannon cap=1100 visited=799 scored=799 cuts=5651 materializations=19797 work_hit=0 wall_hit=1 elapsed_ms=60.5696 area=14158 delay=49 updated=1"
+    ]
+  },
+  {
+    "case": "017",
+    "policy": "mixed33_dual",
+    "net_sha256": "5fb196b0b7fea4241d0a90e82dd9fb9bc346112974ac673d76e67736742d39aa",
+    "elapsed_ms_local": 300.558,
+    "verified": "PASS exact_assignments=4096 area=14164 delay=49 target=57",
+    "stage_logs": [
+      "R84_STAGE policy=mixed33_dual phase=full mode=shannon cap=600 visited=600 scored=600 cuts=4194 materializations=14658 work_hit=0 wall_hit=0 elapsed_ms=60.5035 area=14164 delay=49 updated=1",
+      "R84_STAGE policy=mixed33_dual phase=full mode=sop cap=600 visited=600 scored=600 cuts=4194 materializations=16776 work_hit=0 wall_hit=0 elapsed_ms=88.1078 area=14164 delay=49 updated=0"
+    ]
+  },
+  {
+    "case": "021",
+    "policy": "topology_dual",
+    "net_sha256": "52518bcf7edd6ca20ba63e2aadcf379f92c6200903313d4172b6be10634bc9b6",
+    "elapsed_ms_local": 826.794,
+    "verified": "PASS exact_assignments=65536 area=22579 delay=69 target=70",
+    "stage_logs": [
+      "R84_STAGE policy=topology_dual phase=full mode=shannon cap=900 visited=900 scored=462 cuts=6859 materializations=24161 work_hit=1 wall_hit=0 elapsed_ms=73.1686 area=22590 delay=69 updated=0",
+      "R84_STAGE policy=topology_dual phase=full mode=sop cap=900 visited=900 scored=462 cuts=6859 materializations=27436 work_hit=1 wall_hit=0 elapsed_ms=108.725 area=22579 delay=69 updated=1"
+    ]
+  },
+  {
+    "case": "021",
+    "policy": "topq_dual",
+    "net_sha256": "cd30744344300a81e80ada4b4938f7cf1eae5b6c4adaea3a099932db4d6d52de",
+    "elapsed_ms_local": 914.049,
+    "verified": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "stage_logs": [
+      "R84_STAGE policy=topq_dual phase=full mode=shannon cap=900 visited=900 scored=900 cuts=7180 materializations=25985 work_hit=0 wall_hit=0 elapsed_ms=98.9082 area=22590 delay=69 updated=0",
+      "R84_STAGE policy=topq_dual phase=full mode=sop cap=900 visited=900 scored=900 cuts=7180 materializations=28720 work_hit=0 wall_hit=0 elapsed_ms=135.429 area=22576 delay=69 updated=1"
+    ]
+  },
+  {
+    "case": "021",
+    "policy": "topq_dense",
+    "net_sha256": "8a3669960701846e9124bc3087865e7e46b3cd24e7a7791a52b2935841899fc9",
+    "elapsed_ms_local": 986.729,
+    "verified": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "stage_logs": [
+      "R84_STAGE policy=topq_dense phase=full mode=shannon cap=1100 visited=1100 scored=1100 cuts=8639 materializations=31101 work_hit=0 wall_hit=0 elapsed_ms=111.638 area=22590 delay=69 updated=0",
+      "R84_STAGE policy=topq_dense phase=full mode=sop cap=1100 visited=1100 scored=1100 cuts=8639 materializations=34556 work_hit=0 wall_hit=0 elapsed_ms=150.695 area=22576 delay=69 updated=1"
+    ]
+  },
+  {
+    "case": "021",
+    "policy": "adaptive_dual",
+    "net_sha256": "8d367673b9cc7b573d2e0de793c19a79d8ceb31f404b884bb5586a8fec4aad11",
+    "elapsed_ms_local": 963.788,
+    "verified": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "stage_logs": [
+      "R84_STAGE policy=adaptive_dual phase=pilot mode=shannon cap=220 visited=220 scored=220 cuts=1740 materializations=6271 work_hit=0 wall_hit=0 elapsed_ms=56.9733 area=22590 delay=69 updated=0",
+      "R84_STAGE policy=adaptive_dual phase=pilot mode=sop cap=220 visited=220 scored=220 cuts=1740 materializations=6960 work_hit=0 wall_hit=0 elapsed_ms=62.9467 area=22576 delay=69 updated=1",
+      "R84_STAGE policy=adaptive_dual phase=focus mode=sop cap=1100 visited=1100 scored=1100 cuts=8639 materializations=34556 work_hit=0 wall_hit=0 elapsed_ms=152.976 area=22576 delay=69 updated=0"
+    ]
+  },
+  {
+    "case": "021",
+    "policy": "mixed33_dual",
+    "net_sha256": "4f86e804cea55da7b750cf0be1e9804cdc9c5e3c29678de9273858af22ba3f94",
+    "elapsed_ms_local": 854.592,
+    "verified": "PASS exact_assignments=65536 area=22576 delay=69 target=70",
+    "stage_logs": [
+      "R84_STAGE policy=mixed33_dual phase=full mode=shannon cap=900 visited=900 scored=467 cuts=6852 materializations=24139 work_hit=0 wall_hit=0 elapsed_ms=89.4034 area=22590 delay=69 updated=0",
+      "R84_STAGE policy=mixed33_dual phase=full mode=sop cap=900 visited=900 scored=467 cuts=6852 materializations=27408 work_hit=0 wall_hit=0 elapsed_ms=126.78 area=22576 delay=69 updated=1"
+    ]
+  }
+]

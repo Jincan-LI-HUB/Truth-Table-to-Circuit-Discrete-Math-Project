@@ -1,0 +1,127 @@
+{
+  "evaluated_by_course_binary": true,
+  "actual_hidden_cases": false,
+  "case_count_per_stage": 25,
+  "runs": 2,
+  "source_sha256": {
+    "r86": "6d21a7d3cf80a8662f4f42a965e84c50d6cffcef7766a4d2dccf282c204078d8",
+    "r85": "fa0421e3fbb9d1058a3b389e00ba57c85e9ca0cf44e7f5cd2e4428545bb7d969"
+  },
+  "binary_sha256": {
+    "r86_baseline": "7212d1f2d867017562dbf2bc028173e4ab65ad912379a2e4ba8f8be5ec1d967d",
+    "r86_extra_sop": "7212d1f2d867017562dbf2bc028173e4ab65ad912379a2e4ba8f8be5ec1d967d",
+    "r85_reclaim": "0ec1665d41df94fdaebed970eef0e5fd0e46e3a808d89c8bf6d050e489cd5111"
+  },
+  "evaluator_sha256": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "records": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "policy": "r86_baseline",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "policy": "r86_extra_sop",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "policy": "r85_reclaim",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "policy": "r86_baseline",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "policy": "r86_extra_sop",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "policy": "r85_reclaim",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "policy": "r85_reclaim",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "policy": "r86_extra_sop",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "policy": "r86_baseline",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "policy": "r85_reclaim",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "policy": "r86_extra_sop",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "policy": "r86_baseline",
+      "evaluator_exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785
+    }
+  ]
+}

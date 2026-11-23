@@ -1,0 +1,2175 @@
+{
+  "milestone": "Round8.2.1",
+  "runs": 2,
+  "quick": false,
+  "fingerprints": {
+    "r82": "c2fd7888f58193f230b8350ee2a16efb7375f348d4c0631c882e613e24c567c8",
+    "r821": "77cd1db9de418bad796062bba8403b4790665a0c7cc8eb4f4e48466aeaae377f",
+    "evaluator": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca"
+  },
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "records": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r82_fast_adp",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 527649,
+      "median_ms": 137.946
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r821_fast_adp",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 527649,
+      "median_ms": 137.857
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r82_fast_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 526355,
+      "median_ms": 133.508
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r821_fast_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 526355,
+      "median_ms": 133.294
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r82_dual_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 526095,
+      "median_ms": 153.986
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r821_dual_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 526095,
+      "median_ms": 153.517
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r82_fast_adp",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 508372,
+      "median_ms": 90.127
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r821_fast_adp",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 508372,
+      "median_ms": 88.804
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r82_fast_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 501304,
+      "median_ms": 89.126
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r821_fast_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 501304,
+      "median_ms": 87.435
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r82_dual_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 494387,
+      "median_ms": 131.764
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r821_dual_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 494618,
+      "median_ms": 131.585
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r821_dual_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 526095,
+      "median_ms": 153.369
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r82_dual_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 526095,
+      "median_ms": 155.923
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r821_fast_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 526355,
+      "median_ms": 134.968
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r82_fast_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 526355,
+      "median_ms": 133.914
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r821_fast_adp",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 527649,
+      "median_ms": 134.364
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r82_fast_adp",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 527649,
+      "median_ms": 133.617
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r821_dual_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 494155,
+      "median_ms": 130.614
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r82_dual_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 494387,
+      "median_ms": 132.934
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r821_fast_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 501304,
+      "median_ms": 88.704
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r82_fast_area",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 501304,
+      "median_ms": 88.279
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r821_fast_adp",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 508372,
+      "median_ms": 87.968
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r82_fast_adp",
+      "exit": 0,
+      "pass": 25,
+      "target": 25,
+      "area": 508372,
+      "median_ms": 89.193
+    }
+  ],
+  "comparisons": [
+    {
+      "stage": "stage1",
+      "run": 1,
+      "policy": "fast_adp",
+      "areas_equal": 25,
+      "delays_equal": 25,
+      "delta_area": 0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0492020047134838
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9282617875949084
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0348652032503025
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.183368035838223
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.1554266614235156
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0079944205606504
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0110249911162803
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0607266328903509
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9993548200020298
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.036745952277493
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0663398692810457
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0038470416249903
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0053656216952809
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9512398048583711
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.024607296343297
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0789122232980535
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0008572653236176
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.061114842175957
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0804150791277096
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9484006734006732
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0050156664256449
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9193370165745856
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0250130276185514
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9395197483148455
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9526586918295069
+        }
+      ]
+    },
+    {
+      "stage": "stage1",
+      "run": 1,
+      "policy": "fast_area",
+      "areas_equal": 25,
+      "delays_equal": 25,
+      "delta_area": 0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0214723763412488
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9669812748332202
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0315437502880989
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9119808616565012
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.809951570067177
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0220825356524943
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9421563380650666
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.981170740909052
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9983970997992629
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0070991004479046
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9609491381144926
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0174908901613742
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0117442397131395
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0252631115139612
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9835877716803118
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9461773324945915
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.2340082159624413
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.167803970223325
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0650021989918468
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0185083379146052
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0382155198875171
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9706537138231127
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.7706945765937202
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9526656529283467
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9959741272984296
+        }
+      ]
+    },
+    {
+      "stage": "stage1",
+      "run": 1,
+      "policy": "dual_area",
+      "areas_equal": 25,
+      "delays_equal": 25,
+      "delta_area": 0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0300698363664917
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0094250794170219
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9897431042908057
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9824687547968557
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8696215655780196
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9930425179458863
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9845123947484735
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9926386233269601
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.99695426856987
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9859139464478989
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8840873936581594
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9903057479334887
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.023768495643688
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9443931507054414
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0328420505046605
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0003575776667206
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8317822242903676
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.130153382392056
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0560975104164507
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0447225698790155
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.958959585454077
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0082344988631475
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0424721320728094
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.1224339874183347
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0556792360130198
+        }
+      ]
+    },
+    {
+      "stage": "stage2",
+      "run": 1,
+      "policy": "fast_adp",
+      "areas_equal": 25,
+      "delays_equal": 25,
+      "delta_area": 0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9894675046619241
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9087982971371524
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8794743346133914
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9072199596694477
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9636220336687069
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.004106668347145
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8386555666003976
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.1022969452995501
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.1079683994928313
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8071836280105805
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0095771888774012
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0077668179346921
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9893151618810962
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9787520467159806
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9566303996552838
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0129669325649224
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9511806865919662
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8397295321637426
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9239150679828646
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8828524965367703
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9769436926442546
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9878513406656604
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9647974707212184
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9389021389002385
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0082525023391065
+        }
+      ]
+    },
+    {
+      "stage": "stage2",
+      "run": 1,
+      "policy": "fast_area",
+      "areas_equal": 25,
+      "delays_equal": 25,
+      "delta_area": 0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0091765569558302
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9693223321624904
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9805252295547482
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0106893359144853
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9817192275963059
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9513695932206997
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8742053003785984
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9736381152566125
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.887344028520499
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8054834054834055
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0926867116198338
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9404747819165529
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9879153862937052
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9259053807750218
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0288804613692974
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9861709832051592
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9757473163347521
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0762580359122147
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0618122667687302
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9320191486766679
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0031142652879734
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9776678896155686
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.001172717082004
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0131093345531286
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9973941912761147
+        }
+      ]
+    },
+    {
+      "stage": "stage2",
+      "run": 1,
+      "policy": "dual_area",
+      "areas_equal": 23,
+      "delays_equal": 25,
+      "delta_area": 231,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0147369319030048
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0309887307106886
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0015393082760844
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9982488451435645
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 235,
+          "delay_diff": 0,
+          "time_ratio": 0.9711069049741692
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.983412080380319
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9383540128789069
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9206593218891451
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9552631578947369
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9326565143824026
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9596359919040819
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9943067210981764
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9881900163923782
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9276422653253436
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0020262757490637
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.091262209148848
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.999684977114514
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8776514323201398
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9699167074963253
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9905470568673096
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9804739702034553
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9051057246003095
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": -4,
+          "delay_diff": 0,
+          "time_ratio": 0.9898399171575535
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.998641510579521
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9874009400877276
+        }
+      ]
+    },
+    {
+      "stage": "stage1",
+      "run": 2,
+      "policy": "fast_adp",
+      "areas_equal": 25,
+      "delays_equal": 25,
+      "delta_area": 0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9938331499791591
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.965353029567049
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.977981423121579
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0715339675379985
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0654435252682446
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.989225610461144
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.98967123380818
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.01808310849045
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0055906059857653
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0154513124038282
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.1814559552013786
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0242581650542173
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.007050017203727
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.048406699169629
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.019253059965758
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9864960792406108
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.1204473759678806
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.096808408060939
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0445153497865305
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0076416337285903
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.031884043832329
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8939164748438014
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8406765207504264
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9709048145657585
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0198909530166533
+        }
+      ]
+    },
+    {
+      "stage": "stage1",
+      "run": 2,
+      "policy": "fast_area",
+      "areas_equal": 25,
+      "delays_equal": 25,
+      "delta_area": 0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0551280196478652
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9979119565014294
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0231366687387808
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.070503546761247
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.856389886181346
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9946433989307722
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0131267860162034
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0215349595827434
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0078707230013293
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9975303406383694
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0329130978731595
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9310382553517377
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9864158829676071
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9934692789550847
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0372472196823102
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0093037066363142
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.2388080980895353
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.1018729560994946
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9664513747923973
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8827858692283855
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0381098568585256
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9991751443497388
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.001770851779706
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0434986032289197
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9967615234256821
+        }
+      ]
+    },
+    {
+      "stage": "stage1",
+      "run": 2,
+      "policy": "dual_area",
+      "areas_equal": 25,
+      "delays_equal": 25,
+      "delta_area": 0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9757855302193639
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9905877619239222
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0988402712840852
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.999560528992879
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.119395615247877
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0011848529669036
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.014948097367298
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.985979644520934
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9836201201875284
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0047148426874604
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9812344072025165
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0174311703670105
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0019080840832089
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0230509157978187
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.994066611731711
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9959649615649819
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8401659346022451
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8917864112116375
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9823579445262743
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8489765688122811
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.035429973516124
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.1704023579409144
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9728807777588264
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0230077301475755
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8635703960515783
+        }
+      ]
+    },
+    {
+      "stage": "stage2",
+      "run": 2,
+      "policy": "fast_adp",
+      "areas_equal": 25,
+      "delays_equal": 25,
+      "delta_area": 0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9643299394606495
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9927669070480436
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.987728970836346
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0424813556424557
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0228189904435505
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0401152556814997
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0328212290502794
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9544711248816593
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9336362016746836
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9523809523809523
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9657175272023436
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9773136318186868
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0038501717383275
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0252438007386355
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9847862568450804
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0682765252697937
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9920929725559907
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0543619791666667
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9974108743278232
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.095781265960707
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9806372246688693
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8867473371494818
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0067294751009421
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0121772624230143
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9279111373753576
+        }
+      ]
+    },
+    {
+      "stage": "stage2",
+      "run": 2,
+      "policy": "fast_area",
+      "areas_equal": 25,
+      "delays_equal": 25,
+      "delta_area": 0,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9473666722046852
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0649131364676747
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0168947922082634
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9749236625256201
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9833758670168663
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9813765537839856
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9652673859966923
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.055246176964554
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9316322041355036
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9539625123314699
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.043084766538831
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0196535982509998
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.004037032941626
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0129010037802555
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9654646973671321
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9785819793205317
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9901385949119692
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0240096038415365
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.982743908220347
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.034352949120497
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9618753907878282
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9665955934612651
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9486066808076555
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0443411592609115
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0260816295799424
+        }
+      ]
+    },
+    {
+      "stage": "stage2",
+      "run": 2,
+      "policy": "dual_area",
+      "areas_equal": 24,
+      "delays_equal": 25,
+      "delta_area": -232,
+      "casewise": [
+        {
+          "case": "case_001.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0434935110487549
+        },
+        {
+          "case": "case_002.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0433351892122669
+        },
+        {
+          "case": "case_003.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0221727980889985
+        },
+        {
+          "case": "case_004.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9460510259102647
+        },
+        {
+          "case": "case_005.txt",
+          "area_diff": -232,
+          "delay_diff": 0,
+          "time_ratio": 0.9869426005629938
+        },
+        {
+          "case": "case_006.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9959605551497444
+        },
+        {
+          "case": "case_007.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.1056949045590787
+        },
+        {
+          "case": "case_008.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.087689713322091
+        },
+        {
+          "case": "case_009.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9844288952399725
+        },
+        {
+          "case": "case_010.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9963661533137221
+        },
+        {
+          "case": "case_011.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9772755240165716
+        },
+        {
+          "case": "case_012.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0150128358719837
+        },
+        {
+          "case": "case_013.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.001557174387395
+        },
+        {
+          "case": "case_014.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9745923373512496
+        },
+        {
+          "case": "case_015.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0207018985298864
+        },
+        {
+          "case": "case_016.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0240317924492934
+        },
+        {
+          "case": "case_017.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0087178396768022
+        },
+        {
+          "case": "case_018.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8231427378964942
+        },
+        {
+          "case": "case_019.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9685244008085475
+        },
+        {
+          "case": "case_020.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 1.0152081670377684
+        },
+        {
+          "case": "case_021.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9831597524953898
+        },
+        {
+          "case": "case_022.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.8936800770541602
+        },
+        {
+          "case": "case_023.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9938195617661791
+        },
+        {
+          "case": "case_024.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9825477304527059
+        },
+        {
+          "case": "case_025.txt",
+          "area_diff": 0,
+          "delay_diff": 0,
+          "time_ratio": 0.9895770583917588
+        }
+      ]
+    }
+  ]
+}

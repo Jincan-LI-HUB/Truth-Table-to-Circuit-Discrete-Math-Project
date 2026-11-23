@@ -1,0 +1,17 @@
+case,bank,tag,wall_ms,area,delay,net_sha256,exact,lib_visited,lib_cuts,lib_matching,lib_recipes,lib_local,lib_rejected,lib_wall_hit,lib_ms,lib_accepted,lib_before,lib_after
+hard_005.txt,ablation_lockbox,frozen,477.509,3212,29,94d75705246b872860f84fac900fae121a6fc030803ed5ab36f38d2306cce97d,True,,,,,,,,,,,
+hard_005.txt,ablation_lockbox,library,477.803,3212,29,94d75705246b872860f84fac900fae121a6fc030803ed5ab36f38d2306cce97d,True,160,1031,1029,10144,0,0,0,14.0363,0,3212,3212
+hard_005.txt,ablation_lockbox,repeat_sop,517.491,3212,29,94d75705246b872860f84fac900fae121a6fc030803ed5ab36f38d2306cce97d,True,160,1239,0,0,0,0,0,19.9613,0,3212,3212
+hard_005.txt,ablation_lockbox,repeat_shannon,555.839,3212,29,94d75705246b872860f84fac900fae121a6fc030803ed5ab36f38d2306cce97d,True,160,1239,0,0,0,0,0,12.6702,0,3212,3212
+hard_006.txt,ablation_lockbox,frozen,148.967,2848,38,6ba3ce867255f3824130c3508d763ef9d71fe9d527b3fc2dab43007a54de9eec,True,,,,,,,,,,,
+hard_006.txt,ablation_lockbox,library,232.527,2848,38,6ba3ce867255f3824130c3508d763ef9d71fe9d527b3fc2dab43007a54de9eec,True,160,974,970,7156,0,0,0,8.33372,0,2848,2848
+hard_006.txt,ablation_lockbox,repeat_sop,184.035,2848,38,6ba3ce867255f3824130c3508d763ef9d71fe9d527b3fc2dab43007a54de9eec,True,160,1261,0,0,0,0,0,19.3714,0,2848,2848
+hard_006.txt,ablation_lockbox,repeat_shannon,142.072,2848,38,6ba3ce867255f3824130c3508d763ef9d71fe9d527b3fc2dab43007a54de9eec,True,160,1261,0,0,0,0,0,10.7757,0,2848,2848
+hard_007.txt,ablation_lockbox,frozen,264.528,12936,43,26ff4cec675cf2237d1ee0f7c1bc0f133e76fe2d359ab9c2ef5673326627f64d,True,,,,,,,,,,,
+hard_007.txt,ablation_lockbox,library,278.955,12936,43,26ff4cec675cf2237d1ee0f7c1bc0f133e76fe2d359ab9c2ef5673326627f64d,True,160,967,967,6220,0,0,0,9.75356,0,12936,12936
+hard_007.txt,ablation_lockbox,repeat_sop,272.7,12936,43,26ff4cec675cf2237d1ee0f7c1bc0f133e76fe2d359ab9c2ef5673326627f64d,True,160,1279,0,0,0,0,0,24.6252,0,12936,12936
+hard_007.txt,ablation_lockbox,repeat_shannon,265.029,12936,43,26ff4cec675cf2237d1ee0f7c1bc0f133e76fe2d359ab9c2ef5673326627f64d,True,160,1279,0,0,0,0,0,17.4464,0,12936,12936
+hard_008.txt,ablation_lockbox,frozen,228.341,6311,36,9159f0dc5e8f7c7f2b6042c0105f05fc4092060b47a8827fbfe09c87fe7abf63,True,,,,,,,,,,,
+hard_008.txt,ablation_lockbox,library,287.197,6311,36,9159f0dc5e8f7c7f2b6042c0105f05fc4092060b47a8827fbfe09c87fe7abf63,True,160,1065,1060,8496,0,0,0,10.9887,0,6311,6311
+hard_008.txt,ablation_lockbox,repeat_sop,244.448,6306,36,8635d7c8f86db3f05b8dcab54ecc5d3dfd1f114e7e244ff02eb6f6633b638aef,True,160,1264,0,0,0,0,0,24.9656,1,6311,6306
+hard_008.txt,ablation_lockbox,repeat_shannon,241.613,6297,36,9018afac8faa8805bf987bdb7c76978a813b3f815db8305a01aa2eacb3cbfc82,True,160,1264,0,0,0,0,0,15.2516,1,6311,6297

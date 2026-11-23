@@ -1,0 +1,6 @@
+policy,pass_count,area_sum,delay_sum,wall_hits,local_synthesis_ms_sum,max_peak_rss_kib
+r84_topq_dual,25,501124,1170,13,13170.89,71016
+r85_dense_sop,25,500097,1170,18,12900.09,71048
+r85_dual_shannon,25,502308,1170,11,12667.53,71052
+r85_dual_sop,25,499340,1170,16,12923.61,71064
+r85_reclaim,25,501635,1170,15,13339.71,71060

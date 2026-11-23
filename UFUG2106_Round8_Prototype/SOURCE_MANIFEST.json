@@ -1,0 +1,13 @@
+{
+  "prototype": "Round8.0",
+  "parent": "Frozen Round7.2",
+  "parent_sha256": "d7c0dac7ddb173d8cd76f8ae0ebae9160856a1e0ab443e162584bdd2c15bff9e",
+  "files": {
+    "optimize_netlist.cpp": "48b69425e8271adbcd2ad58ccdc8eaf4ce36bf0f17a8102fcc3321442aa3996a",
+    "synth_round8.cpp": "9ec7dc97161d3dc906dfad7960e0fc232b8e2cf0399908c6c4e99b756d8bacd8",
+    "algebraic_mapper.hpp": "33d9d02a4fe2cbb14934e334bb8433260e9763541b6f78fcbd969b2e88220667",
+    "polarity_mapper.hpp": "46e8183e644071ca45792499bb6e3961dacda9e0243a98071e409473419e375a",
+    "r8_structural.hpp": "5bb7e3c54197e9b7769c85f0b35bbc93591860c134f30950ac33144620069600",
+    "typed_netgraph.hpp": "55030bc9a51ff435e15285c0e9cb36db4032625a45b42993d4f1434290e04950"
+  }
+}

@@ -1,0 +1,6 @@
+policy,stage1_area,stage2_area,total_area_per_run,total_delay_per_run,all_pass,improved_cases_vs_frozen,worse_cases_vs_frozen,delay_lower_vs_frozen,delay_higher_vs_frozen,run1_run2_equal_cases,runtime_geo_vs_frozen,runtime_median_ms,runtime_p95_ms
+r90_frozen,526135,494999,1021134,2382,100,0,0,0,0,50,1.0,135.655,894.765
+r91_off,526135,494999,1021134,2382,100,0,0,0,0,50,0.992989,131.656,819.321
+r91_library,525832,494639,1020471,2384,100,15,0,0,2,50,1.08225,149.037,953.365
+r91_repeat_sop,525582,493965,1019547,2382,100,8,0,0,0,50,1.033603,146.844,912.628
+r91_repeat_shannon,525737,494518,1020255,2381,100,5,0,1,0,50,1.028344,147.409,976.948

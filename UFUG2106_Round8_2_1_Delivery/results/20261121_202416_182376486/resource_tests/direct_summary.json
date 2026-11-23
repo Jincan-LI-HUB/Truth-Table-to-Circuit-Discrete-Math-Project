@@ -1,0 +1,92 @@
+[
+  {
+    "kind": "wire",
+    "target": 10,
+    "ram_limit_kib": 9000,
+    "peak_rss_kib": 3840,
+    "synth_exit": 0,
+    "exhaustive": true,
+    "compliant": true
+  },
+  {
+    "kind": "not_wire",
+    "target": 10,
+    "ram_limit_kib": 9000,
+    "peak_rss_kib": 3840,
+    "synth_exit": 0,
+    "exhaustive": true,
+    "compliant": true
+  },
+  {
+    "kind": "constant_one",
+    "target": 10,
+    "ram_limit_kib": 9000,
+    "peak_rss_kib": 3840,
+    "synth_exit": 0,
+    "exhaustive": true,
+    "compliant": true
+  },
+  {
+    "kind": "xor2",
+    "target": 10,
+    "ram_limit_kib": 9000,
+    "peak_rss_kib": 3840,
+    "synth_exit": 0,
+    "exhaustive": true,
+    "compliant": true
+  },
+  {
+    "kind": "majority3",
+    "target": 10,
+    "ram_limit_kib": 9000,
+    "peak_rss_kib": 3840,
+    "synth_exit": 0,
+    "exhaustive": true,
+    "compliant": true
+  },
+  {
+    "kind": "multi",
+    "target": 10,
+    "ram_limit_kib": 9000,
+    "peak_rss_kib": 4032,
+    "synth_exit": 0,
+    "exhaustive": true,
+    "compliant": true
+  },
+  {
+    "kind": "four_var",
+    "target": 10,
+    "ram_limit_kib": 9000,
+    "peak_rss_kib": 3648,
+    "synth_exit": 0,
+    "exhaustive": true,
+    "compliant": true
+  },
+  {
+    "kind": "parity_all",
+    "target": 40,
+    "ram_limit_kib": 9000,
+    "peak_rss_kib": 3840,
+    "synth_exit": 0,
+    "exhaustive": true,
+    "compliant": true
+  },
+  {
+    "kind": "and_all",
+    "target": 10,
+    "ram_limit_kib": 9000,
+    "peak_rss_kib": 6528,
+    "synth_exit": 0,
+    "exhaustive": true,
+    "compliant": true
+  },
+  {
+    "kind": "or_all",
+    "target": 10,
+    "ram_limit_kib": 9000,
+    "peak_rss_kib": 6528,
+    "synth_exit": 0,
+    "exhaustive": true,
+    "compliant": true
+  }
+]

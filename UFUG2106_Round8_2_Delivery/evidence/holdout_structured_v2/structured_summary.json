@@ -1,0 +1,30 @@
+{
+  "r72": {
+    "area_sum": 14193,
+    "target_met": 24,
+    "median_ms_nonofficial": 9.193,
+    "area_better_than_r72": 0,
+    "area_regression": 0
+  },
+  "r82_fast_area": {
+    "area_sum": 13924,
+    "target_met": 24,
+    "median_ms_nonofficial": 12.304,
+    "area_better_than_r72": 16,
+    "area_regression": 0
+  },
+  "r82_fast_adp": {
+    "area_sum": 13939,
+    "target_met": 24,
+    "median_ms_nonofficial": 12.937,
+    "area_better_than_r72": 14,
+    "area_regression": 0
+  },
+  "r82_dual_area": {
+    "area_sum": 13897,
+    "target_met": 24,
+    "median_ms_nonofficial": 17.809,
+    "area_better_than_r72": 20,
+    "area_regression": 0
+  }
+}

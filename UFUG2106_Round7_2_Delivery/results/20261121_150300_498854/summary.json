@@ -1,0 +1,571 @@
+{
+  "milestone": "Round 7.2",
+  "official_grading_formula": "not provided",
+  "conditions": {
+    "runs": 2,
+    "quick": false,
+    "diagnostic_reps": 3,
+    "variants": [
+      "r51",
+      "r71_guard",
+      "r72_shortlist",
+      "r72_guard",
+      "r72_nocancel"
+    ],
+    "core_hypothesis": "short-budget bounded cubemode0 legacy candidate recovers QoR"
+  },
+  "fingerprints": {
+    "evaluator": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca",
+    "round71": "235c8e44b8d4fea73c04092fe05faf87cda7446ec82022306abf6416d4f8024a",
+    "round72": "f8fd550b16c65f58d4fb6a79c0dd83d9c3b1c535339ad92fdcd37e215ccf76ff",
+    "round51": "99733eacba2e84799e282087f9d93a307a1616c50cfb5d105a431b0a125db1e4"
+  },
+  "machine": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3"
+  },
+  "runs": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r51",
+      "evaluator_exit": 0,
+      "report": "run1_stage1_r51.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 48.642,
+        "p95_runtime_ms": 531.367,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r71_guard",
+      "evaluator_exit": 0,
+      "report": "run1_stage1_r71_guard.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529025,
+        "area_complete": true,
+        "median_runtime_ms": 48.129,
+        "p95_runtime_ms": 512.591,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r72_shortlist",
+      "evaluator_exit": 0,
+      "report": "run1_stage1_r72_shortlist.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 47.36,
+        "p95_runtime_ms": 538.034,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r72_guard",
+      "evaluator_exit": 0,
+      "report": "run1_stage1_r72_guard.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529025,
+        "area_complete": true,
+        "median_runtime_ms": 44.906,
+        "p95_runtime_ms": 515.883,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r72_nocancel",
+      "evaluator_exit": 0,
+      "report": "run1_stage1_r72_nocancel.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 46.271,
+        "p95_runtime_ms": 545.736,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r51",
+      "evaluator_exit": 0,
+      "report": "run1_stage2_r51.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 32.919,
+        "p95_runtime_ms": 526.583,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r71_guard",
+      "evaluator_exit": 0,
+      "report": "run1_stage2_r71_guard.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 29.985,
+        "p95_runtime_ms": 525.003,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r72_shortlist",
+      "evaluator_exit": 0,
+      "report": "run1_stage2_r72_shortlist.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 30.489,
+        "p95_runtime_ms": 516.009,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r72_guard",
+      "evaluator_exit": 0,
+      "report": "run1_stage2_r72_guard.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 31.033,
+        "p95_runtime_ms": 535.563,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r72_nocancel",
+      "evaluator_exit": 0,
+      "report": "run1_stage2_r72_nocancel.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 29.846,
+        "p95_runtime_ms": 504.779,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r72_nocancel",
+      "evaluator_exit": 0,
+      "report": "run2_stage1_r72_nocancel.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 47.088,
+        "p95_runtime_ms": 535.765,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r72_guard",
+      "evaluator_exit": 0,
+      "report": "run2_stage1_r72_guard.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529025,
+        "area_complete": true,
+        "median_runtime_ms": 49.154,
+        "p95_runtime_ms": 541.638,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r72_shortlist",
+      "evaluator_exit": 0,
+      "report": "run2_stage1_r72_shortlist.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 47.377,
+        "p95_runtime_ms": 547.933,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r71_guard",
+      "evaluator_exit": 0,
+      "report": "run2_stage1_r71_guard.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529025,
+        "area_complete": true,
+        "median_runtime_ms": 46.17,
+        "p95_runtime_ms": 543.708,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r51",
+      "evaluator_exit": 0,
+      "report": "run2_stage1_r51.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 49.009,
+        "p95_runtime_ms": 546.36,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r72_nocancel",
+      "evaluator_exit": 0,
+      "report": "run2_stage2_r72_nocancel.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 29.699,
+        "p95_runtime_ms": 513.263,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r72_guard",
+      "evaluator_exit": 0,
+      "report": "run2_stage2_r72_guard.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 30.976,
+        "p95_runtime_ms": 500.292,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r72_shortlist",
+      "evaluator_exit": 0,
+      "report": "run2_stage2_r72_shortlist.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 31.247,
+        "p95_runtime_ms": 515.09,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r71_guard",
+      "evaluator_exit": 0,
+      "report": "run2_stage2_r71_guard.csv",
+      "metrics": {
+        "pass_count": 25,
+        "target_met": 25,
+        "area_sum_of_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 31.238,
+        "p95_runtime_ms": 518.469,
+        "worst_runtime_fraction": null,
+        "failures": []
+      }
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r51",
+      "evaluator_exit": 1,
+      "report": "run2_stage2_r51.csv",
+      "metrics": {
+        "pass_count": 24,
+        "target_met": 24,
+        "area_sum_of_passed": 506754,
+        "area_complete": false,
+        "median_runtime_ms": 31.4365,
+        "p95_runtime_ms": 514.323,
+        "worst_runtime_fraction": null,
+        "failures": [
+          "case_016.txt"
+        ]
+      }
+    }
+  ],
+  "casewise_file": "casewise_comparison.csv",
+  "comparisons": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r51",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": -11.0,
+      "area_geomean_ratio": 0.99943,
+      "runtime_geomean_ratio": 1.167704,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r72_shortlist",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": -11.0,
+      "area_geomean_ratio": 0.99943,
+      "runtime_geomean_ratio": 0.984998,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r72_guard",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": 0.0,
+      "area_geomean_ratio": 1.0,
+      "runtime_geomean_ratio": 0.949997,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r72_nocancel",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": -11.0,
+      "area_geomean_ratio": 0.99943,
+      "runtime_geomean_ratio": 1.026026,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r51",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": 0.0,
+      "area_geomean_ratio": 1.0,
+      "runtime_geomean_ratio": 1.252782,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r72_shortlist",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": 0.0,
+      "area_geomean_ratio": 1.0,
+      "runtime_geomean_ratio": 1.030068,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r72_guard",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": 0.0,
+      "area_geomean_ratio": 1.0,
+      "runtime_geomean_ratio": 1.022945,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r72_nocancel",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": 0.0,
+      "area_geomean_ratio": 1.0,
+      "runtime_geomean_ratio": 0.99106,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r51",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": -11.0,
+      "area_geomean_ratio": 0.99943,
+      "runtime_geomean_ratio": 1.219379,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r72_shortlist",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": -11.0,
+      "area_geomean_ratio": 0.99943,
+      "runtime_geomean_ratio": 0.951159,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r72_guard",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": 0.0,
+      "area_geomean_ratio": 1.0,
+      "runtime_geomean_ratio": 1.024567,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r72_nocancel",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": -11.0,
+      "area_geomean_ratio": 0.99943,
+      "runtime_geomean_ratio": 0.989983,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r51",
+      "jointly_passed": 24,
+      "area_delta_on_common_pass": 0.0,
+      "area_geomean_ratio": 1.0,
+      "runtime_geomean_ratio": 1.178903,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": [
+        "case_016.txt"
+      ]
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r72_shortlist",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": 0.0,
+      "area_geomean_ratio": 1.0,
+      "runtime_geomean_ratio": 1.004424,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r72_guard",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": 0.0,
+      "area_geomean_ratio": 1.0,
+      "runtime_geomean_ratio": 0.963091,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r72_nocancel",
+      "jointly_passed": 25,
+      "area_delta_on_common_pass": 0.0,
+      "area_geomean_ratio": 1.0,
+      "runtime_geomean_ratio": 0.982394,
+      "regressions": [],
+      "failures_recovered": [],
+      "new_failures": []
+    }
+  ],
+  "diagnostics_exit": 0,
+  "release_gate_public_50_pass_target": true,
+  "quality_gate_vs_round71": true
+}

@@ -1,0 +1,4 @@
+case,eligible_roots,ranked_prefilter,quota,visited_in_top900,top900_skipped,selected_score_sum,top900_score_sum
+stage2/case_003,8864,1500,900,501,399,75200,81048
+stage2/case_005,51025,1500,900,663,237,89808,93600
+stage2/case_021,11808,1500,900,462,438,55727,58921

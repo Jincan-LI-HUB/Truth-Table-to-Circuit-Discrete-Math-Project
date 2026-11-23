@@ -1,0 +1,30 @@
+{
+  "seed": 820202,
+  "cases": {
+    "structured_001.txt": "f8464417d9b9fe1bbcafa9e99fcb0b51387e0ee80edebb52c38da9ab589d36db",
+    "structured_002.txt": "975fbca219609269e096e20e94657fb1326eb76e75d7d684a77919f2876c5638",
+    "structured_003.txt": "f105d840bb4efc6535573ef47802e61ce904893f244d0e9e43a330a0c68cb2f1",
+    "structured_004.txt": "002438bba8bfbc572dff3e4108655c94f5856bb1fbfb6162ac94641eebf5c132",
+    "structured_005.txt": "9c566724e8ae7eb26a5f3d65146083e480a4b659d66cc38e06320638ba2c9a1a",
+    "structured_006.txt": "b65251ada98cbd53898ee15089d670d6df6b9108f11a65494e8f2efbcbb1a4d6",
+    "structured_007.txt": "2668231d94e96d95639ca1f50c255ff5c9e3f395398f18a0f67268b336806923",
+    "structured_008.txt": "f8d94c940574b8dc24dca1b2efd92a96c9ec20a2faa1e7b5d71cd13ff7aa5bf5",
+    "structured_009.txt": "c7da4c0689e8263c601e884a8a66ea413046710df96baeda4e427bab1f7db0a9",
+    "structured_010.txt": "3019fa835312e3d58f7da18d36836981bb7124f78de8c38b6fbc426852bff080",
+    "structured_011.txt": "49c2ed55088da7e1b7a24bce01789d7fdff129935530d5c42caec28b0ecab22b",
+    "structured_012.txt": "8449f02aadc3735a226cd617b6e208ea65e098892ba6ef849b0860274559e8de",
+    "structured_013.txt": "d110f3e086ba85bab5a13e41e00c6205b3369438f882aa53a2f7afe20a66a324",
+    "structured_014.txt": "77ab1b9ee855ee9eb1f131ab2f40ff023a00563b03bf8d407e7dcca202bc9f88",
+    "structured_015.txt": "e423ddaa150cb9e290405f6e6322b928ce3fa1953a8f3e84339fe9085c732120",
+    "structured_016.txt": "cf9a430ab835ff5a1b3a3921e60e4a72b1cccda1e5ec05889c55b55ad34c4564",
+    "structured_017.txt": "a7d0c5b24e8da097308ed9c3828d4b5a72b6ccc9aae2782dcc229b3974c338bb",
+    "structured_018.txt": "171e0ab66d379bba3e67d0d0785e29388fa4bab01a6b1af884076653bb548079",
+    "structured_019.txt": "2bf20ad0ae6e2a065a291f014225dbdc557203862c7b8e47d9c350a1601df819",
+    "structured_020.txt": "9ca46877ecedaab33e8422d479af86bf13fbdd081a4beeef19c1bba614d1f86b",
+    "structured_021.txt": "526ab24639983dba8f60695d01d13d6622de9e230cc40f68b60b89315b1d7677",
+    "structured_022.txt": "0f4b2a7ce37c8d849e358d1dc68086811bebdd709f2ba85a6fb32f9b74afcfc9",
+    "structured_023.txt": "89324ce4c3f5dda70065a9e392781197645c7c40b29aa3bbc3489d443a7b1ad2",
+    "structured_024.txt": "76664a20ee91b402bd1dc284f6985c5d0c23f13cc81a002c204f0000a78177c3"
+  },
+  "design": "balanced XOR/MUX/Majority/function composites, support>=3, frozen prior to solver evaluation"
+}

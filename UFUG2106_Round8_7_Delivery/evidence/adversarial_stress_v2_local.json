@@ -1,0 +1,62 @@
+[
+  {
+    "case": "stress_001.txt",
+    "policy": "r86_baseline",
+    "supervisor_wall_ms": 129.046,
+    "limit_ms": 100,
+    "wall_exceeds_limit": true,
+    "exit_code": 0,
+    "exact": true,
+    "verify": "PASS exact_assignments=1048576 area=0 delay=0 target=170"
+  },
+  {
+    "case": "stress_001.txt",
+    "policy": "r86_extra_sop",
+    "supervisor_wall_ms": 125.351,
+    "limit_ms": 100,
+    "wall_exceeds_limit": true,
+    "exit_code": 0,
+    "exact": true,
+    "verify": "PASS exact_assignments=1048576 area=0 delay=0 target=170"
+  },
+  {
+    "case": "stress_002.txt",
+    "policy": "r86_baseline",
+    "supervisor_wall_ms": 120.136,
+    "limit_ms": 100,
+    "wall_exceeds_limit": true,
+    "exit_code": 0,
+    "exact": true,
+    "verify": "PASS exact_assignments=1048576 area=309 delay=24 target=170"
+  },
+  {
+    "case": "stress_002.txt",
+    "policy": "r86_extra_sop",
+    "supervisor_wall_ms": 123.927,
+    "limit_ms": 100,
+    "wall_exceeds_limit": true,
+    "exit_code": 0,
+    "exact": true,
+    "verify": "PASS exact_assignments=1048576 area=309 delay=24 target=170"
+  },
+  {
+    "case": "stress_003.txt",
+    "policy": "r86_baseline",
+    "supervisor_wall_ms": 41.39,
+    "limit_ms": 100,
+    "wall_exceeds_limit": false,
+    "exit_code": 0,
+    "exact": true,
+    "verify": "PASS exact_assignments=262144 area=2107 delay=62 target=170"
+  },
+  {
+    "case": "stress_003.txt",
+    "policy": "r86_extra_sop",
+    "supervisor_wall_ms": 42.467,
+    "limit_ms": 100,
+    "wall_exceeds_limit": false,
+    "exit_code": 0,
+    "exact": true,
+    "verify": "PASS exact_assignments=262144 area=2107 delay=62 target=170"
+  }
+]

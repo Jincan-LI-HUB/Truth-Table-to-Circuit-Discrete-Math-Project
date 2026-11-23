@@ -1,0 +1,166 @@
+{
+  "source_sha256": "62e4ad259f293ce4f36ce57908f8591ff2410aaa053d2bb3a03ff6ae6a4a28ef",
+  "count_official_evaluations": 800,
+  "all_pass": true,
+  "all_target_met": true,
+  "by_run": {
+    "1": {
+      "r72": {
+        "area": 1037549,
+        "saved": 0,
+        "better_cases": 0,
+        "delay_regressions": 0,
+        "runtime_gmean": 1.0,
+        "adp_gmean": 1.0,
+        "top5_gain": 0
+      },
+      "r80_iterate": {
+        "area": 1037494,
+        "saved": 55,
+        "better_cases": 1,
+        "delay_regressions": 1,
+        "runtime_gmean": 1.0201703478741107,
+        "adp_gmean": 1.0002390498301539,
+        "top5_gain": 55
+      },
+      "r81_sop": {
+        "area": 1025327,
+        "saved": 12222,
+        "better_cases": 27,
+        "delay_regressions": 5,
+        "runtime_gmean": 1.6398135441239161,
+        "adp_gmean": 1.0233997717215493,
+        "top5_gain": 12000
+      },
+      "r81_shannon": {
+        "area": 1024493,
+        "saved": 13056,
+        "better_cases": 25,
+        "delay_regressions": 6,
+        "runtime_gmean": 1.5732605493289031,
+        "adp_gmean": 1.0187057582414765,
+        "top5_gain": 12811
+      },
+      "r81_all": {
+        "area": 1028076,
+        "saved": 9473,
+        "better_cases": 30,
+        "delay_regressions": 6,
+        "runtime_gmean": 1.755235787022936,
+        "adp_gmean": 1.0302712748300897,
+        "top5_gain": 9217
+      },
+      "r81_branch": {
+        "area": 1023716,
+        "saved": 13833,
+        "better_cases": 30,
+        "delay_regressions": 6,
+        "runtime_gmean": 2.582869481058797,
+        "adp_gmean": 1.0196184866580262,
+        "top5_gain": 13473
+      },
+      "r81_strict": {
+        "area": 1037246,
+        "saved": 303,
+        "better_cases": 25,
+        "delay_regressions": 0,
+        "runtime_gmean": 2.5280109609035724,
+        "adp_gmean": 0.9989175353778028,
+        "top5_gain": 150
+      },
+      "r81_reverse": {
+        "area": 1023194,
+        "saved": 14355,
+        "better_cases": 30,
+        "delay_regressions": 6,
+        "runtime_gmean": 2.51366143244743,
+        "adp_gmean": 1.017714301435003,
+        "top5_gain": 13984
+      }
+    },
+    "2": {
+      "r72": {
+        "area": 1037549,
+        "saved": 0,
+        "better_cases": 0,
+        "delay_regressions": 0,
+        "runtime_gmean": 1.0,
+        "adp_gmean": 1.0,
+        "top5_gain": 0
+      },
+      "r80_iterate": {
+        "area": 1037494,
+        "saved": 55,
+        "better_cases": 1,
+        "delay_regressions": 1,
+        "runtime_gmean": 0.9976762541250856,
+        "adp_gmean": 1.0002390498301539,
+        "top5_gain": 55
+      },
+      "r81_sop": {
+        "area": 1025346,
+        "saved": 12203,
+        "better_cases": 27,
+        "delay_regressions": 5,
+        "runtime_gmean": 1.642098802290774,
+        "adp_gmean": 1.0234880698922282,
+        "top5_gain": 11981
+      },
+      "r81_shannon": {
+        "area": 1024605,
+        "saved": 12944,
+        "better_cases": 25,
+        "delay_regressions": 6,
+        "runtime_gmean": 1.507253015122542,
+        "adp_gmean": 1.0184337009885984,
+        "top5_gain": 12699
+      },
+      "r81_all": {
+        "area": 1027964,
+        "saved": 9585,
+        "better_cases": 30,
+        "delay_regressions": 6,
+        "runtime_gmean": 1.675539114216615,
+        "adp_gmean": 1.0300810732952024,
+        "top5_gain": 9337
+      },
+      "r81_branch": {
+        "area": 1024350,
+        "saved": 13199,
+        "better_cases": 30,
+        "delay_regressions": 6,
+        "runtime_gmean": 2.4832763776571274,
+        "adp_gmean": 1.0196494528497864,
+        "top5_gain": 12839
+      },
+      "r81_strict": {
+        "area": 1037244,
+        "saved": 305,
+        "better_cases": 25,
+        "delay_regressions": 0,
+        "runtime_gmean": 2.3952756644061424,
+        "adp_gmean": 0.9989170233685359,
+        "top5_gain": 150
+      },
+      "r81_reverse": {
+        "area": 1023286,
+        "saved": 14263,
+        "better_cases": 30,
+        "delay_regressions": 6,
+        "runtime_gmean": 2.4549764504041467,
+        "adp_gmean": 1.017590893529091,
+        "top5_gain": 13892
+      }
+    }
+  },
+  "measured_variant_area_only_oracle": {
+    "1": [
+      1023194,
+      1023154
+    ],
+    "2": [
+      1023286,
+      1023283
+    ]
+  }
+}

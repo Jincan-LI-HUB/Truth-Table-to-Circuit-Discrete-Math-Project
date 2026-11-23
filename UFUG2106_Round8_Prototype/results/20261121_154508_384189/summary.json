@@ -1,0 +1,579 @@
+{
+  "milestone": "Round 8 research prototype",
+  "run_count": 2,
+  "quick": false,
+  "objective": "QoR-first structural optimization after R7.2 incumbent; official scoring unknown",
+  "fingerprints": {
+    "round72": "f8fd550b16c65f58d4fb6a79c0dd83d9c3b1c535339ad92fdcd37e215ccf76ff",
+    "round8": "5fe43ea5ecaca0871f276e692ee4f6e0301d697616e1ffafc89bf95bb1b48dd0",
+    "evaluator": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca"
+  },
+  "host": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3"
+  },
+  "runs": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r72",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 46.999,
+        "max_runtime_ms": 1355.655,
+        "failed": []
+      },
+      "csv": "run1_stage1_r72.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r8_off",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 47.909,
+        "max_runtime_ms": 1459.695,
+        "failed": []
+      },
+      "csv": "run1_stage1_r8_off.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r8_factor",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 53.291,
+        "max_runtime_ms": 1876.11,
+        "failed": []
+      },
+      "csv": "run1_stage1_r8_factor.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r8_reuse",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 48.339,
+        "max_runtime_ms": 1361.598,
+        "failed": []
+      },
+      "csv": "run1_stage1_r8_reuse.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r8_strict",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 62.801,
+        "max_runtime_ms": 1423.767,
+        "failed": []
+      },
+      "csv": "run1_stage1_r8_strict.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r8_all",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 52.91,
+        "max_runtime_ms": 1236.025,
+        "failed": []
+      },
+      "csv": "run1_stage1_r8_all.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r8_iterate",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 51.403,
+        "max_runtime_ms": 1227.357,
+        "failed": []
+      },
+      "csv": "run1_stage1_r8_iterate.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r72",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 32.688,
+        "max_runtime_ms": 723.292,
+        "failed": []
+      },
+      "csv": "run1_stage2_r72.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r8_off",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 30.539,
+        "max_runtime_ms": 721.284,
+        "failed": []
+      },
+      "csv": "run1_stage2_r8_off.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r8_factor",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 32.295,
+        "max_runtime_ms": 719.471,
+        "failed": []
+      },
+      "csv": "run1_stage2_r8_factor.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r8_reuse",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508523,
+        "area_complete": true,
+        "median_runtime_ms": 31.272,
+        "max_runtime_ms": 727.178,
+        "failed": []
+      },
+      "csv": "run1_stage2_r8_reuse.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r8_strict",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 32.472,
+        "max_runtime_ms": 767.977,
+        "failed": []
+      },
+      "csv": "run1_stage2_r8_strict.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r8_all",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508523,
+        "area_complete": true,
+        "median_runtime_ms": 32.778,
+        "max_runtime_ms": 750.96,
+        "failed": []
+      },
+      "csv": "run1_stage2_r8_all.csv"
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r8_iterate",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508480,
+        "area_complete": true,
+        "median_runtime_ms": 32.131,
+        "max_runtime_ms": 848.626,
+        "failed": []
+      },
+      "csv": "run1_stage2_r8_iterate.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r8_iterate",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 51.529,
+        "max_runtime_ms": 1226.886,
+        "failed": []
+      },
+      "csv": "run2_stage1_r8_iterate.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r8_all",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 51.543,
+        "max_runtime_ms": 1231.881,
+        "failed": []
+      },
+      "csv": "run2_stage1_r8_all.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r8_strict",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 51.793,
+        "max_runtime_ms": 1211.402,
+        "failed": []
+      },
+      "csv": "run2_stage1_r8_strict.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r8_reuse",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 48.219,
+        "max_runtime_ms": 1303.215,
+        "failed": []
+      },
+      "csv": "run2_stage1_r8_reuse.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r8_factor",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 48.356,
+        "max_runtime_ms": 1278.642,
+        "failed": []
+      },
+      "csv": "run2_stage1_r8_factor.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r8_off",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 49.545,
+        "max_runtime_ms": 1188.511,
+        "failed": []
+      },
+      "csv": "run2_stage1_r8_off.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r72",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 529014,
+        "area_complete": true,
+        "median_runtime_ms": 50.22,
+        "max_runtime_ms": 1185.552,
+        "failed": []
+      },
+      "csv": "run2_stage1_r72.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r8_iterate",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508480,
+        "area_complete": true,
+        "median_runtime_ms": 32.703,
+        "max_runtime_ms": 755.329,
+        "failed": []
+      },
+      "csv": "run2_stage2_r8_iterate.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r8_all",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508523,
+        "area_complete": true,
+        "median_runtime_ms": 32.928,
+        "max_runtime_ms": 760.462,
+        "failed": []
+      },
+      "csv": "run2_stage2_r8_all.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r8_strict",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 33.343,
+        "max_runtime_ms": 760.939,
+        "failed": []
+      },
+      "csv": "run2_stage2_r8_strict.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r8_reuse",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508523,
+        "area_complete": true,
+        "median_runtime_ms": 32.012,
+        "max_runtime_ms": 750.176,
+        "failed": []
+      },
+      "csv": "run2_stage2_r8_reuse.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r8_factor",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 32.678,
+        "max_runtime_ms": 757.661,
+        "failed": []
+      },
+      "csv": "run2_stage2_r8_factor.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r8_off",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 30.698,
+        "max_runtime_ms": 759.644,
+        "failed": []
+      },
+      "csv": "run2_stage2_r8_off.csv"
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r72",
+      "exit": 0,
+      "metrics": {
+        "pass": 25,
+        "target_met": 25,
+        "area_passed": 508535,
+        "area_complete": true,
+        "median_runtime_ms": 35.19,
+        "max_runtime_ms": 866.78,
+        "failed": []
+      },
+      "csv": "run2_stage2_r72.csv"
+    }
+  ],
+  "comparisons": [
+    {
+      "stage": "stage1",
+      "variant": "r8_off",
+      "area_delta_common_passed": 0,
+      "area_improvements": 0,
+      "delay_regressions": 0,
+      "runtime_gmean_ratio": 1.002141,
+      "new_failures": []
+    },
+    {
+      "stage": "stage1",
+      "variant": "r8_factor",
+      "area_delta_common_passed": 0,
+      "area_improvements": 0,
+      "delay_regressions": 0,
+      "runtime_gmean_ratio": 1.038599,
+      "new_failures": []
+    },
+    {
+      "stage": "stage1",
+      "variant": "r8_reuse",
+      "area_delta_common_passed": 0,
+      "area_improvements": 0,
+      "delay_regressions": 0,
+      "runtime_gmean_ratio": 0.982954,
+      "new_failures": []
+    },
+    {
+      "stage": "stage1",
+      "variant": "r8_strict",
+      "area_delta_common_passed": 0,
+      "area_improvements": 0,
+      "delay_regressions": 0,
+      "runtime_gmean_ratio": 1.018042,
+      "new_failures": []
+    },
+    {
+      "stage": "stage1",
+      "variant": "r8_all",
+      "area_delta_common_passed": 0,
+      "area_improvements": 0,
+      "delay_regressions": 0,
+      "runtime_gmean_ratio": 1.00565,
+      "new_failures": []
+    },
+    {
+      "stage": "stage1",
+      "variant": "r8_iterate",
+      "area_delta_common_passed": 0,
+      "area_improvements": 0,
+      "delay_regressions": 0,
+      "runtime_gmean_ratio": 0.999551,
+      "new_failures": []
+    },
+    {
+      "stage": "stage2",
+      "variant": "r8_off",
+      "area_delta_common_passed": 0,
+      "area_improvements": 0,
+      "delay_regressions": 0,
+      "runtime_gmean_ratio": 0.968721,
+      "new_failures": []
+    },
+    {
+      "stage": "stage2",
+      "variant": "r8_factor",
+      "area_delta_common_passed": 0,
+      "area_improvements": 0,
+      "delay_regressions": 0,
+      "runtime_gmean_ratio": 0.958736,
+      "new_failures": []
+    },
+    {
+      "stage": "stage2",
+      "variant": "r8_reuse",
+      "area_delta_common_passed": -24,
+      "area_improvements": 2,
+      "delay_regressions": 2,
+      "runtime_gmean_ratio": 0.933719,
+      "new_failures": []
+    },
+    {
+      "stage": "stage2",
+      "variant": "r8_strict",
+      "area_delta_common_passed": 0,
+      "area_improvements": 0,
+      "delay_regressions": 0,
+      "runtime_gmean_ratio": 0.961772,
+      "new_failures": []
+    },
+    {
+      "stage": "stage2",
+      "variant": "r8_all",
+      "area_delta_common_passed": -24,
+      "area_improvements": 2,
+      "delay_regressions": 2,
+      "runtime_gmean_ratio": 0.97343,
+      "new_failures": []
+    },
+    {
+      "stage": "stage2",
+      "variant": "r8_iterate",
+      "area_delta_common_passed": -110,
+      "area_improvements": 2,
+      "delay_regressions": 2,
+      "runtime_gmean_ratio": 0.993025,
+      "new_failures": []
+    }
+  ],
+  "release_gate": {
+    "feasibility": true,
+    "no_area_regression_on_common_pass": true
+  }
+}

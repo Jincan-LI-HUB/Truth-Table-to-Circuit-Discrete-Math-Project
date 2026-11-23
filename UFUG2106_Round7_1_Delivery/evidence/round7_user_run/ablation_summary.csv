@@ -1,0 +1,17 @@
+run,stage,variant,pass,cases,targets,paired_pass,area_sum_valid,area_sum_complete,area_improved,area_equal,area_regressed,runtime_geomean_ratio_common_pass,failures
+1,stage1,default,25,25,25,25,529014,True,0,25,0,0.987352,
+1,stage1,legacy_both,25,25,25,25,529014,True,0,25,0,1.005098,
+1,stage1,legacy_cover,25,25,25,25,529014,True,0,25,0,0.959663,
+1,stage1,legacy_merge,25,25,25,25,529014,True,0,25,0,0.941732,
+1,stage2,default,24,25,24,24,506754,False,0,24,0,0.917345,case_016.txt
+1,stage2,legacy_both,25,25,25,24,508535,True,0,24,0,0.958086,
+1,stage2,legacy_cover,25,25,25,24,508535,True,0,24,0,0.959889,
+1,stage2,legacy_merge,25,25,25,24,508535,True,0,24,0,0.977733,
+2,stage1,default,25,25,25,25,529014,True,0,25,0,0.984911,
+2,stage1,legacy_both,25,25,25,25,529014,True,0,25,0,1.029378,
+2,stage1,legacy_cover,25,25,25,25,529014,True,0,25,0,1.005101,
+2,stage1,legacy_merge,25,25,25,25,529014,True,0,25,0,0.998517,
+2,stage2,default,24,25,24,24,506754,False,0,24,0,0.929614,case_016.txt
+2,stage2,legacy_both,25,25,25,25,508535,True,0,25,0,1.039612,
+2,stage2,legacy_cover,25,25,25,25,508535,True,0,25,0,0.952317,
+2,stage2,legacy_merge,25,25,25,25,508535,True,0,25,0,0.955834,

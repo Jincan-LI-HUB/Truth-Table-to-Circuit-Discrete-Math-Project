@@ -1,0 +1,153 @@
+[
+  {
+    "case": "003",
+    "sha256": "f598074911fc6d71435d9cd281936bc107bc563d8f8d143975d304643e6b96df",
+    "elapsed_ms_local": 628.248,
+    "verification": "PASS exact_assignments=1048576 area=17283 delay=65 target=65",
+    "stages": [
+      {
+        "policy": "stable_dual_area",
+        "mode": "shannon",
+        "work_cap": "900",
+        "visited": "900",
+        "cuts": "6808",
+        "materializations": "24029",
+        "work_hit": "1",
+        "wall_hit": "0",
+        "elapsed_ms": "48.1607",
+        "area": "17952",
+        "delay": "52",
+        "updated": "1"
+      },
+      {
+        "policy": "stable_dual_area",
+        "mode": "sop",
+        "work_cap": "900",
+        "visited": "900",
+        "cuts": "6808",
+        "materializations": "27232",
+        "work_hit": "1",
+        "wall_hit": "0",
+        "elapsed_ms": "79.9891",
+        "area": "17283",
+        "delay": "65",
+        "updated": "1"
+      }
+    ]
+  },
+  {
+    "case": "005",
+    "sha256": "ef9e9c631f65ca2b6b41dff69e59c0718d3d6d85b75e13214ac1f7af5961e988",
+    "elapsed_ms_local": 938.012,
+    "verification": "PASS exact_assignments=131072 area=106771 delay=67 target=69",
+    "stages": [
+      {
+        "policy": "stable_dual_area",
+        "mode": "shannon",
+        "work_cap": "900",
+        "visited": "900",
+        "cuts": "5943",
+        "materializations": "20263",
+        "work_hit": "1",
+        "wall_hit": "0",
+        "elapsed_ms": "79.6516",
+        "area": "110050",
+        "delay": "46",
+        "updated": "1"
+      },
+      {
+        "policy": "stable_dual_area",
+        "mode": "sop",
+        "work_cap": "900",
+        "visited": "900",
+        "cuts": "5943",
+        "materializations": "23772",
+        "work_hit": "1",
+        "wall_hit": "0",
+        "elapsed_ms": "106.125",
+        "area": "106771",
+        "delay": "67",
+        "updated": "1"
+      }
+    ]
+  },
+  {
+    "case": "016",
+    "sha256": "176cbd52f7caa636737717ba9b42b1fddd45a90a4bd359735a09c683dbae7f9a",
+    "elapsed_ms_local": 35.224,
+    "verification": "PASS exact_assignments=512 area=1781 delay=36 target=42",
+    "stages": []
+  },
+  {
+    "case": "017",
+    "sha256": "0e82a1ab2cac9c7e354390c6e37159d08957f1a52753668714a5e8f88d899846",
+    "elapsed_ms_local": 129.488,
+    "verification": "PASS exact_assignments=4096 area=14168 delay=49 target=57",
+    "stages": [
+      {
+        "policy": "stable_dual_area",
+        "mode": "shannon",
+        "work_cap": "600",
+        "visited": "600",
+        "cuts": "4194",
+        "materializations": "14672",
+        "work_hit": "1",
+        "wall_hit": "0",
+        "elapsed_ms": "22.9744",
+        "area": "14168",
+        "delay": "49",
+        "updated": "1"
+      },
+      {
+        "policy": "stable_dual_area",
+        "mode": "sop",
+        "work_cap": "600",
+        "visited": "600",
+        "cuts": "4194",
+        "materializations": "16776",
+        "work_hit": "1",
+        "wall_hit": "0",
+        "elapsed_ms": "32.627",
+        "area": "14168",
+        "delay": "49",
+        "updated": "0"
+      }
+    ]
+  },
+  {
+    "case": "021",
+    "sha256": "52518bcf7edd6ca20ba63e2aadcf379f92c6200903313d4172b6be10634bc9b6",
+    "elapsed_ms_local": 399.002,
+    "verification": "PASS exact_assignments=65536 area=22579 delay=69 target=70",
+    "stages": [
+      {
+        "policy": "stable_dual_area",
+        "mode": "shannon",
+        "work_cap": "900",
+        "visited": "900",
+        "cuts": "6859",
+        "materializations": "24161",
+        "work_hit": "1",
+        "wall_hit": "0",
+        "elapsed_ms": "31.213",
+        "area": "22590",
+        "delay": "69",
+        "updated": "0"
+      },
+      {
+        "policy": "stable_dual_area",
+        "mode": "sop",
+        "work_cap": "900",
+        "visited": "900",
+        "cuts": "6859",
+        "materializations": "27436",
+        "work_hit": "1",
+        "wall_hit": "0",
+        "elapsed_ms": "48.1345",
+        "area": "22579",
+        "delay": "69",
+        "updated": "1"
+      }
+    ]
+  }
+]

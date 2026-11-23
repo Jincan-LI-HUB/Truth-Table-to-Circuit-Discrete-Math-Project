@@ -1,0 +1,580 @@
+{
+  "milestone": "Round8.6",
+  "course_official_evaluator_used": true,
+  "runs": 2,
+  "quick": false,
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "fingerprints": {
+    "evaluator": "142361d7ce18bc47dea6a07538db79a588b3afbf446526c1d1246f4968b3d0ca",
+    "r85_executable": "0ec1665d41df94fdaebed970eef0e5fd0e46e3a808d89c8bf6d050e489cd5111",
+    "r86_executable": "7212d1f2d867017562dbf2bc028173e4ab65ad912379a2e4ba8f8be5ec1d967d",
+    "r85_source": "fa0421e3fbb9d1058a3b389e00ba57c85e9ca0cf44e7f5cd2e4428545bb7d969",
+    "r86_source": "6d21a7d3cf80a8662f4f42a965e84c50d6cffcef7766a4d2dccf282c204078d8"
+  },
+  "records": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_dual",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 150.762
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135,
+      "median_ms": 170.978
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r86_baseline",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 147.583
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r86_extra_sop",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135,
+      "median_ms": 163.438
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r86_time_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 146.465
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r86_combined",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135,
+      "median_ms": 168.281
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r86_reverse",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526187,
+      "median_ms": 161.897
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_dual",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 90.742
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999,
+      "median_ms": 104.656
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r86_baseline",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 102.431
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r86_extra_sop",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999,
+      "median_ms": 107.818
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r86_time_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 95.163
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r86_combined",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999,
+      "median_ms": 105.019
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r86_reverse",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497771,
+      "median_ms": 103.372
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r86_reverse",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526187,
+      "median_ms": 164.873
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r86_combined",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135,
+      "median_ms": 167.699
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r86_time_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 148.228
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r86_extra_sop",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135,
+      "median_ms": 165.643
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r86_baseline",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 156.033
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526135,
+      "median_ms": 171.781
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_dual",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 526193,
+      "median_ms": 148.42
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r86_reverse",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497771,
+      "median_ms": 101.946
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r86_combined",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999,
+      "median_ms": 103.775
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r86_time_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 94.848
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r86_extra_sop",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999,
+      "median_ms": 109.554
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r86_baseline",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 100.661
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_reclaim",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 494999,
+      "median_ms": 105.173
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_dual",
+      "exit": 0,
+      "passed": 25,
+      "target_met": 25,
+      "area_sum": 497785,
+      "median_ms": 93.089
+    }
+  ],
+  "paired": [
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_dual",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0371228344576227
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r85_reclaim",
+      "reference": "r86_baseline",
+      "delta_area": -58,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0558887961476544
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r86_baseline",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r86_extra_sop",
+      "reference": "r86_baseline",
+      "delta_area": -58,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0501382084598103
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r86_time_reclaim",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0131088809963222
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r86_combined",
+      "reference": "r86_baseline",
+      "delta_area": -58,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0597956694323492
+    },
+    {
+      "run": 1,
+      "stage": "stage1",
+      "variant": "r86_reverse",
+      "reference": "r86_baseline",
+      "delta_area": -6,
+      "area_equal": 23,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0311031610888908
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_dual",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 0.9775832418651157
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r85_reclaim",
+      "reference": "r86_baseline",
+      "delta_area": -2786,
+      "area_equal": 19,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.012697456697168
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r86_baseline",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r86_extra_sop",
+      "reference": "r86_baseline",
+      "delta_area": -2786,
+      "area_equal": 19,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0353107795549643
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r86_time_reclaim",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 0.9891608823466415
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r86_combined",
+      "reference": "r86_baseline",
+      "delta_area": -2786,
+      "area_equal": 19,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0226948731783
+    },
+    {
+      "run": 1,
+      "stage": "stage2",
+      "variant": "r86_reverse",
+      "reference": "r86_baseline",
+      "delta_area": -14,
+      "area_equal": 22,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0054163526654776
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r86_reverse",
+      "reference": "r86_baseline",
+      "delta_area": -6,
+      "area_equal": 23,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.018326567666928
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r86_combined",
+      "reference": "r86_baseline",
+      "delta_area": -58,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.040113134325744
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r86_time_reclaim",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 0.9580766148220102
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r86_extra_sop",
+      "reference": "r86_baseline",
+      "delta_area": -58,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0163270221342842
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r86_baseline",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_reclaim",
+      "reference": "r86_baseline",
+      "delta_area": -58,
+      "area_equal": 21,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0748554059208102
+    },
+    {
+      "run": 2,
+      "stage": "stage1",
+      "variant": "r85_dual",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 0.9687171078879938
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r86_reverse",
+      "reference": "r86_baseline",
+      "delta_area": -14,
+      "area_equal": 22,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0383759201682863
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r86_combined",
+      "reference": "r86_baseline",
+      "delta_area": -2786,
+      "area_equal": 19,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 0.9979013214815363
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r86_time_reclaim",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 0.9646319360143669
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r86_extra_sop",
+      "reference": "r86_baseline",
+      "delta_area": -2786,
+      "area_equal": 19,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.050491762193653
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r86_baseline",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.0
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_reclaim",
+      "reference": "r86_baseline",
+      "delta_area": -2786,
+      "area_equal": 19,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 1.016474492908045
+    },
+    {
+      "run": 2,
+      "stage": "stage2",
+      "variant": "r85_dual",
+      "reference": "r86_baseline",
+      "delta_area": 0,
+      "area_equal": 25,
+      "delay_equal": 25,
+      "geomean_runtime_ratio": 0.9848860731204861
+    }
+  ],
+  "no_hidden_test_claim": true,
+  "no_positive_ram_claim": true
+}

@@ -1,0 +1,241 @@
+stage,case,variant,area,delay,target,wall_ms,verified,profile
+stage2,case_001,r81_branch,2046,32,41,195.74,True,"R81_STAGE mode=sop area=2046 delay=32 attempt_ms=46.4884 visited=975 cuts=6147 sop=24588 shannon=0 selected=13 zero_gain=0 timing_reject=0 budget_hit=0 accepted=1
+R81_STAGE mode=shannon area=2046 delay=34 attempt_ms=28.3184 visited=975 cuts=6147 sop=0 shannon=20575 selected=13 zero_gain=0 timing_reject=64 budget_hit=0 accepted=0
+R81_STAGE mode=all area=2048 delay=34 attempt_ms=66.1756 visited=927 cuts=5801 sop=23204 shannon=19378 selected=14 zero_gain=0 timing_reject=72 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=sop area=2046 delay=32
+completed=4 chosen=0 area=2046 delay=32
+"
+stage2,case_001,r81_strict,2046,32,41,198.92,True,"R81_STAGE mode=sop area=2046 delay=32 attempt_ms=51.0247 visited=975 cuts=6147 sop=24588 shannon=0 selected=13 zero_gain=0 timing_reject=0 budget_hit=0 accepted=1
+R81_STAGE mode=shannon area=2046 delay=34 attempt_ms=27.5492 visited=975 cuts=6147 sop=0 shannon=20575 selected=13 zero_gain=0 timing_reject=64 budget_hit=0 accepted=0
+R81_STAGE mode=all area=2048 delay=34 attempt_ms=66.8791 visited=927 cuts=5801 sop=23204 shannon=19378 selected=14 zero_gain=0 timing_reject=72 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=sop area=2046 delay=32
+completed=4 chosen=0 area=2046 delay=32
+"
+stage2,case_002,r81_branch,58681,68,86,1472.77,True,"R81_STAGE mode=sop area=58681 delay=68 attempt_ms=165.429 visited=1567 cuts=11092 sop=44368 shannon=0 selected=4 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=58689 delay=68 attempt_ms=164.367 visited=1983 cuts=14091 sop=0 shannon=47920 selected=3 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=all area=58687 delay=68 attempt_ms=90.5462 visited=671 cuts=4681 sop=18724 shannon=15778 selected=2 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=sop area=58681 delay=68
+completed=7 chosen=1 area=58681 delay=68
+"
+stage2,case_002,r81_strict,58687,68,86,1397.21,True,"R81_STAGE mode=sop area=58687 delay=68 attempt_ms=166.036 visited=1535 cuts=10863 sop=43452 shannon=0 selected=2 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=58689 delay=68 attempt_ms=166.523 visited=1983 cuts=14091 sop=0 shannon=47920 selected=3 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=all area=58687 delay=68 attempt_ms=90.3504 visited=671 cuts=4681 sop=18724 shannon=15778 selected=2 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=sop area=58687 delay=68
+completed=7 chosen=1 area=58687 delay=68
+"
+stage2,case_003,r81_branch,15932,61,65,812.2,True,"R81_STAGE mode=sop area=16379 delay=65 attempt_ms=162.241 visited=1823 cuts=13036 sop=52144 shannon=0 selected=1416 zero_gain=0 timing_reject=26 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=15932 delay=61 attempt_ms=129.411 visited=2216 cuts=15879 sop=0 shannon=54205 selected=1345 zero_gain=0 timing_reject=17 budget_hit=0 accepted=1
+R81_STAGE mode=all area=17461 delay=65 attempt_ms=151.705 visited=1151 cuts=8157 sop=32628 shannon=27799 selected=869 zero_gain=0 timing_reject=92 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=shannon area=15932 delay=61
+completed=4 chosen=0 area=15932 delay=61
+"
+stage2,case_003,r81_strict,19494,39,65,808.62,True,"R81_STAGE mode=sop area=16515 delay=65 attempt_ms=162.562 visited=1759 cuts=12593 sop=50372 shannon=0 selected=1364 zero_gain=0 timing_reject=26 budget_hit=1 accepted=0
+R81_STAGE mode=shannon area=15932 delay=61 attempt_ms=125.817 visited=2216 cuts=15879 sop=0 shannon=54205 selected=1345 zero_gain=0 timing_reject=17 budget_hit=0 accepted=0
+R81_STAGE mode=all area=17461 delay=65 attempt_ms=153.266 visited=1151 cuts=8157 sop=32628 shannon=27799 selected=869 zero_gain=0 timing_reject=92 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=base area=19494 delay=39
+completed=4 chosen=0 area=19494 delay=39
+"
+stage2,case_004,r81_branch,928,23,42,134.23,True,"R81_STAGE mode=sop area=928 delay=23 attempt_ms=28.2496 visited=603 cuts=3433 sop=13732 shannon=0 selected=1 zero_gain=0 timing_reject=0 budget_hit=0 accepted=1
+R81_STAGE mode=shannon area=932 delay=23 attempt_ms=17.9048 visited=603 cuts=3433 sop=0 shannon=11097 selected=0 zero_gain=0 timing_reject=0 budget_hit=0 accepted=0
+R81_STAGE mode=all area=928 delay=23 attempt_ms=40.557 visited=603 cuts=3433 sop=13732 shannon=11097 selected=1 zero_gain=0 timing_reject=0 budget_hit=0 accepted=0
+R81_FINAL policy=branch selected=sop area=928 delay=23
+completed=4 chosen=0 area=928 delay=23
+"
+stage2,case_004,r81_strict,928,23,42,133.11,True,"R81_STAGE mode=sop area=928 delay=23 attempt_ms=27.2245 visited=603 cuts=3433 sop=13732 shannon=0 selected=1 zero_gain=0 timing_reject=0 budget_hit=0 accepted=1
+R81_STAGE mode=shannon area=932 delay=23 attempt_ms=19.7591 visited=603 cuts=3433 sop=0 shannon=11097 selected=0 zero_gain=0 timing_reject=0 budget_hit=0 accepted=0
+R81_STAGE mode=all area=928 delay=23 attempt_ms=41.3314 visited=603 cuts=3433 sop=13732 shannon=11097 selected=1 zero_gain=0 timing_reject=0 budget_hit=0 accepted=0
+R81_FINAL policy=branch_strict selected=sop area=928 delay=23
+completed=4 chosen=0 area=928 delay=23
+"
+stage2,case_005,r81_branch,109073,55,69,1525.32,True,"R81_STAGE mode=sop area=109362 delay=56 attempt_ms=166.136 visited=1311 cuts=9537 sop=38148 shannon=0 selected=923 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=109073 delay=55 attempt_ms=164.258 visited=1567 cuts=11388 sop=0 shannon=38886 selected=885 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=all area=111155 delay=54 attempt_ms=85.2613 visited=543 cuts=3866 sop=15464 shannon=13154 selected=353 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=shannon area=109073 delay=55
+completed=7 chosen=5 area=109073 delay=55
+"
+stage2,case_005,r81_strict,112221,40,69,1444.55,True,"R81_STAGE mode=sop area=109167 delay=56 attempt_ms=169.525 visited=1375 cuts=10003 sop=40012 shannon=0 selected=979 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=shannon area=108879 delay=55 attempt_ms=164.785 visited=1631 cuts=11858 sop=0 shannon=40495 selected=929 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=all area=111021 delay=54 attempt_ms=92.8643 visited=607 cuts=4340 sop=17360 shannon=14775 selected=398 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=base area=112221 delay=40
+completed=7 chosen=5 area=112221 delay=40
+"
+stage2,case_006,r81_branch,8824,49,56,208.96,True,"R81_STAGE mode=sop area=8826 delay=49 attempt_ms=65.9376 visited=1119 cuts=7705 sop=30820 shannon=0 selected=2 zero_gain=0 timing_reject=62 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=8824 delay=49 attempt_ms=66.1227 visited=1727 cuts=12184 sop=0 shannon=41905 selected=5 zero_gain=0 timing_reject=624 budget_hit=1 accepted=1
+R81_STAGE mode=all area=8828 delay=49 attempt_ms=22.8317 visited=319 cuts=1958 sop=7832 shannon=6465 selected=2 zero_gain=0 timing_reject=18 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=shannon area=8824 delay=49
+completed=5 chosen=3 area=8824 delay=49
+"
+stage2,case_006,r81_strict,8824,49,56,209.79,True,"R81_STAGE mode=sop area=8826 delay=49 attempt_ms=66.7313 visited=1087 cuts=7461 sop=29844 shannon=0 selected=2 zero_gain=0 timing_reject=62 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=8824 delay=49 attempt_ms=67.1711 visited=1599 cuts=11243 sop=0 shannon=38631 selected=5 zero_gain=0 timing_reject=529 budget_hit=1 accepted=1
+R81_STAGE mode=all area=8828 delay=49 attempt_ms=21.7255 visited=287 cuts=1748 sop=6992 shannon=5754 selected=2 zero_gain=0 timing_reject=18 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=shannon area=8824 delay=49
+completed=5 chosen=3 area=8824 delay=49
+"
+stage2,case_007,r81_branch,1250,52,52,12.24,True,"completed=5 chosen=4 area=1250 delay=52
+"
+stage2,case_007,r81_strict,1250,52,52,12.28,True,"completed=5 chosen=4 area=1250 delay=52
+"
+stage2,case_008,r81_branch,952,30,36,10.78,True,"completed=6 chosen=2 area=952 delay=30
+"
+stage2,case_008,r81_strict,952,30,36,10.95,True,"completed=6 chosen=2 area=952 delay=30
+"
+stage2,case_009,r81_branch,1169,25,40,10.25,True,"completed=6 chosen=1 area=1169 delay=25
+"
+stage2,case_009,r81_strict,1169,25,40,9.97,True,"completed=6 chosen=1 area=1169 delay=25
+"
+stage2,case_010,r81_branch,235,22,23,3.75,True,"completed=6 chosen=4 area=235 delay=22
+"
+stage2,case_010,r81_strict,235,22,23,3.15,True,"completed=6 chosen=4 area=235 delay=22
+"
+stage2,case_011,r81_branch,52454,62,79,1283.61,True,"R81_STAGE mode=sop area=52454 delay=62 attempt_ms=167.435 visited=1535 cuts=10984 sop=43936 shannon=0 selected=3 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=52463 delay=62 attempt_ms=180.33 visited=1983 cuts=14278 sop=0 shannon=48745 selected=0 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=all area=52463 delay=62 attempt_ms=81.8554 visited=607 cuts=4215 sop=16860 shannon=14287 selected=0 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=sop area=52454 delay=62
+completed=10 chosen=1 area=52454 delay=62
+"
+stage2,case_011,r81_strict,52454,62,79,1225.8,True,"R81_STAGE mode=sop area=52454 delay=62 attempt_ms=167.973 visited=1631 cuts=11688 sop=46752 shannon=0 selected=3 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=52463 delay=62 attempt_ms=175.841 visited=2015 cuts=14516 sop=0 shannon=49578 selected=0 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=all area=52463 delay=62 attempt_ms=83.7616 visited=639 cuts=4449 sop=17796 shannon=15084 selected=0 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=sop area=52454 delay=62
+completed=10 chosen=1 area=52454 delay=62
+"
+stage2,case_012,r81_branch,4130,38,43,233.01,True,"R81_STAGE mode=sop area=4149 delay=38 attempt_ms=67.2622 visited=1151 cuts=7743 sop=30972 shannon=0 selected=1 zero_gain=0 timing_reject=404 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=4130 delay=38 attempt_ms=65.4912 visited=1727 cuts=11869 sop=0 shannon=40506 selected=10 zero_gain=0 timing_reject=3051 budget_hit=1 accepted=1
+R81_STAGE mode=all area=4149 delay=38 attempt_ms=24.7181 visited=351 cuts=2083 sop=8332 shannon=6846 selected=2 zero_gain=0 timing_reject=679 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=shannon area=4130 delay=38
+completed=8 chosen=2 area=4130 delay=38
+"
+stage2,case_012,r81_strict,4130,38,43,221.04,True,"R81_STAGE mode=sop area=4149 delay=38 attempt_ms=65.6378 visited=1087 cuts=7260 sop=29040 shannon=0 selected=1 zero_gain=0 timing_reject=404 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=4130 delay=38 attempt_ms=66.0971 visited=1631 cuts=11176 sop=0 shannon=38114 selected=10 zero_gain=0 timing_reject=2824 budget_hit=1 accepted=1
+R81_STAGE mode=all area=4149 delay=38 attempt_ms=23.8381 visited=319 cuts=1864 sop=7456 shannon=6101 selected=2 zero_gain=0 timing_reject=608 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=shannon area=4130 delay=38
+completed=8 chosen=2 area=4130 delay=38
+"
+stage2,case_013,r81_branch,115722,66,78,1848.85,True,"R81_STAGE mode=sop area=115732 delay=66 attempt_ms=169.913 visited=1375 cuts=9901 sop=39604 shannon=0 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=115722 delay=66 attempt_ms=167.347 visited=1663 cuts=11994 sop=0 shannon=41562 selected=3 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=all area=115732 delay=66 attempt_ms=59.3516 visited=383 cuts=2705 sop=10820 shannon=9292 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=shannon area=115722 delay=66
+completed=4 chosen=1 area=115722 delay=66
+"
+stage2,case_013,r81_strict,115722,66,78,1723.43,True,"R81_STAGE mode=sop area=115732 delay=66 attempt_ms=167.784 visited=1279 cuts=9197 sop=36788 shannon=0 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=115722 delay=66 attempt_ms=165.623 visited=1599 cuts=11533 sop=0 shannon=39963 selected=3 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=all area=115732 delay=66 attempt_ms=80.0118 visited=511 cuts=3645 sop=14580 shannon=12558 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=shannon area=115722 delay=66
+completed=4 chosen=1 area=115722 delay=66
+"
+stage2,case_014,r81_branch,62531,66,83,990.29,True,"R81_STAGE mode=sop area=62533 delay=66 attempt_ms=163.534 visited=1695 cuts=12191 sop=48764 shannon=0 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=62531 delay=66 attempt_ms=164.566 visited=2271 cuts=16372 sop=0 shannon=56709 selected=2 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=all area=62533 delay=66 attempt_ms=64.5461 visited=511 cuts=3579 sop=14316 shannon=12314 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=shannon area=62531 delay=66
+completed=4 chosen=0 area=62531 delay=66
+"
+stage2,case_014,r81_strict,62531,66,83,1053.34,True,"R81_STAGE mode=sop area=62533 delay=66 attempt_ms=168.703 visited=1599 cuts=11502 sop=46008 shannon=0 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=62531 delay=66 attempt_ms=164.57 visited=2143 cuts=15450 sop=0 shannon=53500 selected=2 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=all area=62533 delay=66 attempt_ms=85.3656 visited=639 cuts=4496 sop=17984 shannon=15490 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=shannon area=62531 delay=66
+completed=4 chosen=0 area=62531 delay=66
+"
+stage2,case_015,r81_branch,7644,48,55,210.79,True,"R81_STAGE mode=sop area=7656 delay=48 attempt_ms=67.1115 visited=1087 cuts=7619 sop=30476 shannon=0 selected=0 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=shannon area=7644 delay=48 attempt_ms=66.4905 visited=1631 cuts=11591 sop=0 shannon=39942 selected=5 zero_gain=0 timing_reject=70 budget_hit=1 accepted=1
+R81_STAGE mode=all area=7654 delay=48 attempt_ms=21.797 visited=287 cuts=1785 sop=7140 shannon=5917 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=shannon area=7644 delay=48
+completed=5 chosen=2 area=7644 delay=48
+"
+stage2,case_015,r81_strict,7644,48,55,208.13,True,"R81_STAGE mode=sop area=7656 delay=48 attempt_ms=67.6206 visited=703 cuts=4814 sop=19256 shannon=0 selected=0 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=shannon area=7644 delay=48 attempt_ms=65.8486 visited=1567 cuts=11116 sop=0 shannon=38290 selected=5 zero_gain=0 timing_reject=70 budget_hit=1 accepted=1
+R81_STAGE mode=all area=7654 delay=48 attempt_ms=21.5754 visited=287 cuts=1785 sop=7140 shannon=5917 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=shannon area=7644 delay=48
+completed=5 chosen=2 area=7644 delay=48
+"
+stage2,case_016,r81_branch,1781,36,42,32.95,True,"completed=6 chosen=2 area=1781 delay=36
+"
+stage2,case_016,r81_strict,1781,36,42,31.97,True,"completed=6 chosen=2 area=1781 delay=36
+"
+stage2,case_017,r81_branch,14176,49,57,243.6,True,"R81_STAGE mode=sop area=14182 delay=49 attempt_ms=67.0676 visited=1055 cuts=7299 sop=29196 shannon=0 selected=2 zero_gain=0 timing_reject=98 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=14176 delay=49 attempt_ms=65.76 visited=1599 cuts=11244 sop=0 shannon=38685 selected=5 zero_gain=0 timing_reject=688 budget_hit=1 accepted=1
+R81_STAGE mode=all area=14182 delay=49 attempt_ms=20.8475 visited=255 cuts=1608 sop=6432 shannon=5386 selected=2 zero_gain=0 timing_reject=100 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=shannon area=14176 delay=49
+completed=5 chosen=2 area=14176 delay=49
+"
+stage2,case_017,r81_strict,14176,49,57,245.96,True,"R81_STAGE mode=sop area=14182 delay=49 attempt_ms=67.0328 visited=1055 cuts=7299 sop=29196 shannon=0 selected=2 zero_gain=0 timing_reject=98 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=14176 delay=49 attempt_ms=66.9049 visited=1599 cuts=11244 sop=0 shannon=38685 selected=5 zero_gain=0 timing_reject=688 budget_hit=1 accepted=1
+R81_STAGE mode=all area=14182 delay=49 attempt_ms=20.4468 visited=255 cuts=1608 sop=6432 shannon=5386 selected=2 zero_gain=0 timing_reject=100 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=shannon area=14176 delay=49
+completed=5 chosen=2 area=14176 delay=49
+"
+stage2,case_018,r81_branch,709,42,42,8.34,True,"completed=5 chosen=1 area=709 delay=42
+"
+stage2,case_018,r81_strict,709,42,42,8.1,True,"completed=5 chosen=1 area=709 delay=42
+"
+stage2,case_019,r81_branch,711,28,35,9.49,True,"completed=6 chosen=2 area=711 delay=28
+"
+stage2,case_019,r81_strict,711,28,35,10.25,True,"completed=6 chosen=2 area=711 delay=28
+"
+stage2,case_020,r81_branch,2918,39,49,185.04,True,"R81_STAGE mode=sop area=2922 delay=39 attempt_ms=67.5013 visited=1087 cuts=7551 sop=30204 shannon=0 selected=0 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=shannon area=2918 delay=39 attempt_ms=51.7732 visited=1451 cuts=10223 sop=0 shannon=35290 selected=1 zero_gain=0 timing_reject=0 budget_hit=0 accepted=1
+R81_STAGE mode=all area=2918 delay=39 attempt_ms=36.9288 visited=447 cuts=2923 sop=11692 shannon=9924 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=shannon area=2918 delay=39
+completed=8 chosen=105 area=2918 delay=39
+"
+stage2,case_020,r81_strict,2918,39,49,187.11,True,"R81_STAGE mode=sop area=2922 delay=39 attempt_ms=66.2261 visited=1087 cuts=7551 sop=30204 shannon=0 selected=0 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=shannon area=2918 delay=39 attempt_ms=56.0295 visited=1451 cuts=10223 sop=0 shannon=35290 selected=1 zero_gain=0 timing_reject=0 budget_hit=0 accepted=1
+R81_STAGE mode=all area=2918 delay=39 attempt_ms=36.6908 visited=447 cuts=2923 sop=11692 shannon=9924 selected=1 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=shannon area=2918 delay=39
+completed=8 chosen=105 area=2918 delay=39
+"
+stage2,case_021,r81_branch,22531,70,70,799.63,True,"R81_STAGE mode=sop area=22531 delay=70 attempt_ms=155.209 visited=2377 cuts=17231 sop=68924 shannon=0 selected=4 zero_gain=0 timing_reject=24522 budget_hit=0 accepted=1
+R81_STAGE mode=shannon area=22535 delay=70 attempt_ms=88.6246 visited=2377 cuts=17231 sop=0 shannon=59847 selected=0 zero_gain=0 timing_reject=32434 budget_hit=0 accepted=0
+R81_STAGE mode=all area=22531 delay=70 attempt_ms=161.927 visited=1695 cuts=12256 sop=49024 shannon=42534 selected=4 zero_gain=0 timing_reject=39371 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=sop area=22531 delay=70
+completed=10 chosen=107 area=22531 delay=70
+"
+stage2,case_021,r81_strict,22588,69,70,804.57,True,"R81_STAGE mode=sop area=22588 delay=69 attempt_ms=157.915 visited=2361 cuts=16955 sop=67820 shannon=0 selected=2 zero_gain=0 timing_reject=23522 budget_hit=0 accepted=1
+R81_STAGE mode=shannon area=22590 delay=69 attempt_ms=91.4855 visited=2361 cuts=16955 sop=0 shannon=58814 selected=0 zero_gain=0 timing_reject=30697 budget_hit=0 accepted=0
+R81_STAGE mode=all area=22588 delay=69 attempt_ms=163.337 visited=1759 cuts=12575 sop=50300 shannon=43589 selected=2 zero_gain=0 timing_reject=39318 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=sop area=22588 delay=69
+completed=10 chosen=107 area=22588 delay=69
+"
+stage2,case_022,r81_branch,794,28,33,13.31,True,"completed=6 chosen=2 area=794 delay=28
+"
+stage2,case_022,r81_strict,794,28,33,12.53,True,"completed=6 chosen=2 area=794 delay=28
+"
+stage2,case_023,r81_branch,2103,40,40,179.83,True,"R81_STAGE mode=sop area=2252 delay=40 attempt_ms=67.1428 visited=1055 cuts=7088 sop=28352 shannon=0 selected=644 zero_gain=0 timing_reject=1422 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=2103 delay=40 attempt_ms=51.0591 visited=1374 cuts=9389 sop=0 shannon=31626 selected=703 zero_gain=0 timing_reject=710 budget_hit=0 accepted=1
+R81_STAGE mode=all area=2685 delay=39 attempt_ms=39.6327 visited=479 cuts=2954 sop=11816 shannon=9731 selected=279 zero_gain=0 timing_reject=1148 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=shannon area=2103 delay=40
+completed=8 chosen=0 area=2103 delay=40
+"
+stage2,case_023,r81_strict,2986,25,40,180.53,True,"R81_STAGE mode=sop area=2281 delay=40 attempt_ms=66.8683 visited=1023 cuts=6881 sop=27524 shannon=0 selected=621 zero_gain=0 timing_reject=1382 budget_hit=1 accepted=0
+R81_STAGE mode=shannon area=2103 delay=40 attempt_ms=53.9946 visited=1374 cuts=9389 sop=0 shannon=31626 selected=703 zero_gain=0 timing_reject=710 budget_hit=0 accepted=0
+R81_STAGE mode=all area=2713 delay=39 attempt_ms=36.2675 visited=447 cuts=2720 sop=10880 shannon=8943 selected=253 zero_gain=0 timing_reject=966 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=base area=2986 delay=25
+completed=8 chosen=0 area=2986 delay=25
+"
+stage2,case_024,r81_branch,6901,52,63,202.68,True,"R81_STAGE mode=sop area=6901 delay=52 attempt_ms=67.5506 visited=991 cuts=6714 sop=26856 shannon=0 selected=4 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=6901 delay=52 attempt_ms=65.96 visited=1471 cuts=10209 sop=0 shannon=34726 selected=4 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=all area=6910 delay=52 attempt_ms=20.638 visited=255 cuts=1530 sop=6120 shannon=5073 selected=0 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=sop area=6901 delay=52
+completed=5 chosen=1 area=6901 delay=52
+"
+stage2,case_024,r81_strict,6901,52,63,201.57,True,"R81_STAGE mode=sop area=6901 delay=52 attempt_ms=66.9161 visited=1055 cuts=7165 sop=28660 shannon=0 selected=4 zero_gain=0 timing_reject=0 budget_hit=1 accepted=1
+R81_STAGE mode=shannon area=6901 delay=52 attempt_ms=67.1889 visited=1503 cuts=10444 sop=0 shannon=35536 selected=4 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_STAGE mode=all area=6910 delay=52 attempt_ms=20.2129 visited=255 cuts=1530 sop=6120 shannon=5073 selected=0 zero_gain=0 timing_reject=0 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=sop area=6901 delay=52
+completed=5 chosen=1 area=6901 delay=52
+"
+stage2,case_025,r81_branch,6501,73,80,704.87,True,"R81_STAGE mode=sop area=6501 delay=73 attempt_ms=138.213 visited=2068 cuts=14149 sop=56596 shannon=0 selected=8 zero_gain=0 timing_reject=0 budget_hit=0 accepted=1
+R81_STAGE mode=shannon area=6513 delay=73 attempt_ms=94.0683 visited=2068 cuts=14149 sop=0 shannon=47400 selected=5 zero_gain=0 timing_reject=388 budget_hit=0 accepted=0
+R81_STAGE mode=all area=6501 delay=73 attempt_ms=164.223 visited=1503 cuts=10255 sop=41020 shannon=34380 selected=8 zero_gain=0 timing_reject=386 budget_hit=1 accepted=0
+R81_FINAL policy=branch selected=sop area=6501 delay=73
+completed=4 chosen=0 area=6501 delay=73
+"
+stage2,case_025,r81_strict,6501,73,80,701.6,True,"R81_STAGE mode=sop area=6501 delay=73 attempt_ms=140.26 visited=2068 cuts=14149 sop=56596 shannon=0 selected=8 zero_gain=0 timing_reject=0 budget_hit=0 accepted=1
+R81_STAGE mode=shannon area=6513 delay=73 attempt_ms=93.7913 visited=2068 cuts=14149 sop=0 shannon=47400 selected=5 zero_gain=0 timing_reject=388 budget_hit=0 accepted=0
+R81_STAGE mode=all area=6501 delay=73 attempt_ms=161.84 visited=1599 cuts=10935 sop=43740 shannon=36660 selected=8 zero_gain=0 timing_reject=386 budget_hit=1 accepted=0
+R81_FINAL policy=branch_strict selected=sop area=6501 delay=73
+completed=4 chosen=0 area=6501 delay=73
+"
+stage1,case_020,r81_branch,766,30,35,11.61,True,"completed=6 chosen=205 area=766 delay=30
+"
+stage1,case_020,r81_strict,766,30,35,10.53,True,"completed=6 chosen=205 area=766 delay=30
+"

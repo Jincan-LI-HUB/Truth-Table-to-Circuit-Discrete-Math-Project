@@ -1,0 +1,4 @@
+policy,official_records,official_pass,official_target_met,official_area_sum_per_run,official_delay_sum_per_run,official_runtime_median_ms,official_runtime_p95_ms,holdout_cases,holdout_exact,holdout_area_sum_both_runs,holdout_repeat_net_sha_equal
+r86_baseline,100,100,100,1023978,2382,120.1445,800.451,72,72,32712,36
+r86_extra_sop,100,100,100,1021134,2382,133.371,820.904,72,72,32712,36
+r85_reclaim,100,100,100,1021134,2382,133.319,832.834,72,72,32712,36

@@ -1,0 +1,16 @@
+{
+  "zip_input": "Round9.1_Feedback_20261122_114755_082118.zip",
+  "zip_sha256": "5807e42de7d573e82be37c1e62ad4973ff5ad69384c6a8a365d2af622b450053",
+  "frozen_sha256": "f846b2c055bfd5ad8d252dd1dcaa6770040b290bff6dc2bddc0ab27ff77e4010",
+  "candidate_sha256": "345982dc0c27bd9862e03bf4b8e14a4741eeaba756212e2ccda114f040f4fb9f",
+  "submission_sha256": "345982dc0c27bd9862e03bf4b8e14a4741eeaba756212e2ccda114f040f4fb9f",
+  "official_records": 500,
+  "policies": [
+    "r90_frozen",
+    "r91_off",
+    "r91_library",
+    "r91_repeat_sop",
+    "r91_repeat_shannon"
+  ],
+  "oracle_area": 1019521
+}
