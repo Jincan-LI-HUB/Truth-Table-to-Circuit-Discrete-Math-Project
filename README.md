@@ -34,6 +34,12 @@ This repository preserves both the **development process** and the **final Stage
 
 For formal definitions, pseudocode, correctness assumptions, implementation details and experimental results, see [`Stage 2 Formal Report/main.pdf`](Stage%202%20Formal%20Report/main.pdf) and its [LaTeX source](Stage%202%20Formal%20Report/main.tex).
 
+### Stage 2 development: area and delay
+
+![Stage 2 historical area savings and delay changes across feasible research milestones](Stage%202%20Formal%20Report/Research_Trial_Log/figures/14_stage2_area_delay_trajectory.png)
+
+*Stage 2 milestone trajectory.* The upper panel tracks weighted area saved against R7.2 on the **25 released Stage 2 cases**; the lower panel tracks the corresponding change in the sum of circuit delays. Only checkpoints with **25/25 functional PASS and delay targets met** are included (R7's incomplete 24/25 result is omitted). These archived milestone snapshots show the path of development, **not** the isolated causal effect of each feature. [Source data](Stage%202%20Formal%20Report/Research_Trial_Log/data/stage2_full_milestone_trace.csv) · [Chart-generation script](Stage%202%20Formal%20Report/Research_Trial_Log/scripts/plot_high_resolution_comparisons.py).
+
 ### Public-case comparison
 
 The report's **first matched public-bank evaluation repeat** compares the actually submitted Stage 1 solver (Z1) with R10.0 on the same 50 released truth tables (25 from each stage):
@@ -48,6 +54,10 @@ The report's **first matched public-bank evaluation repeat** compares the actual
 R10.0 has smaller area on 18 cases and larger area on 32; the aggregate improvement is concentrated in a subset of cases. A second paired repeat confirmed the same direction of the per-case differences, while exact runtime and area values can vary with time-bounded search. The result is a **whole-solver comparison**, not a claim that the final SOP pass alone produced the aggregate gain.
 
 Evidence: [`matched_case_metrics.csv`](Stage%202%20Formal%20Report/data/matched_case_metrics.csv), [numerical check](Stage%202%20Formal%20Report/verify.py), and the casewise appendix in the formal report. No hidden-case performance is claimed.
+
+![Signed area changes on all 50 released cases, comparing the submitted Stage 1 solver Z1 with Stage 2 R10.0](Stage%202%20Formal%20Report/Research_Trial_Log/figures/07_matched_area_rank_reversal.png)
+
+*Why the aggregate result needs a casewise view.* In the **first matched repeat**, the 18 improved cases contribute **160,696 weighted area units saved**, while 32 regressions offset **35,999 units**, for a net reduction of **124,697 units**. The result is driven by the magnitude of improvements, not by winning on most cases; the plot compares **the entire submitted Z1 and R10.0 solvers**, not one isolated optimization pass. [Full matched data](Stage%202%20Formal%20Report/data/matched_case_metrics.csv) · [Related cumulative view](Stage%202%20Formal%20Report/Research_Trial_Log/figures/08_matched_cumulative_contribution.png).
 
 ## Stage 1: an essential part of the project
 
@@ -94,6 +104,12 @@ The history is preserved as reproducible source, mathematical reasoning and cont
 | **[R10.0](UFUG2106_Round10_0_Delivery/) – [R10.1](UFUG2106_Round10_1_Delivery/)** | Freeze selected default; test reduced root caps and nominal budgets, retain R10.0 |
 
 The [**unified Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) is the comprehensive research record: motivations, mathematical derivations, source changes, negative results, per-round decisions and cross-version visualizations. The [**Final Report**](Stage%202%20Formal%20Report/main.pdf) focuses on the *solution*, retaining only the historical comparisons needed to explain major design decisions.
+
+### Why R10.0 remained the final research candidate
+
+![R10.1 controlled policy ablations: extra weighted circuit area and paired synthesis-runtime ratios versus frozen R10.0](Stage%202%20Formal%20Report/Research_Trial_Log/figures/12_r101_native_pareto.png)
+
+*Late-stage area–runtime trade-off.* The R10.1 controlled comparison uses **100 matched public-case observations per policy** (two runs over 50 cases); the left panel expresses the area penalty **per 50 cases** relative to frozen R10.0, and the right panel shows the median paired synthesis-runtime ratio. Disabling Repeat SOP costs **1,587** area units and reduces median runtime to **0.942×**; lowering the root quota to 40 or 80 gives smaller runtime reductions with **1,008** or **602** extra area units. The 45 ms nominal budget costs **241** area units and does not improve median runtime in this comparison. Since the course's combined score is not disclosed and search-time checks are cooperative, the reduced-budget trials were **not promoted** over R10.0. [Policy CSV](Stage%202%20Formal%20Report/data/final_policy_tradeoff.csv) · [Release decision](UFUG2106_Round10_1_Delivery/docs/02_RELEASE_DECISION.md).
 
 ## Repository guide
 
