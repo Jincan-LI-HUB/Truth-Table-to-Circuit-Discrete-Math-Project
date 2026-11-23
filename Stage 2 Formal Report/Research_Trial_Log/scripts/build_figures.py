@@ -194,7 +194,17 @@ ax.set_xlabel('Case rank by contribution to Zeyun Stage 1 → Stage 2 area savin
 ax.set_ylabel('Area saved per case (thousands; negative = regression)')
 ax.set_title('A ranking reversal: 18 wins, 32 regressions, yet net area falls by 124,697',loc='left',pad=14)
 ax.annotate('Stage 2/005\n+39,516',xy=(0,pos[0]/1000),xytext=(15,-28),textcoords='offset points',fontsize=10,color=TEAL,weight='bold')
-ax.annotate('Stage 2/002\n-8,003',xy=(49,pos[-1]/1000),xytext=(-92,15),textcoords='offset points',fontsize=10,color=RUST,weight='bold')
+ax.annotate(
+    'Stage 2/002\n-8,003',
+    xy=(49, pos[-1] / 1000),
+    xytext=(-68, 10),
+    textcoords='offset points',
+    fontsize=10,
+    color=RUST,
+    weight='bold',
+    ha='right',
+    va='bottom'
+)
 ax.text(0.985,.78,'Median relative area change: +3.69%\n(unweighted median across cases)',transform=ax.transAxes,ha='right',fontsize=10,color=GRAY)
 style(ax);save(fig,'07_matched_area_rank_reversal')
 
