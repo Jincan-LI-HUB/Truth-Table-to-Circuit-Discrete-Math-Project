@@ -1,0 +1,12 @@
+# Design decisions supported by experiments
+
+|Decision|Falsifiable expectation|Test and observed boundary|Disposition|
+|---|---|---|---|
+|Change the search representation|Alternative orders and gate mappings recover missed deadlines|Jincan R1→R2, 12→25 met. Z1 no-order ablation still meets 25 targets but spends more area|Keep representation diversity; no claim one switch caused the entire historical gain|
+|Optimize time at fixed observed network quality|Typed graphs reduce repeated parsing cost without requiring a different candidate|R5/R5.1 paired releases match quality; speed benefit varies by period. R6.1 adds small area gains at much larger time cost|Freeze R5.1 and preserve cut branch as a negative engineering decision|
+|Make budget feasibility a first-class outcome|Avoiding optional work should rescue 100-ms case|R7 guarded recovers stage2/016 but initially worsens stage1/020|Allow a bounded shortlist, keep both cases in regression set|
+|Measure postprocessing on the live graph|Rewrites can compose and change the next pass's scope|R4 fixed-input orders have different per-case area. R8 prototype's second pass saves more than first on 021; other public cases rarely respond|Use exact cuts and global guard. General order synergy remains unproven|
+|Separate work from wall allowance|If unused time drives R8.5 improvement, time reclaim alone should recover it|R8.6 factorial rejects that explanation on these inputs. Generated R8.7 yields no transfer of area gain|Select extra SOP roots in ordinary path; preserve short-budget evidence|
+|Short-circuit exact structured functions|A verified literal/affine result can avoid late BDD work under a tight cap|R9.0 synthetic 001 and 002 show lower evaluator time; both comparator and new pass|Keep production-safe default and streaming path; no worst-case promise|
+|Price useful discoveries by magnitude|More template hits should improve aggregate more often if hit count is an adequate objective|R9.1 library wins more cases but saves less and changes delay. Repeat SOP concentrates savings|Select R10.0 as low-area candidate; leave library opt-in and R9.0 as alternative|
+|Test diminishing budgets against actual elapsed time|A smaller nominal allowance should noticeably reduce end-to-end runtime|R10.1 45 ms loses 241 area and geometric time ratio 1.007; halving roots loses 602. No delay rescue|Retain R10.0. Same-bank reversal does not settle other distributions|

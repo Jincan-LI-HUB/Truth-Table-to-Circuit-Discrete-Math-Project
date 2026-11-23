@@ -1,0 +1,7 @@
+policy,paired,improved_cases,regressed_cases,area_saved_total,penalty50,runtime_median_ratio,runtime_95pct_ratio
+r101_off,100,0,16,-3174,1587.0,0.942419,1.141663
+r101_cap40,100,0,12,-2016,1008.0,0.986528,1.190839
+r101_cap80,100,0,12,-1204,602.0,0.988186,1.178324
+r101_budget45,100,0,2,-482,241.0,1.009355,1.184921
+r101_default,100,0,0,0,0.0,0.999383,1.223371
+trial_submission,100,0,0,0,0.0,1.011265,1.258502

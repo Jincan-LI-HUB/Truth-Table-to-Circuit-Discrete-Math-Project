@@ -1,0 +1,17 @@
+round,policy,pass_count,target_count,area_pass,delay_pass,median_synth_ms,source_path
+R7,default,24,24,506754,1065,33.463,UFUG2106_Round7_Audited/results/reference_20261121_135745/run1_stage2_default.csv
+R7.1,r71_guard,25,25,508535,1101,31.268,UFUG2106_Round7_1_Delivery/feedback/Round7.1_Feedback_20261121_143631_942488.zip!local_results/run1_stage2_r71_guard.csv
+R7.2,r72_shortlist,25,25,508535,1101,30.489,UFUG2106_Round7_2_Delivery/feedback/Round7.2_Feedback_20261121_150300_498854.zip!local_results/run1_stage2_r72_shortlist.csv
+R8,r8_iterate,25,25,508480,1102,32.131,UFUG2106_Round8_Prototype/feedback/Round8_Prototype_Feedback_20261121_154508_384189.zip!local_results/run1_stage2_r8_iterate.csv
+R8.1,r81_reverse,25,25,497509,1158,189.88,UFUG2106_Round8_1_Delivery/feedback/Round8.1_Feedback_20261121_161108_240427.zip!official_run/run1_stage2_r81_reverse.csv
+R8.2,r82_dual_area,25,25,501547,1156,163.231,UFUG2106_Round8_2_Delivery/feedback/Round8.2_Feedback_20261121_191537_181833.zip!official_run/run1_stage2_r82_dual_area.csv
+R8.2.1,r821_dual_area,25,25,494618,1169,131.585,UFUG2106_Round8_2_1_Delivery/results/stage_regression_20261121_235154/official/stage2_run1_r821_dual_area.csv
+R8.3,r83_stable_dual,25,25,500072,1169,87.518,UFUG2106_Round8_3_Delivery/feedback/Round8.3_Feedback_20261122_002510_628132225.zip!experiment/official/stage2_run1_r83_stable_dual.csv
+R8.4,r84_topq_dense,25,25,500027,1170,191.486,UFUG2106_Round8_4_Delivery/feedback/Round8.4_Feedback_20261122_161803_496295372.zip!experiment/official/stage2_run1_r84_topq_dense.csv
+R8.5,r85_budget_reclaim,25,25,494999,1170,104.917,UFUG2106_Round8_5_Delivery/feedback/Round8.5_Feedback_20261122_173853_892947928.zip!experiment/official/stage2_run1_r85_budget_reclaim.csv
+R8.6,r86_extra_sop,25,25,494999,1170,107.818,UFUG2106_Round8_6_Delivery/feedback/Round8.6_Feedback_20261122_180727_218078298.zip!experiment/official/stage2_run1_r86_extra_sop.csv
+R8.7,r86_extra_sop,25,25,494999,1170,105.535,UFUG2106_Round8_7_Delivery/feedback/Round8.7_Feedback_20261122_183530_609313594.zip!experiment/official/stage2_run1_r86_extra_sop.csv
+R9.0,r90_no_flags,25,25,494999,1170,107.471,UFUG2106_Round9_0_Delivery/feedback/Round9.0_Feedback_20261122_191349_795748229.zip!experiment/official/stage2_run1_r90_no_flags.csv
+R9.1,r91_repeat_sop,25,25,493965,1170,117.559,UFUG2106_Round9_1_Delivery/feedback/Round9.1_Feedback_20261122_114755_082118.zip!experiment/official/stage2_run1_r91_repeat_sop.csv
+R10.0,r100_default,25,25,493965,1170,120.158,UFUG2106_Round10_0_Delivery/feedback/Round10.0_Feedback_20261122_121200_917768.zip!experiment/official/stage2_run1_r100_default.csv
+R10.1,r101_default,25,25,493965,1170,112.909,UFUG2106_Round10_1_Delivery/feedback/Round10.1_Feedback_20261122_124252_511091.zip!bundle/results/20261122_123551_337516131/official/stage2_run1_r101_default.csv

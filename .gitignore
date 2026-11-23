@@ -1,14 +1,102 @@
-# Previous writing drafts
+# UFUG2106 Truth Table to Circuit -- research repository
+# Preserve: source (*.cpp, *.hpp), LaTeX (*.tex, *.bib), reports (*.pdf),
+# research notes (*.md), processed evidence (*.csv, *.json), and scripts.
+# This file filters generated/local-only artifacts, NOT the research history.
+
+# Local machine, editor, and agent state
+/.remember/
+/.snapshots/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+*.orig
+.env
+.env.*
+!.env.example
+
+# Local caches and databases
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.sqlite
+*.sqlite-*
+*.db-journal
+
+# Compiled output and intermediate binaries
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+*.o
+*.obj
+*.a
+*.so
+*.dll
+*.dylib
+*.exe
+*.pdb
+*.gcda
+*.gcno
+/stage2_R10_frozen
+
+# TeX build intermediates (KEEP the final PDFs and vector figure PDFs)
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.lof
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+*.nav
+*.snm
+*.vrb
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+
+# Binary archives: source directories + extracted/normalized CSV are canonical
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.zst
+
+# Prior drafts / obsolete preparatory work (repository root only)
 /UFUG2106_Stage1_Writing/
 /UFUG2106_Stage1_Writing_Draft_v0_2/
 /UFUG2106_Stage1_Writing_Draft_v0_3_P1P2/
 /UFUG2106_Stage1_Writing_Draft_v0_8_Editorial/
 /UFUG2106_Stage1_Writing_Draft_v0_9_References_Visuals/
-
-# Previous GitHub archive
+/UFUG2106_Stage2_Detailed_Report_Draft_v2/
+/UFUG2106_Stage2_Report_Prep_Kit/
+/Stage2_Research_Reconstruction/
 /UFUG2106-Truth-Table-to-Circuit_ResearchArchive_v1_1/
 
-# Local backup archives
-/Final Project.rar
-/Stage1_Freeze_Round5.1_Verified.zip
-/UFUG2106-Truth-Table-to-Circuit_ResearchArchive_v1_1.rar
+# Planning scripts / one-off agent work orders (repository root only)
+/tree.py
+/FinalProject_FileTree.txt
+/UFUG2106_Stage2_Final_Report_Agent_Work_Order.md
+/UFUG2106_Stage2_Research_Reconstruction_Agent_Work_Order_v2.md

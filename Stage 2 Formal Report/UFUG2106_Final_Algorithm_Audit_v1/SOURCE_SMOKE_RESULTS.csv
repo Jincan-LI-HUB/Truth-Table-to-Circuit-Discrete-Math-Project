@@ -1,0 +1,41 @@
+case,limit_ms,method,exit_code,exhaustive_correct,detail,area,delay,measured_process_ms,output_sha256,stderr_tail
+course_example,100,zeyun_stage1,0,True,verified_exhaustive,10,5,2.989,b5ea73c006ec33dfc6fc832452f4c2cd8e8a7e4b71f414a49d53c99476093924,"candidates=129 area=10 delay=5 target=5
+"
+course_example,100,r100_frozen,0,True,verified_exhaustive,15,5,2.389,e9208a31523df1eb059f3225ddfdab796fdbbbd12f0b458f9d363e36196edde4,"completed=6 chosen=0 area=15 delay=5
+"
+course_example,2000,zeyun_stage1,0,True,verified_exhaustive,10,5,2.244,b5ea73c006ec33dfc6fc832452f4c2cd8e8a7e4b71f414a49d53c99476093924,"candidates=129 area=10 delay=5 target=5
+"
+course_example,2000,r100_frozen,0,True,verified_exhaustive,15,5,1.733,e9208a31523df1eb059f3225ddfdab796fdbbbd12f0b458f9d363e36196edde4,"completed=8 chosen=0 area=15 delay=5
+"
+xor4,100,zeyun_stage1,0,True,verified_exhaustive,15,14,3.226,6fd8eec2da5f0b78a27c5bb8cb66dd3fb207ff403175052bc18d046b075a7bc4,"candidates=129 area=15 delay=14 target=40
+"
+xor4,100,r100_frozen,0,True,verified_exhaustive,18,12,1.831,307d1f6661ab865bec3b1f57b744791bae417d3a4de3a2e179da4224c7dc0df1,"completed=6 chosen=1 area=18 delay=12
+"
+xor4,2000,zeyun_stage1,0,True,verified_exhaustive,15,14,3.564,6fd8eec2da5f0b78a27c5bb8cb66dd3fb207ff403175052bc18d046b075a7bc4,"candidates=129 area=15 delay=14 target=40
+"
+xor4,2000,r100_frozen,0,True,verified_exhaustive,18,12,3.208,307d1f6661ab865bec3b1f57b744791bae417d3a4de3a2e179da4224c7dc0df1,"completed=8 chosen=1 area=18 delay=12
+"
+multi_share,100,zeyun_stage1,0,True,verified_exhaustive,42,18,7.788,9307a7f83e73dd5b3b72c473faba1546df62c00e7d77f0618a0c93cef77e8962,"candidates=129 area=42 delay=18 target=35
+"
+multi_share,100,r100_frozen,0,True,verified_exhaustive,72,18,2.028,5bd4fc78eb26dc018853e9b97f3680ca45f478ff953cd8e65882177a73d6f493,"completed=6 chosen=3 area=72 delay=18
+"
+multi_share,2000,zeyun_stage1,0,True,verified_exhaustive,42,18,8.092,9307a7f83e73dd5b3b72c473faba1546df62c00e7d77f0618a0c93cef77e8962,"candidates=129 area=42 delay=18 target=35
+"
+multi_share,2000,r100_frozen,0,True,verified_exhaustive,72,18,8.244,5bd4fc78eb26dc018853e9b97f3680ca45f478ff953cd8e65882177a73d6f493,"completed=8 chosen=3 area=72 delay=18
+"
+truth_dense,100,zeyun_stage1,0,True,verified_exhaustive,81,25,10.829,82ace4deddb97f066bc1fadbd3b15237333033dc46e365385b75ffa255ecec58,"candidates=129 area=81 delay=25 target=60
+"
+truth_dense,100,r100_frozen,0,True,verified_exhaustive,106,21,2.904,f6a4c42f2ae5f0834284bd2bc5097cd173cb1ed70c77b996ad044c5000dbfa6a,"completed=6 chosen=0 area=106 delay=21
+"
+truth_dense,2000,zeyun_stage1,0,True,verified_exhaustive,81,25,10.631,82ace4deddb97f066bc1fadbd3b15237333033dc46e365385b75ffa255ecec58,"candidates=129 area=81 delay=25 target=60
+"
+truth_dense,2000,r100_frozen,0,True,verified_exhaustive,106,21,11.22,f6a4c42f2ae5f0834284bd2bc5097cd173cb1ed70c77b996ad044c5000dbfa6a,"completed=8 chosen=0 area=106 delay=21
+"
+constant_literal,100,zeyun_stage1,0,True,verified_exhaustive,2,1,1.618,d94e2dd52744e9e27d7a56da15c6237ea39395a4b1dac5d22f11b6255f28a0bd,"candidates=129 area=2 delay=1 target=20
+"
+constant_literal,100,r100_frozen,0,True,verified_exhaustive,2,1,1.564,d94e2dd52744e9e27d7a56da15c6237ea39395a4b1dac5d22f11b6255f28a0bd,"completed=6 chosen=0 area=2 delay=1
+"
+constant_literal,2000,zeyun_stage1,0,True,verified_exhaustive,2,1,1.68,d94e2dd52744e9e27d7a56da15c6237ea39395a4b1dac5d22f11b6255f28a0bd,"candidates=129 area=2 delay=1 target=20
+"
+constant_literal,2000,r100_frozen,0,True,verified_exhaustive,2,1,1.442,d94e2dd52744e9e27d7a56da15c6237ea39395a4b1dac5d22f11b6255f28a0bd,"completed=8 chosen=0 area=2 delay=1
+"

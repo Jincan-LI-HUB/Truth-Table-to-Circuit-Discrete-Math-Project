@@ -1,0 +1,1 @@
+All numbers compare paired cases within a specific official run; negative area_saved means regression. Runtime geometric ratio is a casewise multiplicative summary, not the course grading function. Area sums are not normalized per instance and cannot establish final score.

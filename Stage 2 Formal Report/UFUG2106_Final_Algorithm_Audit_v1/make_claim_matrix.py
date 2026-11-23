@@ -1,0 +1,29 @@
+import csv,pathlib
+D=pathlib.Path(__file__).resolve().parent
+rows=[
+('Task validity','PASS requires legal, equivalent netlist and any positive resource caps','Final_Project.pdf p3','specification','confirmed','Delay target miss still may PASS'),
+('Official comparator identity','Zeyun src/synth.cpp is team-submitted Stage 1; R5.1 is distinct research','Zeyun README; user confirmation; Stage1 log','provenance','confirmed','Avoid relabeling R5.1 official'),
+('R10 release identity','R10.0 frozen is independent candidate, not integrated submission','R10 README','provenance','confirmed','Team integration still unresolved'),
+('Source hashes','Zeyun and R10 source hashes identify inspected bytes','SOURCE_REGISTRY.csv','file integrity','confirmed','Re-freeze after integration'),
+('Input and output legality','R10 main parses full truth table and writes allowed-gate ordered netlist','synth.cpp:948-965; typed_netgraph.hpp:26-61','source','confirmed','Generator relies on implementation invariants'),
+('Shannon/BDD correctness','Shannon expansion, equal cofactor and unique-table sharing preserve functions','synth.cpp:299-311,395-435','math + source','conditional proven','Not global area optimality'),
+('Affine exactness','Recognized GF(2) affine formulas can be lowered using legal gates','synth.cpp:317-334,380-405; r90_stream.hpp:85-115','math + source','conditional proven','Affineness detection must be implemented correctly'),
+('Typed DAG physical cost','Builder.finish prunes; metric counts all resulting stored gates','typed_netgraph.hpp:26-44,114-145','source','confirmed','metric alone does not prune'),
+('Timing check','Backward required time is local fixed-graph bound; full global delay is checked','typed_netgraph.hpp:185-214; r84_cut.hpp:179-348; synth.cpp:1690-1762','math + source','conditional proven','Old bounds can be stale after changed dependencies'),
+('Cut rewrite semantics','4-leaf signatures permit equivalent SOP/complemented SOP/Shannon alternatives','r84_cut.hpp:35-348','math + source','conditional proven','Bounded cut enumeration, no optimality claim'),
+('Priority roots','Priority scores favor expensive/private/slack roots; topQ before topology','r84_cut.hpp:179-272','source','confirmed','Priority is heuristic, not exact gain'),
+('R8.6 defaults','default extra_sop tries Shannon and expanded-root SOP alternatives','synth.cpp:1006-1015,1690-1762','source','confirmed','Only when limit>=1000 and incumbent feasible'),
+('R10 deployment policy','unconfigured UFUG_R91_POLICY defaults to repeat_sop; guarded strict area accept','synth.cpp:1843-1899','source','confirmed','Does not imply each execution beats R9 binary'),
+('R90 special shortcut','For high n + short limit, complete-scan literals/affine path may produce valid output','r90_stream.hpp; source smoke streaming fixture','source + local test','tested one synthetic family','Not general short-limit guarantee'),
+('RAM guard','Conservative estimate gates BDD; packed fallback can fail','r821_resource.hpp; synth.cpp:989-1004','source','confirmed','Not proof of peak RSS'),
+('R10 original official feedback','Stage1 area 525582; Stage2 493965; all 50 PASS and target in two runs','R100_FEEDBACK_RECOUNT.csv; R10 raw ZIP case tables','raw published evaluator feedback','recomputed','Not integrated/hidden official evidence'),
+('Matched performance','Z1 vs R10 in matched run1: 1144244 vs 1019547 area; 124697 lower','research/01_normalized_data/matched_case_metrics.csv','paired WSL batch','available, summary checked','Different batch from standalone R10 official feedback'),
+('J51 regression','Research R5.1 has 24/25 PASS in Stage2 matched repeat; failure case016','research/01_normalized_data/matched_case_metrics.csv','paired WSL batch','recomputed from matched rows','Do not sum area over only 49 PASS and call 50-case result'),
+('Small fixtures','Both sources produce equivalent netlists in 20 local exhaustive checks','SOURCE_SMOKE_RESULTS.csv; run_source_smoke_checks.py','fresh synthetic smoke','20/20 PASS','Not course benchmark or universal proof'),
+('Streaming full check','n18 affine fixture checked across 2^18 assignments','verify_stream_affine.py; stream_affine_n18_limit250.netlist','fresh synthetic exhaustive','262144 rows PASS','One function only'),
+('Published grader score','Official numeric score not supplied','Final_Project.pdf p3','specification','unknown','Do not assert scoring formula'),
+]
+with (D/'CLAIM_EVIDENCE_MATRIX.csv').open('w',newline='') as f:
+ w=csv.writer(f);w.writerow(['claim_id','claim','primary_support','evidence_type','verification_status','scope_and_limit'])
+ for i,row in enumerate(rows,1):w.writerow([f'C{i:02d}',*row])
+print('claims',len(rows))

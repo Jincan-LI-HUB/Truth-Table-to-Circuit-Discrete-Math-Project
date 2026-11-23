@@ -1,0 +1,194 @@
+{
+  "scope": "Two sequential alternating-order repetitions per variant; same workstation and 25 public cases. Wall-clock completion and component interactions remain confounders. Not an official score.",
+  "variants": {
+    "control": [
+      {
+        "repeat": 1,
+        "area": 622257,
+        "median_ms": 603.443,
+        "total_ms": 22040.875,
+        "targets": 25,
+        "misses": [],
+        "csv": "evidence/stage1-study/control-r1.csv"
+      },
+      {
+        "repeat": 2,
+        "area": 622257,
+        "median_ms": 603.38,
+        "total_ms": 22047.358999999997,
+        "targets": 25,
+        "misses": [],
+        "csv": "evidence/stage1-study/control-r2.csv"
+      }
+    ],
+    "no_order_search": [
+      {
+        "repeat": 1,
+        "area": 722588,
+        "median_ms": 88.046,
+        "total_ms": 6028.464999999999,
+        "targets": 25,
+        "misses": [],
+        "csv": "evidence/stage1-study/no_order_search-r1.csv"
+      },
+      {
+        "repeat": 2,
+        "area": 722588,
+        "median_ms": 85.954,
+        "total_ms": 5980.741,
+        "targets": 25,
+        "misses": [],
+        "csv": "evidence/stage1-study/no_order_search-r2.csv"
+      }
+    ],
+    "no_balance": [
+      {
+        "repeat": 1,
+        "area": 683116,
+        "median_ms": 603.217,
+        "total_ms": 21957.507,
+        "targets": 25,
+        "misses": [],
+        "csv": "evidence/stage1-study/no_balance-r1.csv"
+      },
+      {
+        "repeat": 2,
+        "area": 683144,
+        "median_ms": 603.93,
+        "total_ms": 21968.376,
+        "targets": 25,
+        "misses": [],
+        "csv": "evidence/stage1-study/no_balance-r2.csv"
+      }
+    ],
+    "no_affine_mapping": [
+      {
+        "repeat": 1,
+        "area": 624890,
+        "median_ms": 605.523,
+        "total_ms": 22042.252,
+        "targets": 25,
+        "misses": [],
+        "csv": "evidence/stage1-study/no_affine_mapping-r1.csv"
+      },
+      {
+        "repeat": 2,
+        "area": 624890,
+        "median_ms": 606.684,
+        "total_ms": 22046.509000000002,
+        "targets": 25,
+        "misses": [],
+        "csv": "evidence/stage1-study/no_affine_mapping-r2.csv"
+      }
+    ],
+    "cap_250": [
+      {
+        "repeat": 1,
+        "area": 1020097,
+        "median_ms": 253.28,
+        "total_ms": 5060.293000000001,
+        "targets": 24,
+        "misses": [
+          "case_024.txt"
+        ],
+        "csv": "evidence/stage1-study/cap_250-r1.csv"
+      },
+      {
+        "repeat": 2,
+        "area": 1021703,
+        "median_ms": 253.086,
+        "total_ms": 5030.187000000001,
+        "targets": 24,
+        "misses": [
+          "case_024.txt"
+        ],
+        "csv": "evidence/stage1-study/cap_250-r2.csv"
+      }
+    ],
+    "cap_500": [
+      {
+        "repeat": 1,
+        "area": 817788,
+        "median_ms": 503.238,
+        "total_ms": 9531.789,
+        "targets": 24,
+        "misses": [
+          "case_024.txt"
+        ],
+        "csv": "evidence/stage1-study/cap_500-r1.csv"
+      },
+      {
+        "repeat": 2,
+        "area": 817788,
+        "median_ms": 503.408,
+        "total_ms": 9545.243999999997,
+        "targets": 24,
+        "misses": [
+          "case_024.txt"
+        ],
+        "csv": "evidence/stage1-study/cap_500-r2.csv"
+      }
+    ],
+    "cap_750": [
+      {
+        "repeat": 1,
+        "area": 714363,
+        "median_ms": 604.132,
+        "total_ms": 13050.275,
+        "targets": 24,
+        "misses": [
+          "case_024.txt"
+        ],
+        "csv": "evidence/stage1-study/cap_750-r1.csv"
+      },
+      {
+        "repeat": 2,
+        "area": 713843,
+        "median_ms": 603.687,
+        "total_ms": 13065.8,
+        "targets": 24,
+        "misses": [
+          "case_024.txt"
+        ],
+        "csv": "evidence/stage1-study/cap_750-r2.csv"
+      }
+    ]
+  },
+  "regressions": {
+    "control": {
+      "all_passed": true,
+      "generated_cases": 92,
+      "checker_mutations_rejected": 6
+    },
+    "no_order_search": {
+      "all_passed": true,
+      "generated_cases": 92,
+      "checker_mutations_rejected": 6
+    },
+    "no_balance": {
+      "all_passed": true,
+      "generated_cases": 92,
+      "checker_mutations_rejected": 6
+    },
+    "no_affine_mapping": {
+      "all_passed": true,
+      "generated_cases": 92,
+      "checker_mutations_rejected": 6
+    },
+    "cap_250": {
+      "all_passed": true,
+      "generated_cases": 92,
+      "checker_mutations_rejected": 6
+    },
+    "cap_500": {
+      "all_passed": true,
+      "generated_cases": 92,
+      "checker_mutations_rejected": 6
+    },
+    "cap_750": {
+      "all_passed": true,
+      "generated_cases": 92,
+      "checker_mutations_rejected": 6
+    }
+  }
+}

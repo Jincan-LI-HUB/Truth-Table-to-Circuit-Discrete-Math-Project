@@ -1,0 +1,46 @@
+{
+  "off": {
+    "cases": 25,
+    "full_exact_pass": 25,
+    "area_sum": 501744,
+    "delay_sum": 1170,
+    "median_process_wall_ms": 203.533,
+    "post_executed": 0,
+    "post_accepted": 0,
+    "post_wall_hit": 0,
+    "post_elapsed_ms_sum": 0.0
+  },
+  "cap40": {
+    "cases": 25,
+    "full_exact_pass": 25,
+    "area_sum": 501349,
+    "delay_sum": 1170,
+    "median_process_wall_ms": 215.789,
+    "post_executed": 17,
+    "post_accepted": 6,
+    "post_wall_hit": 0,
+    "post_elapsed_ms_sum": 922.08178
+  },
+  "cap80": {
+    "cases": 25,
+    "full_exact_pass": 25,
+    "area_sum": 500672,
+    "delay_sum": 1170,
+    "median_process_wall_ms": 224.002,
+    "post_executed": 17,
+    "post_accepted": 6,
+    "post_wall_hit": 1,
+    "post_elapsed_ms_sum": 887.74136
+  },
+  "cap160": {
+    "cases": 25,
+    "full_exact_pass": 25,
+    "area_sum": 500652,
+    "delay_sum": 1170,
+    "median_process_wall_ms": 230.808,
+    "post_executed": 17,
+    "post_accepted": 7,
+    "post_wall_hit": 2,
+    "post_elapsed_ms_sum": 924.7792000000001
+  }
+}

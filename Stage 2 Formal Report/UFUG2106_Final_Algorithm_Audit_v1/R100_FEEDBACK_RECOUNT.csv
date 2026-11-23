@@ -1,0 +1,5 @@
+stage,run,source_member,case_count,PASS,target_met,area_sum,delay_sum,median_runtime_ms
+1,1,experiment/official/stage1_run1_r100_default.csv,25,25,25,525582,1212,188.464
+1,2,experiment/official/stage1_run2_r100_default.csv,25,25,25,525582,1212,189.051
+2,1,experiment/official/stage2_run1_r100_default.csv,25,25,25,493965,1170,120.158
+2,2,experiment/official/stage2_run2_r100_default.csv,25,25,25,493965,1170,122.934

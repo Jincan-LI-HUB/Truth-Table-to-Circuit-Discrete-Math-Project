@@ -1,0 +1,286 @@
+%!LW recipe=pdflatex-bibtex
+\documentclass[a4paper,10pt]{article}
+
+% ============================================================
+% Common all-in-one homework / notes template (pdfLaTeX)
+% The package set is intentionally broad for daily reuse.
+% ============================================================
+\usepackage{multicol}
+\usepackage[left=1in,right=0.75in,top=0.9in,bottom=0.9in]{geometry}
+\usepackage{microtype}
+
+% Encoding and fonts
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext}
+
+% Colour is loaded early because listings, TikZ, soul, and hyperref use it.
+\usepackage{xcolor}
+
+% Mathematics
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{newtxmath}
+\usepackage{bm}
+\usepackage{esint}
+\usepackage{tensor}
+\usepackage{stmaryrd}
+\usepackage{bussproofs}
+
+% Algorithms and code
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{fvextra}
+\usepackage{mdframed}
+
+% Markdown/Pandoc conversion support
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{longtable}
+
+% Physics and engineering
+\usepackage{siunitx}
+\sisetup{unit-mode=text}
+
+% Document structure and layout helpers
+\usepackage{titling}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+
+% Tables and figures
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+
+% Drawing
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Highlighting and boxes
+\usepackage{soul}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+
+% Numeric citation style for ordinary technical homework/reports.
+% Formal IEEE/APA/ACM templates use their own bibliography systems instead.
+\usepackage[numbers,sort&compress,square]{natbib}
+
+% Hyperref is deliberately near the end.
+\usepackage{hyperref}
+\usepackage{bookmark}
+\input{../shared/palette.tex}
+% Readable muted link color derived from the eight-color project palette.
+\colorlet{ResearchLink}{ResearchBlue!35!black}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=ResearchLink,
+  citecolor=ResearchLink,
+  urlcolor=ResearchLink,
+  pdfborder={0 0 0}
+}
+
+% ============================================================
+% Common commands
+% ============================================================
+\algnewcommand{\Initialize}{\State\textbf{Initialize:} }
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\spanop}{span}
+
+% Calculus / analysis
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\limit}[2]{\lim_{#1\to #2}}
+
+% Cross-references
+\newcommand{\eq}[1]{Eq.~\eqref{#1}}
+\newcommand{\fig}[1]{Figure~\ref{#1}}
+\newcommand{\tab}[1]{Table~\ref{#1}}
+
+% Physics and vectors
+\newcommand{\vect}[1]{\vec{#1}}
+\newcommand{\Vect}[1]{\overrightarrow{#1}}
+\newcommand{\grad}{\nabla}
+\providecommand{\degree}{^{\circ}}
+
+% Number systems and linear algebra
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bvec}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\trans}{^{\mathsf T}}
+\newcommand{\inv}{^{-1}}
+
+% Probability and statistics
+\newcommand{\Prob}[1]{\mathbb{P}\!\left(#1\right)}
+\newcommand{\Exp}[1]{\mathbb{E}\!\left[#1\right]}
+\newcommand{\Var}[1]{\operatorname{Var}\!\left(#1\right)}
+\newcommand{\Cov}[1]{\operatorname{Cov}\!\left(#1\right)}
+\newcommand{\indep}{\mathrel{\perp\!\!\!\perp}}
+\newcommand{\Norm}{\mathcal{N}}
+\newcommand{\Bin}{\operatorname{Bin}}
+\newcommand{\Poi}{\operatorname{Pois}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\betahat}{\hat{\beta}}
+
+% Listings
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  breakatwhitespace=false,
+  backgroundcolor=\color{gray!5},
+  frame=single,
+  framesep=3pt,
+  xleftmargin=5pt,
+  xrightmargin=5pt,
+  lineskip=0.5pt,
+  showstringspaces=false
+}
+
+% Highlight colours
+\definecolor{refblue}{HTML}{A3C4F3}
+\definecolor{repgreen}{HTML}{C8E6C9}
+\definecolor{transorange}{HTML}{FFD54F}
+\definecolor{subviolet}{HTML}{E1BEE7}
+\definecolor{ellipgray}{HTML}{E0E0E0}
+\newcommand{\refhl}[1]{\sethlcolor{refblue}\hl{#1}}
+\newcommand{\rephl}[1]{\sethlcolor{repgreen}\hl{#1}}
+\newcommand{\transhl}[1]{\sethlcolor{transorange}\hl{#1}}
+\newcommand{\subhl}[1]{\sethlcolor{subviolet}\hl{#1}}
+\newcommand{\elliphl}[1]{\sethlcolor{ellipgray}\hl{#1}}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Homework and notes structures
+\newcounter{problem}
+\renewcommand{\theproblem}{\arabic{problem}}
+\NewDocumentEnvironment{problem}{O{}}{%
+  \par\addvspace{1.1\baselineskip}%
+  \needspace{3\baselineskip}%
+  \refstepcounter{problem}%
+  \noindent\textbf{Problem \theproblem%
+    \if\relax\detokenize{#1}\relax\else
+      \enspace\textperiodcentered\enspace #1%
+    \fi}\par\nobreak
+  \vspace{0.25em}\hrule height 0.35pt
+  \vspace{0.45em}\noindent\ignorespaces
+}{%
+  \par\addvspace{0.8\baselineskip}\ignorespacesafterend
+}
+
+\NewDocumentEnvironment{solution}{}{%
+  \par\needspace{2\baselineskip}%
+  \noindent\textbf{Solution.}\par\nobreak
+  \vspace{0.2em}\noindent\ignorespaces
+}{%
+  \par\addvspace{0.8\baselineskip}\ignorespacesafterend
+}
+
+% Opt-in notes mode: only Definition gains the restrained blue treatment.
+\newcommand{\EnableNotesMode}{%
+  \tcolorboxenvironment{definition}{%
+    enhanced jigsaw,
+    breakable,
+    colback=refblue!8!white,
+    frame hidden,
+    borderline west={0.8pt}{0pt}{refblue!75!black},
+    boxsep=0pt,
+    left=6pt,
+    right=4pt,
+    top=4pt,
+    bottom=4pt,
+    before skip=0.75\baselineskip,
+    after skip=0.75\baselineskip
+  }%
+}
+
+% Keep title, author, and running-header text in one place.
+\newcommand{\documenttitle}{Truth Table to Circuit: A Research Trial Log}
+\newcommand{\documentshorttitle}{Complete Research Trial Log}
+\newcommand{\documentauthor}{Jincan LI and Zeyun DU}
+% The title page stays plain; this compact running header begins on page 2.
+\newcommand{\runningtitle}{\documentshorttitle}
+\newcommand{\runningauthor}{\documentauthor}
+\setlength{\headheight}{14pt}
+\fancypagestyle{mainrunning}{%
+  \fancyhf{}%
+  \fancyhead[L]{\footnotesize\itshape\runningtitle}%
+  \fancyhead[R]{\footnotesize\runningauthor\enspace\textperiodcentered\enspace\thepage}%
+  \renewcommand{\headrulewidth}{0.3pt}%
+}
+\pagestyle{mainrunning}
+
+
+\providecommand{\real}[1]{#1}
+\setlength{\emergencystretch}{2em}
+\begin{document}
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{1.6cm}
+{\noindent\sffamily\color{ResearchBlue}\rule{\textwidth}{4pt}}\par
+\vspace{1.15cm}
+{\Huge\bfseries Truth Table to Circuit}\par\vspace{.3cm}
+{\LARGE A Complete Research Trial Log\par}
+\vspace{.5cm}
+{\large Stage 1 and Stage 2: From exact representation to resource-aware Boolean-cut synthesis\par}
+\vspace{.85cm}
+{\large UFUG2106 Discrete Mathematics Project\par}
+\vspace{.45cm}
+{\large Evidence record through Round 10.1 --- 23 November 2026\par}
+\vfill
+\begin{tcolorbox}[colback=ResearchIvory,colframe=ResearchSlate,arc=2mm]
+\textbf{Scope and purpose.} This unified archival record retains the full Stage 1 investigative history and the Stage 2 development path. Each iteration documents its prior limitation, mathematical mechanism, implemented experiment, verified metrics, decision and remaining uncertainty. It is the comprehensive research \emph{source} for the concise, solution-centered formal project report; it is not that report.
+\end{tcolorbox}
+\vfill
+\textbf{Evidence discipline.} Original Stage 1 text and mathematical arguments are retained from the finalized 21-page source; Stage 2 is rebuilt from the independently verified record, with paired and archival comparisons distinguished.\par
+\end{titlepage}
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{2}
+\tableofcontents
+\clearpage
+\part*{Part I. Stage 1 --- Exact construction, mapping quality and implementation efficiency}
+\addcontentsline{toc}{part}{Part I. Stage 1 --- Complete historical investigation}
+\input{stage1_body.tex}
+\clearpage
+\part*{Part II. Stage 2 --- Bounded resynthesis, search economics and final selection}
+\addcontentsline{toc}{part}{Part II. Stage 2 --- Complete historical investigation}
+\input{stage2_body.tex}
+
+\clearpage
+\begin{thebibliography}{99}
+\bibitem{coursehandout} UFUG2106 Course Staff, \emph{Final Project: Truth Table to Circuit}, 2026, instructor-provided course specification.
+\bibitem{shannon1949} C. E. Shannon, ``The synthesis of two-terminal switching circuits,'' \emph{Bell System Technical Journal}, 1949.
+\bibitem{bryant1986} R. E. Bryant, ``Graph-based algorithms for Boolean function manipulation,'' \emph{IEEE Transactions on Computers}, vol. C-35, no. 8, pp. 677--691, 1986.
+\bibitem{brayton1984} R. K. Brayton et al., \emph{Logic Minimization Algorithms for VLSI Synthesis}, Kluwer, 1984.
+\bibitem{mishchenko2006} A. Mishchenko, S. Chatterjee, and R. K. Brayton, ``DAG-Aware AIG Rewriting,'' \emph{Proc. DAC}, pp. 532--535, 2006.
+\bibitem{abc} Berkeley Logic Synthesis and Verification Group, \emph{ABC: A System for Sequential Synthesis and Verification}, software project, accessed 2026.
+\bibitem{course} UFUG2106 Course Staff, \emph{Final Project: Truth Table to Circuit}, 2026.
+\bibitem{stage1} J. Li and Z. Du, \emph{Stage 1 Research Trial Log}, finalized 11 Nov. 2026, full text reproduced in Part I.
+\bibitem{shannon} C. E. Shannon, ``The synthesis of two-terminal switching circuits,'' 1949.
+\bibitem{bryant} R. E. Bryant, ``Graph-based algorithms for Boolean function manipulation,'' 1986.
+\bibitem{mishchenko} A. Mishchenko et al., ``DAG-aware AIG rewriting,'' 2006.
+\end{thebibliography}
+\end{document}

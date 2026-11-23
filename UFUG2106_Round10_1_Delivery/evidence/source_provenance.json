@@ -1,0 +1,6 @@
+{
+  "source_r100_sha256": "8c863f1a1c9555ae571948a0424c25642c29c9a9f98f1f3e5f193c6b20f5b15d",
+  "official_feedback_sha256": "9113bdfe0158fcf4866e40bbfd7eafab9d9c405bb1b89c83bce6f0b6dcd472f5",
+  "official_is_public_only": true,
+  "local_stage2_source": "original 25 public Stage2 input files from prior local working set"
+}
