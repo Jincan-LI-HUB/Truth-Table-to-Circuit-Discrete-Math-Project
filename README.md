@@ -16,7 +16,7 @@ The integrated Stage 2 solver and associated team-authored research materials ar
 
 The corresponding team repository is maintained by [Zeyun Du](https://github.com/zdu881/UFUG2106-Project), with the archived integration pinned to commit [`59e3350`](https://github.com/zdu881/UFUG2106-Project/commit/59e33505616d127fc06a63580ca3ae3c34d1da72).
 
-Instructor-provided specifications, evaluation tools, and benchmark datasets are included for academic documentation and experimental reproducibility. All applicable intellectual property rights remain with their respective rights holders. No ownership or general redistribution license over third-party materials is claimed. Redistribution permissions for these materials have not been independently confirmed.
+Instructor-provided specifications, evaluation tools, and benchmark datasets are included for academic documentation and experimental reproducibility. All applicable intellectual property rights remain with their respective rights holders. No ownership or general redistribution license over third-party materials is claimed. 
 
 ## Overview
 
