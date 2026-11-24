@@ -14,7 +14,8 @@ import pandas as pd
 
 from phase_c_data import BANKS, DATA, FINAL, METHODS, REPORT, direct_memory, matched, paired
 from phase_c_diagrams import architecture, bidecomposition, budgets, cofactors, cones, critical, framework, sop_cut
-from phase_c_experiments import ablations, contributions, tradeoffs
+from phase_c_experiments import ablations, contributions, systems, tradeoffs
+from phase_c_integration_trials import pass_evidence, policy_evidence, recovery_evidence
 
 
 def area_comparison(repeat, out):
@@ -119,12 +120,13 @@ def main():
     parser.add_argument('--out', type=Path, default=REPORT / 'figures')
     diagrams = {
         build.__name__: build for build in
-        (framework, architecture, budgets, cones, sop_cut, critical, cofactors, bidecomposition, ablations)
+        (framework, architecture, budgets, cones, sop_cut, critical, cofactors, bidecomposition,
+         ablations, pass_evidence, policy_evidence, recovery_evidence)
     }
     observed = {
         'area_comparison': lambda frame, repeat, out: area_comparison(repeat, out),
         'casewise': casewise, 'resources': resources,
-        'contributions': contributions, 'tradeoffs': tradeoffs,
+        'contributions': contributions, 'tradeoffs': tradeoffs, 'systems': systems,
     }
     parser.add_argument('--only', nargs='+', choices=[*diagrams, *observed],
                         help='regenerate only named figures')

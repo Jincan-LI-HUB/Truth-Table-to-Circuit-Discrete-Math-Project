@@ -26,7 +26,7 @@ def framework(out):
 
 
 def architecture(out):
-    fig, ax = schematic(7.15, 2.68, xmax=100, ymax=30)
+    fig, ax = schematic(7.15, 2.76, xmax=100, ymax=30)
     label(ax, 2, 28.5, 'Candidate and state relationships', ha='left', weight='bold')
     box(ax, 15.5, 23, 26.4, 5.7, 'Construct and map\nBDD orders and J51 portfolio', BLUE)
     box(ax, 49.7, 23, 28.5, 5.7, 'Global evaluation\nWhole-network area and delay', MINT)
@@ -40,15 +40,19 @@ def architecture(out):
         ((49.7,17.52),(49.7,20.05),'-'), ((70.4,14.6),(64.1,14.6),'--'),
     ]:
         arrow(ax, start, end, style)
-    ax.plot([2,97], [10,10], color=GRID, lw=.85)
-    label(ax, 2, 8.35, 'Execution order', ha='left', weight='bold')
+    ax.plot([96.95,98.5,98.5,15.5],[23,23,10.35,10.35],color=LINE,lw=.75,ls='--')
+    for x in [15.5,49.7]:
+        arrow(ax,(x,10.35),(x,11.68),'--')
+    label(ax, 55, 8.95, 'Incumbent feeds eligible rewrites and repairs', fontsize=7.2)
+    ax.plot([2,97], [7.65,7.65], color=GRID, lw=.8)
+    label(ax, 2, 6.55, 'Sequential execution', ha='left', weight='bold')
     steps = ['Complete fallback', 'BDD probes\nthen J51', 'SOP polish\nthen shared factors',
              'Reconsider compact\nthen critical repair', 'Stated-target rescue\nthen write']
     positions = [10.3,29.7,49.3,69,89]
     for x, item in zip(positions, steps):
-        box(ax, x, 4.8, 17.3, 3.25, item)
+        box(ax, x, 3.96, 17.3, 3.1, item)
     for a, b in zip(positions, positions[1:]):
-        arrow(ax, (a+8.8,4.8), (b-8.8,4.8))
+        arrow(ax, (a+8.8,3.96), (b-8.8,3.96))
     label(ax, 2, .8, 'Guarded stages may be skipped. No complete fallback → stream and return. Zero cost and delay → write and return.',
           ha='left', fontsize=7.5)
     export(fig, 'architecture', out)
@@ -68,7 +72,7 @@ def budgets(out):
             box(ax, x, y, w-1, 2.5, text, fill)
     for x, tick in [(20,'$0$'),(54,'$B/2$'),(88,'$B$')]:
         label(ax, x, 17.8, tick, fontsize=7.6)
-    label(ax, 2, 15.8, 'Within BDD: screen in ≤35% of time left at entry; probe in ⅔ of the next remainder.',
+    label(ax, 2, 15.8, 'Screen → map shortlisted orders → refine measured candidates',
           ha='left', fontsize=7.7)
     ax.plot([2,98], [14.05,14.05], color=GRID, lw=.8)
     label(ax, 2, 12.5, 'Later optional steps', ha='left', weight='bold')
@@ -95,18 +99,18 @@ def cones(out):
     label(ax, 23.7, 25.65, 'Live references charge shared gates once', weight='bold')
     label(ax, 75.7, 25.65, 'A joint switch can cross a local area barrier', weight='bold')
     ax.plot([49,49], [2.9,26.2], color=GRID, lw=.9)
-    for center, color in [(14.5,MINT),(33,BLUE)]:
-        ax.add_patch(Ellipse((center,17.3),25.5,11.5, facecolor=color, edgecolor=LINE,
-                             linestyle='--', linewidth=.6, alpha=.5))
-    box(ax, 23.6, 21.5, 11.2, 2.9, '$g_s$ · AND', SLATE)
-    for x, title, root in [(13.2,'$g_1$ · OR','$f_1$'),(33.8,'$g_2$ · OR','$f_2$')]:
-        box(ax, x, 16.6, 10.5, 2.7, title, MINT)
+    for center in [14.5,33]:
+        ax.add_patch(Ellipse((center,17.3),25.5,11.5, facecolor='none', edgecolor=LINE,
+                             linestyle='--', linewidth=.6, alpha=.55))
+    box(ax, 23.6, 21.5, 11.2, 2.9, '$g_s$ · AND', MINT)
+    for x, title, root, fill in [(13.2,'$g_1$ · OR','$f_1$',PEACH),(33.8,'$g_2$ · OR','$f_2$',STONE)]:
+        box(ax, x, 16.6, 10.5, 2.7, title, fill)
         box(ax, x, 12.1, 6.5, 2.5, root)
         arrow(ax, (23.6,19.95), (x,18.02))
         arrow(ax, (x,15.16), (x,13.45))
     label(ax, 23.7, 7.85, r'Drop $f_1$: $g_1$ 1 → 0, $g_s$ 2 → 1')
     label(ax, 23.7, 4.65, r'Restore $f_1$: $g_1$ 0 → 1, $g_s$ 1 → 2')
-    label(ax, 23.7, 1.55, 'Only the OR charge changes (±3).', color=TEAL, weight='bold')
+    label(ax, 23.7, 1.55, 'Shared AND stays · OR charge changes ±3', color=TEAL, weight='bold')
     label(ax, 75.6, 22.65, r'$P=(x\vee y)\wedge(x\vee z)$,  $Q=x\vee(y\wedge z)$', fontsize=8.4)
     label(ax, 75.6, 20.28, r'Each output chooses $P$ or $Q$ before its final AND.', fontsize=7.6)
     for x, y, text, fill in [(61,15.7,'$(0,0)$ · 5',STONE),(89.6,15.7,'$(1,0)$ · 7',PEACH),
@@ -169,12 +173,12 @@ def sop_cut(out):
     shared = {'ab':(.28,.63,'AND',MINT)}
     common = [('a','ab'),('b','ab'),('ab','s')]
     panels = [
-        ('Original · area 10', shared | {'nb':(.59,.67,'NOT'),'mid':(.74,.51,'AND'),
-                                        'long':(.74,.35,'AND'),'r_gate':(.57,.18,'OR')},
+        ('Original · area 10', shared | {'nb':(.59,.67,'NOT',PEACH),'mid':(.74,.51,'AND',PEACH),
+                                        'long':(.74,.35,'AND',PEACH),'r_gate':(.57,.18,'OR',PEACH)},
          common+[('b','nb'),('nb','mid'),('c','mid'),('mid','long'),
                  ('a','long',((.07,.78),(.07,.34))),
                  ('ab','r_gate'),('long','r_gate')]),
-        ('SOP · area 7', shared | {'ac':(.70,.61,'AND'),'r_gate':(.57,.18,'OR')},
+        ('SOP · area 7', shared | {'ac':(.70,.61,'AND',BLUE),'r_gate':(.57,.18,'OR',BLUE)},
          common+[('a','ac',-.12),('c','ac'),('ab','r_gate'),('ac','r_gate')]),
         ('Inverted SOP · area 11', shared | {'na':(.12,.44,'NOT'),'nb':(.53,.67,'NOT'),
                                             'nc':(.83,.67,'NOT'),'both':(.71,.51,'AND'),
@@ -185,8 +189,10 @@ def sop_cut(out):
     for ax,(title,nodes,links) in zip(axs,panels):
         label(ax, .5, 1, title, weight='bold')
         draw_dag(ax, inputs, nodes, links+[('r_gate','r')], {'s':(.28,.45,'$s$'),'r':(.57,.015,'$r$')})
-    fig.text(.5, .081, 'Mint: shared ab remains live at output s · Prices: AND 2, OR 3, NOT 1',
+    fig.text(.5, .112, 'Old → SOP: green shared 2 · peach removed 8 · blue constructed 5',
              ha='center', fontsize=8)
+    fig.text(.5, .066, 'Gate prices: AND 2 · OR 3 · NOT 1',
+             ha='center', fontsize=7.7)
     fig.text(.5, .020, 'Mask 0xA8 · arrivals (r, s) = (7, 5) · SOP area change: local −1, global −3',
              ha='center', fontsize=8, weight='bold')
     export(fig, 'sop_cut', out)
@@ -246,15 +252,21 @@ def cofactors(out):
 
 
 def bidecomposition(out):
-    fig, axs = dag_panels(3, 3.46, 1.87, left=.055, right=.98, bottom=.15, top=.83)
-    for ax,title,values,highlight,text in [
-        (axs[0],'AND',[[0,0],[0,1]],1,'Ones form\na rectangle'),
-        (axs[1],'OR',[[0,1],[1,1]],0,'Zeros form\na rectangle'),
-        (axs[2],'XOR',[[0,1],[1,0]],1,'Even parity\nacross cells'),
+    fig, axs = dag_panels(3, 3.46, 2.11, left=.055, right=.98, bottom=.18, top=.82)
+    assignments = [(0,0),(0,1),(1,0),(1,1)]
+    names = [f'{a}{b}' for a,b in assignments]
+    u = [a | b for a,b in assignments]
+    v = [a & b for a,b in assignments]
+    for ax,title,combine,highlight,text in [
+        (axs[0],'AND',lambda a,b:a&b,1,'One rectangle'),
+        (axs[1],'OR',lambda a,b:a|b,0,'Zero rectangle'),
+        (axs[2],'XOR',lambda a,b:a^b,1,'Even on every\n2-by-2 slice'),
     ]:
-        label(ax, .52, 1.12, title, weight='bold')
-        colors = [[MINT if v == highlight else STONE for v in row] for row in values]
-        truth_matrix(ax, ['0','1'], ['0','1'], values, .23, .78, .71, .58, colors)
-        label(ax, .59, .035, text, fontsize=7.2)
-    fig.text(.5, .014, '$x$ indexes rows and $y$ columns; shared variables are fixed.', ha='center', fontsize=7.1)
+        label(ax, .53, 1.13, title, weight='bold')
+        values = [[combine(a,b) for b in v] for a in u]
+        colors = [[MINT if bit == highlight else STONE for bit in row] for row in values]
+        truth_matrix(ax, names, names, values, .25, .83, .71, .69, colors)
+        label(ax, .59, -.02, text, fontsize=7.0)
+    fig.text(.5, .025, r'Rows $x_1x_2$: $g=x_1\vee x_2$ · columns $y_1y_2$: $h=y_1\wedge y_2$',
+             ha='center', fontsize=7.1)
     export(fig, 'bidecomposition', out)

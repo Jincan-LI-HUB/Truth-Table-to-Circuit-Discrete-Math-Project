@@ -133,7 +133,7 @@ Because the repository does not track `.bbl`, a clean clone should run `bibtex m
 PDFs available without recompiling:
 
 - The [**Formal Report**](Stage%202%20Formal%20Report/main.pdf) explains Integrated Final's BDD and J51 portfolios, shared-DAG scoring, cut polishing and timing rescue. The appendix covers all 50 cases in each matched repeat.
-- The [**Unified Research Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) preserves R1–R10.1 and documents the team integration and freeze decision.
+- The [**Unified Research Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) preserves R1–R10.1 and documents the team integration, upstream paired passes, timing recovery and freeze decision through 24 November 2026.
 - The [**Phase C revision log**](Stage%202%20Formal%20Report/PHASE_C_REVISION.md) maps scientific claims to implementation and archived evidence.
 - [**Stage 1 Technical Report**](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf): earlier rigorous treatment of representation, mapping and optimization.
 
@@ -155,7 +155,7 @@ For navigation, return to the [repository README](README.md).
 - [Complete Stage 1 + Stage 2 Trial Log](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) and [casewise/variant CSV index](Stage%202%20Formal%20Report/Research_Trial_Log/data/stage2_all_variant_index.csv).
 - [R8.6 controlled root/time-quota experiment](UFUG2106_Round8_6_Delivery/README.md) and [R10.1 final parameter-ablation decision](UFUG2106_Round10_1_Delivery/docs/02_RELEASE_DECISION.md).
 
-The merged Trial Log PDF is available immediately. To regenerate its LaTeX from source, the full `Research_Trial_Log` editable bundle must contain `shared/palette.tex`, `tex/stage1_body.tex`, `tex/stage2_body.tex`, referenced figure PDFs, and the merge/plot scripts. Those source files may need to be restored from the complete research-log archive if absent in an older clone; do not mistake an existing PDF for proof of source-level reproducibility.
+To rebuild the Trial Log PDF, first run `build_phase_c_figures.py` as above to refresh the Part III figures. Then compile `Research_Trial_Log/tex/main.tex` twice with pdfLaTeX from that directory. The tracked historical bodies, figures, shared cover and bibliography are already part of the editable bundle. [Trial Log rebuild details](Stage%202%20Formal%20Report/Research_Trial_Log/README.md)
 
 ## 8. Troubleshooting
 

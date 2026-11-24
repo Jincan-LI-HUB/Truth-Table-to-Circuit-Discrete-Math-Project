@@ -26,7 +26,11 @@ The executable first completes a natural-order BDD mapping, then schedules BDD o
 
 In both matched repeats, **all four solvers passed all 50 released cases and met every delay target**. Integrated Final had at least one delay unit of slack on each public case. It reduced aggregate area by **22.6% versus Z1** and **14.4% versus R10.0**, using **2.14–2.20× R10.0's summed synthesis time**. Independent replay checked all 100 integrated netlists. The comparison measures the architecture and its search budget together. [Matched results](Final_Submission_by_Zeyun_DU/integration/data/public_summary.csv) · [Paired results](Final_Submission_by_Zeyun_DU/integration/data/matched_pairs.csv)
 
-![Matched repeat 1 weighted-area totals for Z1, J51, R10.0 and Integrated Final](Stage%202%20Formal%20Report/figures/phase_c_area_comparison.png)
+![Matched repeat 1 whole-system area and time, alongside timing-slack distributions](Stage%202%20Formal%20Report/figures/phase_c_systems.png)
+
+Each of J51, R10.0 and Integrated Final used less total time and weighted area than Z1 in both matched repeats. Integrated Final used the least area, and J51 the least total time. These two metrics omit per-case margin and limit exposure. The matched case data also show that 43 of 50 cases improve in area relative to R10.0, while the three largest gains supply 60.75% of repeat 1's gross savings.
+
+![Absolute, cumulative and bank-level weighted-area contributions relative to R10.0](Stage%202%20Formal%20Report/figures/phase_c_contributions.png)
 
 The upstream ZIP acceptance runs separately passed all 50 public cases and targets in each of three repeats, with total areas of 884,234, 876,694, and 876,694. One generated case remains late at delay 28 against target 27. [Upstream public results](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/public-runs.csv) · [Generated case and witness](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/residual.csv)
 

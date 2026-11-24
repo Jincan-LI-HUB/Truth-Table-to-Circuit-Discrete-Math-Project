@@ -25,7 +25,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
 Without `latexmk`, run `pdflatex main.tex`, `bibtex main`, and `pdflatex main.tex` twice. These commands use the archived CSVs without rerunning any solver. To export repeat 2 for comparison, run `python3 build_phase_c_figures.py --repeat 2 --out /path/to/repeat-2-figures`. The tracked figures and figure captions use repeat 1 for matched plots; the resource figure's separate direct-process RSS series has no repeat number.
 
-The Phase C figures use canonical manuscript colors and IEEE single- or double-column widths. The current paper includes 12 figures, with mathematical examples and source schematics separated from observations. The matched plots read the integration archive. The combined ablation figure reads the archived R8.6, R9.1 and R10.1 experiment files. The earlier percentage casewise and aggregate resource charts are available as companions. See the [figure record](FIGURE_REVISION_PLAN.md) for the scientific questions, data and widths.
+The 13 manuscript figures use canonical colors and IEEE single- or double-column widths. The matched plots read the integration archive, and the combined independent ablation figure reads the R8.6, R9.1 and R10.1 experiment files. The same command builds the three dedicated upstream study figures for Trial Log Part III. See the [figure inventory](FIGURE_REVISION_PLAN.md) for each question, source and width.
 
 ## Evidence
 

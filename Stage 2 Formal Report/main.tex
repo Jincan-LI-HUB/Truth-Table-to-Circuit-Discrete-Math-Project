@@ -84,7 +84,7 @@ The planned team delivery is pinned to upstream commit \texttt{59e3350}. The act
 
 \begin{figure*}[!t]
 \centering\includegraphics[width=\textwidth]{figures/phase_c_architecture.pdf}
-\caption{Integrated Final. The upper diagram shows candidate and state relationships, with dashed links for guarded compact-state use. The lower strip gives sequential execution. Global evaluation supplies working-target rank for the portfolio and critical repair, strict area admission for SOP, and delay comparison for stated-target rescue.}
+\caption{Integrated Final. Solid links in the upper diagram carry candidates to global evaluation. Dashed links show guarded state use, including feedback from the current incumbent to later transformations. The lower strip gives actual sequential execution.}
 \label{fig:architecture}
 \end{figure*}
 
@@ -174,7 +174,7 @@ In reverse topological order, a gate is live if and only if it is selected direc
 
 \begin{figure*}[!t]
 \centering\includegraphics[width=\textwidth]{figures/phase_c_cones.pdf}
-\caption{Left, the shared AND costs 2 and each OR costs 3. A \(2\leftrightarrow1\) reference change keeps the AND live. Right, the unit-price joint-switch example has neutral timing at every state. The outer controller can compare the all-new candidate even when the mixer rejects both single switches.}
+\caption{Left, dropping \(f_1\) reclaims its peach OR (price 3) and leaves the green shared AND (price 2) live. Right, the unit-price joint-switch example has neutral timing at every state. The outer controller can compare the all-new candidate even when the mixer rejects both single switches.}
 \label{fig:cones}
 \end{figure*}
 
@@ -249,7 +249,7 @@ The original branches arrive at 5 and 5: \(\neg b\) arrives at 1, \(\neg b\land 
 
 \begin{figure*}[!t]
 \centering\includegraphics[width=\textwidth]{figures/phase_c_sop_cut.pdf}
-\caption{Constructed cut with fixed leaf arrivals \((3,0,1)\). The green \(ab\) gate serves output \(s\) in all versions and also feeds \(r\) in the first two. Area counts the union of gates reached from \(r\) and \(s\).}
+\caption{Constructed cut with leaf arrivals \((3,0,1)\). For the change from original to direct SOP, green denotes the retained shared gate, peach the reclaimed gates, and blue the newly constructed gates. The inverted SOP is shown as an alternative realization.}
 \label{fig:sop_cut}
 \end{figure*}
 
@@ -329,7 +329,7 @@ The area-oriented \texttt{SharedFactors} pass proposes blocks from pairwise outp
 For a candidate split, partition the support into exclusive variable blocks \(X,Y\) and shared variables \(S\). For each fixed \(s\), consider the matrix \(M_s(x,y)=f(x,y,s)\). The conditions below establish exact decompositions on a proposed split.
 \begin{figure}[!t]
 \centering\includegraphics[width=\columnwidth]{figures/phase_c_bidecomposition.pdf}
-\caption{Constructed AND, OR and XOR slices for one variable per exclusive block. These operator-specific patterns are used to screen candidate partitions. The reconstruction check uses all entries of all shared-variable slices.}
+\caption{Constructed four-by-four slices at a fixed shared-variable assignment. The same two-bit block factors give an AND one-rectangle, an OR zero-rectangle and XOR parity on every two-by-two submatrix. The source checks exact reconstruction after screening.}
 \label{fig:bidecomposition}
 \end{figure}
 \begin{itemize}
@@ -392,14 +392,16 @@ Rep. & Solver & Area & Time (s) & Max \(t/L\)\\
 \end{tabular}
 \end{table}
 
-\subsection{Area is lower in aggregate and on most cases}
-Table~\ref{tab:matched} and Fig.~\ref{fig:area} summarize the matched results. Relative to Z1, \F{} saves 254,637 and 254,277 area units (22.6\% in each repeat), with 36 and 35 casewise wins. Relative to R10.0 it saves 146,734 and 146,628 (14.4\%) and wins on 43 of 50 cases in each repeat. The first repeat's R10.0 comparison goes from 525,582 to 493,224 on Stage~1 (6.2\% lower) and 493,965 to 379,589 on Stage~2 (23.2\% lower). Against Z1 the corresponding reductions are 16.2\% and 29.5\%. Bank percentages are changes in sums, giving each case weight proportional to its comparator area. The released banks differ in the observed gains, and the comparison does not identify a causal bank property.
+\subsection{Whole-system operating points}
+In both repeats, J51, R10.0 and \F{} each use less summed synthesis time and less summed weighted area than Z1 (Table~\ref{tab:matched} and Fig.~\ref{fig:systems}A). Among these three observed nondominated points, increasing total runtime comes with lower total area. Integrated Final has the lowest area of the four, J51 the lowest summed runtime, and R10.0 lies between them. This dominance comparison is limited to these two summed metrics and these measured operating points. It excludes memory, per-instance limit exposure, and circuit-delay margins, and does not imply an official score.
 
-\begin{figure}[!t]
-\centering\includegraphics[width=\columnwidth]{figures/phase_c_area_comparison.pdf}
-\caption{Four-method weighted-area comparison, matched repeat 1, summed over 50 released cases per method. Bars start at zero. Conclusions are checked against repeat 2 in Table~\ref{tab:matched}.}
-\label{fig:area}
-\end{figure}
+\begin{figure*}[!tb]
+\centering\includegraphics[width=\textwidth]{figures/phase_c_systems.pdf}
+\caption{Matched repeat 1. A relates summed synthesis time and weighted area. The dashed line connects the nondominated measured points in these two metrics only. B gives the empirical cumulative distribution of per-case integer slack across the same 50 cases per solver.}
+\label{fig:systems}
+\end{figure*}
+
+Relative to Z1, \F{} saves 254,637 and 254,277 area units (22.6\% in each repeat), with 36 and 35 casewise wins. Relative to R10.0 it saves 146,734 and 146,628 (14.4\%) and wins on 43 of 50 cases in each repeat. The first repeat's R10.0 comparison goes from 525,582 to 493,224 on Stage~1 (6.2\% lower) and 493,965 to 379,589 on Stage~2 (23.2\% lower). Against Z1 the corresponding reductions are 16.2\% and 29.5\%. Bank percentages are changes in sums, giving each case weight proportional to its comparator area.
 
 \begin{figure*}[!tb]
 \centering\includegraphics[width=\textwidth]{figures/phase_c_contributions.pdf}
@@ -413,19 +415,25 @@ Let \(s_i=A_i(\mathrm{R10.0})-A_i(\mathrm{Integrated\ Final})\). In repeat 1 the
 In repeat 2 the same three cases contribute the same \(89{,}530\) units, now \(60.79\%\) of gross savings \(147{,}279\). The penalty remains \(651\); Stage~1 and Stage~2 contribute \(32{,}358\) and \(114{,}270\) net, respectively. The rankings at the top, aggregate balance and dominance of the Stage~2 bank persist across these two repeats.
 
 \subsection{Circuit delay, runtime and memory}
-All matched circuits met their targets. \F{} achieves at least one unit of slack on every public case in both repeats. Its median and maximum delay are 50 and 85, versus 48.5 and 73 for R10.0. Against R10.0, individual circuit delay is lower/equal/higher on 12/16/22 cases in each repeat. Slack is a per-case difference from that case's target; an improved minimum slack can coexist with a higher maximum across differently constrained inputs.
+All matched circuits met their targets. In both repeats, \F{} eliminates zero slack across these cases, whereas Z1, J51 and R10.0 meet their targets exactly on 11, two and six cases, respectively. Its median slack is four units versus seven for R10.0 and ten for J51 (Fig.~\ref{fig:systems}B). A positive minimum can therefore coexist with smaller typical headroom. Its median and maximum circuit delays are 50 and 85, versus 48.5 and 73 for R10.0. Individual delays are lower/equal/higher than R10.0 on 12/16/22 cases in each repeat.
 
-\F{} uses 32.350 and 32.243 seconds in total versus R10.0's 14.736 and 15.047 seconds. Per-case median runtime ratios are \(2.316\times\) and \(2.262\times\); ratios of sums are \(2.195\times\) and \(2.143\times\). Against Z1, those are \(0.532/0.529\times\) and \(0.871/0.873\times\), respectively. The two statistics differ because the ratio of sums gives slower comparator cases greater weight. Direct median/maximum RSS are 7,742/58,912 KiB for \F{} and 12,124/75,564 KiB for R10.0. These independent runs establish observed resource use on the public cases.
+\begin{figure*}[!tb]
+\centering\includegraphics[width=\textwidth]{figures/phase_c_resources.pdf}
+\caption{Resource use on 50 matched inputs. Left and center show Integrated Final divided by each comparator for elapsed synthesis time and direct-process peak RSS, respectively, with paired medians marked by diamonds. RSS comes from separate process measurements. Right shows the per-case fraction of the input time limit used by each solver, with diamonds marking the maxima. Timing panels use repeat 1.}
+\label{fig:resources}
+\end{figure*}
+
+\F{} uses 32.350 and 32.243 seconds in total versus R10.0's 14.736 and 15.047 seconds. Per-case median runtime ratios are \(2.316\times\) and \(2.262\times\); ratios of sums are \(2.195\times\) and \(2.143\times\). Against Z1, those are \(0.532/0.529\times\) and \(0.871/0.873\times\), respectively. The ratio of sums weights slower comparator cases more heavily. Figure~\ref{fig:resources} shows the casewise spread behind these summaries. Direct median/maximum RSS are 7,742/58,912 KiB for \F{} and 12,124/75,564 KiB for R10.0.
 
 J51 had the lowest summed runtime in the completed matched repeats, but Stage~2 case 016 reached 97.92\% and 96.93\% of its limit. It timed out on that case in the interrupted diagnostic preceding the completed benchmark. The older research batch likewise records 49/50 J51 PASS per repeat. Figures and tables for the completed matched experiment include all four methods on all 50 cases; the interrupted and historical failures retain their separate denominators.
 
-\begin{figure}[!t]
-\centering\includegraphics[width=\columnwidth]{figures/phase_c_tradeoffs.pdf}
-\caption{Representative matched cases in repeat 1. Area and delay changes are Integrated Final minus R10.0, with area expressed relative to R10.0. The runtime ratio uses R10.0 as denominator. Teal indicates a reduction and rust an increase.}
+\begin{figure*}[!tb]
+\centering\includegraphics[width=\textwidth]{figures/phase_c_tradeoffs.pdf}
+\caption{Area--delay trade-offs for all 50 cases in matched repeat 1. Both axes are Integrated Final minus R10.0, and A and B differ only in area normalization. Diamonds mark the four cases discussed in the text.}
 \label{fig:tradeoffs}
-\end{figure}
+\end{figure*}
 
-The largest area win, Stage~2/005, goes from \(102{,}889\) to \(60{,}744\) at delay \(68\) in both circuits. Stage~2/013 also saves substantial area (\(115{,}706\to82{,}364\)) with a two-unit delay increase (\(66\to68\)). Stage~2/011 saves \(52{,}463-38{,}420=14{,}043\) units but increases delay from \(62\) to \(78\), leaving one unit of slack against its target of \(79\). Conversely, Stage~1/023 gains seven delay units (\(22\to15\)) at an area increase of \(125\to202\). The small original area explains its large percentage regression despite a 77-unit absolute penalty. All four examples use more synthesis time in the integrated run (Fig.~\ref{fig:tradeoffs}); their area and delay values, and the direction of their runtime changes, repeat in run 2. These are end-to-end outcomes. The records do not identify which internal passes caused individual case changes.
+The largest area win, Stage~2/005, goes from \(102{,}889\) to \(60{,}744\) at delay \(68\) in both circuits. Stage~2/013 saves area (\(115{,}706\to82{,}364\)) with a two-unit delay increase (\(66\to68\)). Stage~2/011 saves \(14{,}043\) area units with delay \(62\to78\), leaving one unit of slack against target \(79\). Conversely, Stage~1/023 gains seven delay units (\(22\to15\)) at an area increase of \(125\to202\). Figure~\ref{fig:tradeoffs} locates all four within the bank distributions. Stage~1/023's \(61.6\%\) area regression looks large in percentage space while adding only 77 units to the aggregate. All four use more synthesis time in the integrated run. Their area and delay values and the direction of their runtime changes persist in repeat 2. The archived end-to-end results cannot identify which internal passes caused individual changes.
 
 \subsection{Stress evidence and a remaining timing miss}
 The upstream timing archive records 168/168 targets on development banks and 83/84 on held-back validation and post-freeze banks, including repeated exact-delay controls. Seed 711413 case 003 remains late: \F{} area 2,105 and delay 28 against target 27. The generating witness has area 550 and delay 27, verified over all 16,384 assignments. Six recorded alternate searches also reach delay 28. This is a demonstrably feasible target that the released search did not attain.
@@ -434,9 +442,11 @@ The upstream timing archive records 168/168 targets on development banks and 83/
 \label{sec:history}
 \begin{figure*}[!tb]
 \centering\includegraphics[width=\textwidth]{figures/phase_c_ablations.pdf}
-\caption{Historical independent ablations. A shows the R8.6 first-repeat factorial in units saved against a common baseline. B reports R9.1 first-repeat net savings and case wins against its frozen control. C shows R10.1 ratios relative to R10.0, with labels giving weighted area penalties per 50 cases. Each median uses 100 matched case--repeat observations.}
+\caption{Historical independent ablations. A shows the R8.6 factorial on a common first-repeat baseline. Its two time-reclaim lines coincide. B contrasts R9.1 improvement frequency and net magnitude against its frozen control. C compares R10.1 last-pass policies with R10.0 in paired time and weighted area. Each median uses 100 case--repeat pairs.}
 \label{fig:ablations}
 \end{figure*}
+
+The early Stage~2 investigations separated search feasibility from optimization strength. R7's selected Stage~2 record had 24/25 passes and targets, while the R7.1 guard restored 25/25. R8.1 then asked whether bounded truth-signature rewriting could find opportunities beyond syntax-driven transformations. The selected reverse policy recorded Stage~2 area \(497{,}509\) and delay sum \(1{,}158\), versus \(508{,}535\) and \(1{,}101\) at the earlier R7.2 checkpoint. Those are separate historical campaigns. The trade-off prompted controlled comparisons of how much search to spend and where to spend it \cite{stage2trial}.
 
 R8.6 tested two bounded cut searches against a common incumbent. One factor \(q\) gave the SOP branch additional eligible roots, and the other \(t\) reclaimed unused nominal time. Let \(S(q,t)\) be the sum of area saved against the same baseline in the first 50-case repeat. Its four cells were \(S(0,0)=0\), \(S(1,0)=2844\), \(S(0,1)=0\) and \(S(1,1)=2844\). The two contrasts at baseline and the interaction were
 \begin{align*}

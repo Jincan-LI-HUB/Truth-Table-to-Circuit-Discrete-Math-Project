@@ -1,5 +1,5 @@
 """Verify the archived evidence and constructed examples used by the report."""
-from itertools import product
+from itertools import combinations, product
 from pathlib import Path
 import pandas as pd
 
@@ -89,6 +89,18 @@ expected_area = {
 }
 for repeat in (1, 2):
     frame = matched(repeat)
+    system = frame.groupby('method')[['area','runtime_ms']].sum()
+    dominated = {}
+    for name, point in system.iterrows():
+        better = system.le(point).all(axis=1) & system.lt(point).any(axis=1)
+        dominated[name] = set(system.index[better])
+    assert dominated == {'Z1': {'J51', 'R10.0', FINAL}, 'J51': set(), 'R10.0': set(), FINAL: set()}
+    slack = frame.groupby('method').delay_slack
+    assert slack.min().to_dict() == {'Z1': 0, 'J51': 0, 'R10.0': 0, FINAL: 1}
+    assert slack.median().to_dict() == {'Z1': 5, 'J51': 10, 'R10.0': 7, FINAL: 4}
+    assert slack.apply(lambda values: values.eq(0).sum()).to_dict() == {
+        'Z1': 11, 'J51': 2, 'R10.0': 6, FINAL: 0,
+    }
     integrated = frame[frame.method.eq(FINAL)]
     assert integrated.independent_replay.eq(1).all()
     assert tuple(frame.groupby('method').area.sum()[METHODS]) == expected_area[repeat]
@@ -199,6 +211,26 @@ factors = pd.read_csv(timing.parent/'stage2-factors-20261124/paired.csv')
 factor_public = factors[factors.bank.isin(BANKS)]
 gain = factor_public.area_before.sub(factor_public.area_after)
 assert (len(factor_public), gain.sum(), gain.gt(0).sum()) == (50, 5, 2)
+assert tuple(cuts.groupby('bank').area_saved.sum().reindex(BANKS)) == (603, 2562)
+assert tuple(cuts.groupby('bank').area_saved.apply(lambda d: d.gt(0).sum()).reindex(BANKS)) == (7, 10)
+assert list(cuts.nlargest(3, 'area_saved').area_saved) == [1466, 797, 484]
+for bank, expected in {'diagnostic': (24, 6, 1749), 'holdout': (18, 2, 44)}.items():
+    rows = factors[factors.bank.eq(bank)]
+    gain = rows.area_before - rows.area_after
+    assert (len(rows), gain.gt(0).sum(), gain.sum()) == expected
+trials = pd.read_csv(timing/'development.csv')
+assert not trials.duplicated(['version','bank']).any()
+assert trials.valid.eq(14).all() and (trials.targets_met <= trials.valid).all()
+initial = (trials[trials.bank.isin(['limits','fresh'])]
+           .pivot(index='version',columns='bank',values='targets_met'))
+assert tuple(initial.loc['Previous delivery',['limits','fresh']]) == (11,10)
+assert tuple(initial.loc['Pair cofactors',['limits','fresh']]) == (12,10)
+assert tuple(initial.loc['Boolean bidecomposition',['limits','fresh']]) == (12,12)
+assert tuple(initial.loc['Implicant cover and grouped cofactors',['limits','fresh']]) == (14,14)
+release = pd.read_csv(timing/'public-runs.csv')
+assert release.groupby('run').area.sum().tolist() == [884234, 876694, 876694]
+assert release.groupby('run').size().eq(50).all()
+assert release.status.eq('PASS').all() and release.target_met.eq('yes').all() and release.slack.ge(1).all()
 stress = pd.read_csv(timing/'stress.csv')
 development = ['limits', 'fresh', '732751', '410931', '851039', '647251',
                '332809', '173391', '659237', '899911', '521021', '937129']
@@ -329,4 +361,17 @@ assert arrival(2, arrival(arrival(0, 0), 0)) == 3
 assert tuple(r-t for r, t in zip((2, 3, 4), (3, 4, 5))) == (-1, -1, -1)
 assert 4-3 == 1
 assert (2+3+3, 2+3, (2+3+3)-(2+3)) == (8, 5, 3)
-print('ALL VERIFIED: manuscript data, appendix and constructed examples')
+
+rows = [a | b for a,b in product((0,1), repeat=2)]
+columns = [a & b for a,b in product((0,1), repeat=2)]
+and_matrix = [[a & b for b in columns] for a in rows]
+or_matrix = [[a | b for b in columns] for a in rows]
+xor_matrix = [[a ^ b for b in columns] for a in rows]
+assert {(i,j) for i,j in product(range(4), repeat=2) if and_matrix[i][j]} == set(product((1,2,3),(3,)))
+assert {(i,j) for i,j in product(range(4), repeat=2) if not or_matrix[i][j]} == set(product((0,),(0,1,2)))
+assert sum(map(sum,xor_matrix)) == 10
+for (i,k),(j,l) in product(combinations(range(4),2),repeat=2):
+    a,b,c,d = [xor_matrix[x][y] for x,y in [(i,j),(i,l),(k,j),(k,l)]]
+    assert a ^ b ^ c ^ d == 0
+
+print('ALL VERIFIED: matched dominance and slack, upstream decision records, appendix and constructed examples')

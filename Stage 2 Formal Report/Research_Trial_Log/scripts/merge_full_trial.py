@@ -1,7 +1,8 @@
 from pathlib import Path
 import re,fitz
 base=Path(__file__).resolve().parents[1]; tex=base/'tex';fig=base/'figures'
-stage1=(base/'source_stage1_main.tex').read_text();stage2=(tex/'source_stage2_full.tex').read_text()
+stage1=(base/'source_stage1_main.tex').read_text(encoding='utf-8')
+stage2=(tex/'source_stage2_full.tex').read_text(encoding='utf-8')
 assert '\\section{1. Reading contract:' in stage2
 # Crop original vector figures from exact user-supplied finalized Stage 1 PDF
 src=fitz.open(base/'references/Stage1_Research_Trial_Log_v1.pdf')
@@ -23,7 +24,7 @@ replace={
 for o,n in replace.items():b1=b1.replace('../shared/figures/'+o,'../figures/'+n)
 b1=b1.replace('../figures/stage1_area_evolution.pdf','../figures/13_stage1_multiscale_history.pdf')
 b1=b1.replace('Selected archived local area totals. This is a non-paired development history; area totals are directly tabulated but runtime is not compared across archives.', 'Multiscale Stage 1 area history. The left panel preserves the entire archived 25-case trajectory; the right panel magnifies small late differences against R5.1. These are historical observations, not a controlled causal contrast.')
-(tex/'stage1_body.tex').write_text(b1)
+(tex/'stage1_body.tex').write_text(b1,encoding='utf-8')
 start2=stage2.index('\\section{1. Reading contract:')
 end2=stage2.index('\\section*{References and primary research sources}',start2)
 b2=stage2[start2:end2]
@@ -39,7 +40,7 @@ b2=re.sub(r'(\\(?:sub)?section(?:\[[^]]*\])?\{)(?:\d+(?:\.\d+)?[a-z]?\.?\s+)([^}
 b2=re.sub(r'(\\section\{)Appendix ([AB])\.\s+',lambda m:m.group(1)+'Research appendix '+m.group(2)+': ',b2)
 # Stage 2 label with backreference of Stage1 intro remain unique
 b2=b2.replace('../figures/01_archival_area_evolution.pdf','../figures/14_stage2_area_delay_trajectory.pdf')
-( tex/'stage2_body.tex').write_text(b2)
+(tex/'stage2_body.tex').write_text(b2,encoding='utf-8')
 # Keep original Stage1 preamble, consistent font and muted palette
 preamble=stage1[:stage1.index('\\begin{document}')]
 preamble=preamble.replace('\\newcommand{\\documentshorttitle}{Stage 1 Research Trial Log}', '\\newcommand{\\documentshorttitle}{Complete Research Trial Log}')
@@ -47,26 +48,7 @@ preamble=preamble.replace('\\newcommand{\\documentshorttitle}{Stage 1 Research T
 preamble+='\n\\providecommand{\\real}[1]{#1}\n\\setlength{\\emergencystretch}{2em}\n'
 # Exact sources preserved and explicit difference between study and final report
 intro=r'''\begin{document}
-\begin{titlepage}
-\thispagestyle{empty}
-\vspace*{1.6cm}
-{\noindent\sffamily\color{ResearchBlue}\rule{\textwidth}{4pt}}\par
-\vspace{1.15cm}
-{\Huge\bfseries Truth Table to Circuit}\par\vspace{.3cm}
-{\LARGE A Complete Research Trial Log\par}
-\vspace{.5cm}
-{\large Stage 1 and Stage 2: From exact representation to resource-aware Boolean-cut synthesis\par}
-\vspace{.85cm}
-{\large UFUG2106 Discrete Mathematics Project\par}
-\vspace{.45cm}
-{\large Evidence record through Round 10.1 --- 23 November 2026\par}
-\vfill
-\begin{tcolorbox}[colback=ResearchIvory,colframe=ResearchSlate,arc=2mm]
-\textbf{Scope and purpose.} This unified archival record retains the full Stage 1 investigative history and the Stage 2 development path. Each iteration documents its prior limitation, mathematical mechanism, implemented experiment, verified metrics, decision and remaining uncertainty. It is the comprehensive research \emph{source} for the concise, solution-centered formal project report; it is not that report.
-\end{tcolorbox}
-\vfill
-\textbf{Evidence discipline.} Original Stage 1 text and mathematical arguments are retained from the finalized 21-page source; Stage 2 is rebuilt from the independently verified record, with paired and archival comparisons distinguished.\par
-\end{titlepage}
+\input{cover.tex}
 \setcounter{tocdepth}{1}
 \setcounter{secnumdepth}{2}
 \tableofcontents
@@ -97,5 +79,5 @@ bib=r'''
 \end{thebibliography}
 \end{document}
 '''
-(tex/'main.tex').write_text(preamble+intro+bib)
-print('generated combined',len((tex/'main.tex').read_text()),'stage1 body',len(b1),'stage2 body',len(b2))
+(tex/'main.tex').write_text(preamble+intro+bib,encoding='utf-8')
+print('generated combined',len(preamble+intro+bib),'stage1 body',len(b1),'stage2 body',len(b2))

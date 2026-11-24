@@ -1,6 +1,8 @@
 # Truth Table to Circuit — Complete Research Trial Log (Stage 1 + Stage 2)
 
-**Role:** complete archival research record for the UFUG2106 project. It preserves individual design decisions, mathematical arguments, code-grounded implementation narratives, paired and archival experiments, negative results, and their implications. The separate **Formal Report** selects and synthesizes the parts needed to explain the final R10.0 solution. The fully typeset LaTeX and PDF are authoritative for the finished document.
+**Role:** complete archival research record for the UFUG2106 project. It preserves individual design decisions, mathematical arguments, code-grounded implementation narratives, paired and archival experiments, negative results, and their implications. The separate **Formal Report** selects and synthesizes the parts needed to explain Integrated Final, the planned team delivery, and its independent R10.0 lineage. The fully typeset LaTeX and PDF are authoritative for the finished document.
+
+**Evidence cutoff:** 24 November 2026, including the pinned team integration archive.
 
 **Evidence policy:** Stage 1 findings come from the finalized R1–R6.1 source; Stage 2 findings from the verified R7–R10.1 source and linked CSVs. Cross-round time series are descriptive, while interleaved matched experiments and controlled candidate comparisons support narrower attributions. A valid Boolean circuit need not meet the delay target, and neither necessarily establishes any unreported numerical course grade.
 
@@ -1683,20 +1685,6 @@ The narrow question of whether fewer cut roots or a smaller last-pass budget are
 <figcaption>Paired area penalty and synthesis-time ratio relative to frozen R10.0. Positive area penalty is worse; runtime ratios below one are faster. The measurements are converted from 100 paired observations to a 50-case-equivalent area figure.</figcaption>
 </figure>
 
-## Part III — Team integration and freeze record
-
-Integrated Final, pinned to `59e3350`, is the planned team delivery. Its entry point keeps a complete natural-order mapped fallback, then budgets BDD screening and the imported J51 portfolio. Mapped candidates compete under a one-unit delay reserve. Incremental live references let the solver measure each output-cone switch on the full shared DAG. The inherited four-leaf SOP library runs once on the integrated incumbent under the integrated scheduler. Shared factors, critical cuts and late-output cofactor synthesis broaden the candidate set. The standalone J51 and R10.0 controllers remain documented in the historical record. [Source](../../Final_Submission_by_Zeyun_DU/src/synth_stage2.cpp) · [Origin note](../../Final_Submission_by_Zeyun_DU/src/round51/ORIGIN.md)
-
-Across the two fresh matched repeats, all four solvers passed and met every target on both 25-case banks. Integrated Final reached areas of 872,813 and 872,919, with roughly 22.6% lower aggregate area than Z1 and 14.4% lower than R10.0. Its summed runtime was 2.14–2.20× R10.0's. In repeat 1 the R10.0-relative area reduction was 6.2% on Stage 1 and 23.2% on Stage 2. Its 100 outputs were independently replayed over their full truth tables, and every circuit had at least one delay unit of slack. J51 approached the time limit on Stage 2 case 016 in both complete repeats and timed out in an earlier interrupted diagnostic. The matched WSL batch, upstream ZIP acceptance and historical research measurements retain separate provenance. [Integration audit](../../Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
-
-Earlier same-incumbent pass measurements identified sparse SOP and shared-factor gains on their own snapshots. The whole-system comparison has no iso-budget control to separate structural and scheduling changes from the larger search window. One generated validation case, seed 711413 case 003, remains at delay 28 against target 27. The generating witness meets 27 on all 16,384 assignments. The team selected the complete measured operating point. [Residual evidence](../../Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/residual.csv) · [Formal Report](../main.pdf)
-
-## Final team integration and evidence reconciliation
-
-The research record closes at R10.1, with R10.0 retained as Jincan Li's independent Stage 2 freeze. Zeyun Du authored Z1 and coordinated the team integration and validation. The integrated code adapts J51 mapping and R10.0 four-leaf cut rewriting and adds its own scheduling, shared-output selection and timing recovery. The upstream report credits Codex for implementing timing rescue and assisting with packaging and verification. [Source attribution](../../Final_Submission_by_Zeyun_DU/src/round51/ORIGIN.md)
-
-The earlier upstream cuts snapshot recorded area 869,773. The subsequent pinned release at `59e3350` recorded 884,234, 876,694 and 876,694 over three 50-case public repeats, each with all evaluator passes and target delays met. The integration audit adds a fresh matched comparison of Z1, J51, R10.0 and Integrated Final, with separate RSS measurements and independent replay of the final circuits. The team archive is the planned course delivery. Its course submission status is unverified. [Integration audit and datasets](../../Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
-
 # 22. What the development path has *actually* established
 
 The trial history is best remembered as an ordered set of **resolved design questions**, not as a monotone chart of area totals:
@@ -1931,10 +1919,38 @@ The narrow question of whether fewer cut roots or a smaller last-pass budget are
 <figcaption>Paired area penalty and synthesis-time ratio relative to frozen R10.0. Positive area penalty is worse; runtime ratios below one are faster. The measurements are converted from 100 paired observations to a 50-case-equivalent area figure.</figcaption>
 </figure>
 
-### Upstream pass and timing-policy evidence
+# Part III — Team integration, experiments and freeze
 
-On the archived paired cut snapshot, SOP polishing saves 3,165 weighted units over 17 public cases, with the other 33 unchanged. The separate factor study saves five public units, from Stage 1 cases 022 and 023. It also has larger individual diagnostic savings and two holdout reductions from 129 to 107 at unchanged delay 11. These are distinct snapshots and families. [Paired cuts](../../Final_Submission_by_Zeyun_DU/reports/stage2-cuts-20261124/paired.csv) · [Paired factors](../../Final_Submission_by_Zeyun_DU/reports/stage2-factors-20261124/paired.csv)
+## Integration hypothesis and source boundaries
 
-Team public acceptance required area below 900,000 and at least one delay unit of reserve, alongside evaluator verdicts and independent replay. The earlier weighted trial used 869,636 area with nine exact-target cases, and the one-reserve trial used 898,282. On the two initial generated banks, the previous delivery met 11/14 and 10/14 targets. Grouped covers reached 14/14 on both, while later seeds exposed limitations addressed by scratch-gate reclamation, increased supported input count and remapping reconstructed paths. The final archive records 168/168 development observations and 83/84 validation and post-freeze observations, including repeated exact-target controls. [Headroom trials](../../Final_Submission_by_Zeyun_DU/reports/stage2-headroom-20261124/development.csv) · [Timing development](../../Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/development.csv)
+The team retained Z1’s complete fallback, imported J51 construction and mapping alternatives, and reused the R10.0 small-cut mapper on the integrated incumbent. Whole-network area and delay decide candidate promotion. A working reserve and eligible legal compact choice preserve different area–timing options. Independent R10.0 remains its own frozen research solver. Integrated Final comes from upstream `59e3350`. [Source and attribution](../../Final_Submission_by_Zeyun_DU/src/round51/ORIGIN.md)
 
-Under competing load one old-cap public run totaled 910,462, while the other archived old-cap totals were 880,987 and 883,002. This motivated a larger main window without isolating its effect. The three final source-ZIP public repeats passed the ceiling, reserve and replay criteria. On the residual generated case, changing input order, extra XOR forms, XOR phase transfer, broader balanced masks, derivative expansion and factor splits all left delay at 28, while the feasible witness reaches 27. [Old-cap trials](../../Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/earlier-budget.csv) · [Public freeze checks](../../Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/public-runs.csv) · [Residual comparisons](../../Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/residual.csv)
+## Fixed-incumbent area experiments
+
+Cut polishing compares the same incumbent with and without the guarded SOP step on the 50 released cases. The pass saves 3,165 area units across 17 cases with 33 ties, including 603 units on Stage 1 and 2,562 on Stage 2. Stage 2/011 and 2/003 contribute 1,466 and 797 of the total. The post-pass delays meet the recorded targets. This supports a conditional pass with strict whole-network admission.
+
+The separate shared-factor study tests whether common cofactor structure offers physical savings. The public family gains 5 units on 2/50 cases with unchanged delay in those two wins. Diagnostics gain 1,749 on 6/24 and holdouts gain 44 on 2/18. Diagnostic case 013 reduces area from 961 to 144 while delay increases from 20 to 23. The families differ, as do the starting snapshots of the two studies. Their gains cannot be added to attribute the complete release improvement. [Paired cuts](../../Final_Submission_by_Zeyun_DU/reports/stage2-cuts-20261124/paired.csv) · [Paired factors](../../Final_Submission_by_Zeyun_DU/reports/stage2-factors-20261124/paired.csv)
+
+![Fixed-incumbent cuts and shared-factor measurements by family](../figures/phase_c_integration_passes.png)
+
+## Timing reserve and search-cap policy
+
+The team’s public acceptance criteria combined validity, full replay, summed area below 900,000 and at least one delay unit of slack. The earlier weighted trial used 869,636 area with nine exact-target cases, while the strict trial provided minimum slack two at area 960,177. The one-reserve and cuts trials cleared both limits at 898,282 and 880,546. These are archived operating points rather than isolated policy effects.
+
+Old-cap runs totaled 910,462, 880,987 and 883,002. Competing load affected the first, which exceeded the ceiling. That experience motivated a larger main window, without isolating its effect. The frozen three source-ZIP runs achieved areas of 884,234, 876,694 and 876,694 and met the acceptance conditions. [Reserve trials](../../Final_Submission_by_Zeyun_DU/reports/stage2-headroom-20261124/development.csv) · [Old-cap records](../../Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/earlier-budget.csv) · [Frozen runs](../../Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/public-runs.csv)
+
+![Area, timing reserve and search-cap evidence](../figures/phase_c_integration_policy.png)
+
+## Sequential timing-recovery development
+
+The team tested exact recovery from output functions to reach circuits beyond small cuts. Each bank has twelve generated cases with feasible witnesses and two repeated exact-delay controls. The previous delivery reached 11/14 and 10/14 on the initial banks, pair cofactors 12/14 and 10/14, and bidecomposition 12/14 on each. Grouped covers reached 14/14 on both, with a miss on a prospective bank. Further snapshots addressed scratch storage, support size, remapping critical paths and alternative splits. These records track a cumulative search design. They do not isolate causal improvements by snapshot. The freeze groups give 168/168 development and 83/84 validation/post-freeze observations. [Development archive](../../Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/development.csv)
+
+![Bank coverage and misses over sequential recovery snapshots](../figures/phase_c_integration_recovery.png)
+
+## Matched whole-system evaluation
+
+All four solvers pass all 50 released cases and meet their targets in both fresh matched repeats. All 100 Integrated Final circuits pass independent replay. Integrated Final's area is 872,813 and 872,919, about 22.6% below Z1 and 14.4% below R10.0. Its synthesis time is 2.14–2.20 times R10.0’s by sums. J51 is fastest in aggregate but nears the limit on Stage 2/016 and times out in a separate interrupted diagnostic. Peak RSS comes from separate process runs. The summed-area and summed-time comparison cannot rank algorithms by the undisclosed course score. [Integration audit](../../Final_Submission_by_Zeyun_DU/integration/AUDIT.md) · [Formal Report](../main.pdf)
+
+## Residual failure and final freeze
+
+Seed 711413 case 003 remains at delay 28 (area 2,105) against target 27. The generating witness reaches 27 at area 550 and is verified on all 16,384 assignments. Six tested alternatives remain at delay 28, even when changing the output's phase, ordering or factorization. The frozen public area and timing evidence supports the selected operating point, while the generated failure limits its scope. The archive has no iso-budget control or per-case causal attribution. [Residual comparison](../../Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/residual.csv)
