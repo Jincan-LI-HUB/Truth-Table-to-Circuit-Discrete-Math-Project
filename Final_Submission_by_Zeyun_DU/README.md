@@ -39,4 +39,4 @@ Some upstream reproduction notes use the original `official/` layout and cite te
 - [Earlier four-method comparison](reports/stage2-cuts-20261124/casewise.csv) and [pinned release acceptance runs](reports/stage2-timing-20261124/public-runs.csv) record different Stage 2 snapshots.
 - [Matched integration audit](integration/AUDIT.md) documents the local comparison, independent replays, RSS measurement and limits of attribution.
 
-No explicit source redistribution license was found at the pinned commit. The source snapshot is archived locally for team review.
+The repository owner confirmed that team members authorized public GitHub archiving of their contributions. No general redistribution license was identified at the pinned commit. Third-party redistribution rights for instructor-provided materials remain unconfirmed. [Course-material notice](official/README.md)

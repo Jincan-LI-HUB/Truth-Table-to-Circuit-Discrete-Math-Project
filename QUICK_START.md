@@ -5,7 +5,7 @@
 ## 1. Clone, build and verify Integrated Final
 
 ```bash
-git clone --branch review/phase-c --config core.autocrlf=false \
+git clone --branch main --config core.autocrlf=false \
   https://github.com/Jincan-LI-HUB/Truth-Table-to-Circuit-Discrete-Math-Project.git
 cd Truth-Table-to-Circuit-Discrete-Math-Project
 

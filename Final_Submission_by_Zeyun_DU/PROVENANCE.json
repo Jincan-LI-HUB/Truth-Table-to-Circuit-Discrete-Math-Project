@@ -17,7 +17,7 @@
     "Zeyun DU: integrated Stage 2 solver and release experiments",
     "src/round51/ORIGIN.md: imported Jincan LI / Group 2 research and R10.0 cut mapper"
   ],
-  "license": "No explicit source redistribution license file or grant identified at the pinned upstream commit. This is a local coursework archive. official/README.md preserves the upstream instructor-material attribution and its redistribution notice; course binaries and inputs are reused from the existing research repository.",
+  "license": "The repository owner confirmed team-member authorization to publicly archive team contributions on GitHub. No general source redistribution license was identified at the pinned upstream commit. Third-party redistribution rights for instructor-provided materials remain unconfirmed. See official/README.md for attribution and scope.",
   "imported_files": [
     {
       "path": "Makefile",
