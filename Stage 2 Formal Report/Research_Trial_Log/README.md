@@ -30,13 +30,12 @@ This unified research archive preserves the finalized Stage 1 R1–R6.1 mathemat
 python3 scripts/verify_evidence.py
 python3 ../build_phase_c_figures.py --only architecture systems resources pass_evidence policy_evidence recovery_evidence
 cd tex
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 cp main.pdf ../UFUG2106_Stage2_Research_Trial_Log_v3.pdf
 ```
 
-The tracked historical figures are used directly in this build. For reconstruction of the historical figures and TeX bodies, use `scripts/plot_high_resolution_comparisons.py` and `scripts/merge_full_trial.py` from this directory.
+The master includes its bibliography directly. If latexmk is unavailable, run pdfLaTeX until the contents and cross-references stabilize. The tracked historical figures are used directly in this build. For reconstruction of the historical figures and TeX bodies, use `scripts/plot_high_resolution_comparisons.py` and `scripts/merge_full_trial.py` from this directory.
 
-Dependencies: Python `pandas`, `numpy`, `matplotlib`, `pymupdf`; pdfLaTeX with the same Stage 1 package set. The original Stage 1 PDF and assignment PDF are held under `references/` for exact-source checking.
+Use Python with pandas, NumPy and Matplotlib for figures and evidence checks. Historical vector-crop reassembly requires PyMuPDF 1.26.4 or later. Compilation uses pdfLaTeX with the same Stage 1 package set. The original Stage 1 PDF and assignment PDF are held under `references/` for exact-source checking.
 
 The existing `scripts/build_document.py` now delegates to `merge_full_trial.py` as a backwards-compatible entry point, so it **cannot accidentally restore an obsolete Stage-2-only paper**.

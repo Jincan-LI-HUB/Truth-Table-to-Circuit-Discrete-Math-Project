@@ -117,7 +117,7 @@ def recovery_evidence(out):
     plt.setp(ax.get_xticklabels(),rotation=57,ha='right')
     fig.legend(handles=[Line2D([],[],marker='s',ms=6,ls='',mfc=MINT,mec=TEAL,label='Development: 14/14'),
                         Line2D([],[],marker='s',ms=6,ls='',mfc='white',mec=TEAL,label='Prospective: 14/14'),
-                        Line2D([],[],marker='s',ms=6,ls='',mfc=PEACH,mec=RUST,label='Number of misses shown')],
+                        Line2D([],[],marker='s',ms=6,ls='',mfc=PEACH,mec=RUST,label='Misses (out of 14)')],
                loc='upper right',bbox_to_anchor=(.985,1),ncol=3,frameon=False,fontsize=7.4)
     fig.subplots_adjust(left=.309,right=.99,top=.87,bottom=.23)
     export(fig,'integration_recovery',out)

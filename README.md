@@ -28,11 +28,11 @@ In both matched repeats, **all four solvers passed all 50 released cases and met
 
 ![Matched repeat 1 whole-system area and time, alongside timing-slack distributions](Stage%202%20Formal%20Report/figures/phase_c_systems.png)
 
-Each of J51, R10.0 and Integrated Final used less total time and weighted area than Z1 in both matched repeats. Integrated Final used the least area, and J51 the least total time. These two metrics omit per-case margin and limit exposure. The matched case data also show that 43 of 50 cases improve in area relative to R10.0, while the three largest gains supply 60.75% of repeat 1's gross savings.
+Each of J51, R10.0 and Integrated Final used less total time and weighted area than Z1 in both matched repeats. Integrated Final used the least area, and J51 the least total time. These two metrics omit per-case margin and limit exposure. The matched case data also show that 43 of 50 cases improve in area relative to R10.0, while the three largest gains supply 60.75% of repeat 1's gross savings. In each repeat, nine cases improve both weighted area and circuit delay, twelve reduce area at equal delay, and twenty-two reduce area with higher delay. The 22 slower circuits still meet their individual delay targets.
 
 ![Absolute, cumulative and bank-level weighted-area contributions relative to R10.0](Stage%202%20Formal%20Report/figures/phase_c_contributions.png)
 
-The upstream ZIP acceptance runs separately passed all 50 public cases and targets in each of three repeats, with total areas of 884,234, 876,694, and 876,694. One generated case remains late at delay 28 against target 27. [Upstream public results](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/public-runs.csv) · [Generated case and witness](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/residual.csv)
+The upstream ZIP acceptance runs separately passed all 50 public cases and targets in each of three repeats, with total areas of 884,234, 876,694, and 876,694. The upstream freeze record lists 168/168 targets on the development banks, 55/56 on four designated validation banks, and 28/28 on two banks generated after the final ZIP freeze. The four validation banks were prospective in one snapshot and labeled development in the later extended-window snapshot. The freeze grouping preserves their upstream designation. Across the six banks, 83/84 targets were met in 72 generated networks and twelve observations of two repeated exact-delay controls. One generated case remains late at delay 28 against target 27. [Upstream public results](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/public-runs.csv) · [Generated case and witness](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/residual.csv)
 
 ## Independent Stage 2 research freeze — R10.0
 
@@ -77,7 +77,7 @@ The historical casewise CSV retains both repeats. The current Formal Report appe
 
 Stage 1 includes two distinct contributions that the repository and reports keep separate:
 
-- **Formally submitted Stage 1 solution (Z1):** developed by Zeyun Du and used as the actual submitted-method comparator in the final report. Its original source may be held in the separate peer-review materials, rather than the root delivery directories; see the report for provenance.
+- **Formally submitted Stage 1 solution (Z1):** developed by Zeyun Du and used as the actual submitted-method comparator in the final report. The original source is archived with the Stage 1 audit evidence listed in the repository guide.
 - **Independent Stage 1 research path (J51):** developed by Jincan Li across Rounds 1–6.1. The selected Round 5.1 research freeze achieved **25/25 PASS**, **25/25 delay targets met**, and **529,014 total area** on the released Stage 1 bank. Its typed-DAG and early cut-rewriting investigations contributed important design foundations for Stage 2.
 
 See the [Stage 1 Technical Report](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf), [Stage 1 Trial Log](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.pdf), and [Round 5.1 frozen evidence](Stage1_Freeze_Round5.1_Verified/).
@@ -142,7 +142,7 @@ The [**unified Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2
 | [`Stage 2 Formal Report/UFUG2106_Final_Algorithm_Audit_v1/stage1_zeyun/`](Stage%202%20Formal%20Report/UFUG2106_Final_Algorithm_Audit_v1/stage1_zeyun/) | Archived Z1 submitted Stage 1 implementation and corresponding audit evidence |
 | [`baseline/`](baseline/) | Early synthesis baseline |
 
-Large duplicated reconstruction workspaces, old manuscript drafts, machine-generated build outputs and local backup archives are excluded from new Git commits by [`.gitignore`](.gitignore). Original per-round source, explanatory documents, and selected CSV/JSON evidence are retained. Local ZIP/RAR feedback bundles are ignored by default; normalized evidence tables are included. The archive documents observed public cases only.
+Large duplicated reconstruction workspaces, old manuscript drafts, machine-generated build outputs and local backup archives are excluded from new Git commits by [`.gitignore`](.gitignore). Original per-round source, explanatory documents, and selected CSV/JSON evidence are retained. Local ZIP/RAR feedback bundles are ignored by default; normalized evidence tables are included. The archive documents released cases and separately identified generated-case experiments.
 
 ## Build, test and reproduce
 
@@ -157,5 +157,7 @@ Jincan Li developed the independent Stage 1 research line and the Stage 2 resear
 The public release is a **research and coursework archive**, not a formally verified synthesis engine or a promise of success on unreleased cases.
 
 ## Repository integrity and evidence scope
+
+The Phase D review record documents the release decision, reproduction commands, exact PDF hashes and the scope of the scientific claims. [Final acceptance audit](FINAL_ACCEPTANCE_AUDIT.md) · [Claim evidence matrix](CLAIM_EVIDENCE_MATRIX.md)
 
 All named R7/R8/R9/R10 research-delivery directories and both public banks have been checked on GitHub `main`. The documentation and scientific values are based on archived results; source-defined time budgets are cooperative, not universal hard runtime bounds. Full reconstruction of the merged Trial Log requires its archived `tex/` bodies, `shared/palette.tex`, full referenced figure set, and merge/plot scripts in addition to the precompiled PDF.

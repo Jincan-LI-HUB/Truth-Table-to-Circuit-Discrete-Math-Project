@@ -1,171 +1,96 @@
 # Quick Start — Truth Table to Circuit
 
-The planned final team version is **Integrated Final**. The frozen **R10.0** solver and Stage 1 research freeze are also available for reproducing the historical experiments.
+**Integrated Final** is the Stage 2 team solver planned for submission. Use Linux or WSL2 with Git, a C++17 GCC toolchain, GNU Make, Python 3 and NumPy. The course evaluator is a Linux x86-64 executable. Clone on the Linux filesystem when using WSL.
 
-## Requirements
-
-- Linux or WSL2 (recommended); `g++` with C++17 support; GNU `make`; Python 3.
-- For the official released-benchmark evaluation: the **course-provided** `evaluator` at repository root and the `data/stage1/`, `data/stage2/` folders.
-- For numerical checks/figure reproduction: Python packages `pandas`, `matplotlib` (install in a virtual environment if needed).
-- For report compilation: `pdflatex`, `bibtex`, IEEEtran and the packages used by `main.tex`. The compiled `.bbl` is **not committed** because `.gitignore` excludes build intermediates.
-
-All paths below are relative to the **repository root** unless otherwise stated. Commands are intended to be copied into a Bash shell (including WSL Ubuntu).
-
-## 1. Build the team solver
+## 1. Clone, build and verify Integrated Final
 
 ```bash
-make -C Final_Submission_by_Zeyun_DU stage2
-out=$(mktemp -d)
-Final_Submission_by_Zeyun_DU/build/synth_stage2 data/stage2/case_001.txt "$out/case001.net"
-python3 Final_Submission_by_Zeyun_DU/tools/check_circuit.py data/stage2/case_001.txt "$out/case001.net"
-```
-
-The independent checker requires NumPy. The archive guide gives the two-bank evaluation commands, and the integration audit gives the four-method matched protocol. [Archive guide](Final_Submission_by_Zeyun_DU/README.md) · [Integration audit](Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
-
-### Build the independent R10.0 research freeze
-
-```bash
-git clone https://github.com/Jincan-LI-HUB/Truth-Table-to-Circuit-Discrete-Math-Project.git
+git clone --branch review/phase-c --config core.autocrlf=false \
+  https://github.com/Jincan-LI-HUB/Truth-Table-to-Circuit-Discrete-Math-Project.git
 cd Truth-Table-to-Circuit-Discrete-Math-Project
 
-# Build the standalone R10.0 freeze and its headers.
-make -C UFUG2106_Round10_0_Delivery build/submission_synth -j2
+team="$PWD/Final_Submission_by_Zeyun_DU"
+out=$(mktemp -d)
+make -C "$team" stage2
+"$team/build/synth_stage2" data/stage2/case_001.txt "$out/case_001.net"
+python3 "$team/tools/check_circuit.py" data/stage2/case_001.txt "$out/case_001.net"
 ```
 
-This compiles `UFUG2106_Round10_0_Delivery/submission/synth.cpp`, with headers placed alongside it, into `UFUG2106_Round10_0_Delivery/build/submission_synth`.
+The checker reports exact truth-table equivalence, area, circuit delay and target attainment. Expect `"valid": true` and `"target_met": true` for this input. The clone option preserves the byte identities used by the evidence verifier.
 
-R10.0 is the selected independent Stage 2 research candidate. Sections 2 and 3 reproduce its historical verification.
+## 2. Evaluate both released banks with the course evaluator
 
-## 2. Synthesize and verify one input
+Continue from the repository root in the same shell.
 
 ```bash
-SOLVER="$(realpath UFUG2106_Round10_0_Delivery/build/submission_synth)"
-CASE="$(realpath data/stage2/case_001.txt)"
-NET="/tmp/ufug2106_case001.net"
-
-"$SOLVER" "$CASE" "$NET"
-
-# Independent all-assignments netlist check against the truth table.
-make -C UFUG2106_Round10_0_Delivery build/verify_exhaustive -j2
-UFUG2106_Round10_0_Delivery/build/verify_exhaustive "$CASE" "$NET"
+install -m755 evaluator "$out/evaluator"
+for bank in stage1 stage2; do
+  "$out/evaluator" "$team/build/synth_stage2" "$PWD/data/$bank" \
+    --report "$out/$bank.csv" --save-outputs "$out/$bank-netlists"
+  python3 "$team/tools/verify_all.py" "$PWD/data/$bank" "$out/$bank-netlists" \
+    "$out/$bank.csv" "$out/$bank-independent.json"
+done
+printf 'Reports and netlists are in %s\n' "$out"
 ```
 
-Expected verifier behavior: a `PASS exact_assignments=... area=... delay=... target=...` summary. The verifier checks Boolean equivalence for every truth-table assignment; passing that check **alone** does not certify the external evaluator's runtime/memory requirements.
+Each bank contains 25 inputs. The evaluator CSV records functional status, whether the delay target was met, weighted area, circuit delay and synthesis runtime. The independent replay checks the emitted netlists against every assignment and reconciles the circuit metrics. Run the two commands for each bank together, since the replay needs that bank's CSV and saved netlists. Use the evaluator bundled with the repository for the flags above. The archive records the source ZIP build and the four-method matched experiment. [Solver guide](Final_Submission_by_Zeyun_DU/README.md) · [Integration audit](Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
 
-The output is a gate netlist, **not** a rendered circuit image. The R10.0 default Repeat SOP pass is conditional and may not run on a short-budget case.
+## Historical solver workflows
 
-## 3. Run the official released-case evaluator
-
-The course evaluator is a platform-dependent executable. On Windows-mounted WSL file systems, it may lack executable permissions; copy it to the Linux temporary directory to avoid altering the tracked original:
+### R10.0 independent Stage 2 freeze
 
 ```bash
-cp evaluator /tmp/ufug2106_evaluator
-chmod +x /tmp/ufug2106_evaluator
-
-EVAL=/tmp/ufug2106_evaluator
-SOLVER="$(realpath UFUG2106_Round10_0_Delivery/build/submission_synth)"
-
-"$EVAL" "$SOLVER" "$(realpath data/stage1)" \
-  --report /tmp/r100_stage1.csv
-"$EVAL" "$SOLVER" "$(realpath data/stage2)" \
-  --report /tmp/r100_stage2.csv
+make -C UFUG2106_Round10_0_Delivery -j2 build/submission_synth build/verify_exhaustive
+history=$(mktemp -d)
+UFUG2106_Round10_0_Delivery/build/submission_synth \
+  data/stage2/case_001.txt "$history/r100_case_001.net"
+UFUG2106_Round10_0_Delivery/build/verify_exhaustive \
+  data/stage2/case_001.txt "$history/r100_case_001.net"
 ```
 
-The documented basic interface is `evaluator PROGRAM BENCHMARK_FOLDER`. The archived evaluator accepts the optional `--report FILE` argument; omit it if you have a different version lacking that option.
+To run the course evaluator against this freeze, use the absolute path to `UFUG2106_Round10_0_Delivery/build/submission_synth` as its program argument. Keep the output directory separate from the Integrated Final run. The historical [R10.0 runner](UFUG2106_Round10_0_Delivery/run_round100.sh) supports `--local-only`, `--quick` and the full controlled experiment. The full default runs 600 policy-case evaluations.
 
-Each released bank contains 25 cases. The CSV output reports case-specific PASS, target attainment, area, delay and synthesis runtime. For the archived matched three-solver comparison and source provenance, refer to [`Stage 2 Formal Report/data/matched_case_metrics.csv`](Stage%202%20Formal%20Report/data/matched_case_metrics.csv) and the report's evaluation section.
-
-### Full R10.0 historical evaluation and ablations
-
-The original delivery provides a full verification-and-comparison runner:
-
-```bash
-# Local compilation, cold-build checks, independent fixtures (no official scores):
-bash UFUG2106_Round10_0_Delivery/run_round100.sh --local-only
-
-# Quicker public case comparison (four configurations, one repeat):
-bash UFUG2106_Round10_0_Delivery/run_round100.sh --quick
-
-# Full historical experiment (six configurations, two repeats, both banks):
-bash UFUG2106_Round10_0_Delivery/run_round100.sh
-```
-
-The full experiment runs **600 policy-case evaluations**, takes substantially more work than a single solver check, and generates local `results/` and `feedback/` files. The `.gitignore` omits generated binaries, LaTeX intermediates, and ZIP/RAR feedback archives; it does **not** blanket-ignore tracked/archived CSVs and research source.
-
-## 4. Build the earlier Stage 1 research freeze
-
-The independent **Round 5.1** line is retained for historical comparison and study:
+### J51 independent Stage 1 freeze
 
 ```bash
 make -C UFUG2106_Round5.1_Delivery -j1
-
-./UFUG2106_Round5.1_Delivery/build/synth_round51 \
-  data/stage1/case_001.txt /tmp/round51_case001.net
-
+history=$(mktemp -d)
+UFUG2106_Round5.1_Delivery/build/synth_round51 \
+  data/stage1/case_001.txt "$history/j51_case_001.net"
 python3 UFUG2106_Round5.1_Delivery/tools/verify_netlist.py \
-  data/stage1/case_001.txt /tmp/round51_case001.net
+  data/stage1/case_001.txt "$history/j51_case_001.net"
 ```
 
-Round 5.1 was an **independent research baseline**, not the Stage 1 code formally submitted by Zeyun Du. For source lineage, archived evaluations and all intermediate experiments, consult the Stage 1 Technical Report and the unified Research Trial Log.
+The J51 verifier reports whether it checked every assignment or selected a sample. The matched research evidence uses the [verified J51 freeze](Stage1_Freeze_Round5.1_Verified/) and identifies Z1 as Zeyun Du's submitted Stage 1 comparator. [J51 delivery guide](UFUG2106_Round5.1_Delivery/README.md)
 
-## 5. Rebuild and verify the Formal Report
+## Rebuild the reports and check the archives
+
+Install Python packages `numpy`, `pandas` and `matplotlib` for the plots and numerical checks. Use pdfLaTeX, BibTeX, IEEEtran and the LaTeX packages in the two masters. The optional historical reassembly uses PyMuPDF 1.26.4 or later.
 
 ```bash
 cd "Stage 2 Formal Report"
-
-# Recompute the four-method appendix and verify the archived metrics.
 python3 build_casewise.py
 python3 verify.py
 python3 ../Final_Submission_by_Zeyun_DU/integration/verify_evidence.py
-
-# Build the Phase C figures as PDF, SVG and PNG (matplotlib, numpy, pandas).
 python3 build_phase_c_figures.py
-
-# Regenerate the bibliography and PDF from tracked TeX/BibTeX sources.
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 bibtex main
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
+
+cd Research_Trial_Log
+python3 scripts/verify_evidence.py
+cd tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+cp main.pdf ../UFUG2106_Stage2_Research_Trial_Log_v3.pdf
 ```
 
-Because the repository does not track `.bbl`, a clean clone should run `bibtex main` after the first `pdflatex` pass. This does not alter the experimental data.
+Without `latexmk`, run pdfLaTeX in the Trial Log's `tex/` directory until the contents and labels stabilize. The Trial Log uses a bibliography embedded in its master. The Formal Report builds its bibliography from `references.bib`. For repeat 2 figures, pass `--repeat 2 --out DIR` to `build_phase_c_figures.py`.
 
-PDFs available without recompiling:
+- [Formal Report PDF](Stage%202%20Formal%20Report/main.pdf) and [build guide](Stage%202%20Formal%20Report/README.md)
+- [Unified Research Trial Log PDF](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) and [historical reassembly guide](Stage%202%20Formal%20Report/Research_Trial_Log/README.md)
+- [Stage 1 Technical Report](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf) and [original Trial Log](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.pdf)
 
-- The [**Formal Report**](Stage%202%20Formal%20Report/main.pdf) explains Integrated Final's BDD and J51 portfolios, shared-DAG scoring, cut polishing and timing rescue. The appendix covers all 50 cases in each matched repeat.
-- The [**Unified Research Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) preserves R1–R10.1 and documents the team integration, upstream paired passes, timing recovery and freeze decision through 24 November 2026.
-- The [**Phase C revision log**](Stage%202%20Formal%20Report/PHASE_C_REVISION.md) maps scientific claims to implementation and archived evidence.
-- [**Stage 1 Technical Report**](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf): earlier rigorous treatment of representation, mapping and optimization.
+Published results come from the archived runs. Search depends on elapsed time, so a fresh run can produce a different circuit. Course submission status, official scores and hidden-case performance remain unverified.
 
-## 6. Interpreting results responsibly
-
-- `PASS` means the evaluator accepted the generated solution; meeting a preferred delay target is a separate field.
-- Circuit delay and synthesis runtime are different quantities.
-- Area totals are **weighted gate counts**, not operation counts or universally comparable hardware costs across differently priced cases.
-- Published values in the project documents refer to the cited public-case runs. They may differ slightly from a fresh run because some search decisions depend on elapsed time.
-- The integration benchmark compares **Z1** (submitted Stage 1), **J51** (independent Stage 1 research freeze), **R10.0** (independent Stage 2 freeze), and **Integrated Final** (team Stage 2 archive) on the same 50 cases. Historical Z1/R10.0 figures use their original matched batch.
-- Both matched repeats yielded 50/50 passes and targets for every method. Integrated Final used approximately 22.6% less area than Z1 and 14.4% less than R10.0, with 2.14–2.20× R10.0's summed runtime. The archived generated case with delay 28 against a target of 27 remains a measured limit. [Integration audit](Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
-
-For navigation, return to the [repository README](README.md).
-
-
-## 7. Access the full research history
-
-- [Stage 1 independent R1–R6.1 technical report](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf) and [original trial log](UFUG2106_Stage1_Writing_v1_0/trial_log_record/main.pdf).
-- [Complete Stage 1 + Stage 2 Trial Log](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) and [casewise/variant CSV index](Stage%202%20Formal%20Report/Research_Trial_Log/data/stage2_all_variant_index.csv).
-- [R8.6 controlled root/time-quota experiment](UFUG2106_Round8_6_Delivery/README.md) and [R10.1 final parameter-ablation decision](UFUG2106_Round10_1_Delivery/docs/02_RELEASE_DECISION.md).
-
-To rebuild the Trial Log PDF, first run `build_phase_c_figures.py` as above to refresh the Part III figures. Then compile `Research_Trial_Log/tex/main.tex` twice with pdfLaTeX from that directory. The tracked historical bodies, figures, shared cover and bibliography are already part of the editable bundle. [Trial Log rebuild details](Stage%202%20Formal%20Report/Research_Trial_Log/README.md)
-
-## 8. Troubleshooting
-
-| Symptom | Action |
-|---|---|
-| `g++` or `make` not found | Install a C++17-capable build toolchain in Linux/WSL |
-| Course evaluator reports `Permission denied` | Copy the tracked binary into `/tmp` and run `chmod +x` on the copy |
-| Evaluator command does not recognize `--report` | Omit the optional flag if using a different evaluator version |
-| Output passes the exhaustive verifier but fails the external evaluator | Inspect output validity, case-specific delay, resource limits and evaluator diagnostics separately |
-| Fresh report build reports `IEEEtran.bst` missing | Install the TeX IEEE/BibTeX style packages and rerun the documented sequence |
-| Repeated metrics differ slightly | Respect wall-clock sensitivity of bounded search; use same-run paired comparisons for causal claims |
-
-Return to the [main README](README.md) for research background and the full repository map.
+[Repository overview](README.md)

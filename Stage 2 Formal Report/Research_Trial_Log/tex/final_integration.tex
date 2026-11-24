@@ -75,13 +75,13 @@ The \texttt{weighted} trial reached 869,636 area, but nine circuits sat exactly 
 
 \begin{center}
 \includegraphics[width=\linewidth]{../../figures/phase_c_integration_recovery.pdf}
-\captionof{figure}{Archived sequential timing-recovery snapshots by bank. Empty locations have no row in the archive. A numbered peach square is a miss count among 14 valid networks. A dashed border on a miss denotes prospective status in that snapshot.}
+\captionof{figure}{Archived sequential timing-recovery snapshots by bank. Empty locations have no row in the archive. A numbered peach square counts misses among 14 valid observations. A dashed border marks a prospective miss. Colors and borders show the role in that snapshot.}
 \label{fig:part3-recovery}
 \end{center}
 
 The previous delivery reached 11/14 and 10/14 on \texttt{limits} and \texttt{fresh}. Pair cofactors changed those counts to 12/14 and 10/14. Bidecomposition reached 12/14 on each. The cover-and-grouped-cofactor snapshot met 14/14 on both initial banks, then missed one target on prospective bank 410931. Later steps addressed accumulated scratch gates, the support-size cap, critical paths in reconstructed outputs, and additional balanced partitions. The sequence records changes and counterexamples as they occurred. Each snapshot can differ in more than the feature in its label, and improving a later snapshot does not isolate its newest change.
 
-\paragraph{Validation boundary.} A prior prospective bank can become development evidence after its failure influences the algorithm. The freeze record keeps twelve development banks (168/168 targets), four separately reserved validation banks, and two banks generated after the final ZIP freeze. The latter six total 83/84, including the two common exact-delay controls repeated in each bank. The row for an extended window changes some role labels relative to earlier rows. The final validation denominator follows the documented freeze groups, rather than counting all rows labeled prospective across the sequence. The residual failure is retained below.
+\paragraph{Validation boundary.} The upstream freeze record lists 168/168 targets on the development banks, 55/56 on four designated validation banks, and 28/28 on two banks generated after the final ZIP freeze. The four validation banks were prospective in one snapshot and labeled development in the later extended-window snapshot. The freeze grouping preserves their upstream designation. Across the six banks, 83/84 targets were met in 72 generated networks and twelve observations of two repeated exact-delay controls.
 
 \clearpage
 \section*{Matched whole-system evaluation}
@@ -95,7 +95,7 @@ The fresh WSL experiment is the comparison among Z1, J51, R10.0 and Integrated F
 \label{fig:part3-system}
 \end{center}
 
-Integrated Final records weighted area 872,813 and 872,919 and time 32.350 and 32.243 s. The area gains are about 22.6\% against Z1 and 14.4\% against R10.0. Against R10.0 the median paired time rises to \(2.316\times\) and \(2.262\times\). The repeat-1 gross area gain of 147,385 is offset by 651 units, with 89,530 from three Stage~2 cases. The broad coverage (43 area wins) and the concentration of absolute savings support different descriptions of the same outcome.
+Integrated Final records weighted area 872,813 and 872,919 and time 32.350 and 32.243 s. The area gains are about 22.6\% against Z1 and 14.4\% against R10.0. Against R10.0 the median paired time rises to \(2.316\times\) and \(2.262\times\). The repeat-1 gross area gain of 147,385 is offset by 651 units, with 89,530 from three Stage~2 cases. In each repeat, nine cases improve both weighted area and circuit delay, twelve reduce area at equal delay, and twenty-two reduce area with higher delay. The 22 slower circuits still meet their individual delay targets.
 
 \begin{center}
 \includegraphics[width=\linewidth]{../../figures/phase_c_resources.pdf}
@@ -109,7 +109,7 @@ The final solver has minimum slack one on every public case, but its median slac
 \section*{Residual failure and final freeze}
 \addcontentsline{toc}{section}{Residual failure and final freeze}
 
-\paragraph{Residual hypothesis.} The held-out miss is informative because its delay target is attainable by construction. The question is whether a different split, order or phase recovers that witness's delay. The same \(2^{14}\)-row truth table and delay target 27 are used across the recorded alternatives. The released build returns a correct circuit of area 2,105 and delay 28.
+\paragraph{Residual hypothesis.} The validation miss has a delay target that is attainable by construction. The question is whether a different split, order or phase recovers that witness's delay. The same \(2^{14}\)-row truth table and delay target 27 are used across the recorded alternatives. The released build returns a correct circuit of area 2,105 and delay 28.
 
 \begin{center}
 \small

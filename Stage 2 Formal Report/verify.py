@@ -140,6 +140,10 @@ for repeat in (1, 2):
     assert round(100*(1-area[FINAL].sum()/area.Z1.sum()), 1) == 22.6
     assert round(100*(1-area[FINAL].sum()/area['R10.0'].sum()), 1) == 14.4
     savings = area['R10.0'] - area[FINAL]
+    delay_diff_r100 = delay[FINAL] - delay['R10.0']
+    assert tuple((savings.gt(0) & mask).sum() for mask in (
+        delay_diff_r100.lt(0), delay_diff_r100.eq(0), delay_diff_r100.gt(0),
+    )) == (9, 12, 22)
     gross = savings[savings > 0].sum()
     penalty = -savings[savings < 0].sum()
     top = savings.nlargest(3)
@@ -234,11 +238,15 @@ assert release.status.eq('PASS').all() and release.target_met.eq('yes').all() an
 stress = pd.read_csv(timing/'stress.csv')
 development = ['limits', 'fresh', '732751', '410931', '851039', '647251',
                '332809', '173391', '659237', '899911', '521021', '937129']
-validation = ['112431', '357139', '711413', '338111', '829543', '526633']
-dev = stress[stress.bank.isin(development)]
+validation = ['112431', '357139', '711413', '338111']
+post_freeze = ['829543', '526633']
+for seeds, count, targets in ((development, 168, 168), (validation, 56, 55),
+                              (post_freeze, 28, 28)):
+    subset = stress[stress.bank.isin(seeds)]
+    assert (len(subset), subset.target_met.eq('yes').sum()) == (count, targets)
+    assert subset.status.eq('PASS').all() and not subset.duplicated(['bank','case']).any()
 val = stress[stress.bank.isin(validation)]
-assert (len(dev), dev.target_met.eq('yes').sum()) == (168, 168)
-assert (len(val), val.target_met.eq('yes').sum()) == (84, 83)
+assert set(trials.loc[trials.bank.isin(validation), 'role']) == {'prospective', 'development'}
 assert val.loc[val.target_met.eq('no'), ['bank', 'case']].values.tolist() == [['711413', 'case_003.txt']]
 residual = pd.read_csv(timing/'residual.csv').set_index('variant')
 assert tuple(residual.loc['Released candidate', ['area', 'delay', 'target']]) == (2105, 28, 27)

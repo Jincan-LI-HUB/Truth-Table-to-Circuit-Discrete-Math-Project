@@ -1,5 +1,7 @@
 from pathlib import Path
-import re,fitz
+import re
+
+import pymupdf as fitz
 base=Path(__file__).resolve().parents[1]; tex=base/'tex';fig=base/'figures'
 stage1=(base/'source_stage1_main.tex').read_text(encoding='utf-8')
 stage2=(tex/'source_stage2_full.tex').read_text(encoding='utf-8')
@@ -7,8 +9,16 @@ assert '\\section{1. Reading contract:' in stage2
 # Crop original vector figures from exact user-supplied finalized Stage 1 PDF
 src=fitz.open(base/'references/Stage1_Research_Trial_Log_v1.pdf')
 clips=[('stage1_round3_ablation_path.pdf',8,(68,381,548,584)),('stage1_round4_postprocess_ablation.pdf',9,(68,509,548,712)),('stage1_paired_runtime.pdf',12,(68,397,548,607)),('stage1_holdout_area.pdf',15,(68,62,548,265)),('stage1_round61_budget_tradeoff.pdf',15,(68,391,548,648)),('stage1_area_evolution.pdf',17,(68,218,548,410))]
-for name,page,region in clips:
-    out=fitz.open();r=fitz.Rect(*region);p=out.new_page(width=r.width,height=r.height);p.show_pdf_page(p.rect,src,page,clip=r);out.save(fig/name,garbage=4,deflate=True);out.close()
+for name, page, region in clips:
+    rect = fitz.Rect(*region)
+    with fitz.open() as source_page, fitz.open() as out:
+        source_page.insert_pdf(src, from_page=page, to_page=page)
+        # Remove content outside the crop before embedding the vector page.
+        source_page[0].clip_to_rect(rect)
+        target = out.new_page(width=rect.width, height=rect.height)
+        target.show_pdf_page(target.rect, source_page, 0, clip=rect)
+        out.save(fig / name, garbage=4, deflate=True)
+src.close()
 # Isolate faithful source: no change to mathematical prose
 start1=stage1.index('\\section{How to read this record}')
 end1=stage1.index('\\bibliographystyle{IEEEtran}',start1)
@@ -38,6 +48,10 @@ The separate actually submitted Stage 1 program (Z1) and Jincan's frozen R5.1 re
 # Remove literal section prefix numbers; full merged LaTeX will number sections across both stages
 b2=re.sub(r'(\\(?:sub)?section(?:\[[^]]*\])?\{)(?:\d+(?:\.\d+)?[a-z]?\.?\s+)([^}]*)\}',lambda m:m.group(1)+m.group(2)+'}',b2)
 b2=re.sub(r'(\\section\{)Appendix ([AB])\.\s+',lambda m:m.group(1)+'Research appendix '+m.group(2)+': ',b2)
+# Strip embedded historical numbers from both display and bookmark titles.
+legacy_number = r'\d+(?:\.\d+)?[a-z]?\.?\s+'
+heading = r'^(\\(?:sub)?section\{\\texorpdfstring\{)' + legacy_number
+b2 = re.sub(heading + r'(.*?)\}\{' + legacy_number, r'\1\2}{', b2, flags=re.M)
 # Stage 2 label with backreference of Stage1 intro remain unique
 b2=b2.replace('../figures/01_archival_area_evolution.pdf','../figures/14_stage2_area_delay_trajectory.pdf')
 (tex/'stage2_body.tex').write_text(b2,encoding='utf-8')
@@ -71,11 +85,7 @@ bib=r'''
 \bibitem{brayton1984} R. K. Brayton et al., \emph{Logic Minimization Algorithms for VLSI Synthesis}, Kluwer, 1984.
 \bibitem{mishchenko2006} A. Mishchenko, S. Chatterjee, and R. K. Brayton, ``DAG-Aware AIG Rewriting,'' \emph{Proc. DAC}, pp. 532--535, 2006.
 \bibitem{abc} Berkeley Logic Synthesis and Verification Group, \emph{ABC: A System for Sequential Synthesis and Verification}, software project, accessed 2026.
-\bibitem{course} UFUG2106 Course Staff, \emph{Final Project: Truth Table to Circuit}, 2026.
 \bibitem{stage1} J. Li and Z. Du, \emph{Stage 1 Research Trial Log}, finalized 11 Nov. 2026, full text reproduced in Part I.
-\bibitem{shannon} C. E. Shannon, ``The synthesis of two-terminal switching circuits,'' 1949.
-\bibitem{bryant} R. E. Bryant, ``Graph-based algorithms for Boolean function manipulation,'' 1986.
-\bibitem{mishchenko} A. Mishchenko et al., ``DAG-aware AIG rewriting,'' 2006.
 \end{thebibliography}
 \end{document}
 '''

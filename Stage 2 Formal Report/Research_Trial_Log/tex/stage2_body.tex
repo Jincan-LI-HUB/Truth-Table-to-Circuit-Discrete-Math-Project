@@ -337,7 +337,7 @@ The expression is schematic, not a claim that runtime is a literal sum of indepe
 
 Round 8.3 introduces a deterministic \textbf{root-work quota} alongside an emergency wall guard. The former controls an algorithmic quantity (number of completed selected roots), while the latter guards end-to-end runtime. This does not produce deterministic total running time, because one root can contain many cuts and candidates; it does make one dimension of the search more reproducible. In the frozen \texttt{r84cut::rewrite}, \texttt{visited\_roots} is checked against \texttt{work\_roots} at a root boundary; a clock check is performed periodically. Any remaining unprocessed original nodes are copied to finish a legal graph. This last operation is essential: an optimization timeout is allowed to truncate extra research but not to leave an incomplete netlist.
 
-\subsection{\texorpdfstring{9.2 A quota controls effort but also changes \emph{which} root wins}{9.2 A quota controls effort but also changes which root wins}}\label{a-quota-controls-effort-but-also-changes-which-root-wins}
+\subsection{\texorpdfstring{A quota controls effort but also changes \emph{which} root wins}{A quota controls effort but also changes which root wins}}\label{a-quota-controls-effort-but-also-changes-which-root-wins}
 
 The R8.3 Stage 2 period-one feedback compares a prior \texttt{r821\_dual\_area} with \texttt{r83\_stable\_dual}, \texttt{r83\_dense\_dual} and \texttt{r83\_fast\_area}. All four complete 25/25 cases and their delay targets, but differ materially:
 
@@ -754,7 +754,7 @@ Stage 2 / 005 contributes \textbf{752/1,587 = 47.39\%} of the observed saving. T
 
 The reduction from 1,021,134 to 1,019,547 is about \textbf{0.1554\%} relative to the R9.0 aggregate; it is deliberately modest. The value of this last round lies in a \emph{verified strict-improvement postpass} plus preserved target feasibility and rollback---not in claiming a radical new Boolean synthesis theory.
 
-\subsection{\texorpdfstring{16.3a What the \emph{size distribution} adds to the R10.0 summary}{16.3a What the size distribution adds to the R10.0 summary}}\label{a-what-the-size-distribution-adds-to-the-r10.0-summary}
+\subsection{\texorpdfstring{What the \emph{size distribution} adds to the R10.0 summary}{What the size distribution adds to the R10.0 summary}}\label{a-what-the-size-distribution-adds-to-the-r10.0-summary}
 
 The eight improvements are not close in magnitude. Their exact contributions are \textbf{752, 298, 250, 150, 125, 5, 5, and 2} (sum 1,587), in descending order. Thus a single Stage 2 case supplies \textbf{47.39\%} of the incremental gain; the five largest supply \textbf{1,575 of 1,587}, or \textbf{99.24\%}. The three smallest wins total only 12 units. They should not be deleted from the record merely because they are small: they verify that the optimization is not logically limited to large step changes, but neither do they justify characterizing the method as a broadly effective optimization on every input.
 
@@ -831,7 +831,7 @@ Measured median runtime also does not offer a clean cross-case dominance result.
 \textbf{Decision after R10.1: No-Go.} Preserve R10.0 as final. This negative experiment does not prove 160 roots or a 90-ms ceiling globally optimal. It establishes that \textbf{these tested reductions did not retain the observed released-case benefit or show a sufficiently robust compensation in runtime}. Having a defensible stopping decision is part of the research, not an embarrassment to hide.
 \end{tcolorbox}
 
-\section{\texorpdfstring{18. The official cross-stage comparison: three \emph{different} questions, not one misleading scoreboard}{18. The official cross-stage comparison: three different questions, not one misleading scoreboard}}\label{the-official-cross-stage-comparison-three-different-questions-not-one-misleading-scoreboard}
+\section{\texorpdfstring{The official cross-stage comparison: three \emph{different} questions, not one misleading scoreboard}{The official cross-stage comparison: three different questions, not one misleading scoreboard}}\label{the-official-cross-stage-comparison-three-different-questions-not-one-misleading-scoreboard}
 
 \subsection{Why these three programs must be separated}\label{why-these-three-programs-must-be-separated}
 
@@ -1117,7 +1117,7 @@ A conceptual view of the engineering objective is to find a valid synthesis poli
 
 This is \textbf{our mathematical model of the design decision}, not the undisclosed official scoring equation. The published feedback evaluates one finite sample of inputs and environments, not a proof of feasibility for all \(n\le20\) and all resource schedules. In particular, source-level guards around elapsed-time checks do not provide hard preemption for every intermediate operation.
 
-\section{\texorpdfstring{21. Reading the multi-round sample as a \emph{distribution}, not one scalar}{21. Reading the multi-round sample as a distribution, not one scalar}}\label{reading-the-multi-round-sample-as-a-distribution-not-one-scalar}
+\section{\texorpdfstring{Reading the multi-round sample as a \emph{distribution}, not one scalar}{Reading the multi-round sample as a distribution, not one scalar}}\label{reading-the-multi-round-sample-as-a-distribution-not-one-scalar}
 
 \subsection{Why a long-term trajectory is necessary and what it cannot prove}\label{why-a-long-term-trajectory-is-necessary-and-what-it-cannot-prove}
 
@@ -1176,7 +1176,7 @@ The larger arc is now explicit. Stage 1 establishes a correct mapping and effici
 
 \input{decision_atlas.tex}
 
-\section{\texorpdfstring{22. What the development path has \emph{actually} established}{22. What the development path has actually established}}\label{what-the-development-path-has-actually-established}
+\section{\texorpdfstring{What the development path has \emph{actually} established}{What the development path has actually established}}\label{what-the-development-path-has-actually-established}
 
 The trial history is best remembered as an ordered set of \textbf{resolved design questions}, not as a monotone chart of area totals:
 

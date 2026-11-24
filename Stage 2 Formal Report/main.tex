@@ -191,7 +191,7 @@ In reverse topological order, a gate is live if and only if it is selected direc
   \State Save old \((\rank_\delta(z),t(u))\)
   \State Remove one \(t(u)\) from \(T\) and remove \(u\)'s reference
   \State Add \(v\)'s reference and one \(t(v)\) to \(T\)
-  \State Let \(z'\) be \(z\) with \(z'_j=1\); compute its rank
+  \State Let \(z'\) set \(z_j=1\); rank using the updated area and \(\max T\)
   \If{\((\rank_\delta(z'),t(v))\) strictly improves}
     \State Set \(z\gets z'\)
   \Else
@@ -225,7 +225,7 @@ Treat the leaves as independent formal variables. If \(f_r^C\) is the induced fu
 The first leaf in sorted ID order occupies the least significant assignment bit. AND/OR act bitwise on masks and NOT complements within the \(2^k\) active bits. The mask occupies at most 16 bits. A path reaching an unlisted primary input makes the proposed frontier invalid.
 
 \begin{proposition}[Functional substitution at a cut]
-An acyclic legal replacement driven by the same cut leaves preserves all outputs if its truth signature equals \(\sigma(r,C)\) and all consumers of \(r\) are connected to its replacement.
+Let the cut leaves be strict predecessors of \(r\). An acyclic legal replacement driven by those unchanged leaf signals preserves all outputs if its truth signature equals \(\sigma(r,C)\) and all consumers of \(r\), including output pins, are connected to its replacement.
 \end{proposition}
 \begin{IEEEproof}
 For each primary-input assignment \(x\), the actual vector \(s(x)\) at \(C\) belongs to \(\{0,1\}^k\). Equality on the whole cube includes \(s(x)\), even when correlations among the leaf signals exclude other patterns. Thus the replacement and original root have the same value at \(x\). Induction through downstream gates gives equality at every dependent output. Gates feeding other outputs remain live independently of this replacement.
@@ -261,12 +261,13 @@ Set the working target to 7. For the direct SOP, both ANDs arrive at 5 and the O
 \footnotesize
 \begin{algorithmic}[1]
 \Require Eligible incumbent \(G\) with \(D(G)\le\delta\)
-\State Compute required arrivals and rank roots by reclaim proxy
+\State Compute required arrivals and rank roots by priority proxy
 \State Select up to 160 roots; traverse the graph topologically
-\For{each gate while the rewrite budget allows}
+\For{each gate before the rewrite pass stops}
+  \State Form bounded frontiers from the fanins
   \State Construct ordinary gate on mapped fanins
-  \If{gate is a selected live root}
-    \State Form bounded cut frontiers and evaluate their masks
+  \If{gate is a selected live root and budget allows}
+    \State Evaluate the eligible frontier masks
     \State Try SOP covers of each mask and its complement
     \State Keep an on-time root with strict local area gain, if found
   \EndIf
@@ -282,7 +283,7 @@ Integrated Final uses the inherited \texttt{sop}/\texttt{priority\_topq} call on
 \section{Timing-constrained functional decomposition}
 \label{sec:recovery}
 \subsection{Required times and critical cuts}
-For a common target \(\tau\), put \(R(s)\le \tau\) at each output and propagate
+For a common target \(\tau\), initialize output bounds to \(\tau\) and propagate
 \begin{equation}
  R(u)=\min\bigl(\{\tau:\ u\in S\}\cup
               \{R(v)-d(v): u\in\operatorname{fanin}(v)\}\bigr)
@@ -351,11 +352,11 @@ A distinct final step opens only if the incumbent still misses \(\Delta\) and pa
 \footnotesize
 \begin{algorithmic}[1]
 \If{critical repair window and typed costs are admitted}
-  \State Select cheaper compact candidate or incumbent
-  \While{selected graph is late and repair guards allow}
-    \State Propagate requirements; rewrite late roots with faster cuts
-    \State Stop if the new full graph is invalid or no faster
-    \State Submit the faster graph to working-target rank
+  \State Set repair graph \(H\) to cheaper compact candidate or incumbent
+  \While{\(D(H)>\delta\) and repair guards allow}
+    \State Propagate requirements on \(H\); build a cut trial \(H'\)
+    \State Stop if \(H'\) is invalid or \(D(H')\ge D(H)\)
+    \State Set \(H\gets H'\); submit \(H\) to working-target rank
   \EndWhile
   \State If eligible, try mixing roots from the cheaper compact choice
 \EndIf
@@ -415,7 +416,7 @@ Let \(s_i=A_i(\mathrm{R10.0})-A_i(\mathrm{Integrated\ Final})\). In repeat 1 the
 In repeat 2 the same three cases contribute the same \(89{,}530\) units, now \(60.79\%\) of gross savings \(147{,}279\). The penalty remains \(651\); Stage~1 and Stage~2 contribute \(32{,}358\) and \(114{,}270\) net, respectively. The rankings at the top, aggregate balance and dominance of the Stage~2 bank persist across these two repeats.
 
 \subsection{Circuit delay, runtime and memory}
-All matched circuits met their targets. In both repeats, \F{} eliminates zero slack across these cases, whereas Z1, J51 and R10.0 meet their targets exactly on 11, two and six cases, respectively. Its median slack is four units versus seven for R10.0 and ten for J51 (Fig.~\ref{fig:systems}B). A positive minimum can therefore coexist with smaller typical headroom. Its median and maximum circuit delays are 50 and 85, versus 48.5 and 73 for R10.0. Individual delays are lower/equal/higher than R10.0 on 12/16/22 cases in each repeat.
+All matched circuits met their targets. In both repeats, \F{} eliminates zero slack across these cases, whereas Z1, J51 and R10.0 meet their targets exactly on 11, two and six cases, respectively. Its median slack is four units versus seven for R10.0 and ten for J51 (Fig.~\ref{fig:systems}B). A positive minimum can therefore coexist with smaller typical headroom. Its median and maximum circuit delays are 50 and 85, versus 48.5 and 73 for R10.0. Individual delays are lower/equal/higher than R10.0 on 12/16/22 cases in each repeat. In each repeat, nine cases improve both weighted area and circuit delay, twelve reduce area at equal delay, and twenty-two reduce area with higher delay. The 22 slower circuits still meet their individual delay targets.
 
 \begin{figure*}[!tb]
 \centering\includegraphics[width=\textwidth]{figures/phase_c_resources.pdf}
@@ -429,20 +430,20 @@ J51 had the lowest summed runtime in the completed matched repeats, but Stage~2 
 
 \begin{figure*}[!tb]
 \centering\includegraphics[width=\textwidth]{figures/phase_c_tradeoffs.pdf}
-\caption{Area--delay trade-offs for all 50 cases in matched repeat 1. Both axes are Integrated Final minus R10.0, and A and B differ only in area normalization. Diamonds mark the four cases discussed in the text.}
+\caption{Area--delay trade-offs for all 50 cases in matched repeat 1. Both axes are Integrated Final minus R10.0. Leftward means less area and downward means shorter delay. B divides the area change by the case's R10.0 area. Diamonds mark the four cases discussed in the text.}
 \label{fig:tradeoffs}
 \end{figure*}
 
 The largest area win, Stage~2/005, goes from \(102{,}889\) to \(60{,}744\) at delay \(68\) in both circuits. Stage~2/013 saves area (\(115{,}706\to82{,}364\)) with a two-unit delay increase (\(66\to68\)). Stage~2/011 saves \(14{,}043\) area units with delay \(62\to78\), leaving one unit of slack against target \(79\). Conversely, Stage~1/023 gains seven delay units (\(22\to15\)) at an area increase of \(125\to202\). Figure~\ref{fig:tradeoffs} locates all four within the bank distributions. Stage~1/023's \(61.6\%\) area regression looks large in percentage space while adding only 77 units to the aggregate. All four use more synthesis time in the integrated run. Their area and delay values and the direction of their runtime changes persist in repeat 2. The archived end-to-end results cannot identify which internal passes caused individual changes.
 
 \subsection{Stress evidence and a remaining timing miss}
-The upstream timing archive records 168/168 targets on development banks and 83/84 on held-back validation and post-freeze banks, including repeated exact-delay controls. Seed 711413 case 003 remains late: \F{} area 2,105 and delay 28 against target 27. The generating witness has area 550 and delay 27, verified over all 16,384 assignments. Six recorded alternate searches also reach delay 28. This is a demonstrably feasible target that the released search did not attain.
+The upstream freeze record lists 168/168 targets on the development banks, 55/56 on four designated validation banks, and 28/28 on two banks generated after the final ZIP freeze. The four validation banks were prospective in one snapshot and labeled development in the later extended-window snapshot. The freeze grouping preserves their upstream designation. Across the six banks, 83/84 targets were met in 72 generated networks and twelve observations of two repeated exact-delay controls. Seed 711413 case 003 remains late: \F{} area 2,105 and delay 28 against target 27. The generating witness has area 550 and delay 27, verified over all 16,384 assignments. Six recorded alternate searches also reach delay 28. This is a demonstrably feasible target that the released search did not attain.
 
 \subsection{What the independent ablations identify}
 \label{sec:history}
 \begin{figure*}[!tb]
 \centering\includegraphics[width=\textwidth]{figures/phase_c_ablations.pdf}
-\caption{Historical independent ablations. A shows the R8.6 factorial on a common first-repeat baseline. Its two time-reclaim lines coincide. B contrasts R9.1 improvement frequency and net magnitude against its frozen control. C compares R10.1 last-pass policies with R10.0 in paired time and weighted area. Each median uses 100 case--repeat pairs.}
+\caption{Historical independent ablations. A shows the R8.6 factorial on a common first-repeat baseline. The with-reclaim and without-reclaim lines coincide. The separate extra-Shannon trial saved 20 units. B contrasts R9.1 improvement frequency and net magnitude against its frozen control. C compares R10.1 last-pass policies with R10.0 in paired time and weighted area. Each median uses 100 case--repeat pairs.}
 \label{fig:ablations}
 \end{figure*}
 

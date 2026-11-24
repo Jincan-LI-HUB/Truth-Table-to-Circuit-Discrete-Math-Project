@@ -115,8 +115,8 @@ def tradeoffs(frame, repeat, out):
     y = delay[FINAL]-delay[COMPARATOR]
     fig, axs = plt.subplots(1,2,figsize=(7.15,2.65),sharey=True)
     labels = ['2/005','2/013','2/011','1/023']
-    offsets = [[(-5,-14),(6,6),(-8,7),(7,-12)],
-               [(-10,-14),(-3,9),(-4,7),(-7,-12)]]
+    offsets = [[(6,-14),(6,6),(-8,7),(7,-12)],
+               [(6,-14),(-3,9),(-4,7),(-7,-12)]]
     for ax,x,title,xlabel,offset in zip(
         axs, [absolute/1000,relative], ['A  ·  Absolute weighted area','B  ·  Relative to R10.0'],
         ['Area change (thousands)','Area change (%)'],offsets,
@@ -149,7 +149,7 @@ def tradeoffs(frame, repeat, out):
 
 def ablations(out):
     factorial = pd.read_csv(REPORT/'data/quota_factorial.csv').query('repeat == 1')
-    totals = factorial[['extra_roots','reclaim','both','reverse']].sum()
+    totals = factorial[['extra_roots','reclaim','both']].sum()
     pairs = pd.read_csv(REPORT/'Research_Trial_Log/data/raw_controlled_pairs_verified.csv')
     names = ['r91_library','r91_repeat_shannon','r91_repeat_sop']
     r91 = (pairs.query('group == "r91" and repeat == 1 and bank in @BANKS')
@@ -160,9 +160,6 @@ def ablations(out):
     a.plot([0,1],[0,totals.extra_roots],color=TEAL,lw=2.6,marker='o',ms=6)
     a.plot([0,1],[totals.reclaim,totals.both],color=INK,lw=.9,ls='--',
            marker='o',mfc='none',ms=8)
-    a.scatter(1,totals.reverse,s=17,color=RUST,marker='x')
-    a.annotate(f'Shannon: {totals.reverse}',(1,totals.reverse),xytext=(-3,10),
-               textcoords='offset points',ha='right',fontsize=7.1,color=RUST)
     a.text(.05,.94,'Solid: no reclaim\nDashed: reclaim',va='top',transform=a.transAxes,fontsize=7)
     a.set(xticks=[0,1],xticklabels=['Original','Extra SOP'],xlim=(-.10,1.14),
           ylim=(-160,3400),yticks=[0,1000,2000,3000],ylabel='Weighted area saved')
