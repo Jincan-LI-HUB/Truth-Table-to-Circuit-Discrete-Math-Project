@@ -1,20 +1,21 @@
-# Figure revision plan
+# Phase C Revision 2 figure record
 
-Revision 1 uses the existing eight figure files. The actions below apply to the subsequent visualization session. Widths refer to IEEE column or full text width, approximately 3.46 or 7.15 inches.
+The publication set uses the established palette. All source diagrams and constructed networks are labeled separately from observations. Width is the IEEE single column (about 3.46 in) or full text width (about 7.15 in).
 
-| Figure or proposed panel | Scientific question | Action | Basis | Width |
-| --- | --- | --- | --- | --- |
-| `phase_c_architecture` | How do complete candidates become available for global comparison, and where does timing recovery enter? | Revise to emphasize the fallback, primary and compact choices, and the two feasibility thresholds. | Pinned integrated entry point and guarded candidate promotion. | Full |
-| `phase_c_budgets` | How does a finite allowance divide among screening, measured mapping and recovery? | Retain. Keep the main window and later admission windows visually distinct. | Source-defined main, BDD, J51 and later clocks. Schematic, with no measured durations. | Full |
-| `phase_c_cones` | Which gates are paid for on a root switch, and when can greedy moves miss a cheaper union? | Revise to add the four binary choices of the joint-switch example alongside the live-reference diagram. | Constructed unit-price networks. Standalone cones cost 4 and 3, and union areas are 5, 7, 7 and 4 at delay 3. | Full |
-| Worked SOP cut | Why can a local cone estimate differ from the true whole-network gain? | Add a compact before/after depiction if it replaces or augments the numeric table. | Constructed cut with shared `ab`, mask `0xA8`, and area 10 to 7 at unchanged arrival. | Column |
-| `phase_c_critical` | How can a different cut expression improve slack at the same area? | Retain. | Constructed four-leaf AND cut, equal gate count and root slack changing from −1 to +1. | Column |
-| `phase_c_cofactors` | How do cofactor classes reconstruct an output exactly? | Retain. | Constructed selector `h=ab` with quotient rows `c` and `c∨d`. | Column |
-| `phase_c_area_comparison` | How do the four released solvers compare in weighted area? | Retain. | Matched repeat 1, 50 cases per solver in [public summary](../Final_Submission_by_Zeyun_DU/integration/data/public_summary.csv). | Column |
-| `phase_c_casewise` | Are area changes widespread and similar across banks? | Retain. | Matched repeat 1, same-case area differences against Z1 and R10.0 in [case metrics](../Final_Submission_by_Zeyun_DU/integration/data/matched_case_metrics.csv). | Full |
-| `phase_c_resources` | What runtime, memory and limit exposures accompany the area result? | Retain. | [Matched case metrics](../Final_Submission_by_Zeyun_DU/integration/data/matched_case_metrics.csv) for synthesis time, [separate process measurements](../Final_Submission_by_Zeyun_DU/integration/data/matched/direct_memory.csv) for RSS. | Full |
-| R8.6 factorial | Does exposing roots affect area differently from reclaiming nominal time? | Restore the historical panel if used in place of a redundant numeric display. | [Existing figure](figures/r86_factorial_design.pdf) and [quota factorial CSV](data/quota_factorial.csv), first repeat. | Column |
-| R9.1 frequency and magnitude | Does a method that improves more cases also save more area in aggregate? | Restore the historical design if needed to compare all three policies in a common panel. | [Existing figure](Research_Trial_Log/figures/05_r91_frequency_vs_magnitude.pdf) and [controlled pairs](Research_Trial_Log/data/raw_controlled_pairs_verified.csv), first repeat. | Column |
-| R10.1 policy trade-off | What area penalty accompanies a smaller last-pass allowance? | Restore only as a replacement for the policy table if a paired visual is preferred. | [Existing figure](figures/final_policy_tradeoff.pdf) and [paired policy summary](data/final_policy_tradeoff.csv), 100 pairs per policy. | Full |
+| Figure | Change | Scientific question and basis | Width |
+| --- | --- | --- | --- |
+| Framework | Added | How do equivalence, structural search, global evaluation and finite resources interact? Conceptual model. | Column |
+| Architecture | Replaced | Which candidate and state relationships matter, and what actually runs in sequence? Pinned Integrated Final entry point. | Full |
+| Budget | Replaced | Which windows are absolute deadlines and which allowances depend on elapsed entry time? Pinned scheduler, with no measured durations. | Full |
+| Cone selection | Extended | Why does charging live gates make a single switch exact but leave a joint-move barrier? Two constructed examples, including the four states at delay 3. | Full |
+| Shared-term SOP | Added | How does live reuse turn a local −1 into global −3? Three explicit gate DAGs, mask 0xA8 and two fixed output arrivals. | Full |
+| Critical cut | Replaced | How can a gate-level reassociation keep area fixed and improve root slack? Constructed late-leaf AND tree. | Column |
+| Cofactor reconstruction | Replaced | Where do row classes and the binary selector come from? Complete constructed four-by-four truth matrix. | Column |
+| Bidecomposition | Added | What do the operator-specific partition screens look like? Verified two-by-two AND, OR and XOR slices. | Column |
+| Area totals | Retained | How large are whole-solver area differences? Archived matched public summary, repeat 1. | Column |
+| Absolute contributions | Added to article in place of the percent-by-case panel | How much of the net improvement comes from a few inputs and from Stage 2? Archived matched case metrics, repeat 1. The existing percent figure remains available as a companion. | Full |
+| Runtime and RSS | Retained as a companion; aggregate measurements remain in the text | What resources accompany the area outcome? Archived matched runtime and separate direct-process RSS. | Full |
+| Representative trade-offs | Added | Which outputs gain area, delay, or both, and at what synthesis-time ratio? Four paired cases from the matched CSV, repeat 1. | Column |
+| Historical ablations | Restored as one compact panel set | What can quota/reclaim, choice frequency, and final-pass cost identify under their own controls? R8.6 factorial CSV, R9.1 controlled pairs and R10.1 paired policy CSV. | Full |
 
-Keep units, baselines and experimental families attached to each panel. A constructed circuit or source schematic should be identified as such in its caption.
+`build_phase_c_figures.py` exports PDF, SVG and PNG. Use `--only` with selected figure names to update a subset. Figures read existing archives, whose benchmark and experiment provenance is unchanged. The same plotting command can use repeat 2 for the fresh matched figures.

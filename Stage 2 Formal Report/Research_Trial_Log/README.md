@@ -1,6 +1,6 @@
 # UFUG2106 Truth Table to Circuit — Complete Research Trial Log
 
-This unified research archive preserves the finalized Stage 1 R1–R6.1 mathematics and the Stage 2 R7–R10.1 reasoning and decisions. Part III records the pinned team integration, imported mechanisms, whole-system benchmark, freeze decision and remaining timing case. [Integration audit](../../Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
+This unified research archive preserves the finalized Stage 1 R1–R6.1 mathematics and the Stage 2 R7–R10.1 reasoning and decisions. Part III records the pinned team integration, upstream pass ablations, timing development and validation, search-cap evidence, matched benchmark and residual failure. [Integration audit](../../Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
 
 ## Files
 

@@ -15,6 +15,22 @@ The independent research chronology closes at R10.1. R10.0 remains Jincan Li's i
 \item[Recover timing selectively.] Shared-factor candidates use intersections of output supports and two-class cofactors to expose common factors. Critical cuts act on paths late to the working target, and the final rescue uses the original truth functions for eligible outputs still late to the stated target. The latter tries exact decomposition, covers and grouped Shannon mapping, accepting only a complete improvement in delay. The target reserve is a controller policy; the exact decompositions and cone mixing change the candidate structure.
 \end{description}
 
+\section*{Upstream pass measurements}
+\addcontentsline{toc}{section}{Upstream pass measurements}
+
+\paragraph{Cut polishing.} The team workflow asked whether the inherited four-leaf SOP routine could reduce a completed integrated network without losing feasibility. The paired cut file compares the same starting network before and after the pass for each of the 50 released inputs. The 17 positive changes sum to 3,165 weighted units, with the remaining 33 unchanged. The recorded post-pass delays meet the targets and the rows include counts of assignments checked. This isolates the pass on those incumbents. The earlier whole-snapshot areas in the cuts report answer a separate question about the output of the complete executables.
+
+\paragraph{Shared factors.} A separate paired archive tests the cofactor-factorization pass on public, diagnostic and holdout networks. The public savings come from Stage~1 cases 022 (1,296 to 1,294) and 023 (205 to 202), with delay unchanged in both pairs. Constructed diagnostics can expose much larger opportunities. For example, the diagnostic case 013 goes from 961 to 144 area, with delay increasing from 20 to 23. The separate holdout records two inputs going from 129 to 107 at unchanged delay 11. These three families have different roles and their savings stay separate. The measured public effect on this snapshot is five units. The pass can expose structurally shareable factors, but its measured gain cannot be added to the cut-polish gain across snapshots or credited for the full solver gap.
+
+\section*{Timing reserve, search cap and development evidence}
+\addcontentsline{toc}{section}{Timing reserve, search cap and development evidence}
+
+The team adopted a public release area ceiling below 900,000 and required one unit of delay slack in public acceptance, while the official target remained unchanged. Earlier headroom trials illustrate why both criteria matter. In the archived 50-case trial labeled \texttt{weighted}, area was 869,636 but nine cases were at their exact targets. The trial labeled \texttt{strict} achieved at least two units of slack with area 960,177. The \texttt{one} trial achieved one unit of minimum slack at 898,282, and the \texttt{cuts} trial at 880,546. These are separate policy trials. The final solver reserves one integer unit when possible and can recover against the original target if the working choice remains late. Generated exact-target controls exercise that distinction.
+
+Each limited-resource bank comprises twelve seeded generated circuits with feasible witnesses and two common exact-delay controls. On the first two development banks the previous delivery met 11/14 and 10/14 targets. Pair cofactors reached 12/14 and 10/14, and bidecomposition reached 12/14 on both. The snapshot using implicant covers and grouped cofactors reached 14/14 on each of those banks, but one prospective seed still had a miss. Later development records include reclaiming scratch gates between outputs, supporting up to 14 input variables, remapping reconstructed critical paths and searching additional balanced partitions. Earlier prospective banks became development data as their failures informed changes. The final denominators distinguish these development banks from the four reserved validation seeds and two seeds generated after the final ZIP freeze.
+
+An old-cap public trial returned area 910,462 under competing CPU load. Two other archived old-cap trials totaled 880,987 and 883,002. This variability and the ceiling motivated retaining a larger cap for the frozen operating point. The final main window is \(\min(3300\,\mathrm{ms},0.45L)\) for a positive input limit \(L\), with a separate default for other inputs. The old-cap records do not hold system load and architecture fixed in a way that identifies a cap effect. A larger allowance gives time for more candidates to finish, while graph choices can also vary with check timing.
+
 \section*{Evidence reconciliation and freeze decision}
 \addcontentsline{toc}{section}{Evidence reconciliation and freeze decision}
 
@@ -22,31 +38,16 @@ The upstream cuts comparison recorded 869,773 area for its earlier integrated sn
 
 The integration audit provides the fresh WSL matched comparison of Z1, J51, R10.0 and Integrated Final. Each repeat uses both public 25-case banks. Repeat 2 reverses bank and method order. The final solver's 100 saved circuits were checked against every truth-table assignment.
 
-\begin{center}
-\small
-\begin{tabular}{llrr}
-\toprule
-Run & Solver & Weighted area & Synthesis sum (s)\\
-\midrule
-1 & Z1 & 1,127,450 & 37.151\\
-1 & J51 & 1,037,549 & 8.663\\
-1 & R10.0 & 1,019,547 & 14.736\\
-1 & Integrated Final & 872,813 & 32.350\\
-2 & Z1 & 1,127,196 & 36.954\\
-2 & J51 & 1,037,549 & 9.419\\
-2 & R10.0 & 1,019,547 & 15.047\\
-2 & Integrated Final & 872,919 & 32.243\\
-\bottomrule
-\end{tabular}
-\end{center}
+Integrated Final totals 872,813 and 872,919 weighted area and 32.350 and 32.243 seconds of synthesis time in the two matched repeats. The audit retains each solver and bank subtotal.
+
 
 Every row has 50 evaluator passes and 50 targets met. The area gains are about 22.6\% against Z1 and 14.4\% against R10.0. In repeat 1 the R10.0-relative gain is 6.2\% for Stage 1 and 23.2\% for Stage 2. The median paired synthesis-time ratio against R10.0 is 2.316 and 2.262 across the two repeats. Every Integrated Final public circuit has at least one unit of slack. J51 Stage 2 case 016 used close to all of its input time in both completed repeats; the interrupted diagnostic preserves a timeout on the same case. Separate direct-process RSS records distinguish observed process memory from the course evaluator's memory decision.
 
-Two controlled passes on earlier integrated snapshots saved 3,165 area units from SOP on 17 public cases and five units from shared factors on two. The snapshots and incumbents differ. The cap trial under competing load motivated retaining a larger main window, while the archived experiments lack an iso-budget comparison separating additional time from structural and controller changes. The freeze decision rests on the complete measured operating point.
+The freeze decision rests on the complete measured operating point. All three upstream source-ZIP repeats cleared the public area ceiling and reserve and passed full independent replay. Across these repeats the maximum measured time was 49.7\% of the input limit and direct peak RSS was 44.9 MiB. The fresh matched runs supply a separate whole-solver comparison. There is no iso-budget control separating additional search time from structural and controller changes.
 
 \section*{Residual case and record locations}
 \addcontentsline{toc}{section}{Residual case and record locations}
 
-The upstream archive records 168/168 development timing targets and 83/84 in validation and post-freeze banks. Seed 711413 case 003 has circuit delay 28 against target 27, while the verified generating witness has delay 27 and area 550. Six recorded alternatives also reach delay 28. The generated miss remains a concrete limit of the selected search.
+The upstream archive records 168/168 development timing targets and 83/84 in validation and post-freeze banks. Seed 711413 case 003 has area 2,105 and delay 28 against target 27. The generating witness has delay 27 and area 550, verified on all 16,384 rows. Alternative input order, extra XOR mappings, XOR phase transfer, all balanced masks up to 14 inputs, derivative expansion and factor splits with up to six shared pins all reached delay 28. The XOR phase variant lowered area to 1,968 and still missed the target. The released candidate returned the same area and delay with the original 48 MiB cap and with the memory-limit line omitted. This feasible but unsolved timing target remains part of the freeze record.
 
-The pinned source and attribution are in \texttt{Final\_Submission\_by\_Zeyun\_DU}. Its \texttt{integration/AUDIT.md} indexes matched evaluator rows, complete replay summaries, independent direct RSS and the interrupted diagnostic; \texttt{reports/stage2-timing-20261124/residual.csv} retains the witness and alternatives. The Formal Report presents the source-aligned mathematics, eight reproducible figures and a four-method casewise appendix for both repeats. Course submission status and hidden-test outcomes remain unverified.
+The pinned source and attribution are in \texttt{Final\_Submission\_by\_Zeyun\_DU}. Its \texttt{integration/AUDIT.md} indexes matched evaluator rows, complete replay, direct RSS and the interrupted diagnostic. The directories \texttt{reports/stage2-cuts-20261124} and \texttt{reports/stage2-factors-20261124} hold the paired pass files. The headroom and timing reports retain policy trials, stress and release measurements, and the residual witness. Course submission status and hidden-test outcomes remain unverified.

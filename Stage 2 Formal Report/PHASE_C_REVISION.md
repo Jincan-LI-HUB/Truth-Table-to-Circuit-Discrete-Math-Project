@@ -31,3 +31,10 @@ The revision starts from draft `e3d8e80` and recovers relevant mathematics from 
 The current draft reuses the eight existing figures. [Figure revision plan](FIGURE_REVISION_PLAN.md)
 
 `verify.py` checks the constructed examples and recomputes the reported historical contrasts, improvement counts and time ratios. The Phase A/B archive verifier checks the matched case-level evidence independently.
+
+## Revision 2 publication pass
+
+- Kept the Revision 1 mathematical structure and tightened Algorithm 2 rollback, truth-signature notation and Proposition 3's fixed-boundary hypotheses.
+- Rebuilt the source diagrams around candidate flow and conditional time windows. Drew explicit DAGs for the shared SOP and timing examples and truth matrices for cofactor grouping and bidecomposition. [Publication figures and their evidence](FIGURE_REVISION_PLAN.md)
+- Recomputed net and gross area gains, regression penalties, top contributors and bank totals from both matched repeats. Added representative area–delay–runtime cases and a combined historical ablation figure. The original percentage-by-case figure remains in the archive.
+- Expanded Trial Log Part III with upstream pass measurements, timing policy and generated banks, the confounded cap trial, the residual failure and the freeze criteria. Kept the independent R1–R10.1 body and its evidence.

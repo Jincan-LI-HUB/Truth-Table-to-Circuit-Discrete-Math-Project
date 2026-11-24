@@ -25,7 +25,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
 Without `latexmk`, run `pdflatex main.tex`, `bibtex main`, and `pdflatex main.tex` twice. These commands use the archived CSVs without rerunning any solver. To export repeat 2 for comparison, run `python3 build_phase_c_figures.py --repeat 2 --out /path/to/repeat-2-figures`. The tracked figures and figure captions use repeat 1 for matched plots; the resource figure's separate direct-process RSS series has no repeat number.
 
-The Phase C figures adapt the UFUG2106 Figure Reuse Kit's architecture boxes and arrows, shared-cone contours and directly labeled zero-baseline area bars. They use canonical manuscript fills and keep dark teal for selected results and rust for timing violations or recovery. The eight figures are sized for IEEE single- or double-column placement. Architecture and budget figures are source schematics; the cone, cofactor and critical-cut figures are constructed examples. The three empirical figures read the integration archive. The historical `figures.py` and its datasets are retained for reproduction of earlier plots.
+The Phase C figures use canonical manuscript colors and IEEE single- or double-column widths. The current paper includes 12 figures, with mathematical examples and source schematics separated from observations. The matched plots read the integration archive. The combined ablation figure reads the archived R8.6, R9.1 and R10.1 experiment files. The earlier percentage casewise and aggregate resource charts are available as companions. See the [figure record](FIGURE_REVISION_PLAN.md) for the scientific questions, data and widths.
 
 ## Evidence
 

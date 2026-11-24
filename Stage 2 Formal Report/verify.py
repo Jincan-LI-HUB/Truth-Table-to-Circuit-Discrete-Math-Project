@@ -127,6 +127,31 @@ for repeat in (1, 2):
     assert round(100*(j51.runtime_ms/j51.time_limit_ms).max(), 2) == (97.92 if repeat == 1 else 96.93)
     assert round(100*(1-area[FINAL].sum()/area.Z1.sum()), 1) == 22.6
     assert round(100*(1-area[FINAL].sum()/area['R10.0'].sum()), 1) == 14.4
+    savings = area['R10.0'] - area[FINAL]
+    gross = savings[savings > 0].sum()
+    penalty = -savings[savings < 0].sum()
+    top = savings.nlargest(3)
+    by_bank = savings.groupby(level='bank').sum()
+    expected_savings = (147385, 651, 146734, 32358, 114376) if repeat == 1 else (
+        147279, 651, 146628, 32358, 114270,
+    )
+    assert (gross, penalty, savings.sum(), *by_bank.reindex(BANKS)) == expected_savings
+    assert (sum(savings > 0), sum(savings == 0), sum(savings < 0)) == (43, 1, 6)
+    assert list(top.index) == [('stage2', f'case_{i:03}.txt') for i in (5, 13, 11)]
+    assert top.sum() == 89530
+    assert round(100 * top.sum()/gross, 2) == (60.75 if repeat == 1 else 60.79)
+    if repeat == 1:
+        assert round(100 * by_bank.stage2/savings.sum(), 2) == 77.95
+    for key, (old_a, new_a, old_d, new_d, target) in {
+        ('stage2','case_005.txt'): (102889, 60744, 68, 68, 69),
+        ('stage2','case_013.txt'): (115706, 82364, 66, 68, 78),
+        ('stage2','case_011.txt'): (52463, 38420, 62, 78, 79),
+        ('stage1','case_023.txt'): (125, 202, 22, 15, 24),
+    }.items():
+        assert tuple(area.loc[key, ['R10.0', FINAL]]) == (old_a, new_a)
+        assert tuple(delay.loc[key, ['R10.0', FINAL]]) == (old_d, new_d)
+        assert tuple(paired(frame, 'target').loc[key, ['R10.0', FINAL]]) == (target, target)
+        assert runtime.at[key, FINAL] > runtime.at[key, 'R10.0']
     if repeat == 1:
         for bank, expected in zip(BANKS, [(493224, 16.2, 6.2), (379589, 29.5, 23.2)]):
             bank_area = area.loc[bank].sum()
@@ -159,6 +184,21 @@ for policy, expected in {
     assert tuple(rows[['joint_pass', 'wins', 'area_saved']].sum()) == expected
 
 timing = ARCHIVE.parent/'reports/stage2-timing-20261124'
+headroom = pd.read_csv(timing.parent/'stage2-headroom-20261124/development.csv').set_index('trial')
+for trial, expected in {'strict': (960177,2,0), 'weighted': (869636,0,9),
+                        'one': (898282,1,0), 'cuts': (880546,1,0)}.items():
+    assert tuple(headroom.loc[trial, ['area','min_slack','at_target']]) == expected
+earlier = pd.read_csv(timing/'earlier-budget.csv')
+assert earlier.stage1_bank_area.add(earlier.stage2_bank_area).eq(earlier.combined_area).all()
+assert earlier.combined_area.tolist() == [910462, 880987, 883002]
+cuts = pd.read_csv(timing.parent/'stage2-cuts-20261124/paired.csv')
+assert len(cuts) == 50 and cuts.delay_after.le(cuts.target).all()
+assert cuts.area_before.sub(cuts.area_after).eq(cuts.area_saved).all()
+assert (cuts.area_saved.sum(), cuts.area_saved.gt(0).sum(), cuts.area_saved.eq(0).sum()) == (3165, 17, 33)
+factors = pd.read_csv(timing.parent/'stage2-factors-20261124/paired.csv')
+factor_public = factors[factors.bank.isin(BANKS)]
+gain = factor_public.area_before.sub(factor_public.area_after)
+assert (len(factor_public), gain.sum(), gain.gt(0).sum()) == (50, 5, 2)
 stress = pd.read_csv(timing/'stress.csv')
 development = ['limits', 'fresh', '732751', '410931', '851039', '647251',
                '332809', '173391', '659237', '899911', '521021', '937129']
@@ -270,6 +310,17 @@ for shared in (0, 1):
         assert (g ^ h) == table[x][y]
     assert (table[0][0] & table[1][1]) != (table[0][1] & table[1][0])
     assert (table[0][0] | table[1][1]) != (table[0][1] | table[1][0])
+# Exhaust all two-by-two matrices to test the screen and projection equivalence.
+for bits in product((0, 1), repeat=4):
+    a, b, c, d = bits
+    rows = (bits[:2], bits[2:])
+    cols = (bits[::2], bits[1::2])
+    reconstructed_and = tuple(int(any(r) and any(s)) for r,s in product(rows, cols))
+    reconstructed_or = tuple(int(all(r) or all(s)) for r,s in product(rows, cols))
+    reconstructed_xor = tuple(rows[x][0] ^ rows[0][y] ^ a for x,y in product((0, 1), repeat=2))
+    assert (reconstructed_and == bits) == ((a & d) == (b & c))
+    assert (reconstructed_or == bits) == ((a | d) == (b | c))
+    assert (reconstructed_xor == bits) == ((a ^ b ^ c ^ d) == 0)
 for p, a, b, c in product((0, 1), repeat=4):
     assert ((p & a) & b) & c == p & ((a & b) & c)
 arrival = lambda u, v: 1 + max(u, v)
