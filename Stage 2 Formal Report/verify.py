@@ -35,6 +35,8 @@ assert int(d.nlargest(3).sum())==94004  # Three largest gains = 58.5% of gross w
 print('historical repeat 1: benefits=18, regressions=32, positive=160,696, negative=35,999')
 Q=pd.read_csv(R/'data/quota_factorial.csv').query('repeat==1')
 assert (int(Q.extra_roots.sum()),int(Q.reclaim.sum()),int(Q.both.sum()),int(Q.reverse.sum()))==(2844,0,2844,20)
+assert Q.interaction.eq(Q.both - Q.extra_roots - Q.reclaim).all()
+assert Q.interaction.sum() == 0
 R90=pd.read_csv(R/'data/official_r90_r100_casewise.csv').query('run==1')
 R90['id']=R90.bank+'/'+R90.case
 A=R90.pivot(index='id',columns='method',values='area')
@@ -72,6 +74,9 @@ saved=P.set_index('policy')['penalty50'].to_dict()
 assert (saved['r101_off'],saved['r101_cap40'],saved['r101_cap80'],saved['r101_budget45'])==(1587,1008,602,241)
 ratios=P.set_index('policy')['runtime_median_ratio']
 assert ratios['r101_off']<ratios['r101_cap40']<1 and ratios['r101_budget45']>1
+assert [round(ratios[k], 3) for k in ('r101_off', 'r101_cap40', 'r101_cap80', 'r101_budget45')] == [
+    .942, .987, .988, 1.009,
+]
 print('paired final-policy trade-off: validated from 100 observations per policy')
 
 assert OUTPUT.read_text(encoding='utf-8') == render(), 'Regenerate casewise.tex'
@@ -141,6 +146,17 @@ historical = pd.read_csv(R/'Research_Trial_Log/data/raw_feedback_verified.csv')
 r91 = historical.query('archive_group == "r91" and repeat == 1').groupby('variant').area_pass.sum()
 assert r91.r90_frozen-r91.r91_repeat_sop == 1587
 assert r91.r90_frozen-r91.r91_library == 663
+assert r91.r90_frozen-r91.r91_repeat_shannon == 879
+historical_pairs = pd.read_csv(R/'Research_Trial_Log/data/raw_controlled_pairs_verified.csv')
+r91_pairs = historical_pairs.query('group == "r91" and repeat == 1')
+r91_pairs = r91_pairs[r91_pairs.bank.isin(BANKS)]
+for policy, expected in {
+    'r91_library': (50, 15, 663), 'r91_repeat_sop': (50, 8, 1587),
+    'r91_repeat_shannon': (50, 5, 879),
+}.items():
+    rows = r91_pairs[r91_pairs.candidate.eq(policy)]
+    assert set(rows.bank) == set(BANKS)
+    assert tuple(rows[['joint_pass', 'wins', 'area_saved']].sum()) == expected
 
 timing = ARCHIVE.parent/'reports/stage2-timing-20261124'
 stress = pd.read_csv(timing/'stress.csv')
@@ -158,15 +174,108 @@ assert tuple(residual.loc['Generating witness', ['area', 'delay', 'target']]) ==
 assert len(residual) == 8 and residual.valid.all()
 assert residual.drop('Generating witness').delay.eq(28).all()
 
-# Check the grouped-cofactor reconstruction and four-leaf timing example.
+# Check the BDD cofactor example and two alternative physical realizations.
+for x in (0, 1):
+    assert tuple(x & y for y in (0, 1)) == ((0, 0) if x == 0 else (0, 1))
+    assert tuple(x ^ y for y in (0, 1)) == ((0, 1) if x == 0 else (1, 0))
+    for y in (0, 1):
+        assert (x ^ y) == ((x | y) & (1 - (x & y)))
+
+
+def example_metrics(gates, roots, input_arrivals, prices, delays):
+    """Evaluate area and arrival of the output-reachable gates in an example."""
+    live = set()
+    pending = list(roots)
+    while pending:
+        gate = pending.pop()
+        if gate in live or gate in input_arrivals:
+            continue
+        live.add(gate)
+        pending.extend(gates[gate][1:])
+    arrivals = dict(input_arrivals)
+    for gate, (op, *fanins) in gates.items():
+        if gate in live:
+            arrivals[gate] = delays[op] + max(arrivals[pin] for pin in fanins)
+    return sum(prices[gates[gate][0]] for gate in live), tuple(arrivals[root] for root in roots)
+
+
+# Unit costs: each new cone is cheaper alone, while either individual switch costs two extra.
+mix = {
+    'xy': ('or', 'x', 'y'), 'xz': ('or', 'x', 'z'),
+    'p': ('and', 'xy', 'xz'), 'yz': ('and', 'y', 'z'), 'q': ('or', 'x', 'yz'),
+    'p_u': ('and', 'p', 'u'), 'p_v': ('and', 'p', 'v'),
+    'q_u': ('and', 'q', 'u'), 'q_v': ('and', 'q', 'v'),
+}
+unit = {'or': 1, 'and': 1, 'not': 1}
+mix_arrivals = dict.fromkeys('xyzuv', 0)
+for x, y, z, u, v in product((0, 1), repeat=5):
+    p = (x | y) & (x | z)
+    q = x | (y & z)
+    assert (p & u, p & v) == (q & u, q & v)
+for roots, area in [
+    (('p_u', 'p_v'), 5), (('q_u', 'p_v'), 7), (('p_u', 'q_v'), 7), (('q_u', 'q_v'), 4),
+]:
+    assert example_metrics(mix, roots, mix_arrivals, unit, unit) == (area, (3, 3))
+for root in ('p_u', 'p_v', 'q_u', 'q_v'):
+    assert example_metrics(mix, (root,), mix_arrivals, unit, unit) == (4 if root.startswith('p') else 3, (3,))
+
+# Cut masks, maximal cubes, exact cone areas and the local versus global gain.
+cut = {
+    'ab': ('and', 'a', 'b'), 'nb': ('not', 'b'), 'nbc': ('and', 'nb', 'c'),
+    'long': ('and', 'a', 'nbc'), 'old': ('or', 'ab', 'long'),
+    'ac': ('and', 'a', 'c'), 'sop': ('or', 'ab', 'ac'),
+    'na': ('not', 'a'), 'nc': ('not', 'c'), 'neither': ('and', 'nb', 'nc'),
+    'off': ('or', 'na', 'neither'), 'dual': ('not', 'off'),
+}
+cut_arrivals = {'a': 3, 'b': 0, 'c': 1}
+prices = {'and': 2, 'or': 3, 'not': 1}
+delays = {'and': 2, 'or': 2, 'not': 1}
+mask = 0
+for a, b, c in product((0, 1), repeat=3):
+    old = (a & b) | (a & ((1-b) & c))
+    assert old == ((a & b) | (a & c)) == (1 - ((1-a) | ((1-b) & (1-c))))
+    mask |= old << (a + 2*b + 4*c)
+assert mask == 0xA8 and (0xFF ^ mask) == 0x57
+cubes = {}
+for cube in product((0, 1, '*'), repeat=3):
+    cubes[cube] = {
+        i for i in range(8)
+        if all(bit == '*' or bit == ((i >> j) & 1) for j, bit in enumerate(cube))
+    }
+for on_set, expected_cube_patterns in [
+    ({3, 5, 7}, {(1, 1, '*'), (1, '*', 1)}),
+    ({0, 1, 2, 4, 6}, {(0, '*', '*'), ('*', 0, 0)}),
+]:
+    valid = {cube: covered for cube, covered in cubes.items() if covered <= on_set}
+    maximal = {cube for cube, covered in valid.items() if not any(covered < other for other in valid.values())}
+    assert maximal == expected_cube_patterns
+    assert set.union(*(valid[cube] for cube in maximal)) == on_set
+for root, area in [('old', 10), ('sop', 7), ('dual', 11)]:
+    assert example_metrics(cut, (root, 'ab'), cut_arrivals, prices, delays) == (area, (7, 5))
+assert example_metrics(cut, ('ab',), cut_arrivals, prices, delays) == (2, (5,))
+assert example_metrics(cut, ('sop',), cut_arrivals, prices, delays) == (7, (7,))
+reclaim = 10-2
+assert (reclaim, 7-reclaim, 7-10) == (8, -1, -3)
+
+# Grouped cofactor reconstruction, anchored XOR and four-leaf timing.
 for a, b, c, d in product((0, 1), repeat=4):
     h = a & b
     selected = ((1-h) & c) | (h & (c | d))
     assert selected == (c | (a & b & d))
+for shared in (0, 1):
+    table = [[x ^ y ^ shared for y in (0, 1)] for x in (0, 1)]
+    for x, y in product((0, 1), repeat=2):
+        g = table[x][0]
+        h = table[0][y] ^ table[0][0]
+        assert (g ^ h) == table[x][y]
+    assert (table[0][0] & table[1][1]) != (table[0][1] & table[1][0])
+    assert (table[0][0] | table[1][1]) != (table[0][1] | table[1][0])
 for p, a, b, c in product((0, 1), repeat=4):
     assert ((p & a) & b) & c == p & ((a & b) & c)
 arrival = lambda u, v: 1 + max(u, v)
 assert arrival(arrival(arrival(2, 0), 0), 0) == 5
 assert arrival(2, arrival(arrival(0, 0), 0)) == 3
+assert tuple(r-t for r, t in zip((2, 3, 4), (3, 4, 5))) == (-1, -1, -1)
+assert 4-3 == 1
 assert (2+3+3, 2+3, (2+3+3)-(2+3)) == (8, 5, 3)
 print('ALL VERIFIED: manuscript data, appendix and constructed examples')
