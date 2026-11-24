@@ -8,6 +8,16 @@
 
 [**Quick Start**](QUICK_START.md) · [**Final Project Report (PDF)**](Stage%202%20Formal%20Report/main.pdf) · [**Unified Research Trial Log (PDF)**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) · [**Integrated Final**](Final_Submission_by_Zeyun_DU/) · [**Course specification**](Final_Project.pdf)
 
+## Attribution and Publication Notice
+
+This repository documents the collaborative research and implementation of the UFUG2106 Discrete Mathematics Group 2 project.
+
+The integrated Stage 2 solver and associated team-authored research materials are archived on GitHub with the permission of the team members. Original authorship, algorithmic contributions, upstream references, and source provenance are explicitly preserved.
+
+The corresponding team repository is maintained by [Zeyun Du](https://github.com/zdu881/UFUG2106-Project), with the archived integration pinned to commit [`59e3350`](https://github.com/zdu881/UFUG2106-Project/commit/59e33505616d127fc06a63580ca3ae3c34d1da72).
+
+Instructor-provided specifications, evaluation tools, and benchmark datasets are included for academic documentation and experimental reproducibility. All applicable intellectual property rights remain with their respective rights holders. No ownership or general redistribution license over third-party materials is claimed. Redistribution permissions for these materials have not been independently confirmed.
+
 ## Overview
 
 The project synthesizes a **functionally equivalent, acyclic multi-output combinational circuit** from a complete Boolean truth table. The generated netlist uses only `AND2`, `OR2`, and `NOT` gates, and must respect per-instance gate costs and synthesis resource limits. The principal circuit-quality measures are:

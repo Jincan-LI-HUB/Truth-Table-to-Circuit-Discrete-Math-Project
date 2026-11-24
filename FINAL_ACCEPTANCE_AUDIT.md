@@ -1,6 +1,6 @@
 # Phase D final acceptance audit
 
-**Technical acceptance passed. Team authorization confirmed.** The repository owner confirmed that the team members authorized public GitHub archiving of their contributions. Approval of the full release scope, including retained third-party materials, is pending.
+**Technical acceptance passed. Team authorization confirmed.** The repository owner confirmed that the team members authorized public GitHub archiving of their contributions. The repository owner approved the existing archive scope for this release. Third-party redistribution rights remain unconfirmed.
 
 ## Acceptance checklist
 
@@ -85,4 +85,4 @@ The Formal Report contains 13 figures, 4 algorithms and 5 tables including the f
 
 Seed 711413/003 remains functionally valid at delay 28 against 27. Its archived witness reaches 27 and all six alternate searches remain at 28. Historical J51 timeouts and the upstream evaluator memory-control discrepancy remain part of the evidence. The two matched repeats describe the released inputs and chosen operating points, without iso-budget controls or a population-level inference. Cooperative time and memory checks do not establish hard limits. Official scores, hidden cases and actual Stage 2 submission status are unverified.
 
-No unresolved scientific or build P0 was demonstrated. Team authorization covers public GitHub archiving of team contributions. The pinned upstream tree has no identified general redistribution license, and third-party rights for instructor assets, including the course handout, evaluator and released cases, remain unconfirmed. The main-branch release and tag await the repository owner's approval of the publication scope. [Pinned upstream commit](https://github.com/zdu881/UFUG2106-Project/commit/59e33505616d127fc06a63580ca3ae3c34d1da72) · [Course-material notice](Final_Submission_by_Zeyun_DU/official/README.md)
+No unresolved scientific or build P0 was demonstrated. Team authorization covers public GitHub archiving of team contributions. The pinned upstream tree has no identified general redistribution license, and third-party rights for instructor assets, including the course handout, evaluator and released cases, remain unconfirmed. The repository owner's approval covers release of this archive in its current scope. It does not establish third-party redistribution rights. [Pinned upstream commit](https://github.com/zdu881/UFUG2106-Project/commit/59e33505616d127fc06a63580ca3ae3c34d1da72) · [Course-material notice](Final_Submission_by_Zeyun_DU/official/README.md)
