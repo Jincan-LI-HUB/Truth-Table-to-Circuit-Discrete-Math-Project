@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="514.8pt" height="167.04pt" viewBox="0 0 514.8 167.04" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-24T18:09:55.384471</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 167.04 
+L 514.8 167.04 
+L 514.8 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 15.616458 52.811366 
+L 267.111702 52.811366 
+Q 267.616206 52.811366 267.616206 51.207782 
+L 267.616206 36.935885 
+Q 267.616206 35.332301 267.111702 35.332301 
+L 15.616458 35.332301 
+Q 15.111954 35.332301 15.111954 36.935885 
+L 15.111954 51.207782 
+Q 15.111954 52.811366 15.616458 52.811366 
+z
+" clip-path="url(#pfa851ffbc8)" style="fill: #92b3cd; stroke: #637481; stroke-width: 0.65; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 275.436018 52.811366 
+L 501.706062 52.811366 
+Q 502.210566 52.811366 502.210566 51.207782 
+L 502.210566 36.935885 
+Q 502.210566 35.332301 501.706062 35.332301 
+L 275.436018 35.332301 
+Q 274.931514 35.332301 274.931514 36.935885 
+L 274.931514 51.207782 
+Q 274.931514 52.811366 275.436018 52.811366 
+z
+" clip-path="url(#pfa851ffbc8)" style="fill: #92b3cd; stroke: #637481; stroke-width: 0.65; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 13.850694 151.030886 
+L 127.616346 151.030886 
+Q 128.12085 151.030886 128.12085 149.427302 
+L 128.12085 131.467162 
+Q 128.12085 129.863578 127.616346 129.863578 
+L 13.850694 129.863578 
+Q 13.34619 129.863578 13.34619 131.467162 
+L 13.34619 149.427302 
+Q 13.34619 151.030886 13.850694 151.030886 
+z
+" clip-path="url(#pfa851ffbc8)" style="fill: #d0e3db; stroke: #637481; stroke-width: 0.65; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 137.454174 151.030886 
+L 251.219826 151.030886 
+Q 251.72433 151.030886 251.72433 149.427302 
+L 251.72433 131.467162 
+Q 251.72433 129.863578 251.219826 129.863578 
+L 137.454174 129.863578 
+Q 136.94967 129.863578 136.94967 131.467162 
+L 136.94967 149.427302 
+Q 136.94967 151.030886 137.454174 151.030886 
+z
+" clip-path="url(#pfa851ffbc8)" style="fill: #d0e3db; stroke: #637481; stroke-width: 0.65; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 261.057654 151.030886 
+L 374.823306 151.030886 
+Q 375.32781 151.030886 375.32781 149.427302 
+L 375.32781 131.467162 
+Q 375.32781 129.863578 374.823306 129.863578 
+L 261.057654 129.863578 
+Q 260.55315 129.863578 260.55315 131.467162 
+L 260.55315 149.427302 
+Q 260.55315 151.030886 261.057654 151.030886 
+z
+" clip-path="url(#pfa851ffbc8)" style="fill: #fad6c9; stroke: #637481; stroke-width: 0.65; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 384.661134 151.030886 
+L 498.426786 151.030886 
+Q 498.93129 151.030886 498.93129 149.427302 
+L 498.93129 131.467162 
+Q 498.93129 129.863578 498.426786 129.863578 
+L 384.661134 129.863578 
+Q 384.15663 129.863578 384.15663 131.467162 
+L 384.15663 149.427302 
+Q 384.15663 151.030886 384.661134 151.030886 
+z
+" clip-path="url(#pfa851ffbc8)" style="fill: #fad6c9; stroke: #637481; stroke-width: 0.65; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 15.23808 107.092685 
+L 499.56192 107.092685 
+" clip-path="url(#pfa851ffbc8)" style="fill: none; stroke: #e4eaeb; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #253746" x="10.19304" y="19.178764" transform="rotate(-0 10.19304 19.178764)">Main window</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #253746" x="121.18392" y="19.178764" transform="rotate(-0 121.18392 19.178764)">B = min(3300 ms, 0.45 L); 1800 ms without a positive limit</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #253746" x="141.36408" y="46.279334" transform="rotate(-0 141.36408 46.279334)">Fallback and BDD portfolio (through B/2)</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #253746" x="388.57104" y="46.279334" transform="rotate(-0 388.57104 46.279334)">J51 through B, when supported</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #253746" x="15.23808" y="62.192333" transform="rotate(-0 15.23808 62.192333)">Split when the typed-cost guard passes. BDD can use the full main window otherwise.</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #253746" x="15.23808" y="80.633549" transform="rotate(-0 15.23808 80.633549)">BDD remainder: screening ≤ 35% of time left at entry; probes share ⅔ of the next remainder.</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #253746" x="15.23808" y="97.310822" transform="rotate(-0 15.23808 97.310822)">Rank measured orders, then refine within the BDD deadline.</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #253746" x="15.23808" y="118.478131" transform="rotate(-0 15.23808 118.478131)">Later steps</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #253746" x="121.18392" y="120.685631" transform="rotate(-0 121.18392 120.685631)">Elapsed-time admission guards for positive input limit L</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #253746" transform="translate(50.064129 138.232398)">SOP polish</text>
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #253746" transform="translate(42.811957 146.966691)">90 ms / 0.82 L</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #253746" transform="translate(165.911484 138.232398)">Shared factors</text>
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #253746" transform="translate(163.147359 146.966691)">15 ms / ~0.80 L</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #253746" transform="translate(291.592933 138.232398)">Critical repair</text>
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #253746" transform="translate(287.537543 146.966691)">100 ms / 0.72 L</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #253746" transform="translate(404.506757 138.232398)">Late-output rescue</text>
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #253746" transform="translate(411.141023 146.966691)">160 ms / 0.78 L</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #253746" x="15.23808" y="160.812749" transform="rotate(-0 15.23808 160.812749)">Caps and elapsed cutoffs are cooperative. Fallback construction and final writing can extend past them.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pfa851ffbc8">
+   <rect x="5.148" y="3.3408" width="504.504" height="160.3584"/>
+  </clipPath>
+ </defs>
+</svg>

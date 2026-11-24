@@ -1,12 +1,13 @@
 # UFUG2106 Truth Table to Circuit — Complete Research Trial Log
 
-This is the **unified Stage 1 + Stage 2 research archive**. It preserves the finalized Stage 1 R1–R6.1 mathematical explanation and the Stage 2 R7–R10.1 reasoning and decisions. A closing integration note points to the pinned team delivery, explains the evidence batches and credits the source lineage. [Integration audit](../../Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
+This unified research archive preserves the finalized Stage 1 R1–R6.1 mathematics and the Stage 2 R7–R10.1 reasoning and decisions. Part III records the pinned team integration, imported mechanisms, whole-system benchmark, freeze decision and remaining timing case. [Integration audit](../../Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
 
 ## Files
 
 - `UFUG2106_Stage2_Research_Trial_Log_v3.pdf` — combined compiled research record (title inside: *Complete Research Trial Log*).
 - `tex/main.tex` — master document with one title page, continuous contents and unified references.
 - `tex/stage1_body.tex`, `tex/stage2_body.tex`, `tex/decision_atlas.tex` — preserved substantive bodies and the revised high-information variant analysis.
+- `tex/final_integration.tex` — integration decision and evidence record.
 - `RESEARCH_TRIAL_LOG_v3.md` — merged searchable Markdown companion; the TeX/PDF determine the final page layout.
 - `source_stage1_main.tex`, `tex/source_stage2_full.tex` — unmodified evidence input texts for reassembly.
 - `figures/13_...` through `figures/17_...` — new multiscale comparisons and archived variant-dispersion analyses; the originals and detailed casewise figures remain in `figures/`.
@@ -27,12 +28,13 @@ This is the **unified Stage 1 + Stage 2 research archive**. It preserves the fin
 
 ```bash
 python3 scripts/verify_evidence.py
-python3 scripts/plot_high_resolution_comparisons.py
-python3 scripts/merge_full_trial.py
 cd tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
+cp main.pdf ../UFUG2106_Stage2_Research_Trial_Log_v3.pdf
 ```
+
+The tracked historical figures are used directly in this build. For reconstruction of the historical figures and TeX bodies, use `scripts/plot_high_resolution_comparisons.py` and `scripts/merge_full_trial.py` from this directory.
 
 Dependencies: Python `pandas`, `numpy`, `matplotlib`, `pymupdf`; pdfLaTeX with the same Stage 1 package set. The original Stage 1 PDF and assignment PDF are held under `references/` for exact-source checking.
 

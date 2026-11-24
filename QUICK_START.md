@@ -113,12 +113,13 @@ Round 5.1 was an **independent research baseline**, not the Stage 1 code formall
 ```bash
 cd "Stage 2 Formal Report"
 
-# Recompute the casewise appendix and verify the already archived CSV metrics.
+# Recompute the four-method appendix and verify the archived metrics.
 python3 build_casewise.py
 python3 verify.py
+python3 ../Final_Submission_by_Zeyun_DU/integration/verify_evidence.py
 
-# Rebuild vector statistical and algorithm figures (requires matplotlib/pandas).
-python3 figures.py
+# Build the Phase C figures as PDF, SVG and PNG (matplotlib, numpy, pandas).
+python3 build_phase_c_figures.py
 
 # Regenerate the bibliography and PDF from tracked TeX/BibTeX sources.
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
@@ -131,8 +132,9 @@ Because the repository does not track `.bbl`, a clean clone should run `bibtex m
 
 PDFs available without recompiling:
 
-- [**Formal Report**](Stage%202%20Formal%20Report/main.pdf) covers the R10.0 design and the matched team integration results.
-- [**Unified Research Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf): detailed Stage 1–Stage 2 decisions, mathematics, controls, and cross-version data.
+- The [**Formal Report**](Stage%202%20Formal%20Report/main.pdf) explains Integrated Final's BDD and J51 portfolios, shared-DAG scoring, cut polishing and timing rescue. The appendix covers all 50 cases in each matched repeat.
+- The [**Unified Research Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) preserves R1–R10.1 and documents the team integration and freeze decision.
+- The [**Phase C revision log**](Stage%202%20Formal%20Report/PHASE_C_REVISION.md) maps scientific claims to implementation and archived evidence.
 - [**Stage 1 Technical Report**](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf): earlier rigorous treatment of representation, mapping and optimization.
 
 ## 6. Interpreting results responsibly
@@ -142,6 +144,7 @@ PDFs available without recompiling:
 - Area totals are **weighted gate counts**, not operation counts or universally comparable hardware costs across differently priced cases.
 - Published values in the project documents refer to the cited public-case runs. They may differ slightly from a fresh run because some search decisions depend on elapsed time.
 - The integration benchmark compares **Z1** (submitted Stage 1), **J51** (independent Stage 1 research freeze), **R10.0** (independent Stage 2 freeze), and **Integrated Final** (team Stage 2 archive) on the same 50 cases. Historical Z1/R10.0 figures use their original matched batch.
+- Both matched repeats yielded 50/50 passes and targets for every method. Integrated Final used approximately 22.6% less area than Z1 and 14.4% less than R10.0, with 2.14–2.20× R10.0's summed runtime. The archived generated case with delay 28 against a target of 27 remains a measured limit. [Integration audit](Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
 
 For navigation, return to the [repository README](README.md).
 

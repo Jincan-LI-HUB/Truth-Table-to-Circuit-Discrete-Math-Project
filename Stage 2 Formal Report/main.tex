@@ -4,550 +4,338 @@
 \usepackage{newtxtext,newtxmath}
 \usepackage{amsmath,mathtools}
 \usepackage{booktabs,tabularx,longtable,array,multirow}
-\usepackage{graphicx,xcolor,siunitx,microtype,enumitem}
+\usepackage{graphicx,xcolor,siunitx,microtype}
 \usepackage{algorithm,algpseudocode}
 \usepackage[hidelinks]{hyperref}
-\usepackage{url}
 \sisetup{group-separator={,},group-minimum-digits=4}
 \setlength{\emergencystretch}{1.5em}
-\definecolor{peach}{HTML}{FAD6C9}
-\definecolor{sage}{HTML}{B0C6A8}
-\definecolor{ivory}{HTML}{FAF5E8}
-\definecolor{blue}{HTML}{92B3CD}
-\definecolor{rose}{HTML}{D99DA3}
-\definecolor{mint}{HTML}{D0E3DB}
-\definecolor{slate}{HTML}{A6B3C0}
-\definecolor{stone}{HTML}{E8E2DB}
-\newcommand{\AND}{\mathtt{AND2}}
-\newcommand{\OR}{\mathtt{OR2}}
-\newcommand{\NOT}{\mathtt{NOT}}
-\newcommand{\area}{\operatorname{Area}}
-\newcommand{\delay}{\operatorname{Delay}}
-\newcommand{\synth}{T_{\mathrm{synth}}}
-\newcommand{\cmark}{\ensuremath{\checkmark}}
 \newtheorem{proposition}{Proposition}
-\newtheorem{lemma}{Lemma}
-\title{Truth Table to Circuit: Resource-Aware Synthesis with Shared-DAG Mapping and Bounded Boolean Resynthesis}
+\newcommand{\F}{\textsc{Integrated Final}}
+\newcommand{\rank}{\mathcal{R}}
+\newcommand{\clip}[1]{[#1]_+}
+\input{casewise.tex}
+\title{Truth Table to Circuit: Resource-Aware Multi-Output Synthesis and Timing Recovery}
 \author{Jincan Li and Zeyun Du\\UFUG2106 Discrete Mathematics, HKUST(GZ)}
 \markboth{UFUG2106 Final Project Technical Report}{Truth Table to Circuit}
-\input{../Final_Submission_by_Zeyun_DU/integration/data/matched_report_rows.tex}
+
 \begin{document}
 \maketitle
 \begin{abstract}
-This project converts a complete multi-output truth table into an equivalent AND2/OR2/NOT circuit under gate-specific area and delay costs and per-case computational limits. The independent R10.0 research solver maps exact representations to a shared gate DAG and tests bounded four-leaf rewrites against the whole circuit. The team integration adapts this cut mapper and the Round 5.1 synthesis modules. It also searches variable orders, recovers shared outputs, and repairs late paths. In the pinned release's three public repeats, all 150 circuits passed evaluation, met their delay targets, and passed full truth-table replay. Weighted area ranged from 876,694 to 884,234 per 50-case repeat. A separate matched evaluation compares the integration with submitted Stage 1, the independent Stage 1 freeze, and R10.0. Historical controlled experiments characterize individual passes on their own incumbents.
+Integrated Final, the planned Group 2 submission, synthesizes an equivalent AND2/OR2/NOT network from a complete multi-output truth table. It constructs a complete fallback, allocates optional work to BDD order screening and a second synthesis portfolio, and compares fully mapped, output-reachable networks. Output-cone mixing exploits shared gates, a four-leaf SOP pass reclaims area, and critical-cut and cofactor-based alternatives address late outputs. In two matched repeats on 50 released cases, all four compared solvers passed evaluation and met every delay target. Integrated Final reduced total weighted area by approximately 22.6\% relative to the submitted Stage 1 solver and 14.4\% relative to independent R10.0, while using 2.14--2.20 times R10.0's summed synthesis time. Independent replay verified all 100 integrated circuits. One generated timing miss remains. The matched results measure the integrated design and its search budget together.
 \end{abstract}
 \begin{IEEEkeywords}
-Boolean synthesis, truth table, reduced ordered binary decision diagram, DAG rewriting, timing recovery, resource-aware search.
+Boolean synthesis, binary decision diagrams, shared gate DAGs, cut resynthesis, critical paths, resource-aware search.
 \end{IEEEkeywords}
 
-\section{The Task and the Engineering Question}
-\IEEEPARstart{A}{ complete} truth table uniquely specifies a Boolean function, but not its cheapest legal realization. In this project, each input instance gives a vector-valued function
-\begin{equation}
-F=(f_0,\ldots,f_{m-1}):\{0,1\}^{n}\longrightarrow\{0,1\}^{m},\qquad 1\le n\le20,
-\label{eq:function}
-\end{equation}
-three positive gate-area and gate-delay pairs, a target circuit delay, and optional program runtime and RAM limits \cite{course2026}. A single-threaded program must emit a topologically numbered AND2/OR2/NOT netlist that agrees with \emph{every} row of the table. Logical equivalence alone is insufficient: a correct but deep mapping can lose points, an apparently cheap gate rewriting may delete no actual shared hardware, and a better circuit discovered too late can fail the runtime requirement.
+\section{Problem and design objective}
+Given \(F:\{0,1\}^n\to\{0,1\}^m\), the course task is to emit a topologically ordered network of two-input AND, two-input OR and unary NOT gates that realizes every column of \(F\) \cite{course2026}. Each case prices the three gate types separately for area and delay, and specifies a delay target \(\Delta\) and, when present, computational limits. Functional acceptance, the circuit meeting \(\Delta\), and the solver's resource consumption are distinct outcomes.
 
-The design question is how to discover a low-area \emph{shared physical network} while preserving target-feasible paths and leaving enough wall-clock time to produce an output. The independent research solver builds a valid incumbent and evaluates bounded changes on the completed DAG. We distinguish the submitted Stage 1 solver (\emph{Z1}), the independent Stage 1 research freeze (\emph{J51}), the independent Stage 2 research freeze (\emph{R10} or \emph{R10.0}), and the final team integration (\emph{Integrated Final}) \cite{stage2integration}. The unified trial log preserves the iterations \cite{stage1research,stage2trial}. The technical derivations and historical figures describe the independent research line. Section~\ref{sec:integration} records the team release and its matched evaluation.
+For output roots \(S\), let \(V(S)\) be the set of reachable gates. With gate area \(a(v)\) and delay \(d(v)\), the network metrics are
+\begin{align}
+ A(S)&=\sum_{v\in V(S)}a(v),\\
+ t(v)&=d(v)+\max_{u\in\operatorname{fanin}(v)}t(u),&
+ D(S)&=\max_{s\in S}t(s).
+ \label{eq:timing}
+\end{align}
+Inputs and the false source have arrival zero. A shared gate is charged once. Consequently a compact representation, a cheap single-output implementation and a small network for all outputs can be different choices. A forward topological timing pass and a reverse reachability pass compute these metrics in \(O(V+E+m)\) time.
 
-\subsection{The physical and computational objective}
-Let \(G=(V,E,O)\) denote the emitted gate DAG with ordered output references \(O\). The project charges \emph{each listed gate once}:
-\begin{equation}
-A(G)=\sum_{t\in\{\AND,\OR,\NOT\}} a_t N_t(G),
-\label{eq:area}
-\end{equation}
-where inputs, wires, and constant zero cost nothing. In our generator, unused gates are removed before final output, so the sum may equivalently be taken over output-reachable live gates. The latter equivalence must not be assumed for arbitrary unpruned output files. For each source, \(T=0\); for each gate \(v\),
-\begin{equation}
-T(v)=d_{\operatorname{op}(v)}+\max_{u\in\operatorname{fanin}(v)} T(u),\quad D(G)=\max_{o\in O}T(o).
-\label{eq:arrival}
-\end{equation}
-A unary NOT has one fanin. \(D(G)\) is the propagation delay of the \emph{circuit}; \(\synth\) is the wall-clock runtime of the \emph{program}. Their magnitudes and meanings are unrelated. The grader distinguishes valid PASS from meeting the preferred target \(\Delta\): a target miss penalizes scoring but does not alone make an otherwise valid solution FAIL. Positive execution or memory limits, by contrast, constrain validity \cite{course2026}. We therefore treat a candidate satisfying \(D(G)\le\Delta\) as preferable, without claiming the unpublished numerical scoring rule is known.
+Z1, Zeyun Du's submitted Stage 1 solver, provided packed truth-table analysis and a weighted BDD-to-gate mapping line \cite{stage1submitted}. J51, Jincan Li's independent Stage 1 freeze, supplied complementary Boolean construction, balancing, polarity and area-recovery methods \cite{stage1research}. The independent Stage 2 investigation developed bounded cut rewriting and selected a guarded extra SOP pass for R10.0 \cite{stage2trial}. Integrated Final combines these strengths under its own controller. A complete starting network makes it possible to spend the remaining time on structurally different candidates. Late-path recovery then addresses cases where the area search alone leaves timing violations.
 
-The final task has three intertwined decisions: what equivalent Boolean representation to examine, how to map and share its operations in a costed circuit, and how much computational work may be spent searching. These are separate mathematical objects: a truth function \(F\), an abstract functional representation such as a BDD, a physical gate DAG \(G\), and a resource-consuming search program \(\mathcal S\). Most of the project's difficult design decisions arise when an optimization valid at one level does not transfer automatically to the next.
-
-\section{Two Stage 1 Starting Points and the Need for Improvement}
-\label{sec:stageone}
-\subsection{Actually submitted Stage 1 method (Z1)}
-The actual Stage 1 submission (Z1) was already a nontrivial synthesis system \cite{stage1submitted}. It constructs complemented reduced BDDs under several variable orders, maps their decisions into the permitted gate library, explores mapping weights, balances selected gate cones, and retains a completed network using a delay-excess/area/delay ranking. Structural hashing and dead-gate removal account for shared expressions; a finite search allowance limits later candidate trials. Thus the comparison with R10 begins from an optimized Stage 1 circuit, not from a sum-of-minterms straw man. The source-level distinctions, including Z1's sampled influence estimates, are given below.
-
-Z1's physical search chiefly operates through BDD representation and local gate-mapping choices. The independent R10.0 implementation adds a four-leaf cut search over the \emph{already mapped} DAG, an exact streaming affine/literal shortcut for short large-input cases, conservative admission under a positive RAM limit, and two-tier SOP root allocation. The historical whole-solver comparison evaluates these mechanisms together.
-
-\subsection{Independent Stage 1 investigation (J51)}
-The independent J51 research line is equally important as a source of the final method's technical ideas, although it was \emph{not} the Stage 1 submitted program \cite{stage1research}. Its early experiments separated \emph{functional correctness} from \emph{costed mapping}: an exact Shannon/ROBDD construction passed all 25 released Stage 1 cases but met only 12 delay targets (area 1,103,455), whereas diversified representations met all 25 targets (area 790,243). Incorporating complemented references and global timing recovery subsequently lowered area to 533,705. The lesson was that representation quality alone cannot determine the cost or critical path of the mapped circuit.
-
-The later J51 work asked a different question: can the same candidate quality be obtained with less synthesis computation? Caching and typed in-memory DAG transformations preserved the observed area 529,014 while reducing paired median runtime. An exploratory four-leaf rewrite branch then found further valid area reductions, but its time penalty prevented promotion to the Stage 1 default. These positive and negative results motivated the Stage 2 combination of \emph{physical-DAG rewriting} with explicit search controls. The complete round-by-round experiments remain in the trial log; the significance here is the chain of technical constraints they exposed.
-
-\begin{table*}[!t]
-\centering\caption{Method-improvement map: code-supported distinctions between the submitted Stage 1 solver (Z1) and the independent Stage 2 research freeze (R10). The third column gives the engineering rationale for each change.}
-\label{tab:methodchanges}\footnotesize
-\begin{tabularx}{\textwidth}{@{}p{.17\textwidth}XXp{.26\textwidth}@{}}\toprule
-Question & Submitted Stage 1 (Z1) & Final Stage 2 (R10) & Motivation / measured constraint\\\midrule
-How to find the first circuit? & Complemented BDDs, several orders and mapper weights; balancing of mapped gates. & Cached BDD and cover plans, affine recognition, typed DAG balancing and timing recovery. & Retain exactness while reducing repeated search work and evaluating actual graph cost.\\
-What structure can be modified? & Primarily BDD-order and Shannon mapping alternatives; limited graph balancing. & Additional four-leaf truth-signature resynthesis directly on the completed physical DAG. & New algebraic structures need not be visible in a BDD-order change.\\
-How are local changes judged? & Candidate-level area/delay ranking after construction. & Local cut filtering plus whole pruned-DAG evaluation; multi-output sharing explicitly retained. & Local gate reductions can leave shared ancestors live or alter critical paths.\\
-Which candidates get CPU time? & Deterministic order/mapping trials under a fixed search deadline. & Priority-ranked cut roots, separate root quotas, branch time shares, optional strictly improving repeat pass. & Search opportunities, not only nominal time, determined useful R8.6 gains.\\
-What happens with tight resource caps? & Keeps the best completed mapping; no specialized affine streaming or comparable RAM admission. & Exact high-\(n\) stream recognition when admitted and conservative positive-RAM fallback. & Stage 2/016 and controlled constrained tests made successful completion a design objective.\\\bottomrule
-\end{tabularx}
-\end{table*}
-
-
-\subsection{A source-level comparison, not a one-feature attribution}
-The submitted Z1 implementation forms a sequence of at most 32 BDD-order trials, with deterministic first orders, a seeded permutation search, and four mapper weights for later trials. Its influence order is estimated from at most 4,096 sampled truth-table rows. The first complete circuit is constructed before subsequent deadline checks can terminate the search, and the best mapped candidate may be balanced before being returned. This is a substantial, valid Stage 1 synthesis algorithm, not a naive sum-of-products baseline. In contrast, the final R10 implementation computes its influence counts over the full stored truth table, reuses compatible BDD and implicant information across candidates, and performs balancing and area recovery on a typed gate graph. It also exposes completed physical-gate cuts to a \emph{second}, distinct search space. Thus ``more candidate orders'' and ``more cut roots'' are not equivalent notions: the first changes the global functional decomposition, while the second attempts to replace a local portion of a selected mapped implementation.
-
-Table~\ref{tab:methodchanges} therefore compares \emph{systems}, not isolated features. The Z1--R10 pairing asks how the complete solutions perform under the same inputs and execution environment. The much narrower R9.0--R10.0 pairing later tests the marginal value of the guarded SOP postpass. Keeping these questions separate is necessary to explain both the project's overall improvement and the final algorithmic choice.
-
-\subsection{Stage 2's operational trigger}
-When the second batch was released, the inherited J51/R7 path could produce a good network yet fail a strict 100-ms case (Stage 2 case 016). R7.1's guarded policy restored pass status but altered some other circuits. R7.2 retained a bounded shortlist to recover quality without reopening expensive late searches \cite{stage2trial}. This episode introduced a principle that remains in R10: \emph{a structurally attractive optimization has no value if the required output is not produced within the evaluator's resource envelope}. In the matched record, Stage 2/016 has \(n=9\) and a declared 100-ms limit. It therefore cannot enter the \(n\ge18\) streaming shortcut or either \(B\ge1000\)-ms cut-search stage. Its later PASS is evidence for the guarded \emph{early} synthesis schedule, not for any gain caused by the final repeat-SOP pass. Once the pass problem was contained, the research shifted toward finding extra equivalent realizations of the completed graph, rather than simply increasing the original BDD-order portfolio.
-
-
-\subsection{The four design decisions underlying the final method}
-Four decisions connect the earlier evidence to the final design. \emph{Representation diversity} supplies several exact starting networks because the smallest abstract BDD need not yield the cheapest gate mapping. \emph{Shared-DAG evaluation} scores the gates that remain physically live across all outputs rather than counting locally removed expressions. \emph{Bounded truth-signature rewriting} searches structural alternatives that the initial representation did not reveal. Finally, \emph{resource-aware allocation} prioritizes and limits this additional work so that circuit improvement does not jeopardize producing a valid netlist. The following sections explain how these decisions fit into one executable synthesis procedure; the evaluation then tests the overall system and isolates selected decisions with controlled contrasts.
-
-\section{The Final Synthesis Architecture}
-\label{sec:framework}
-Figure~\ref{fig:pipeline} summarizes the ordinary-budget default path; specialized resource-triggered early exits are noted separately. The historical Round names embedded in source files do \emph{not} imply that every archived R8/R9 strategy runs in sequence. With no research environment overrides, the installed postprocessor is R8.6 \texttt{extra\_sop} followed, when admitted, by the R10.0 \texttt{repeat\_sop} pass. Earlier R8.1--R8.5 and R9.1 library modes remain experimental alternatives, not simultaneous stages of normal execution.
+\section{Integrated construction and search}
+\label{sec:controller}
+The planned team delivery is pinned to upstream commit \texttt{59e3350}. The active entry point is \nolinkurl{src/synth_stage2.cpp} in the integration archive \cite{stage2integration,integrationaudit}. Figure~\ref{fig:architecture} and Algorithm~\ref{alg:main} follow this entry point. The independent R10.0 executable retains its own controller.
 
 \begin{figure*}[!t]
-\centering\includegraphics[width=.91\textwidth]{figures/solver_execution_architecture.pdf}
-\caption{Source-aligned execution structure of the frozen R10.0 solver. Standard representation candidates are mapped to a shared gate DAG and ranked as full networks. R8.6 tests two cut-search alternatives from the \emph{same} incumbent; R10.0 then tests one additional SOP pass on the \emph{selected} incumbent. Resource-triggered specialized paths are conditional; the diagram is not a guarantee that all optional searches execute.}
-\label{fig:pipeline}
+\centering\includegraphics[width=\textwidth]{figures/phase_c_architecture.pdf}
+\caption{Integrated executable, source schematic. The dashed branches terminate early. The working target governs portfolio ranking and critical cuts; the stated target governs the final rescue. Detailed guards are given in the text.}
+\label{fig:architecture}
 \end{figure*}
 
-\noindent\textbf{Executable overview.} Algorithm~\ref{alg:core} states the complete default synthesis controller before the individual mechanisms are derived. It distinguishes the initial, potentially timing-infeasible portfolio from the later optional searches, which require a target-feasible incumbent. The two R8.6 alternatives start from the same graph; the last SOP pass starts from their selected result. Algorithm~\ref{alg:cutrewrite}, introduced after the cut mathematics, specifies the shared local-search subroutine. The displayed controller omits research-only environment overrides and does not imply that every optional pass is activated for every case.\par
-
 \begin{algorithm}[!t]
-\caption{R10.0 complete synthesis controller (default policy)}
-\label{alg:core}
+\caption{Integrated controller on completed networks}
+\label{alg:main}
+\footnotesize
 \begin{algorithmic}[1]
-\Require Complete table \(F\), costs \(a,d\), target \(\Delta\), limits \(B,M\)
-\Ensure Topological legal-gate netlist or explicit failure
-\State Scan table and case parameters; probe exact short-budget families
-\If{an admissible exact streaming circuit is on target}
- \State \Return its serialized netlist
+\State Read \(F\), costs and limits; set \(\delta=\max(1,\Delta-1)\)
+\State Build natural-order plain BDD map \(G\); try balance
+\If{no complete \(G\)} \State \Return streamed Shannon network \EndIf
+\If{\(A(G)=D(G)=0\)} \State \Return \(G\) \EndIf
+\State Probe, screen and refine BDD orders within their window
+\If{typed costs supported}
+  \State Run J51 portfolio; compare full and mixed candidates
 \EndIf
-\If{positive RAM limit rejects eager construction}
- \State Try compact exact constructor; \Return output or failure
+\State Attempt guarded SOP polish and shared-factor candidates
+\State Reconsider compact alternative by working-target rank
+\State Attempt guarded critical repair and compact mixing
+\If{\(D(G)>\Delta\) and rescue guards pass}
+  \State Rebuild eligible late outputs; try finishing repair
+  \State Keep a valid result only for strictly lower \(D\)
 \EndIf
-\State Generate BDD/cover mapping candidates within search guards
-\State Rebalance, recover area, prune, and rank completed gate DAGs
-\State \(G\gets\) best available valid incumbent
-\If{R8.6 resource and feasibility admission succeeds}
- \State \(G_S\gets\mathrm{CutRewrite}(G,\mathrm{Shannon},Q)\)
- \State \(G_P\gets\mathrm{CutRewrite}(G,\mathrm{SOP},Q+300)\)
- \State \(G\gets\) best full-network eligible candidate among \(G,G_S,G_P\)
-\EndIf
-\If{R10 last-pass admission \eqref{eq:lastbudget} succeeds}
- \State \(H\gets\mathrm{CutRewrite}(G,\mathrm{SOP},160)\)
- \If{\(H\) valid, \(D(H)\le\Delta\), and \(A(H)<A(G)\)}
-  \State \(G\gets H\)
- \EndIf
-\EndIf
-\State \Return pruned, topologically serialized \(G\)
+\State \Return \(G\)
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{Input processing and exact structure detection}
-The executable follows the required interface \texttt{synth INPUT OUTPUT}. It first scans the \(2^n\) truth groups and case costs; at high dimension a lightweight streaming probe records whether every output has a simple or affine signature. On the ordinary path, a shared function-cache layer rereads and stores the complete table. This repeated read is real implementation overhead but permits the fast probe to avoid heavier materialization when successful.
+\subsection{Complete fallback and exact decision functions}
+The parser packs each column into 64-bit words. For variable \(x_i\), the number of differing values across paired rows determines whether it is in an output's support. Summing those counts across outputs gives a variable-order heuristic. Reading the table costs \(\Omega(m2^n)\) input work; packed influence scans use \(O(nm\lceil 2^n/64\rceil)\) word operations.
 
-For \(n\ge18\) with a \emph{positive} declared time limit \(B\le250\) ms, a recognized all-constant/literal or all-affine output family may be emitted immediately, provided the constructed legal circuit is on target. For affine outputs,
+Shannon expansion \(f=\bar x f_0\vee x f_1\) follows by evaluating \(x=0,1\) \cite{shannon1949}. With one variable order, the BDD omits unsupported variables, merges identical decision triples and deletes decisions with equal children. It normalizes complemented edges before interning nodes \cite{bryant1986}. Induction on the remaining variables establishes that each output root computes its original column. BDD reduction identifies shared Boolean subfunctions; it can still need exponentially many nodes. In this solver the natural-order plain mapping first completes a physical network and then attempts a balanced variant. If construction yields no complete incumbent, the streaming mapper emits natural-order Shannon logic using bounded suffix memoization and returns. It can emit many gates and has no guarantee of meeting \(\Delta\) or arbitrary limits.
+
+\subsection{Mapped ranking and the timing reserve}
+The mapper uses structural hashing of typed gates. Optional forms include dual mux realizations, proven implication simplifications, affine representations and, at larger timing weights, two-level Shannon expansion. For example, \(f_0\Rightarrow f_1\) licenses \(f=f_0\vee(x\wedge f_1)\). The bounded implication procedure can decline a simplification when its work limit is reached. The local mapping criterion charges new reachable gates plus \(w\) times root arrival. Full candidates, including balanced variants, compete by
 \begin{equation}
- f_j(x)=c_j\oplus\bigoplus_{i\in S_j}x_i,
-\label{eq:affine}
-\end{equation}
-exact recognition uses the complete input table, not sampled extrapolation. XORs are lowered to legal gates using, for example, \(u\oplus v=(u\lor v)\land\neg(u\land v)\), then balanced to control arrivals. Failure to recognize a supported family returns control to general synthesis; it does not justify a heuristic guess about unseen rows.
-
-With a positive RAM cap, a conservative memory estimate may reject eager BDD construction. A compact support-restricted constructor is then tried, and failure may lead to an explicit nonzero exit rather than knowingly running the heavy path. This is a mitigation, \emph{not} a proof of peak-RSS compliance for arbitrary inputs.
-
-\subsection{Functional representation and candidate diversity}
-Given a variable \(x_i\), let \(f_0=f|_{x_i=0}\) and \(f_1=f|_{x_i=1}\). Shannon's identity \cite{shannon1949},
-\begin{equation}
- f= (\neg x_i\land f_0)\lor(x_i\land f_1),
-\label{eq:shannon}
-\end{equation}
-constructs an exact circuit recursively. Under a fixed order, equal low/high cofactors remove the decision, and identical normalized node triples are interned into a reduced decision DAG \cite{bryant1986}. The code uses complemented references with one inversion bit; this shares Boolean information about \(f\) and \(\neg f\) at representation level without declaring physical NOT gates free. Different variable orders can change decision-DAG size substantially, but neither BDD size nor a compact SOP is by itself the final weighted gate cost. To see the interface between the two representations, the generic Shannon decision has the legal realization
-\begin{equation}
- q=\OR\!\left(\AND(\neg x_i,f_0),\AND(x_i,f_1)\right),
- \label{eq:muxlowering}
-\end{equation}
-which costs at most two AND2s, one OR2 and one NOT \emph{before} constant simplification and sharing of an existing inverter or child expression. Alternative polarity-aware forms can have different prices and arrivals. Consequently, a fewer-node decision DAG does not imply fewer emitted gates; mapping is a separate optimization problem.
-
-For each output and candidate order, the frozen solver considers several physical Shannon and implication-aware realizations, with affine recognition and small-support SOP/POS cover plans when eligible. Its influence-based ordering uses the exact sum of differing cofactors over output bits,
-\begin{equation}
- C_i=\sum_{x_{-i}}\sum_{j=0}^{m-1}\mathbf 1\{f_j(x_{-i},0)\ne f_j(x_{-i},1)\},
-\label{eq:influence}
-\end{equation}
-not as a minimum-area theorem but as a way to prioritize potentially decisive variables. Symbolic implicant plans for manageable support are cached independently of physical gate emission. This separation avoids recomputing equivalent Boolean analysis for several mapper policies, but makes no claim that a greedy cover minimizes the eventual shared circuit's cost \cite{brayton1984}.
-
-\subsection{Typed gate-DAG mapping and global recovery}
-Each candidate is mapped to a typed internal graph whose nodes have an operator and one or two earlier fanin references. AND/OR input IDs are sorted for commutative structural hashing. Its builder simplifies constants and duplicates, rebalances eligible associative cones, and creates shared gate nodes; a final backward traversal from all outputs removes speculative unreachable gates and topologically renumbers the rest. The graph retains per-node forward arrival times, avoiding repeated text serialization and reparsing during high-frequency transformations.
-
-An associative subgraph can be flattened and rebuilt only when this does not silently remove a still-shared intermediate. In particular, a gate with multiple consumers is a physical signal with a lifetime beyond one parent expression. Required-time recovery calculates the latest admissible arrival \(R(u)\) by initializing \(R(o)=\Delta\) at every output and propagating the minimum backwards along old graph edges:
-\begin{equation}
- R(u)\leftarrow\min\big(R(u),R(v)-d_{\operatorname{op}(v)}\big),\quad u\in\operatorname{fanin}(v).
-\label{eq:required}
-\end{equation}
-Shared fanout imposes the tightest downstream constraint. The slack \(S(u)=R(u)-T(u)\) may permit De Morgan and algebraic alternatives that are individually slower but cheaper under heterogeneous gate prices. However, old required times provide a sufficient timing certificate only for a replacement with unchanged external dependencies. The program consequently recomputes the entire candidate's delay, rather than treating a local arrival check as proof for arbitrary global restructuring.
-
-\begin{lemma}[Fixed-boundary timing condition]
-Suppose an initially target-feasible acyclic network is modified only by Boolean-equivalent replacements whose exposed roots connect to an otherwise unchanged downstream graph. If every new root arrival is at most the corresponding \emph{old} required time computed using Eq.~\eqref{eq:required}, then the modified network still meets target \(\Delta\).
-\end{lemma}
-\begin{IEEEproof}
-The old backward recurrence guarantees \(R(u)+d(v)\le R(v)\) along every unchanged edge \(u\to v\). The replacement root hypothesis supplies the base case. Topologically, for each unchanged gate \(v\),
-\[
- T'(v)=d(v)+\max_{u\in\operatorname{fanin}(v)}T'(u)
- \le d(v)+\max_{u}R(u)\le R(v).
-\]
-Thus every output arrival is bounded by its old requirement, at most \(\Delta\). The proof relies on the unchanged boundary: arbitrary fanout modifications invalidate this inference without fresh analysis.
-\end{IEEEproof}
-
-
-\paragraph{The cost of graph recovery is not a Boolean gate-count proxy.}
-The source's \texttt{area\_recover} considers a complemented physical realization only when its isolated gate prices justify a conservative test. For example, it considers converting a costly OR2 to a complemented AND2 pattern when
-\begin{equation}
- a_{\lor}>a_{\land}+3a_{
-eg}.
- \label{eq:demorganscreen}
-\end{equation}
-This is an implementation-level \emph{screening condition}, not a necessary condition for a globally profitable De Morgan rewrite: the three inversions may be partly shared or eliminated, but an apparently removable gate may still be live for another output. The source separately checks the new node's forward arrival against the old required-time bound and then scores the reconstructed graph. Thus even the older Stage 1 machinery already contains a distinction between a sufficient local price condition and the final mapped cost; Stage 2 applies the same principle to a larger space of exact local functions.
-
-The completed candidate portfolio is ranked by an internal delay-violation-first, then area/delay preference. A compact characterization is
-\begin{equation}
- \rho(G)=\Big(\max(0,D(G)-\Delta),\;\mathbf1_{D(G)\le\Delta} A(G),\;D(G),\;A(G)\Big),
+ \rank_{\delta}(G)=\bigl(\clip{D(G)-\delta}, A(G), D(G)\bigr),
+ \qquad [x]_+=\max(0,x).
  \label{eq:rank}
 \end{equation}
-compared lexicographically among valid completed candidates. This is the program's policy; it is not the unpublished course grading function. Crucially, optional later searches are entered only after a completed incumbent exists, so their failure need not erase already constructed output.
+This is lexicographic: reduce lateness to the working target first, then weighted area, then delay. The one-unit reserve when \(\Delta>1\) may prefer a larger network over a smaller one that merely meets \(\Delta\). For instance, with \(\Delta=50\), \((A,D)=(90,50)\) loses to \((100,49)\). On cases without a RAM cap, \texttt{CompactChoice} remembers the smallest \((A,D)\) observed among designated mapped and J51 candidates with \(D\le\Delta\). It can replace the primary incumbent by Eq.~\eqref{eq:rank}; a remaining cheaper choice can seed critical repair or supply outputs for mixing. With a RAM cap, the extra stored network is disabled. Area-only polishing and stated-target rescue use separate selection rules.
 
-\subsection{What can actually run before cut rewriting}
-The ordinary path does not jump directly from a truth table to a four-leaf cut search. The first portfolio has five baseline configurations: several influence-descending mappings that differ in polarity or implicant modes, plus one natural-order realization. Some duplicate implicant settings are omitted once their support-dependent mechanism is inactive. Reverse, rotated and ascending-influence order candidates are only admitted when both input dimension and declared time budget allow them. Each completed candidate is parsed into a typed graph, optionally rebalanced and recovered, and compared by Eq.~\eqref{eq:rank}; the selected incumbent is then eligible for further processing. Under sufficiently generous budget, additional legacy mappings and shallow algebra/phase alternatives can also be compared before the cut stage. They are \emph{not} R8.6 cut branches, and their contributions cannot be inferred from the R9.0--R10.0 ablation.
+\subsection{Order screening and cooperative scheduling}
+For a positive time limit \(L\) in milliseconds, the main window is \(B=\min(3300,0.45L)\), measured from process entry. Without a positive limit it is 1800\,ms. If the imported mapper can safely represent the typed costs and working target, the BDD phase has through \(B/2\) and J51 through \(B\); otherwise the BDD phase has through \(B\). Table parsing and fallback also consume elapsed time. Figure~\ref{fig:budget} shows the relationships.
 
-This ordering has an important implementation consequence: \emph{when} the expensive search is attempted depends on the existence of a complete earlier circuit. A sufficiently small positive runtime allowance can suppress the legacy portfolio and all later cut searches. In contrast, when the first candidate already has area and delay zero, optional work is skipped as no nonnegative gate-cost improvement is possible. These admission checks do not mathematically guarantee an output on every future bounded instance, but they make the completed incumbent the organizing unit of the source's search schedule.
+After initial natural and influence-based probes, the solver deduplicates a seeded pool of natural, reversed, shuffled and perturbed orders. For large tables it can also probe a sampled-influence order, using the complete table for the resulting candidate. At screening entry, at most 35\% of the BDD time then remaining is allotted to counting BDD nodes. Up to four distinct screened non-natural orders enter the shortlist, supplemented by the descending-influence order and its reverse. Weight-4 physical probes divide two thirds of the next remainder among the orders still to try. Orders with measured mapped ranks are then visited in rank order at weights \(1,0,16\). BDD node count is a screening proxy; typed structure, polarity, shared support and gate prices can change which mapped order is best.
 
-\subsection{A hierarchy of exactness, cost, and search effort}
-The final pipeline operates on three different objects whose metrics must not be substituted for each other. The stored truth table specifies the exact vector function $F$; the mapped and pruned gate network $G$ is the physical artifact charged by Eqs.~\eqref{eq:area}--\eqref{eq:arrival}; and the synthesis procedure $\mathcal{S}$ explores alternatives while spending wall-clock time and memory. Consequently, a step may be useful for three different reasons: it may enlarge the set of \emph{exact} circuits that can be constructed, find a cheaper completed network among those circuits, or reduce the cost of exploring the same candidates. Stage 1 established the first and third possibilities through ROBDD construction, diverse mapping and typed-graph caching; Stage 2 specifically extends the second through bounded function-level rewriting under the third's resource constraints.
+\begin{figure*}[!t]
+\centering\includegraphics[width=\textwidth]{figures/phase_c_budgets.pdf}
+\caption{Nominal search allocation, source schematic. Later steps execute in the order shown, when their respective admission checks pass. Each box reports an allowance cap and an elapsed-time cutoff; widths carry no duration information. The SOP allowance also includes \(0.06L\).}
+\label{fig:budget}
+\end{figure*}
 
-For clarity, let $G_0$ be the completed incumbent after representation search, mapping, balancing and recovery. The R8.6 controller produces two \emph{alternative} searches from that same network, not two sequential transformations:
-\begin{equation}
-\mathcal{C}(G_0)=\{G_0,\;H(G_0;Q_H),\;P(G_0;Q_P)\},
-\label{eq:parallel_candidates}
-\end{equation}
-where $H$ denotes the bounded Shannon-oriented cut search and $P$ the bounded SOP-oriented search, subject to their actual eligibility and time guards. A completed candidate is evaluated using the \emph{whole} pruned shared DAG. The controller chooses a valid preferred candidate $G_1$ from available eligible results. If the R10.0 final-pass guard subsequently admits more work, it applies a \emph{new} SOP pass to $G_1$, not to the original $G_0$:
-Set $\widehat G=P(G_1;160)$. The return rule is
-\begin{equation}
-G_{\rm out}=\begin{cases}
-\widehat G, & \text{if $\widehat G$ passes the strict admission test},\\
-G_1, & \text{otherwise},
-\end{cases}
-\label{eq:two_level_choice}
-\end{equation}
-where the admission test checks structural validity, $D(\widehat G)\le\Delta$ and $A(\widehat G)<A(G_1)$, while functional equivalence follows from the constructor's exact transformations under the hypotheses proved below. The acceptance function does \emph{not} rerun an independent exhaustive truth-table equivalence checker for every new candidate.
-Equation~\eqref{eq:two_level_choice} describes the \emph{admission rule} after a returned candidate, not a universal bound on the time taken by candidate construction. In particular, one cannot sum the isolated R8.6 root-allocation gain and the R10.0 postpass gain as if both acted on an unchanged graph: the second pass sees the fanout structure and available cuts produced by the first decision. This distinction is the organizing principle of the final method, not a detail about how many development rounds were run.
+Clock checks occur at explicit boundaries. For example, optional BDD construction checks every 8192 recursive calls, and the SOP library checks every 32 eligible roots. Balancing, candidate finalization and writing can continue across a nominal cutoff. With a supplied memory limit, optional search compares current Linux process RSS and estimated extra allocation with roughly 75\% of the cap. A failed memory check or caught allocation failure latches the optional-search stop flag. A completed incumbent protects functional progress, while the checks do not provide a hard wall-clock or memory guarantee.
 
-\section{Core Stage 2 Improvement: Bounded Cut Resynthesis}
-\label{sec:cut}
-\subsection{Why BDD-order search is not sufficient}
-Changing a BDD order changes the decomposition of the whole function. Yet the mapped gate DAG may contain a locally expensive algebraic pattern even if its original BDD representation was compact. The Stage 2 method instead treats a bounded portion of the \emph{existing physical circuit} as a small Boolean function, reconstructs an alternative expression for that function, and measures whether replacing it changes the complete shared circuit favorably. The idea is related to established DAG-aware rewriting \cite{mishchenko2006}, but the implemented cut size, exact local signature, root ranking, and gate prices are specific to this project.
+\subsection{The imported J51 portfolio}
+The controller calls the J51 construction library with an ordered list of BDD/cover configurations, including reverse, output-influence, regular and decoder variants. If the incumbent is late to \(\delta\), it first tries a shallow table construction with half the remaining J51 time. For completed portfolio graphs, it can attempt typed rebalancing and area recovery and compare a mixed vector of roots from the current incumbent and that trial. Algebraic and polarity remapping refine the incumbent after reverse-order options and after further strict rank improvements. These are library calls scheduled by Integrated Final; the standalone J51 CLI and its fallback are outside this path. Likewise, the integrated controller invokes one R10.0 SOP polish on its own incumbent, independently of the historical R8.6 competing controllers.
 
-\subsection{A running example: equivalence, sharing, and timing}
-Consider
-\begin{equation}
- y_1=(a\land b)\lor(\neg a\land c),\qquad y_2=y_1\lor b.
-\label{eq:example}
-\end{equation}
-Using one NOT, two AND2, and two OR2 gates, with areas \((a_{\land},a_{\lor},a_{\neg})=(2,3,1)\) and delays \((d_{\land},d_{\lor},d_{\neg})=(2,2,1)\), the initial shared network has area \(11\), output arrivals \(5\) and \(7\), and global delay \(7\). With target \(8\), the \(y_1\) node is also the predecessor of the final OR2 producing \(y_2\); its required time is \(\min(8,8-2)=6\), not \(8\). Absorption gives \(y_2=b\lor(\neg a\land c)\). Redirecting only the final OR2 to the existing \((\neg a\land c)\) node preserves both outputs, leaves the gate producing \(y_1\) alive as the first output, and changes the \(y_2\) arrival from \(7\) to \(5\) \emph{without changing area}. It also changes the fanout graph and the new required time of \(y_1\) to \(8\). The example isolates three notions often confused in heuristic optimization: Boolean equivalence, actual live-gate reclamation, and critical-path timing.
+\section{Multi-output cone selection}
+\label{sec:mix}
+Both networks entering a mixing trial compute the same ordered \(F\). The solver imports their gates into a common structurally hashed DAG, so an old or new root for output \(j\) computes \(F_j\) regardless of the other selected roots. A count on each gate records its output-root references plus incoming references from \emph{live parents}. Parallel pin occurrences, when present, count separately.
 
-\subsection{Cut boundaries and functional signatures}
-The running example permits an algebraic simplification by inspection. To discover such opportunities systematically, the solver first recovers the Boolean function of a bounded region of the \emph{already mapped} DAG. For a root gate \(r\), a cut \(C_r=\{\ell_0,\ldots,\ell_{k-1}\}\) is an upstream frontier crossing every path from \(r\) toward primary inputs. The implementation restricts \(1\le k\le4\), forming sorted unions of fanin cuts while keeping only a bounded number of representatives per node. Each internal node retains its trivial self-cut, one available cut of each cardinality, and at most nine retained cuts in all. This diversity-preserving cap is a design choice: it prevents an exponential blow-up of cut combinations but can discard a functionally valid frontier that would have mapped better. Cut count therefore limits \emph{search coverage}, not Boolean exactness of any candidate actually tested. It is \emph{not} an exhaustive enumeration of all possible four-leaf cuts. Treat the cut leaves as formal Boolean variables \(z_0,\ldots,z_{k-1}\). The local function can be encoded exactly as
-\begin{equation}
- M_{r,C}=\sum_{s=0}^{2^k-1} h_{r,C}(s)\,2^s \;\in\; \{0,\ldots,2^{2^k}-1\}.
-\label{eq:cutmask}
-\end{equation}
-With four leaves this signature uses only 16 bits. The actual routine in \texttt{r84\_cut.hpp} orders the leaf IDs increasingly and uses the \emph{least significant assignment bit} for the first leaf: \(s=\sum_{i=0}^{k-1}2^i z_i\). A recursive evaluation replaces every leaf by its formal truth-mask, AND/OR by bitwise operations and NOT by masking the complement. If a path reaches a primary input without passing a designated leaf, the proposed cut is invalid rather than approximately accepted.
-
-\begin{proposition}[Functional validity of cut replacement]
-Let \(C_r\) be a valid cut and \(h_{r,C}\) its induced function on formal cut-leaf values. Replacing the root cone by an acyclic legal-gate expression \(\widetilde h\) with \(\widetilde h(z)=h_{r,C}(z)\) for every \(z\in\{0,1\}^k\), while preserving the graph boundary and all dependent outputs, preserves the full multi-output function.
+\begin{proposition}
+On an acyclic union DAG, propagating reference increments only at \(0\to1\) transitions and decrements only at \(1\to0\) transitions maintains exact reachable weighted area.
 \end{proposition}
 \begin{IEEEproof}
-For each original input assignment \(x\), the actual vector of cut-leaf signals \(z(x)\) is one member of \(\{0,1\}^k\). The signature equality holds on \emph{every} such vector, even if the physical leaves are mutually dependent and not all vectors are realizable. Hence \(\widetilde h(z(x))=h_{r,C}(z(x))\). All downstream gates receive the same root value and all other unchanged signals retain their values; induction through the remaining topological graph preserves each output.
+When a gate receives its first live reference, a path from some output reaches it, so its price and its outgoing fanin references enter the accounting. On the last removal no such path remains, and both contributions leave. All other changes preserve reachability of that gate and therefore preserve its fanin contributions. Parents precede fanins along these propagated changes and the DAG is acyclic, so completing the propagation restores the invariant everywhere.
 \end{IEEEproof}
 
-This proposition proves local functional equivalence under explicit wiring and acyclicity assumptions. It does not, by itself, establish legality of the replacement's indices, reduced area, or a satisfactory timing path.
-
-\paragraph{An explicit cut signature and its physical interpretation.}
-The multi-output function in Eq.~\eqref{eq:example} supplies a concrete cut: take the root computing $y_2$ and the formal leaves $(a,b,c)$, with assignment index $s=4a+2b+c$. Its on-set is $\{1,2,3,6,7\}$, hence the exact eight-bit signature is
-\begin{equation}
-M_{y_2,\{a,b,c\}}=2^1+2^2+2^3+2^6+2^7=206=\texttt{0xCE}.
-\label{eq:maskexample}
-\end{equation}
-This display follows the Stage 1 running example's human-readable convention, where $a$ is the \emph{most} significant bit. Under R10's actual leaf-bit convention, $s=a+2b+4c$ for sorted leaves $(a,b,c)$, and exactly the same function has mask $220=\texttt{0xDC}$: neither value is canonical without specifying leaf order and bit significance. Both the original $y_1\lor b$ cone and the alternative $b\lor(\neg a\land c)$ have this signature under a fixed convention. The equality certifies the functional substitution; the unchanged area and improved delay calculated in the preceding example are \emph{separate} properties of its mapped, shared circuit. Neither one follows solely from the truth mask.
-
-\subsection{Generating replacement expressions}
-For each feasible truth signature, the local synthesizer considers: (i) SOP based on prime implicant enumeration with two deterministic greedy uncovered-cover proxies; (ii) complemented SOP or POS-flavored realizations; and (iii) selected Shannon decompositions and leaf-order rotations. Every candidate is lowered to AND2/OR2/NOT through the same typed builder. A greedy implicant cover is correct when its terms stay within the on-set and jointly cover the entire on-set, but this does not minimize weighted physical gate area after structural sharing. A Shannon alternative is exact by Eq.~\eqref{eq:shannon}, but can increase gate count while reducing critical-path depth. These candidates are \emph{semantically complete for the chosen expression}, not exhaustive for all possible circuit implementations.
-
-\paragraph{What is actually enumerated in the frozen cut engine.}
-The SOP path enumerates all cube patterns over the \(k\le4\) formal leaves, discards cubes covering a zero minterm, retains prime implicants, and builds a greedy cover under either of two cost proxies. It also synthesizes the complemented truth mask and negates the result, exposing a POS-like alternative without introducing an illegal physical gate. The Shannon path tests up to four rotations of the \(k\)-leaf decision order. These local realizations use an immutable cut truth signature; a builder may intern common AND/OR/NOT gates across speculative expressions. The retained set is intentionally small enough to be searched repeatedly across a large output DAG. It cannot be described as all Boolean functions' minimum-area implementations, nor should the two greedy cover proxies be interpreted as an exhaustive search over all prime-implicant covers.
-
-\subsection{Why local area estimates cannot decide globally}
-The example also shows why discovering an equal truth signature is only the first step. To judge whether the substitution is desirable, the solver must account for all outputs and shared gates. Define \(L(G)\) as the union of all gate ancestors of the output references, including output gates. For a pruned graph the area is \(\sum_{v\in L(G)}a(v)\). If gates in the old and new graphs are compared under a \emph{common immutable gate identity} (operator together with recursively identified fanins), unchanged shared nodes have the same cost, and for a rewrite from \(G\) to \(G'\),
-\begin{equation}
-\begin{split}
- A(G')-A(G)={}&\sum_{v\in L(G')\setminus L(G)} a(v)\\
- &-\sum_{v\in L(G)\setminus L(G')} a(v).
-\end{split}
-\label{eq:delta}
-\end{equation}
-Equation~\eqref{eq:delta} requires stable structural node identities: gate IDs from independently serialized networks cannot be subtracted as sets. The practical consequence is visible in the running example. Eliminating a \emph{use} of a shared node does not eliminate its area, whereas replacing a root may release several private ancestors at once. Global improvement must ultimately be measured from each complete output-reachable network.
-
-The cut engine makes this evaluation affordable with an earlier, conservative screen. It estimates \emph{reclaimable private area} by walking the old cone, stopping at cut leaves or multiply used non-root nodes, and capping unusually large walks at 80 nodes. It constructs a candidate against the same frontier and normally requires its estimated local cost to beat that reclaimable area (an equality-enabled research mode is available). The candidate must also meet the old root's required arrival. These conditions prune likely unprofitable rewrites; they do not prove that the predicted gates will disappear. After the full DAG is reconstructed and pruned, the outer policy recomputes its actual area and delay before acceptance.
-
-This two-stage test makes a tradeoff explicit. A false optimistic local estimate cannot force a worse completed incumbent to be accepted, because the full-network test remains authoritative. A false pessimistic estimate, however, can \emph{miss} a globally useful transformation: local estimation is deliberately conservative, and the finite cut and root quotas further limit coverage. These are algorithmic limitations, not implementation errors or Boolean approximations.
-
-\subsection{Timing and final acceptance}
-Before materialization, an alternative root is rejected if its estimated arrival exceeds the old \(R(r)\). This is an inexpensive local filter, not a complete global feasibility theorem when dependencies change. The rewritten graph is constructed with the original outside DAG preserved, pruned, and scored. At the outer R8.6 policy, a candidate is eligible when valid and on target and is either strictly smaller in area than the original baseline or has equal area with smaller delay. The final R10 follow-up uses a stricter condition: area must decrease. The algorithm always prefers the completed incumbent to an invalid or unacceptable new candidate.
-
-\subsection{Root priority and deterministic work limits}
-When many roots exist, a naive scan spends effort on arbitrary graph positions before reaching promising structures. The implemented priority score for an eligible root \(r\) is
-\begin{equation}
-\begin{split}
- P(r)={}&16a(r) +8\!\!\sum_{\substack{u\in\mathrm{fanin}(r)\\u\text{ singly used}}}\!\!a(u)\\
- &+\min\{8,\max(0,R(r)-T(r))\}.
-\end{split}
-\label{eq:priority}
-\end{equation}
-The first two terms proxy area likely to be reclaimable, and the last bounds extra priority from slack. The coefficients $16$ and $8$ are \emph{heuristic search weights}, not a measured probability of area recovery; in particular, the capped slack term makes the priority a ranking convention rather than a physical cost function. The engine selects the globally highest-priority \(Q\) roots, then visits those \(Q\) IDs in original topological order. This differs from first taking a broad ranked pool and then processing only its first \(Q\) topological entries; the latter can silently replace score ranking by node position. A deterministic root quota bounds planned work, while periodic wall-clock checks (on eligible-root checkpoints, rather than preempting every candidate) add a second, imperfect execution guard. In the actual cut engine the time comparison is performed at every 32nd eligible selected root. Consequently a long individual cut-search iteration is not forcibly interrupted; the numerical quota and time allowance are complementary \emph{heuristic} resource protections. Both safeguards matter: a time allowance without correct root placement can be spent on unproductive candidates.
+\begin{figure}[!t]
+\centering\includegraphics[width=\columnwidth]{figures/phase_c_cones.pdf}
+\caption{Constructed cone example. With AND area 2 and OR area 3, the two outputs cost \(2+3+3=8\) together. Dropping cone 1 reclaims 3 while the shared AND remains live. Adding cone 1 back then costs 3, compared with its standalone area of 5.}
+\label{fig:cones}
+\end{figure}
 
 \begin{algorithm}[!t]
-\caption{Bounded four-leaf cut resynthesis subroutine}
-\label{alg:cutrewrite}
+\caption{Greedy output-cone mixing}
+\label{alg:mix}
+\footnotesize
 \begin{algorithmic}[1]
-\Require Mapped DAG \(G\), gate prices, target, cut mode, budget, root quota \(Q\)
-\State Compute fanout counts, arrivals, and required times
-\State Score eligible roots with Eq.~\eqref{eq:priority}; retain top \(Q\)
-\State Visit selected roots in their original topological order
-\For{each root while the periodic deadline guard allows}
- \State Enumerate bounded cuts \(C\), each with \(|C|\le4\)
- \State Obtain exact signature \(M_{r,C}\) by Eq.~\eqref{eq:cutmask}
- \State Generate mode-specific SOP or Shannon replacements
- \State Filter on local private-cone cost and required arrival
- \State Retain the preferred feasible local replacement, if any
+\State Intern both networks; select incumbent roots \(S\)
+\State Initialize live references, area and arrival multiset
+\For{each corresponding trial root \(v\) before deadline}
+  \State Save rank and timing of the old root \(u\)
+  \State Remove \(u\) and add \(v\) by reference transitions
+  \State Form new \(D\) from the other arrivals and \(t(v)\)
+  \If{\((\rank_\delta,t(v))\) strictly improves}
+    \State Keep \(v\), update the arrival multiset
+  \Else
+    \State Reverse the area updates; keep \(u\)
+  \EndIf
 \EndFor
-\State Build the full DAG from selected transformations
-\State Prune unreachable gates and recompute area and delay
-\State \Return the complete candidate for \emph{outer} acceptance
+\State Return pruned network if any root changed
 \end{algorithmic}
 \end{algorithm}
 
+Figure~\ref{fig:cones} illustrates the price of replacing one root. The parser-defined output order governs the greedy sweep. The arrival multiset supports \(O(\log m)\) insertion and removal; fixed arrivals in the union give the delay without reevaluating all gates. With \(K_j\) visited pin references during a swap and any rollback, the sweep costs \(O(m\log m+\sum_j K_j)\) after importing the graphs and initializing the live counts. In the worst case a swap can touch a large part of the union. A final full-network metric decides promotion. Using one greedy pass can miss simultaneous switches whose savings appear only together.
 
-\subsection{From local search to a complete candidate}
-Algorithm~\ref{alg:cutrewrite} is called only by an admitted search branch in Algorithm~\ref{alg:core}; its returned DAG is an alternative, not an automatically accepted new incumbent.
-Speculative gate nodes may be allocated while examining several cuts, even when their expressions are never selected. Before reporting a candidate, the builder reconnects \emph{all} primary outputs, prunes unreachable nodes, and evaluates the surviving network. Thus the object returned by Algorithm~\ref{alg:cutrewrite} is a \emph{complete alternative DAG}, not a claim that an individual cut's estimated saving has already been realized. The controller described next decides whether that alternative replaces the incumbent.
-
-\section{Resource Allocation and the Final R10.0 Policy}
-\label{sec:policy}
-\subsection{R8.6: two alternatives from a common incumbent}
-At default settings, if the declared runtime limit \(B\ge1000\) ms, the incumbent is valid and on target, and less than \(0.65B\) has elapsed, the R8.6 policy opens a bounded cut-search window
+\section{Four-leaf resynthesis for area}
+\label{sec:cuts}
+An output-reachable cut at root \(r\) is a frontier \(C=(c_0,\ldots,c_{k-1})\) that blocks all paths from \(r\) to nonconstant primary inputs. The inherited library retains at most nine frontiers per node, including its singleton, and tests nontrivial cuts with \(2\le k\le4\). An AND/OR frontier is formed by a sorted union of fanin frontiers, and a NOT can inherit its fanin frontiers. Treat the leaves as independent variables. If \(f_r^C\) is the induced function, the source uses
 \begin{equation}
- B_{\rm search}=\min(360\,\mathrm{ms},\,0.15B).
+ M(r,C)=\sum_{s\in\{0,1\}^k} f_r^C(s)\,2^{\sum_{i=0}^{k-1}2^i s_i}.
+ \label{eq:mask}
 \end{equation}
-The base root quota is 900 (or 600 in the specified smaller-budget, large-output condition). Two branches are independently applied to the \emph{same starting graph}: a Shannon cut alternative with the base quota, and an SOP alternative with 300 additional roots, up to 1500. Each uses at most \(\min(180\,\mathrm{ms},\,0.54B_{\rm search})\) nominal time, subject to residual search allowance and a global \(0.77B\) guard. A new graph is kept only after full feasibility and cost comparisons. Specifically, the default area-mode controller uses the complete-network rule
-\begin{equation}
-\begin{aligned}
- D(H)&\le\Delta,\\
- (A(H),D(H))&<_{\rm lex}(A(G),D(G)).
-\end{aligned}
-\label{eq:controller-eligible}
-\end{equation}
-Here \(G\) denotes the common R8.6 baseline and \(H\) a complete candidate from either branch; \( <_{\rm lex}\) denotes lexicographic comparison. Thus a candidate is eligible if it meets the delay target and either uses less area or ties area with lower delay. If two candidates are eligible, the controller orders them by area and then delay. Hence a smaller-area candidate \emph{may use more timing slack}, but may not exceed the target. This differs from the early portfolio's delay-violation-first ranking in Eq.~\eqref{eq:rank} and from the strict-area rule of the final SOP pass. The actual code also supports controlled alternatives that reclaim unused time or reverse which branch receives extra root quota. These are ablations, not all on by default.
+In the bounded cone, AND/OR become bit operations and NOT complements within the \(2^k\) active bits. With ordered leaves \((a,b,c)\), \(b\vee(\bar a\wedge c)\) has mask \(\texttt{0xDC}\), set at indices \(2,3,4,6,7\). Equality over all independent cut patterns implies equality for every primary-input assignment, including when actual leaf signals are correlated. Substituting the mapped leaf signals in topological order preserves the root function and then all downstream outputs.
 
-\subsection{What the factorial experiment established}
-The archived R8.6 two-factor comparison kept the same inputs and baseline candidate while changing whether the SOP branch receives extra root quota and whether unused time is reclaimed. Over the 50 published cases, extra SOP roots saved \(2{,}844\) area units; extra time alone saved zero; their combination saved the same \(2{,}844\); reversing extra roots toward Shannon saved only \(20\). Figure~\ref{fig:factorial} encodes all four experimental cells with exact values rather than merely coloring a winning bar. Writing $S(q,t)$ for the summed area saved relative to the common baseline, with binary indicators $q$ (extra SOP roots) and $t$ (time reclaim), the measured contrasts are
-\begin{equation}
-\begin{aligned}
-\Delta_q &= S(1,0)-S(0,0)=2{,}844,\\
-\Delta_t &= S(0,1)-S(0,0)=0,\\
-\Delta_{qt} &= S(1,1)-S(1,0)-\Delta_t=0.
-\end{aligned}
-\label{eq:factorialcontrasts}
-\end{equation}
-The zero observed interaction means that \emph{under this fixed tested policy and case set}, reclaiming nominal time added no measured area benefit once the root allocation was fixed. It does not prove that a longer wall-clock allowance is intrinsically useless; the search can terminate at a root quota before using that allowance. The 20 units saved by reverse allocation provide an additional, separate negative control.
-\begin{figure*}[!t]
-\centering\includegraphics[width=.74\textwidth]{figures/r86_factorial_design.pdf}
-\caption{Controlled R8.6 search-allocation experiment, run 1. The numbers denote aggregate area saved against the same fixed policy baseline, not program-runtime reductions. Hollow circles indicate the base quota and filled squares the extra-root treatment; color is redundant. Increased SOP root coverage matters on these 50 cases; recovering extra nominal time without changing quota does not. R8.6 differs from R10.0's later sequential follow-up.}
-\label{fig:factorial}
-\end{figure*}
+The search enumerates implicant cubes over the \(3^k\) possible fixed/free patterns, keeps maximal implicants, and greedily covers the on-set using two literal-cost proxies. The complement cover plus inversion offers a dual realization. Both are exact: every cube is inside the specified on-set and the loop accounts for every on-set point \cite{brayton1984}. Arrival-ordered binary trees map terms to available gates. A root's locally reclaimable area discounts shared predecessors, and the new cone cost stops at the mapped frontier. This local estimate guides selection; its value can differ from the exact change after structural sharing and pruning.
 
-\subsection{R9.0 feasibility safeguards and the R9.1 choice}
-R9.0 introduced an exact short-budget streaming path for simple/affine high-dimensional functions and retained a safer default without committing to expensive speculative search. R9.1 then asked a different question: given a completed, legal network, where should the last small search budget go? A template-library approach improved \emph{more cases} but yielded only 663 aggregate area units, whereas a repeated SOP cut pass improved fewer cases but yielded 1,587 under the archived controlled comparison. A repeated Shannon pass was another option. The result distinguishes improvement frequency from improvement magnitude: the algorithm's objective is priced total area under validity constraints, not the count of cases with any positive change. R10.0 promotes the repeat-SOP choice to the plain-executable default; it does \emph{not} invent a new truth-signature algorithm.
-
-\subsection{The last pass is a guarded, sequential transformation}
-Let \(G_0\) be the already selected incumbent after the earlier work and \(t\) the elapsed program time. The last pass is admitted only if \(B\ge1000\) ms, \(G_0\) is valid and on target, and
-\begin{equation}
- b_{\mathrm{last}}=\min\{90\,\mathrm{ms},\,0.06B,\,0.82B-t\}\ge8\,\mathrm{ms}.
-\label{eq:lastbudget}
-\end{equation}
-The default setting examines at most 160 priority-selected roots through an additional SOP resynthesis pass, acting on \(G_0\) rather than restarting from the original R8.6 input. If the completed output \(G_1\) is valid, target-feasible and \(A(G_1)<A(G_0)\), it replaces \(G_0\); otherwise \(G_0\) remains the output. The template library and repeated Shannon remain opt-in experimental modes. The retained graph's exact cost is re-evaluated; local surrogate savings alone never authorize promotion. Here ``valid'' denotes the typed graph's structural and indexing checks, not an independent proof of its truth-table semantics on every pass. The semantics rely on exact local construction and are tested separately by the course evaluator and additional independent checks.
-
-\begin{lemma}[Non-regression of the final pass relative to its own incumbent]
-Assume correct full-network metric computation and serialization. If the final repeat-SOP pass returns normally, its selected output \(G_{\rm out}\) obeys \(A(G_{\rm out})\le A(G_0)\), and any accepted replacement obeys \(D(G_{\rm out})\le\Delta\).
-\end{lemma}
-\begin{IEEEproof}
-If the pass is skipped or rejected, the incumbent is unchanged and the area equality holds. If accepted, the explicit test requires validity, \(D(G_1)\le\Delta\), and \(A(G_1)<A(G_0)\). These cases exhaust the final selection. The lemma makes no assertion about an unrelated execution of an older executable, because earlier clock-bounded searches can select different incumbents.
-\end{IEEEproof}
-
-A critical distinction is therefore that two passes are \emph{not additive independent improvements}. The R8.6 branches compete against one baseline; the R10 pass changes a graph previously altered by the winning branch. Its opportunities depend on fanout, removed nodes and the newly exposed cuts. A separate fixed-network experiment even found both orders of SOP/Shannon passes preferable on different saved graphs \cite{stage2trial}. This is why the final algorithm records strict global acceptance instead of predicting improvements from isolated local cover counts.
-
-\paragraph{Why the early and late safety rules are different.}
-The initial candidate portfolio may need to keep a valid circuit even when it has not yet reached \(\Delta\); Eq.~\eqref{eq:rank} therefore ranks target violations first. After a target-feasible incumbent has been produced, speculative cut searches are optional: the R8.6 area controller admits only feasible full graphs under Eq.~\eqref{eq:controller-eligible}, while the R10 SOP follow-up insists on strict area reduction. Thus the code gradually tightens its admission rules as a usable output becomes available. This explains the safeguard's role without incorrectly describing the entire program as a single monotone area-only greedy search.
-
-\paragraph{Why pass order cannot be treated as a commutative optimization.}
-Even under strict function-preserving replacement, the two search operators need not commute as graph transformations: $P(H(G))$ and $H(P(G))$ compute the same Boolean outputs when all local rewrites are correct, yet they may expose different candidate cuts, share different intermediate nodes, and produce different areas. A separate fixed-incumbent probe preserved the initial network and a 160-root allowance per pass on six deliberately selected graphs. SOP then Shannon was better on three; Shannon then SOP was better on one; two tied. On Stage 2 case 005 the former obtained area 102,471 versus 102,716, while on case 003 the latter obtained 15,575 versus 15,585. These are controlled \emph{counterexamples to universal order independence}, not a representative estimate of the probability that one order wins. They explain the conservative adopted rule: select fully measured completed candidates and accept a guarded additional pass only for strict area improvement, rather than assume that every additional search composes additively \cite{stage2trial}.
-
-
-
-\section{Evaluation on the Released Project Instances}
-\label{sec:evaluation}
-\subsection{Protocol and reproducibility boundaries}
-The historical research comparison uses the \emph{actually submitted} Stage 1 Z1 implementation, the independently frozen J51 research solver, and R10.0 on the same 25 Stage 1 and 25 Stage 2 released cases, under one WSL evaluator environment and identical C++17 optimization flags. Two matched runs reversed method order to expose some order sensitivity. The source and input hashes were retained in the archived case table. All case-level figures reported here from this batch can be recomputed from \texttt{data/matched\_case\_metrics.csv}, with the complete Z1/R10 first-run table in Appendix~\ref{sec:appendix}. A separate original R10 official-feedback archive contains two additional per-bank repetitions.
-
-\begin{table}[!t]
-\centering\caption{Matched 50-case comparison, one paired repeat. Area is summed only over PASS cases; J51's failed Stage 2 case makes its two-bank total \emph{incomparable} to two 50/50-pass totals. Times are medians within each bank.}
-\label{tab:matched}
+\begin{algorithm}[!t]
+\caption{Inherited SOP polish on the integrated incumbent}
+\label{alg:sop}
 \footnotesize
-\begin{tabular}{llrrrr}
-\toprule
-Bank & Program & PASS & Target & Area & Med. ms\\
-\midrule
-\multirow{3}{*}{Stage 1} & Z1 &25/25&25/25&589,023&605.75\\
- & J51 &25/25&25/25&529,014&61.36\\
- & R10 &25/25&25/25&525,582&193.70\\
-\midrule
-\multirow{3}{*}{Stage 2} & Z1 &25/25&25/25&555,221&603.78\\
- & J51 &24/25&24/25&506,754\textsuperscript{a}&36.93\\
- & R10 &25/25&25/25&493,965&130.71\\
-\bottomrule
-\end{tabular}
-\vspace{1mm}\parbox{.98\columnwidth}{\scriptsize \textsuperscript{a}Only the 24 passed J51 cases are counted; its case 016 with a 100-ms limit is FAIL. No 50-case J51 area sum is claimed.}
-\end{table}
+\begin{algorithmic}[1]
+\Require Eligible incumbent \(G\) with \(D(G)\le\delta\)
+\State Compute required arrivals and rank roots by reclaim proxy
+\State Select up to 160 roots; traverse the graph topologically
+\For{each gate while the rewrite budget allows}
+  \State Construct ordinary gate on mapped fanins
+  \If{gate is a selected live root}
+    \State Form bounded cut frontiers and evaluate their masks
+    \State Try SOP covers of each mask and its complement
+    \State Keep an on-time root with strict local area gain, if found
+  \EndIf
+\EndFor
+\State Map remaining gates unchanged on mapped fanins
+\State Materialize and prune the complete network \(H\)
+\State Keep \(H\) only if valid, \(D(H)\le\delta\) and \(A(H)<A(G)\)
+\end{algorithmic}
+\end{algorithm}
 
-\subsection{The main Stage 1--Stage 2 result is distributional}
-In matched run 1, Z1 and R10 both pass and meet all 50 delay targets, with aggregate areas \(1{,}144{,}244\) and \(1{,}019{,}547\), respectively. The saved area is \(124{,}697\), or \(10.90\%\) relative to the Z1 baseline. On the first bank the decrease is \(63{,}441\); on the second it is \(61{,}256\). In matched run 2 the corresponding totals are \(1{,}145{,}191\) and \(1{,}019{,}883\), a decrease of \(125{,}308\). Both versions remain 50/50 PASS and 50/50 target-met in both repeats. Recomputing the signed differences case by case shows the \emph{same 18 positive and 32 negative cases} in both repeats; the sign never flips, although the gain magnitudes change slightly on three cases. This is stronger evidence for the \emph{observed distributional pattern} than an aggregate total alone, but it is still only a two-repeat result on the released inputs. These observations support robust public-case aggregate savings across the two measured orders, not a universal per-input superiority statement.
+Integrated Final uses the inherited \texttt{sop}/\texttt{priority\_topq} call once, with the library cap 1500 and work quota 160. The priority score favors expensive roots, private fanins and limited positive slack. For elapsed time \(e\), the positive-limit allowance is \(\min(90,0.06L,0.82L-e)\) ms, with an 8\,ms admission floor. Without a positive limit the allowance is 90\,ms. The pass skips a RAM-capped case, a late or empty incumbent, out-of-range typed costs and networks above 20,000 gates. The graph still needs complete materialization and pruning. A signature takes one bitwise evaluation per visited old gate with at most 16 active bits, and \(k\le4\) bounds cover enumeration. The scoring heuristic and root cap do not guarantee a minimum-area network or a hard elapsed-time bound \cite{mishchenko2006}.
 
-Indeed, R10 uses \emph{more} area than Z1 on 32 of the 50 first-run cases and \emph{less} on only 18. The 18 positive contributions sum to \(160{,}696\), whereas the 32 regressions cost \(35{,}999\), leaving \(124{,}697\) net savings. The median individual area difference is $-54.5$ units (Z1 minus R10), favoring Z1 on a typical ranked instance. The same 9-benefit/16-regression split appears separately in each 25-case bank: the Stage 1 bank saves $81{,}805$ but gives back $18{,}364$; the Stage 2 bank saves $78{,}891$ and gives back $17{,}635$. These complementary signed contributions, rather than a universal per-case gain, produce the two bank-level totals. Figure~\ref{fig:heterogeneity} makes the apparent paradox explicit: the objective weights the \emph{magnitude} of savings, not the number of winning instances. The largest single improvement, Stage 2 case 005, saves \(39{,}516\), while Stage 2 case 002 costs \(8{,}003\) more. The three largest positive cases together contribute \(94{,}004\) units, or about \(58.5\%\) of the \(160{,}696\) gross favorable contribution. Those examples must both remain visible in any defensible comparison. Every circuit in the paired Z1/R10 sample meets its target; area comparisons therefore do not conceal a FAIL or deadline miss.
-\begin{figure*}[!t]
-\centering\includegraphics[width=.99\textwidth]{figures/area_case_heterogeneity.pdf}
-\caption{Matched repeat 1, all 50 released cases. Left: signed area difference (Z1 minus R10), ranked by benefit, with a symmetric-log vertical axis to make small regressions visible alongside very large savings. Symbol shape distinguishes the bank, and fill distinguishes the sign. Right: the separate beneficial and adverse area contributions explain why 18 wins nevertheless deliver a positive aggregate saving. Zero would mean equal physical area; no equality occurs in this pairing.}
-\label{fig:heterogeneity}
-\end{figure*}
+\section{Factoring and timing recovery}
+\label{sec:recovery}
+\subsection{Shared factors and grouped Shannon reconstruction}
+Partition an output's support into bound variables \(U\) and free variables \(V\). For each \(u\), consider the entire cofactor \(q_u(v)=f(u,v)\). Partition the bound assignments by equality of these truth vectors. If \(C_i\) is one class, \(q_i\) its common cofactor and \(\chi_i\) its indicator, then
+\begin{equation}
+ f(u,v)=\bigvee_i \bigl(\chi_i(u)\wedge q_i(v)\bigr).
+ \label{eq:group}
+\end{equation}
+Exactly one indicator is true at any \(u\); it selects the correct cofactor. Equivalently, one may complement the grouped expansion over all \(\bar q_i\). With two classes, one selector \(h=\chi_1\) suffices and \(f=Q(V,h)\), where \(Q(V,0)=q_0(V)\) and \(Q(V,1)=q_1(V)\). Figure~\ref{fig:cofactors} shows how three assignments of the bound block can share a cofactor. The classification scans \(2^s\) truth values for a fixed split on support size \(s\); searching many splits or covering their selectors adds work. Representation equality alone implies neither a cheaper mapped circuit nor faster outputs.
 
-\subsection{Runtime and target-delay comparison}
-Within matched repeat 1, Z1 has median synthesis times \(605.75\) and \(603.78\) ms on the two banks; R10's corresponding medians are \(193.70\) and \(130.71\) ms. On 49 of 50 cases R10 runs faster than Z1 in that batch; the exception is Stage 1 case 024, where R10 takes 674.605 ms longer. A common 50-case median, 605.26 ms for Z1 versus 164.80 ms for R10, is descriptive of that run and must not be mistaken for a portable machine-independent speedup. The comparison reflects \emph{different programs with different search schedules}; it is not an isolated measurement of the typed-DAG implementation or of cut-search overhead. Also, median synthesis time summarizes the center of the tested distribution, not the ability to finish every individual case under its own stated limit. Figure~\ref{fig:runtime} displays the full empirical runtime distribution rather than only two summary statistics. In contrast, J51 is usually faster than R10 when it completes, but it fails Stage 2 case 016 under the 100-ms limit. For that case the observed Z1 and R10 runtimes are 64.395 and 29.696 ms, with areas 1,647 and 1,781 and delays 38 and 36. Thus R10's successful deployment is not reducible to minimum runtime \emph{or} minimum area alone.
 \begin{figure}[!t]
-\centering\includegraphics[width=\columnwidth]{figures/matched_runtime_ecdf.pdf}
-\caption{Case-wise empirical CDF of synthesis time for the three methods in matched repeat 1 (50 Z1 and R10 PASS runtimes; 49 J51 PASS runtimes; log horizontal axis). The failed J51 case has no valid runtime entry and is not assigned an artificial zero. Linestyles and markers distinguish series in grayscale; traces are not confidence bands.}
-\label{fig:runtime}
+\centering\includegraphics[width=\columnwidth]{figures/phase_c_cofactors.pdf}
+\caption{Constructed two-class example with bound block \(ab\) and free block \(cd\). Whole cofactor truth vectors determine the classes. The selected quotient equals the original function on each of the 16 assignments.}
+\label{fig:cofactors}
 \end{figure}
 
-Both Z1 and R10 meet all target delays, so their full-network time values are feasible but not monotonically ordered. Across 50 first-run cases, R10 improves the circuit delay in 27 cases, increases it in 18, and ties it in 5. The sum of delays is 2,399 for Z1 and 2,382 for R10, but this \emph{sum is not a single circuit's delay} and is not an official grading metric. The defensible conclusion is per-instance feasibility plus the observed distribution of delays. Since the project scoring weights area, delay, and runtime but does not publish a numerical formula, the report makes no numerical claim about final grade.
+The area-oriented \texttt{SharedFactors} pass proposes blocks from pairwise output-support intersections, prioritizing larger intersections. For outputs with support at most ten it looks for exactly two distinct cofactor rows and recursively forms the selector and quotient. It seeds one shared gate builder for the output vector, keeps existing cones for unsupported or unsuccessful outputs, and compares both the complete factored graph and its mixture by Eq.~\eqref{eq:rank}. The pass is guarded by typed costs, 2--32 outputs, graph size, memory and an allowance of at most 15\,ms, clipped near \(0.80L\). The cross-output block proposal and candidate admission are project-specific heuristics built on standard cofactor identities.
 
-\subsection{The role of J51 in the comparison}
-J51 materially improved the first-batch area relative to the submitted Z1 baseline: the matched Stage 1 area is 529,014 versus 589,023, while both pass all 25. The independent Stage 1 research therefore belongs in the technical history and not merely a footnote. It also exposes why a single attractive Stage 1 metric cannot replace Stage 2 validation: on the second bank J51 passes only 24/25. The failed case is retained explicitly, and the area sum of its passed cases is \emph{not} merged with its first-bank sum to manufacture a 50/50 comparison. R10 combines similar representation/typed-DAG ideas with new time-safe defaults and cut search, accepting some per-case tradeoffs to achieve complete observed validity.
+\subsection{Required times and critical cuts}
+For a common target \(\tau\), put \(R(s)\le \tau\) at each output and propagate
+\begin{equation}
+ R(u)=\min\bigl(\{\tau:\ u\in S\}\cup
+              \{R(v)-d(v): u\in\operatorname{fanin}(v)\}\bigr)
+ \label{eq:required}
+\end{equation}
+over the live DAG in reverse topological order, using \(+\infty\) for an empty minimum. Thus \(R(u)\) is the tightest deadline over paths from \(u\) to an output. A gate with slack \(R(u)-t(u)<0\) feeds a path exceeding \(\tau\). In \texttt{critical\_cuts}, initializing all requirements to \(\tau\) has the same effect on live nodes because gate delays are positive and a live gate reaches an output. The source tests rebuilt arrivals against those requirements. It expands a singleton frontier to fanins, retains unique cuts of up to four leaves and visits at most 20 cuts per late node. It builds SOP, complemented SOP and a Shannon variant whose variable order prioritizes later pins. Among them it takes a strictly faster root and stops exploring a node once the requirement is met or the deadline is reached. Figure~\ref{fig:critical} illustrates why an equivalent expression can be faster even at equal area.
 
-\section{Final Team Integration}\label{sec:integration}
+\begin{figure}[!t]
+\centering\includegraphics[width=\columnwidth]{figures/phase_c_critical.pdf}
+\caption{Constructed four-leaf timing cut. Both trees implement \(pabc\) with three AND gates. The replacement combines the early leaves while the late leaf \(p\) is becoming available. \(R\) denotes required arrival in the original network and at the replacement root.}
+\label{fig:critical}
+\end{figure}
 
-The archive \texttt{Final\_Submission\_by\_Zeyun\_DU} pins commit \texttt{59e3350} and records the source, header, and evaluator identities \cite{stage2integration}. It is the planned final team version. The integrated solver adapts Round 5.1 BDD, cover and typed-DAG mapping and the R10.0 four-leaf cut mapper. Its controller searches variable orders, selects complete shared-output circuits, reserves one integer unit of delay when the target exceeds one, and can rebuild late outputs from exact cofactors and covers. The nominal main search allowance for positive limits is the smaller of \(0.45L\) and 3.3 seconds, where \(L\) is the per-case time limit. Postprocessing and output consume additional time. Earlier instrumented experiments isolate cut rewriting and shared-factor effects on fixed incumbents. The full version comparison measures a combined change in mapping, selection, timing recovery and budgets.
+\subsection{Rescuing a late output under the original target}
+A distinct final step runs only when the surviving network misses \(\Delta\) and has fewer than 16,000 gates, subject also to typed costs, memory and clock guards. It divides the remaining window among late outputs of support at most 14, with an overall allowance of at most 160\,ms clipped by \(0.78L-e\) for positive \(L\). The exact reconstructor first drops irrelevant pins and tries decompositions into two components joined by AND, OR or XOR, with at most three shared variables. Pairwise Boolean tests propose partitions. The operation on the reconstructed components must match \emph{every} cofactor-table entry before recursion. It also tries two-class selectors and an exact Shannon fallback. Additional candidates include a direct Boolean cover and grouped Shannon expansions over selected blocks. For small supports (\(s\le10\)), near-balanced block masks can be explored while the output is still late. Arrival-ranked phase choices and search order affect timing. The identities and complete table checks establish function. XOR and all other derived operations ultimately map to permitted gates.
+
+\begin{algorithm}[!t]
+\caption{Timing repair and stated-target rescue}
+\label{alg:repair}
+\footnotesize
+\begin{algorithmic}[1]
+\If{critical repair window and typed costs are admitted}
+  \State Select cheaper compact candidate or incumbent
+  \While{selected graph is late and repair guards allow}
+    \State Propagate requirements; rewrite late roots with faster cuts
+    \State Stop if the new full graph is invalid or no faster
+    \State Submit the faster graph to working-target rank
+  \EndWhile
+  \State If eligible, try mixing roots from the cheaper compact choice
+\EndIf
+\If{incumbent misses \(\Delta\) and final rescue is admitted}
+  \For{each eligible late output with time remaining}
+    \State Rebuild its truth function by exact alternatives
+    \State Replace the root only for lower arrival
+  \EndFor
+  \State Prune; if still late and eligible, try balance and critical cuts
+  \State Keep a valid rescue only for strictly lower full delay
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+
+The first repair window is capped at 100\,ms and clipped by \(0.72L-e\) when \(L>0\); a cheaper compact choice receives up to four fifths of that window before optional mixing. Each repeated critical-cut trial must lower that graph's \(D\), while improvement of the main incumbent is still decided by Eq.~\eqref{eq:rank}. In stated-target rescue, the selected output may be rebuilt even at greater area. The builder can reclaim discarded alternatives between outputs; after reconstruction, finishing rebalancing and cuts compare \((D,A)\), and the controller accepts only strict delay improvement over the previous incumbent. This can yield a functionally correct circuit that is still late. Fixed support limits, speculative storage and the deadline limit coverage of this combinatorial search.
+
+\section{Functional invariants and evidence}
+The fallback establishes a complete Boolean realization. Balancing, polarity mapping, cut substitution and whole-output reassignment preserve every original output through exact identities at the replaced boundary. Topological rebuilding preserves the meaning of every mapped fanin, and removing dead gates leaves every output's value unchanged. Thus a normally emitted graph is equivalent provided the implementation and serializer preserve these invariants. A full metric check establishes structural and cost conditions. Independent replay tests the compiled implementation directly against all truth-table rows. Once a completed candidate meets \(\Delta\), working-target rank cannot select one later than \(\Delta\); area polish also maintains feasibility and the stated-target rescue is skipped. This gives no guarantee of finding such a candidate.
+
+The archive records independent cold builds from the source tree and the ZIP, 22 upstream tests, and replay of the two matched sets of 50 integrated netlists \cite{integrationaudit}. The upstream release additionally records three complete public repeats and distinct timing and memory stress families \cite{stage2integration}. Their measurements retain their run identities. No hidden results or course submission status were verified.
+
+\section{Evaluation on the released banks}
+\label{sec:evidence}
+\subsection{Protocol}
+The matched experiment used one WSL2/GCC 13.3 host, compiler flags \texttt{-O2 -std=c++17 -pipe -DNDEBUG}, the official evaluator and the same two 25-case public banks for Z1, J51, R10.0 and \F. Repeat 2 reversed method and bank order. Area is summed within a repeat; runtime is evaluator-reported synthesis time. Pairing is by repeat, bank and case. Direct RSS was measured in separate solver invocations using GNU \texttt{time} and represents peak process KiB. Public inputs omit a RAM cap, so RSS cannot be expressed as percent of a public memory limit \cite{integrationaudit}.
 
 \begin{table}[!t]
+\caption{Two matched repeats, each with 50 cases per solver. All rows are 50/50 evaluator PASS and 50/50 target-met.}
+\label{tab:matched}
 \centering\small
-\caption{Matched integration benchmark. Each repeat covers both banks (50 cases). Columns give evaluator PASS count and target count, total weighted area, and the sum of evaluator-reported synthesis durations.}
-\label{tab:integration}
-\begin{tabular}{@{}rlrrr@{}}
+\begin{tabular}{@{}clrrr@{}}
 \toprule
-Run & Method & PASS / target & Area & s\\
+Rep. & Solver & Area & Time (s) & Max \(t/L\)\\
 \midrule
-\IntegrationRows
+\PhaseCMatchedRows
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:integration} uses two sequential repeats on one WSL2 host, a common GCC build configuration, and the same course evaluator and released inputs for all four solvers. The integrated circuits were independently replayed for every assignment in both repeats, with at least one delay unit of slack on every input. Integrated Final saved about 22.6\% area relative to Z1 and 14.4\% relative to R10.0 in each repeat. Its median per-case synthesis time ratio relative to R10.0 was 2.316 and 2.262 across the two repeats. The integration audit gives the corresponding ratios of total time, delay statistics, maximum use of case time limits and peak process RSS from separate direct runs.
+\subsection{Area is lower in aggregate and on most cases}
+Table~\ref{tab:matched} and Fig.~\ref{fig:area} summarize the matched results. Relative to Z1, \F{} saves 254,637 and 254,277 area units (22.6\% in each repeat), with 36 and 35 casewise wins. Relative to R10.0 it saves 146,734 and 146,628 (14.4\%) and wins on 43 of 50 cases in each repeat. The first repeat's R10.0 comparison goes from 525,582 to 493,224 on Stage~1 (6.2\% lower) and 493,965 to 379,589 on Stage~2 (23.2\% lower). Against Z1 the corresponding reductions are 16.2\% and 29.5\%. Figure~\ref{fig:casewise} shows case-level percentage changes; the bank totals weight each case by its comparator area. The data show differences between the two released banks without identifying a causal bank property.
 
-The upstream acceptance batch reported weighted areas of 884,234, 876,694 and 876,694 and a maximum runtime of 49.7\% of a case limit. The earlier upstream cuts comparison recorded 869,773 for its integrated snapshot. The pinned source introduced changes after that snapshot. The archive preserves both casewise records and the in-run experimental controls.
-
-\section{What the Controlled Postprocessing Experiments Establish}
-\label{sec:ablation}
-\subsection{R9.0 versus R10.0: sparse marginal gains}
-The R10.0 original feedback archive also contains the frozen R9.0 source executed against R10 under the same archived cases. In first-run comparisons, the repeated SOP pass reduces aggregate area by \(1{,}587\) across 50 cases, affecting only eight instances; 42 are unchanged and none loses area, with delays unchanged. The largest single gain is \(752\), or 47.39\% of the total, while the smallest positive gain is only \(2\). Figure~\ref{fig:sparse} separates the eight actual discoveries from the 42 unchanged outputs. This modest improvement is still relevant to the final design because the optional search has a fixed root quota and periodic clock checks, and it never replaces the current incumbent without a strict full-graph reduction. These controls limit attempted work but do not constitute a universal hard runtime bound. It would be misleading to call the last pass a transformation that improves most input functions.
 \begin{figure}[!t]
-\centering\includegraphics[width=\columnwidth]{figures/last_pass_sparse_benefit.pdf}
-\caption{Positive per-case savings of the default R10.0 additional SOP pass relative to frozen R9.0, from their archived first-run comparison. The eight nonzero values sum to 1,587; 42 others are equal. R10.0 does not universally outperform a separately timed R9.0 run by theorem; this is a measured paired result.}
-\label{fig:sparse}
+\centering\includegraphics[width=\columnwidth]{figures/phase_c_area_comparison.pdf}
+\caption{Four-method weighted-area comparison, matched repeat 1, summed over 50 released cases per method. Bars start at zero. Conclusions are checked against repeat 2 in Table~\ref{tab:matched}.}
+\label{fig:area}
 \end{figure}
 
-\subsection{Why the accepted search budget belongs to the final algorithm}
-R10.1 tested reduced root caps and smaller nominal last-pass allowances. Against the R10.0 baseline area of 1,019,547 over the 50 public cases, root cap 40 yielded 1,020,555; root cap 80 yielded 1,020,149; a 45-ms time budget yielded 1,019,788. These regressions are \(1{,}008\), \(602\), and \(241\) area units, respectively. Reported runtime differences across the two repeat orders were not uniformly favorable to the nominally smaller searches \cite{stage2trial}. Together with the earlier R8.6 factorial, this gave a concrete stopping rule: preserve the observed area gain from prioritized search and avoid further tuning without evidence of a stable deployment benefit. An additional template library remained a valid experimental idea but had a weaker aggregate area outcome than repeat-SOP in the tested workload.
-
-A native paired comparison clarifies the \emph{joint} decision rather than treating lower area and lower runtime as unrelated version statistics. Figure~\ref{fig:final-policy} reports the positive area penalty of each alternate policy relative to frozen R10.0, together with its median \emph{paired} synthesis-runtime ratio. The same original 50 cases are observed over two repetitions for each policy (100 matched observations); the summed area differences are therefore halved to obtain a 50-case equivalent. Disabling the extra SOP pass is faster (ratio $0.942$) but costs $1{,}587$ area units. Limiting it to 40 or 80 roots loses $1{,}008$ or $602$ units, respectively, with much smaller observed time savings (ratios $0.987$ and $0.988$). A 45-ms allowance loses $241$ units, and its median ratio is $1.009$, not an improvement. These observations support retaining a modest optional search budget rather than asserting that either ``more time'' or ``fewer roots'' always wins.
 \begin{figure*}[!t]
-\centering\includegraphics[width=.90\textwidth]{figures/final_policy_tradeoff.pdf}
-\caption{Source-native R10.1 controlled policy comparison relative to frozen R10.0: left, positive extra total weighted area is worse; right, ratios below 1 indicate lower median paired synthesis runtime. Values correspond to 100 matched case--repeat observations per policy normalized to 50-case area totals. This is a conditional operating-point comparison, not a cross-round causal frontier.}
-\label{fig:final-policy}
+\centering\includegraphics[width=\textwidth]{figures/phase_c_casewise.pdf}
+\caption{Signed casewise area changes in matched repeat 1, 25 cases per bank. Negative values favor Integrated Final. Each panel reports the area reduction from the sums for that bank.}
+\label{fig:casewise}
 \end{figure*}
 
+\subsection{Circuit delay, runtime and memory}
+All matched circuits met their targets. \F{} achieves at least one unit of slack on every public case in both repeats. Its median and maximum delay are 50 and 85, versus 48.5 and 73 for R10.0. Against R10.0, individual circuit delay is lower/equal/higher on 12/16/22 cases in each repeat. Slack is a per-case difference from that case's target; an improved minimum slack can coexist with a higher maximum across differently constrained inputs.
 
-\subsection{Interpretation of negative results}
-The experiments also explain why the final policy is selective rather than maximally exhaustive. Increasing time alone did not help the fixed-quota R8.6 treatment, whereas exposing additional SOP roots did; this identifies \emph{candidate coverage}, rather than nominal wall time, as the observed limitation of that treatment. The sparse R9.0--R10.0 gains show that a second pass can be worthwhile without often finding a better circuit. Neither result supports unlimited search: quotas can terminate before a time allowance is consumed, and clock-triggered checks can change which candidate finishes. The resulting design spends additional work only after a feasible incumbent exists and retains a new network only after whole-DAG evaluation.
+\F{} uses 32.350 and 32.243 seconds in total versus R10.0's 14.736 and 15.047 seconds. Per-case median runtime ratios are \(2.316\times\) and \(2.262\times\); ratios of sums are \(2.195\times\) and \(2.143\times\). Against Z1, those are \(0.532/0.529\times\) and \(0.871/0.873\times\), respectively. The two statistics differ because the ratio of sums gives slower comparator cases greater weight. Figure~\ref{fig:resources} separates paired time, paired RSS and observed time-limit use. Direct median/maximum RSS are 7,742/58,912 KiB for \F{} and 12,124/75,564 KiB for R10.0. These independent runs establish observed resource use on the public cases.
 
-\section{Correctness, Resource Boundaries, and Reproduction}
-\begin{proposition}[Conditional end-to-end functional correctness]
-Assume the initial mapped netlist implements the complete input table, each subsequent transformation emits legal topologically ordered gates and preserves the Boolean function at every replaced boundary, and the final serializer retains all primary outputs and their live ancestors. Then any normally returned netlist implements every output of the original truth table. If a target-feasible incumbent has been reached and each subsequent optional selection retains the incumbent unless its replacement is target-feasible, the returned circuit also meets \(\Delta\).
-\end{proposition}
-\begin{IEEEproof}
-The initial construction provides the induction base. A valid local transformation changes no Boolean signal visible outside its replacement boundary, as established by the cut-equivalence proposition or the exact Shannon/algebraic identity used. Composition of finitely many such transformations preserves the output vector. Rebuilding and reachability pruning change identifiers and discard only nodes unused by every output, so they leave each output function unchanged. Once a target-feasible incumbent exists, the optional selection rule either keeps it or replaces it with a complete network whose measured delay is at most \(\Delta\); induction across selections proves feasibility of the survivor.
-\end{IEEEproof}
-The proposition states \emph{algorithmic invariants under explicit implementation assumptions}. In particular, it neither guarantees that a feasible initial circuit is discovered within every stated resource limit nor proves the C++ implementation free from defects. The short-budget/low-memory specialized paths are separately justified by exhaustive table recognition and checked construction; when the RAM fallback cannot solve an instance, the program can return failure rather than a speculative circuit.
+\begin{figure*}[!t]
+\centering\includegraphics[width=\textwidth]{figures/phase_c_resources.pdf}
+\caption{Resource trade-offs on 50 cases. The first two panels use log ratio axes; one represents equal use. Diamonds mark median paired ratios. Runtime points are from matched repeat 1. Direct peak RSS is from separate matched-by-input process runs. On the right, diamonds mark the maximum fraction of the positive time limit per solver (repeat 1).}
+\label{fig:resources}
+\end{figure*}
 
-\subsection{Implementation-level verification}
-The propositions above establish why the specified transformations preserve functionality and, under stated timing conditions, delay feasibility. They do not validate every parser branch, graph index, or time-dependent policy in the compiled program. We therefore separate \emph{mathematical invariants} from \emph{implementation evidence}: independent netlist checks verify emitted gate legality and function values, while evaluator results establish per-case correctness, target feasibility, and observed execution behavior. Full-DAG area and delay recomputation is an admission check, not an independent proof that an arbitrarily constructed replacement has the correct Boolean function.
+J51 had the lowest summed runtime in the completed matched repeats, but Stage~2 case 016 reached 97.92\% and 96.93\% of its limit. It timed out on that case in the interrupted diagnostic preceding the completed benchmark. The older research batch likewise records 49/50 J51 PASS per repeat. Figures and tables for the completed matched experiment include all four methods on all 50 cases; the interrupted and historical failures retain their separate denominators.
 
-The implementation was separately compiled with GCC/C++17 and passed 20 independent exhaustive small-function source-run checks across Z1 and R10 (five functions, two runtime settings, both solvers). The 18-input synthetic affine stream path was also exercised and its output independently checked across all \(2^{18}\) assignments. In addition, two original archived R10 feedback rounds each report 25/25 PASS and 25/25 target-met in both released banks (original per-bank area sums: 525,582 and 493,965). These are differentiated as current smoke tests, archived course-evaluator evidence, and mathematical correctness claims, rather than being described as one universal formal proof.
+\subsection{Generated timing limit and causal scope}
+The upstream timing archive records 168/168 targets on development banks and 83/84 on held-back validation and post-freeze banks, including repeated exact-delay controls. Seed 711413 case 003 remains late: \F{} area 2,105 and delay 28 against target 27. The generating witness has area 550 and delay 27, verified over all 16,384 assignments. Six recorded alternate searches also reach delay 28. This is a demonstrably feasible target that the released search did not attain.
 
-\subsection{Resource guards are useful but not hard bounds}
-Reading a complete \(m\)-output truth table already requires \(\Omega(m2^n)\) bits of input work. Fixed-order BDDs can have exponential worst-case size. The program's 65/77/82-percent admission points, root caps, and periodic deadline checks reduce risk from optional searches but are not a hard asynchronous interruption guarantee for arbitrary positive runtime limits. The conservative RAM admission logic is likewise not a theorem bounding peak resident memory. These qualifications matter for hidden-test claims; they do not undo the measured 50-case PASS outcomes. R10's result should therefore be described as an empirically successful, resource-aware heuristic synthesis system, not as a universally optimal or real-time synthesis algorithm.
+The public savings support the integrated operating point under these budgets. The runs do not independently identify the effects of architecture and additional search time: there is no iso-budget comparison. Earlier integration snapshots recorded same-incumbent SOP gains of 3,165 area units over 17 public cases and shared-factor gains of five units over two. Those trials identify opportunities under their instrumented conditions. Their effects cannot be summed to explain the integrated whole-system gain. An earlier cap trial under competing CPU load motivated a larger cap, with no controlled estimate of its independent effect \cite{integrationaudit}.
 
-\subsection{Provenance and reproducible comparisons}
-The historical investigation uses the frozen R10.0 \texttt{synth.cpp} with SHA-256 \texttt{8c863f1a\ldots f5b15d}. The submitted Stage 1 source has SHA-256 \texttt{cd31f7d2\ldots 584550}. The source and header snapshots were audited together, and the archived evidence collector's 26 original materials matched its recorded file hashes. The integrated archive includes a source manifest, the local run environment and a numerical verification script. Both benchmark protocols use the repository's existing copies of the course evaluator and truth tables.
+\section{What the independent trials contributed}
+\label{sec:history}
+The independent controller and its controlled experiments explain why the cut mapper was available and why its bounded SOP settings were retained \cite{stage2trial}. They also separate structural improvements, controller changes and parameter choices.
 
-\section{Individual Contributions, Teamwork, and AI Assistance}
-The project began with two independent Stage 1 investigations. Zeyun Du produced the submitted Stage 1 solution. Jincan Li developed and documented a separate R1--R6.1 investigation, including the R5.1 freeze and exploratory cut rewriting. Jincan led the independent Stage 2 algorithm design, implementation, evaluation and selection of R10.0. Zeyun coordinated the Stage 2 team integration and validation and set its public area and timing objectives. Its source credits the J51 modules and the R10.0 cut mapper. The upstream integration report credits Codex with implementing timing rescue and assisting with release verification and packaging \cite{stage2integration}.
+\begin{table}[!t]
+\caption{Selected historical independent experiments. Area differences are over the 50-case study workload.}
+\label{tab:history}
+\centering\footnotesize
+\begin{tabularx}{\columnwidth}{@{}p{.14\columnwidth}X@{}}
+\toprule
+Study & Within-study finding\\
+\midrule
+R8.6 & Increasing SOP root coverage saved 2,844 units with or without nominal time reclaim. Reclaim at the original quota saved zero.\\
+R9.1 & Repeated SOP saved 1,587 units on eight cases. The tested library improved more cases but saved 663 units.\\
+R10.1 & Turning off repeat SOP or limiting it to 40 or 80 roots cost 1,587, 1,008 or 602 units. A 45-ms allowance cost 241.\\
+\bottomrule
+\end{tabularx}
+\end{table}
 
-Generative-AI systems assisted substantially with C++ implementation, verification scripts, mathematical exposition, experiment orchestration and document drafting. The student-led role included choosing hypotheses and comparison standards, executing the evaluator, questioning suggested optimizations, rejecting unprofitable branches, auditing results, and deciding what to freeze. Code hashes, raw evaluator feedback, independent correctness checks and retained negative results allow specific claims to be reviewed, but no statement of unaided code authorship or universal validation is made. Both students remain responsible for the accuracy of the report and any final submission.
+Bounded cut substitution and output mixing create structural alternatives. A new controller allocates work across constructors and admits recovery at different times. Choosing 160 instead of 40 roots or changing a time cap changes work exposure under a fixed mechanism. The R8.6 experiment separates extra root coverage from time reclaim for its tested policy. The R9.1 result shows why aggregate gain can outweigh a greater number of wins. In R10.1 the 40- and 80-root alternatives had median paired time ratios 0.987 and 0.988, while the 45-ms setting was 1.009; shorter nominal search did not consistently buy elapsed time. The selected R10.0 release applies Repeat SOP after its own earlier search. \F{} uses the library and settings with a different incumbent and scheduler. Archived R8.6, R9.1 and R10.1 evaluations are documented in the unified trial log.
 
-\section{Conclusion}
-Exact functional representations construct a starting circuit, and the shared DAG determines weighted area and critical-path delay. Bounded four-leaf resynthesis exposes alternative realizations under a finite search budget. In its historical matched tests, R10 meets all 50 targets and saves about 10.9\% aggregate area versus submitted Stage 1. The final team archive evaluates integrated mapping, timing recovery and scheduling together under a new matched protocol. Its public results support the planned release, with observed area, timing slack and resource use documented separately.
+\section{Contributions and conclusion}
+Zeyun Du authored Z1, coordinated team integration and validation, and set its public area and timing objectives. Jincan Li developed J51 and led the independent Stage 2 investigation culminating in R10.0, including the cut mapper reused here. The upstream report credits Codex with timing-rescue implementation and release verification assistance. Generative AI also assisted with implementation, experiment tooling, mathematical exposition and drafting. The students chose hypotheses and comparison standards, reviewed evidence and selected the frozen variants \cite{stage2trial,stage2integration}.
+
+Integrated Final uses exact construction and bounded search to make area decisions on the shared output-reachable DAG. Its timing reserve and conditional recovery help deliver public target feasibility alongside area savings, with higher synthesis time than the independent R10.0 freeze. The remaining generated miss and the lack of an iso-budget comparison delimit the conclusions about coverage and the sources of the observed gain.
+
+\section*{Source and reproduction}
+The team archive contains the entry point \nolinkurl{src/synth_stage2.cpp}, the imported modules in \nolinkurl{src/round51/}, and the original attribution in that directory's \nolinkurl{ORIGIN.md}. The audit indexes the archived evaluator inputs, matched case metrics, independent replay and RSS series. The report's \nolinkurl{build_casewise.py}, \nolinkurl{build_phase_c_figures.py} and \nolinkurl{verify.py} regenerate the derived presentation and check its values from the archives.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 
-\clearpage\onecolumn
+\clearpage
+\onecolumn
+\raggedbottom
 \appendices
-\section{Casewise Stage 1--Stage 2 Evaluation}\label{sec:appendix}
-Table~\ref{tab:casewise} gives the first paired repeat of the historical comparison between submitted Stage 1 (Z1) and the R10.0 research freeze. Both methods pass and meet the target on all 50 entries. The explicit "P/P" column indicates Z1 PASS / R10 PASS. The case-level PASS flags, area, delay and measured synthesis runtime come from the hash-tracked matched-case table. The second matched repeat and the independent J51 observations, including J51's Stage 2/016 FAIL, are preserved in \texttt{data/matched\_case\_metrics.csv}.
-\input{casewise.tex}
-
-\section{Frozen Implementation Map}
-\label{sec:source}
-The following file-line map is for the inspected R10.0 frozen source; it documents actual responsibilities without claiming every experimental branch is active by default.
-\begin{table}[h]\centering\small
-\caption{Code anchors in the frozen R10.0 delivery.}
-\begin{tabular}{p{.29\textwidth}p{.61\textwidth}}\toprule
-Source & Responsibility\\\midrule
-\texttt{synth.cpp:948--1033} & Input, optional limits, short-budget exact-stream dispatch and default policy resolution.\\
-\texttt{synth.cpp:237--484} & Complemented BDD build, affine signatures, gate mapping and sharing.\\
-\texttt{typed\_netgraph.hpp:14--214} & Typed gate graph, cost/arrival computation, output pruning, structural hashing, balancing and recovery.\\
-\texttt{r84\_cut.hpp:35--348} & Cut enumeration, up-to-16-bit truth signatures, SOP/Shannon candidates and prioritized roots.\\
-\texttt{synth.cpp:1690--1762} & Default R8.6 \texttt{extra\_sop} two-branch budgeting and full-network acceptance.\\
-\texttt{synth.cpp:1843--1899} & Default guarded R10.0 \texttt{repeat\_sop} on the current incumbent with strict area decrease.\\
-\texttt{r90\_stream.hpp} & Streaming exact simple/affine high-dimensional path.\\
-\texttt{r821\_resource.hpp} & Conservative positive-RAM admission and compact fallback.\\\bottomrule
-\end{tabular}
-\end{table}
+\section{Released-case matched results}
+\label{sec:appendix}
+\PhaseCCasewise
 \end{document}

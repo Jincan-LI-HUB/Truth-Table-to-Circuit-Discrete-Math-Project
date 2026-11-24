@@ -22,11 +22,17 @@ Functional validity (`PASS`) and satisfaction of the target delay are distinct e
 
 Zeyun Du's integrated Stage 2 solver is the final team version planned for submission. The archive pins the source to `59e3350` and preserves its provenance, build instructions, and public test records. The integration adapts J51 mapping and R10.0 cut rewriting and adds its own variable-order scheduling, shared-output selection, and timing recovery. The course submission status is unverified. [Source and build](Final_Submission_by_Zeyun_DU/) · [Integration audit and matched evaluation](Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
 
-The upstream pinned release passed all 50 public cases and met every delay target in three repeats. Weighted areas were **884,234**, **876,694**, and **876,694**. The preceding four-method snapshot and the fresh four-method WSL benchmark have their own casewise datasets. [Upstream acceptance evidence](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/public-runs.csv) · [Matched results](Final_Submission_by_Zeyun_DU/integration/data/public_summary.csv)
+The executable first completes a natural-order BDD mapping, then schedules BDD order screening and the imported J51 portfolio. It ranks complete shared DAGs against a one-unit internal delay reserve. When admitted, it mixes output cones, polishes cuts with the inherited SOP mapper, explores shared factors and repairs late paths. An output still late to the stated target can trigger exact cofactor reconstruction. [Integrated source](Final_Submission_by_Zeyun_DU/src/synth_stage2.cpp) · [Formal Report](Stage%202%20Formal%20Report/main.pdf)
+
+In both matched repeats, **all four solvers passed all 50 released cases and met every delay target**. Integrated Final had at least one delay unit of slack on each public case. It reduced aggregate area by **22.6% versus Z1** and **14.4% versus R10.0**, using **2.14–2.20× R10.0's summed synthesis time**. Independent replay checked all 100 integrated netlists. The comparison measures the architecture and its search budget together. [Matched results](Final_Submission_by_Zeyun_DU/integration/data/public_summary.csv) · [Paired results](Final_Submission_by_Zeyun_DU/integration/data/matched_pairs.csv)
+
+![Matched repeat 1 weighted-area totals for Z1, J51, R10.0 and Integrated Final](Stage%202%20Formal%20Report/figures/phase_c_area_comparison.png)
+
+The upstream ZIP acceptance runs separately passed all 50 public cases and targets in each of three repeats, with total areas of 884,234, 876,694, and 876,694. One generated case remains late at delay 28 against target 27. [Upstream public results](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/public-runs.csv) · [Generated case and witness](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/residual.csv)
 
 ## Independent Stage 2 research freeze — R10.0
 
-R10.0 is the selected solver from Jincan Li's independent Stage 2 research. The Formal Report analyzes its resource-aware synthesis pipeline and presents its historical results. The full delivery includes a Makefile, tests, comparison sources, and controlled experiments. [Frozen R10.0 source](UFUG2106_Round10_0_Delivery/submission/) · [Full delivery](UFUG2106_Round10_0_Delivery/)
+R10.0 is the selected solver from Jincan Li's independent Stage 2 research. Its bounded cut mapper and repeat-SOP settings carry into Integrated Final. The original controller and controlled experiments remain documented in the independent delivery and the unified trial log. [Frozen R10.0 source](UFUG2106_Round10_0_Delivery/submission/) · [Full delivery](UFUG2106_Round10_0_Delivery/)
 
 ### Main approach
 
@@ -46,7 +52,7 @@ For formal definitions, pseudocode, correctness assumptions, implementation deta
 
 ### Historical public-case comparison
 
-The report's **first matched public-bank evaluation repeat** compares the actually submitted Stage 1 solver (Z1) with R10.0 on the same 50 released truth tables (25 from each stage):
+The **first historical matched repeat** compares submitted Stage 1 (Z1) with R10.0 on the same 50 released truth tables (25 from each stage):
 
 | Metric | Submitted Stage 1 (Z1) | Independent Stage 2 (R10.0) |
 |---|---:|---:|
@@ -57,7 +63,7 @@ The report's **first matched public-bank evaluation repeat** compares the actual
 
 R10.0 has smaller area on 18 cases and larger area on 32; the aggregate improvement is concentrated in a subset of cases. A second paired repeat confirmed the same direction of the per-case differences, while exact runtime and area values can vary with time-bounded search. The result is a **whole-solver comparison**, not a claim that the final SOP pass alone produced the aggregate gain.
 
-Evidence: [`matched_case_metrics.csv`](Stage%202%20Formal%20Report/data/matched_case_metrics.csv), [numerical check](Stage%202%20Formal%20Report/verify.py), and the casewise appendix in the formal report. No hidden-case performance is claimed.
+The historical casewise CSV retains both repeats. The current Formal Report appendix covers the later four-method matched experiment. [Historical casewise data](Stage%202%20Formal%20Report/data/matched_case_metrics.csv) · [Numerical checks](Stage%202%20Formal%20Report/verify.py)
 
 ![Signed area changes on all 50 released cases, comparing the submitted Stage 1 solver Z1 with Stage 2 R10.0](Stage%202%20Formal%20Report/Research_Trial_Log/figures/07_matched_area_rank_reversal.png)
 
