@@ -78,6 +78,7 @@ intro=r'''\begin{document}
 \part*{Part II. Stage 2 --- Bounded resynthesis, search economics and final selection}
 \addcontentsline{toc}{part}{Part II. Stage 2 --- Complete historical investigation}
 \input{stage2_body.tex}
+\input{final_integration.tex}
 '''
 bib=r'''
 \clearpage

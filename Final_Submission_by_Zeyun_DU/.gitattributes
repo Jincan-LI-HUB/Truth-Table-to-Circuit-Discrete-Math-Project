@@ -1,0 +1,2 @@
+# Preserve byte-for-byte upstream provenance on Windows checkouts.
+* -text whitespace=cr-at-eol

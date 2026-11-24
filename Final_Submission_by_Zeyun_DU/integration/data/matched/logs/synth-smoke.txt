@@ -1,0 +1,1 @@
+candidates=49 area=10 delay=5 target=5 ram_search_stopped=0

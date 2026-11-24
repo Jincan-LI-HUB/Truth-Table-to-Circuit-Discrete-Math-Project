@@ -1683,6 +1683,12 @@ The narrow question of whether fewer cut roots or a smaller last-pass budget are
 <figcaption>Paired area penalty and synthesis-time ratio relative to frozen R10.0. Positive area penalty is worse; runtime ratios below one are faster. The measurements are converted from 100 paired observations to a 50-case-equivalent area figure.</figcaption>
 </figure>
 
+## Final team integration and evidence reconciliation
+
+The research record closes at R10.1, with R10.0 retained as Jincan Li's independent Stage 2 freeze. Zeyun Du authored Z1 and coordinated the team integration and validation. The integrated code adapts J51 mapping and R10.0 four-leaf cut rewriting and adds its own scheduling, shared-output selection and timing recovery. The upstream report credits Codex for implementing timing rescue and assisting with packaging and verification. [Source attribution](../../Final_Submission_by_Zeyun_DU/src/round51/ORIGIN.md)
+
+The earlier upstream cuts snapshot recorded area 869,773. The subsequent pinned release at `59e3350` recorded 884,234, 876,694 and 876,694 over three 50-case public repeats, each with all evaluator passes and target delays met. The integration audit adds a fresh matched comparison of Z1, J51, R10.0 and Integrated Final, with separate RSS measurements and independent replay of the final circuits. The team archive is the planned course delivery. Its course submission status is unverified. [Integration audit and datasets](../../Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
+
 # 22. What the development path has *actually* established
 
 The trial history is best remembered as an ordered set of **resolved design questions**, not as a monotone chart of area totals:

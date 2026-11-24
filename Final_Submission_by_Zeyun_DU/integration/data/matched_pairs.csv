@@ -1,0 +1,7 @@
+repeat,candidate,baseline,jointly_passing_cases,final_minus_base_area,final_area_lower,final_area_equal,final_area_higher,final_delay_lower,final_delay_equal,final_delay_higher,runtime_ratio_count,median_case_runtime_ratio,sum_runtime_ratio_common_cases
+1,Integrated Final,Z1,50,-254637,36,2,12,20,7,23,50,0.531595,0.870756
+1,Integrated Final,J51,50,-164736,45,4,1,8,15,27,50,4.110030,3.734330
+1,Integrated Final,R10.0,50,-146734,43,1,6,12,16,22,50,2.315543,2.195304
+2,Integrated Final,Z1,50,-254277,35,3,12,20,7,23,50,0.528814,0.872516
+2,Integrated Final,J51,50,-164630,45,4,1,8,15,27,50,4.063096,3.423060
+2,Integrated Final,R10.0,50,-146628,43,1,6,12,16,22,50,2.261518,2.142870

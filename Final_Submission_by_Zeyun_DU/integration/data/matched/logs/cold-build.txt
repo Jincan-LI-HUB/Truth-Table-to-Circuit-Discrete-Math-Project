@@ -1,0 +1,21 @@
+mkdir -p build
+g++ -O2 -std=c++17 -Wall -Wextra -Wpedantic src/synth_stage2.cpp -o build/synth_stage2
+In file included from /usr/include/c++/13/algorithm:61,
+                 from src/synth_stage2.cpp:2:
+In function ‘void std::__final_insertion_sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = int*; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<round51::run_synth(const Truth&, const Opt&, std::chrono::_V2::steady_clock::time_point)::<lambda(int)>::<lambda(int, int)> >]’,
+    inlined from ‘void std::__sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = int*; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<round51::run_synth(const Truth&, const Opt&, std::chrono::_V2::steady_clock::time_point)::<lambda(int)>::<lambda(int, int)> >]’ at /usr/include/c++/13/bits/stl_algo.h:1950:31,
+    inlined from ‘void std::sort(_RAIter, _RAIter, _Compare) [with _RAIter = int*; _Compare = round51::run_synth(const Truth&, const Opt&, std::chrono::_V2::steady_clock::time_point)::<lambda(int)>::<lambda(int, int)>]’ at /usr/include/c++/13/bits/stl_algo.h:4894:18,
+    inlined from ‘round51::run_synth(const Truth&, const Opt&, std::chrono::_V2::steady_clock::time_point)::<lambda(int)>’ at src/round51/synthesis.hpp:316:15,
+    inlined from ‘constexpr _Res std::__invoke_impl(__invoke_other, _Fn&&, _Args&& ...) [with _Res = int; _Fn = round51::run_synth(const Truth&, const Opt&, std::chrono::_V2::steady_clock::time_point)::<lambda(int)>&; _Args = {int}]’ at /usr/include/c++/13/bits/invoke.h:61:36,
+    inlined from ‘constexpr std::enable_if_t<is_invocable_r_v<_Res, _Callable, _Args ...>, _Res> std::__invoke_r(_Callable&&, _Args&& ...) [with _Res = int; _Callable = round51::run_synth(const Truth&, const Opt&, std::chrono::_V2::steady_clock::time_point)::<lambda(int)>&; _Args = {int}]’ at /usr/include/c++/13/bits/invoke.h:114:35,
+    inlined from ‘static _Res std::_Function_handler<_Res(_ArgTypes ...), _Functor>::_M_invoke(const std::_Any_data&, _ArgTypes&& ...) [with _Res = int; _Functor = round51::run_synth(const Truth&, const Opt&, std::chrono::_V2::steady_clock::time_point)::<lambda(int)>; _ArgTypes = {int}]’ at /usr/include/c++/13/bits/std_function.h:290:30:
+/usr/include/c++/13/bits/stl_algo.h:1859:32: warning: array subscript 16 is outside array bounds of ‘int [4]’ [-Warray-bounds=]
+ 1859 |           std::__insertion_sort(__first, __first + int(_S_threshold), __comp);
+      |           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from src/synth_stage2.cpp:847:
+src/round51/synthesis.hpp: In static member function ‘static _Res std::_Function_handler<_Res(_ArgTypes ...), _Functor>::_M_invoke(const std::_Any_data&, _ArgTypes&& ...) [with _Res = int; _Functor = round51::run_synth(const Truth&, const Opt&, std::chrono::_V2::steady_clock::time_point)::<lambda(int)>; _ArgTypes = {int}]’:
+src/round51/synthesis.hpp:305:9: note: at offset 64 into object ‘terms’ of size 16
+  305 |     int terms[4], count=0;
+      |         ^~~~~
+mkdir -p artifacts
+python3 -m zipfile -c artifacts/UFUG2106_Group2_Stage2_Source.zip src/synth_stage2.cpp src/round51 releases/stage2/README.md

@@ -1,0 +1,11 @@
+.......candidates=1 area=5 delay=1 target=70 ram_search_stopped=1 streaming=1
+candidates=1 area=5 delay=1 target=70 ram_search_stopped=1 streaming=1
+candidates=1 area=902 delay=5 target=70 ram_search_stopped=1 streaming=1
+candidates=1 area=907 delay=5 target=70 ram_search_stopped=1 streaming=1
+candidates=1 area=139 delay=7 target=70 ram_search_stopped=1 streaming=1
+candidates=1 area=139 delay=7 target=70 ram_search_stopped=1 streaming=1
+...............
+----------------------------------------------------------------------
+Ran 22 tests in 15.815s
+
+OK

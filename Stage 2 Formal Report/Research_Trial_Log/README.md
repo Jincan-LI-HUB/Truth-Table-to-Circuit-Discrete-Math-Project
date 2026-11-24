@@ -1,6 +1,6 @@
 # UFUG2106 Truth Table to Circuit — Complete Research Trial Log
 
-This is now the **unified Stage 1 + Stage 2 research archive**. It preserves the original finalized Stage 1 R1–R6.1 mathematical explanation, including source-accurate figure crops, then continues with the independently verified Stage 2 R7–R10.1 reasoning and decisions. The combined PDF is **54 pages**; it is not the concise final project report.
+This is the **unified Stage 1 + Stage 2 research archive**. It preserves the finalized Stage 1 R1–R6.1 mathematical explanation and the Stage 2 R7–R10.1 reasoning and decisions. A closing integration note points to the pinned team delivery, explains the evidence batches and credits the source lineage. [Integration audit](../../Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
 
 ## Files
 

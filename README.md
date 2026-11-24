@@ -6,7 +6,7 @@
 **Contributors:** Jincan LI and Zeyun DU (Group 2)  
 **Core implementation:** C++17 · **Evaluation/research tools:** Python 3, shell scripts, LaTeX
 
-[**Quick Start**](QUICK_START.md) · [**Final Project Report (PDF)**](Stage%202%20Formal%20Report/main.pdf) · [**Unified Research Trial Log (PDF)**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) · [**Final R10.0 source**](UFUG2106_Round10_0_Delivery/submission/synth.cpp) · [**Course specification**](Final_Project.pdf)
+[**Quick Start**](QUICK_START.md) · [**Final Project Report (PDF)**](Stage%202%20Formal%20Report/main.pdf) · [**Unified Research Trial Log (PDF)**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf) · [**Integrated Final**](Final_Submission_by_Zeyun_DU/) · [**Course specification**](Final_Project.pdf)
 
 ## Overview
 
@@ -18,11 +18,15 @@ The project synthesizes a **functionally equivalent, acyclic multi-output combin
 
 Functional validity (`PASS`) and satisfaction of the target delay are distinct evaluator outcomes. The project does not assume an undisclosed grading formula or claim globally minimum circuit area.
 
-This repository preserves both the **development process** and the **final Stage 2 solution**. The final method is a resource-aware synthesis pipeline that creates a legal candidate, maps alternative Boolean representations into a shared gate DAG, and then selectively applies bounded Boolean cut resynthesis under full-network area/timing acceptance checks.
+## Integrated Final
 
-## Final Stage 2 solver — R10.0
+Zeyun Du's integrated Stage 2 solver is the final team version planned for submission. The archive pins the source to `59e3350` and preserves its provenance, build instructions, and public test records. The integration adapts J51 mapping and R10.0 cut rewriting and adds its own variable-order scheduling, shared-output selection, and timing recovery. The course submission status is unverified. [Source and build](Final_Submission_by_Zeyun_DU/) · [Integration audit and matched evaluation](Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
 
-**Selected independent Stage 2 candidate:** [`UFUG2106_Round10_0_Delivery/submission/`](UFUG2106_Round10_0_Delivery/submission/) — `synth.cpp` plus the adjacent required headers. The complete delivery also contains a Makefile, tests, historical comparison sources, controlled experiments, and explanatory documents. R10.0 is the research-frozen solver analyzed in the Formal Report. It is **not represented as a verified teammate-integrated final release**, and unreleased grading cases have not been tested. Its historical delivery README retains its candidate-freeze wording for provenance.
+The upstream pinned release passed all 50 public cases and met every delay target in three repeats. Weighted areas were **884,234**, **876,694**, and **876,694**. The preceding four-method snapshot and the fresh four-method WSL benchmark have their own casewise datasets. [Upstream acceptance evidence](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/public-runs.csv) · [Matched results](Final_Submission_by_Zeyun_DU/integration/data/public_summary.csv)
+
+## Independent Stage 2 research freeze — R10.0
+
+R10.0 is the selected solver from Jincan Li's independent Stage 2 research. The Formal Report analyzes its resource-aware synthesis pipeline and presents its historical results. The full delivery includes a Makefile, tests, comparison sources, and controlled experiments. [Frozen R10.0 source](UFUG2106_Round10_0_Delivery/submission/) · [Full delivery](UFUG2106_Round10_0_Delivery/)
 
 ### Main approach
 
@@ -40,11 +44,11 @@ For formal definitions, pseudocode, correctness assumptions, implementation deta
 
 *Stage 2 milestone trajectory.* The upper panel tracks weighted area saved against R7.2 on the **25 released Stage 2 cases**; the lower panel tracks the corresponding change in the sum of circuit delays. Only checkpoints with **25/25 functional PASS and delay targets met** are included (R7's incomplete 24/25 result is omitted). These archived milestone snapshots show the path of development, **not** the isolated causal effect of each feature. [Source data](Stage%202%20Formal%20Report/Research_Trial_Log/data/stage2_full_milestone_trace.csv) · [Chart-generation script](Stage%202%20Formal%20Report/Research_Trial_Log/scripts/plot_high_resolution_comparisons.py).
 
-### Public-case comparison
+### Historical public-case comparison
 
 The report's **first matched public-bank evaluation repeat** compares the actually submitted Stage 1 solver (Z1) with R10.0 on the same 50 released truth tables (25 from each stage):
 
-| Metric | Submitted Stage 1 (Z1) | Final Stage 2 (R10.0) |
+| Metric | Submitted Stage 1 (Z1) | Independent Stage 2 (R10.0) |
 |---|---:|---:|
 | Functional PASS | 50/50 | **50/50** |
 | Delay target met | 50/50 | **50/50** |
@@ -117,6 +121,7 @@ The [**unified Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2
 |---|---|
 | [`Final_Project.pdf`](Final_Project.pdf) | Official project specification |
 | [`data/stage1/`](data/stage1/), [`data/stage2/`](data/stage2/) | Released truth-table inputs (25 per bank) |
+| [`Final_Submission_by_Zeyun_DU/`](Final_Submission_by_Zeyun_DU/) | Pinned team integration, provenance, official and independent verification |
 | [`UFUG2106_Round10_0_Delivery/`](UFUG2106_Round10_0_Delivery/) | **Selected research-frozen R10.0 implementation**, exact checking, experiments and evidence |
 | [`UFUG2106_Round10_1_Delivery/`](UFUG2106_Round10_1_Delivery/) | Post-freeze budget-ablation experiment; **not** the selected final solver |
 | [`UFUG2106_Round7_2_Delivery/`](UFUG2106_Round7_2_Delivery/), [`UFUG2106_Round8_6_Delivery/`](UFUG2106_Round8_6_Delivery/), [`UFUG2106_Round9_1_Delivery/`](UFUG2106_Round9_1_Delivery/) | Representative early, core and late Stage 2 iterations; all other named Round folders remain at root |
@@ -131,13 +136,13 @@ Large duplicated reconstruction workspaces, old manuscript drafts, machine-gener
 
 ## Build, test and reproduce
 
-**First-time reader:** follow **[QUICK_START.md](QUICK_START.md)** to compile R10.0's independent `submission/` tree, synthesize and exhaustively verify one released case, run both 25-case public banks, and regenerate the final paper from tracked sources. The full R10.0 policy ablation runner is described in [its delivery README](UFUG2106_Round10_0_Delivery/README.md). To reproduce the earlier paired R5/R5.1 trials, use the [Stage 1 delivery guide](UFUG2106_Round5.1_Delivery/README.md).
+The quick start builds the integrated team solver and links to the independent R10.0 and Stage 1 reproduction commands. Use the solver archive for the matched integration scripts and the Formal Report directory for rebuilding the paper. [Quick Start](QUICK_START.md) · [Integration reproduction](Final_Submission_by_Zeyun_DU/integration/AUDIT.md) · [Stage 1 delivery guide](UFUG2106_Round5.1_Delivery/README.md)
 
 The merged Trial Log is available as a complete PDF, and its CSV/plots explain iteration decisions. Its **editable LaTeX reconstruction** additionally requires the Stage 1/Stage 2 body sources, palette, figure set and merge scripts; see that log's own [README](Stage%202%20Formal%20Report/Research_Trial_Log/README.md).
 
 ## Research integrity and attribution
 
-Jincan Li carried out the independent Stage 1 research line and the Stage 2 algorithm-development/implementation work documented here; Zeyun Du authored the formally submitted Stage 1 solver. The project's final report records individual contributions and any review/collaboration separately; this repository documentation does not retroactively reassign authorship of historical submissions. Generative AI tools were used for implementation assistance, experiment automation, data consolidation and manuscript support, with source inspection, numerical checks and verification documented in the project materials.
+Jincan Li developed the independent Stage 1 research line and the Stage 2 research solver frozen as R10.0. Zeyun Du authored the submitted Stage 1 solver and coordinated the Stage 2 team integration and release validation. The integrated code credits the J51 and R10.0 modules it adapts. The upstream report credits Codex for timing-rescue implementation and verification assistance. [Source attribution](Final_Submission_by_Zeyun_DU/src/round51/ORIGIN.md) · [Upstream release report](Final_Submission_by_Zeyun_DU/reports/stage2-timing-20261124/UFUG2106_Group2_Stage2_Report.pdf)
 
 The public release is a **research and coursework archive**, not a formally verified synthesis engine or a promise of success on unreleased cases.
 

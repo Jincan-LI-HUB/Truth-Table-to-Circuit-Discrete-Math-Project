@@ -1,0 +1,201 @@
+method,bank,case,exit_code,peak_rss_kib
+Z1,stage1,case_001.txt,0,23672
+Z1,stage1,case_002.txt,0,11820
+Z1,stage1,case_003.txt,0,11756
+Z1,stage1,case_004.txt,0,4556
+Z1,stage1,case_005.txt,0,4032
+Z1,stage1,case_006.txt,0,4992
+Z1,stage1,case_007.txt,0,48748
+Z1,stage1,case_008.txt,0,5648
+Z1,stage1,case_009.txt,0,7984
+Z1,stage1,case_010.txt,0,10424
+Z1,stage1,case_011.txt,0,3840
+Z1,stage1,case_012.txt,0,4800
+Z1,stage1,case_013.txt,0,6756
+Z1,stage1,case_014.txt,0,17116
+Z1,stage1,case_015.txt,0,14796
+Z1,stage1,case_016.txt,0,4396
+Z1,stage1,case_017.txt,0,8832
+Z1,stage1,case_018.txt,0,11000
+Z1,stage1,case_019.txt,0,10224
+Z1,stage1,case_020.txt,0,4032
+Z1,stage1,case_021.txt,0,21648
+Z1,stage1,case_022.txt,0,4032
+Z1,stage1,case_023.txt,0,3648
+Z1,stage1,case_024.txt,0,45472
+Z1,stage1,case_025.txt,0,36876
+J51,stage1,case_001.txt,0,27692
+J51,stage1,case_002.txt,0,13800
+J51,stage1,case_003.txt,0,15380
+J51,stage1,case_004.txt,0,5384
+J51,stage1,case_005.txt,0,4224
+J51,stage1,case_006.txt,0,5468
+J51,stage1,case_007.txt,0,67996
+J51,stage1,case_008.txt,0,6376
+J51,stage1,case_009.txt,0,7736
+J51,stage1,case_010.txt,0,25888
+J51,stage1,case_011.txt,0,4224
+J51,stage1,case_012.txt,0,4900
+J51,stage1,case_013.txt,0,8712
+J51,stage1,case_014.txt,0,45828
+J51,stage1,case_015.txt,0,21068
+J51,stage1,case_016.txt,0,4608
+J51,stage1,case_017.txt,0,4224
+J51,stage1,case_018.txt,0,4608
+J51,stage1,case_019.txt,0,15208
+J51,stage1,case_020.txt,0,4224
+J51,stage1,case_021.txt,0,27704
+J51,stage1,case_022.txt,0,4608
+J51,stage1,case_023.txt,0,4032
+J51,stage1,case_024.txt,0,69484
+J51,stage1,case_025.txt,0,35596
+R10.0,stage1,case_001.txt,0,41752
+R10.0,stage1,case_002.txt,0,19428
+R10.0,stage1,case_003.txt,0,19400
+R10.0,stage1,case_004.txt,0,10372
+R10.0,stage1,case_005.txt,0,4416
+R10.0,stage1,case_006.txt,0,11236
+R10.0,stage1,case_007.txt,0,68192
+R10.0,stage1,case_008.txt,0,12328
+R10.0,stage1,case_009.txt,0,15800
+R10.0,stage1,case_010.txt,0,26076
+R10.0,stage1,case_011.txt,0,4416
+R10.0,stage1,case_012.txt,0,9920
+R10.0,stage1,case_013.txt,0,13280
+R10.0,stage1,case_014.txt,0,46028
+R10.0,stage1,case_015.txt,0,24652
+R10.0,stage1,case_016.txt,0,7872
+R10.0,stage1,case_017.txt,0,4416
+R10.0,stage1,case_018.txt,0,4800
+R10.0,stage1,case_019.txt,0,15400
+R10.0,stage1,case_020.txt,0,4416
+R10.0,stage1,case_021.txt,0,27972
+R10.0,stage1,case_022.txt,0,4800
+R10.0,stage1,case_023.txt,0,4032
+R10.0,stage1,case_024.txt,0,69680
+R10.0,stage1,case_025.txt,0,50380
+Integrated Final,stage1,case_001.txt,0,24032
+Integrated Final,stage1,case_002.txt,0,10840
+Integrated Final,stage1,case_003.txt,0,11760
+Integrated Final,stage1,case_004.txt,0,5760
+Integrated Final,stage1,case_005.txt,0,4224
+Integrated Final,stage1,case_006.txt,0,7296
+Integrated Final,stage1,case_007.txt,0,35744
+Integrated Final,stage1,case_008.txt,0,7520
+Integrated Final,stage1,case_009.txt,0,12288
+Integrated Final,stage1,case_010.txt,0,7344
+Integrated Final,stage1,case_011.txt,0,4224
+Integrated Final,stage1,case_012.txt,0,5928
+Integrated Final,stage1,case_013.txt,0,8212
+Integrated Final,stage1,case_014.txt,0,10784
+Integrated Final,stage1,case_015.txt,0,18196
+Integrated Final,stage1,case_016.txt,0,5184
+Integrated Final,stage1,case_017.txt,0,9112
+Integrated Final,stage1,case_018.txt,0,7044
+Integrated Final,stage1,case_019.txt,0,8140
+Integrated Final,stage1,case_020.txt,0,4416
+Integrated Final,stage1,case_021.txt,0,21992
+Integrated Final,stage1,case_022.txt,0,4608
+Integrated Final,stage1,case_023.txt,0,3840
+Integrated Final,stage1,case_024.txt,0,51600
+Integrated Final,stage1,case_025.txt,0,33964
+Z1,stage2,case_001.txt,0,46828
+Z1,stage2,case_002.txt,0,46812
+Z1,stage2,case_003.txt,0,22884
+Z1,stage2,case_004.txt,0,34676
+Z1,stage2,case_005.txt,0,39072
+Z1,stage2,case_006.txt,0,5968
+Z1,stage2,case_007.txt,0,4416
+Z1,stage2,case_008.txt,0,4032
+Z1,stage2,case_009.txt,0,4848
+Z1,stage2,case_010.txt,0,4416
+Z1,stage2,case_011.txt,0,27244
+Z1,stage2,case_012.txt,0,4592
+Z1,stage2,case_013.txt,0,56024
+Z1,stage2,case_014.txt,0,34312
+Z1,stage2,case_015.txt,0,5592
+Z1,stage2,case_016.txt,0,4416
+Z1,stage2,case_017.txt,0,7004
+Z1,stage2,case_018.txt,0,4416
+Z1,stage2,case_019.txt,0,4032
+Z1,stage2,case_020.txt,0,4224
+Z1,stage2,case_021.txt,0,15236
+Z1,stage2,case_022.txt,0,4032
+Z1,stage2,case_023.txt,0,4608
+Z1,stage2,case_024.txt,0,6288
+Z1,stage2,case_025.txt,0,29540
+J51,stage2,case_001.txt,0,10556
+J51,stage2,case_002.txt,0,52856
+J51,stage2,case_003.txt,0,46044
+J51,stage2,case_004.txt,0,10148
+J51,stage2,case_005.txt,0,49592
+J51,stage2,case_006.txt,0,6660
+J51,stage2,case_007.txt,0,4416
+J51,stage2,case_008.txt,0,4224
+J51,stage2,case_009.txt,0,4948
+J51,stage2,case_010.txt,0,4032
+J51,stage2,case_011.txt,0,32748
+J51,stage2,case_012.txt,0,5624
+J51,stage2,case_013.txt,0,72496
+J51,stage2,case_014.txt,0,41784
+J51,stage2,case_015.txt,0,6884
+J51,stage2,case_016.txt,0,4792
+J51,stage2,case_017.txt,0,9260
+J51,stage2,case_018.txt,0,4416
+J51,stage2,case_019.txt,0,4224
+J51,stage2,case_020.txt,0,4788
+J51,stage2,case_021.txt,0,18156
+J51,stage2,case_022.txt,0,4224
+J51,stage2,case_023.txt,0,4516
+J51,stage2,case_024.txt,0,6512
+J51,stage2,case_025.txt,0,43984
+R10.0,stage2,case_001.txt,0,10740
+R10.0,stage2,case_002.txt,0,53048
+R10.0,stage2,case_003.txt,0,46240
+R10.0,stage2,case_004.txt,0,10340
+R10.0,stage2,case_005.txt,0,53460
+R10.0,stage2,case_006.txt,0,12228
+R10.0,stage2,case_007.txt,0,4800
+R10.0,stage2,case_008.txt,0,4416
+R10.0,stage2,case_009.txt,0,4992
+R10.0,stage2,case_010.txt,0,4032
+R10.0,stage2,case_011.txt,0,37776
+R10.0,stage2,case_012.txt,0,8892
+R10.0,stage2,case_013.txt,0,75564
+R10.0,stage2,case_014.txt,0,42596
+R10.0,stage2,case_015.txt,0,12456
+R10.0,stage2,case_016.txt,0,5184
+R10.0,stage2,case_017.txt,0,12916
+R10.0,stage2,case_018.txt,0,4608
+R10.0,stage2,case_019.txt,0,4416
+R10.0,stage2,case_020.txt,0,9116
+R10.0,stage2,case_021.txt,0,21328
+R10.0,stage2,case_022.txt,0,4416
+R10.0,stage2,case_023.txt,0,7972
+R10.0,stage2,case_024.txt,0,12020
+R10.0,stage2,case_025.txt,0,44184
+Integrated Final,stage2,case_001.txt,0,37360
+Integrated Final,stage2,case_002.txt,0,42780
+Integrated Final,stage2,case_003.txt,0,12360
+Integrated Final,stage2,case_004.txt,0,58912
+Integrated Final,stage2,case_005.txt,0,41060
+Integrated Final,stage2,case_006.txt,0,6416
+Integrated Final,stage2,case_007.txt,0,4800
+Integrated Final,stage2,case_008.txt,0,4224
+Integrated Final,stage2,case_009.txt,0,5184
+Integrated Final,stage2,case_010.txt,0,5184
+Integrated Final,stage2,case_011.txt,0,23820
+Integrated Final,stage2,case_012.txt,0,5568
+Integrated Final,stage2,case_013.txt,0,44084
+Integrated Final,stage2,case_014.txt,0,26792
+Integrated Final,stage2,case_015.txt,0,6652
+Integrated Final,stage2,case_016.txt,0,4608
+Integrated Final,stage2,case_017.txt,0,8756
+Integrated Final,stage2,case_018.txt,0,4608
+Integrated Final,stage2,case_019.txt,0,4032
+Integrated Final,stage2,case_020.txt,0,4972
+Integrated Final,stage2,case_021.txt,0,14992
+Integrated Final,stage2,case_022.txt,0,4224
+Integrated Final,stage2,case_023.txt,0,5184
+Integrated Final,stage2,case_024.txt,0,7964
+Integrated Final,stage2,case_025.txt,0,16716

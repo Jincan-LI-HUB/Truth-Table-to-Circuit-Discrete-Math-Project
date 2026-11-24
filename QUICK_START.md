@@ -1,6 +1,6 @@
 # Quick Start — Truth Table to Circuit
 
-This guide reproduces the **final Stage 2 R10.0 synthesizer** using the existing repository layout. The historical Round 5.1 Stage 1 research implementation remains available and is covered below.
+The planned final team version is **Integrated Final**. The frozen **R10.0** solver and Stage 1 research freeze are also available for reproducing the historical experiments.
 
 ## Requirements
 
@@ -11,19 +11,30 @@ This guide reproduces the **final Stage 2 R10.0 synthesizer** using the existing
 
 All paths below are relative to the **repository root** unless otherwise stated. Commands are intended to be copied into a Bash shell (including WSL Ubuntu).
 
-## 1. Clone and build the final synthesizer
+## 1. Build the team solver
+
+```bash
+make -C Final_Submission_by_Zeyun_DU stage2
+out=$(mktemp -d)
+Final_Submission_by_Zeyun_DU/build/synth_stage2 data/stage2/case_001.txt "$out/case001.net"
+python3 Final_Submission_by_Zeyun_DU/tools/check_circuit.py data/stage2/case_001.txt "$out/case001.net"
+```
+
+The independent checker requires NumPy. The archive guide gives the two-bank evaluation commands, and the integration audit gives the four-method matched protocol. [Archive guide](Final_Submission_by_Zeyun_DU/README.md) · [Integration audit](Final_Submission_by_Zeyun_DU/integration/AUDIT.md)
+
+### Build the independent R10.0 research freeze
 
 ```bash
 git clone https://github.com/Jincan-LI-HUB/Truth-Table-to-Circuit-Discrete-Math-Project.git
 cd Truth-Table-to-Circuit-Discrete-Math-Project
 
-# Build only the exact standalone Stage 2 submission source and its headers.
+# Build the standalone R10.0 freeze and its headers.
 make -C UFUG2106_Round10_0_Delivery build/submission_synth -j2
 ```
 
 This compiles `UFUG2106_Round10_0_Delivery/submission/synth.cpp`, with headers placed alongside it, into `UFUG2106_Round10_0_Delivery/build/submission_synth`.
 
-**Note:** the original `UFUG2106_Round10_0_Delivery/README.md` calls this an independent candidate freeze, reflecting the historical state when that README was written. The project's Formal Report identifies R10.0 as the selected **independent research-final Stage 2 candidate**; this is not evidence of a teammate-integrated final submission or hidden-test result.
+R10.0 is the selected independent Stage 2 research candidate. Sections 2 and 3 reproduce its historical verification.
 
 ## 2. Synthesize and verify one input
 
@@ -120,7 +131,7 @@ Because the repository does not track `.bbl`, a clean clone should run `bibtex m
 
 PDFs available without recompiling:
 
-- [**Formal Report**](Stage%202%20Formal%20Report/main.pdf): final R10.0 algorithm and Stage 1/Stage 2 comparison.
+- [**Formal Report**](Stage%202%20Formal%20Report/main.pdf) covers the R10.0 design and the matched team integration results.
 - [**Unified Research Trial Log**](Stage%202%20Formal%20Report/Research_Trial_Log/UFUG2106_Stage2_Research_Trial_Log_v3.pdf): detailed Stage 1–Stage 2 decisions, mathematics, controls, and cross-version data.
 - [**Stage 1 Technical Report**](UFUG2106_Stage1_Writing_v1_0/technical_report/main.pdf): earlier rigorous treatment of representation, mapping and optimization.
 
@@ -130,7 +141,7 @@ PDFs available without recompiling:
 - Circuit delay and synthesis runtime are different quantities.
 - Area totals are **weighted gate counts**, not operation counts or universally comparable hardware costs across differently priced cases.
 - Published values in the project documents refer to the cited public-case runs. They may differ slightly from a fresh run because some search decisions depend on elapsed time.
-- The final 50-case public evaluation compares **Z1 (submitted Stage 1)** against **R10.0 (research-frozen Stage 2)**; J51 is a distinct Stage 1 research baseline, not a substitute for Z1.
+- The integration benchmark compares **Z1** (submitted Stage 1), **J51** (independent Stage 1 research freeze), **R10.0** (independent Stage 2 freeze), and **Integrated Final** (team Stage 2 archive) on the same 50 cases. Historical Z1/R10.0 figures use their original matched batch.
 
 For navigation, return to the [repository README](README.md).
 

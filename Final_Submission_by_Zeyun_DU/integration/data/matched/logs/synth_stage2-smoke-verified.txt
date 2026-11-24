@@ -1,0 +1,12 @@
+{
+  "case": "shared_outputs.txt",
+  "n": 3,
+  "m": 2,
+  "assignments": 8,
+  "gates": 2,
+  "area": 10,
+  "delay": 5,
+  "target": 5,
+  "target_met": true,
+  "valid": true
+}

@@ -1,0 +1,5 @@
+method,count,exited_zero,median_rss_kib,max_rss_kib,max_rss_bank,max_rss_case
+Z1,50,50,6880.0,56024,stage2,case_013.txt
+J51,50,50,6772.0,72496,stage2,case_013.txt
+R10.0,50,50,12124.0,75564,stage2,case_013.txt
+Integrated Final,50,50,7742.0,58912,stage2,case_004.txt

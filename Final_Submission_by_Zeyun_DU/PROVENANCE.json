@@ -1,0 +1,565 @@
+{
+  "upstream": "https://github.com/zdu881/UFUG2106-Project",
+  "commit": "59e33505616d127fc06a63580ca3ae3c34d1da72",
+  "default_branch_at_verification": "main",
+  "build": {
+    "directory": ".",
+    "command": "make stage2",
+    "source": "src/synth_stage2.cpp",
+    "program": "build/synth_stage2",
+    "arguments": [
+      "INPUT_PATH",
+      "OUTPUT_PATH"
+    ],
+    "source_package": "make stage2-source"
+  },
+  "attribution": [
+    "Zeyun DU: integrated Stage 2 solver and release experiments",
+    "src/round51/ORIGIN.md: imported Jincan LI / Group 2 research and R10.0 cut mapper"
+  ],
+  "license": "No explicit source redistribution license file or grant identified at the pinned upstream commit. This is a local coursework archive. official/README.md preserves the upstream instructor-material attribution and its redistribution notice; course binaries and inputs are reused from the existing research repository.",
+  "imported_files": [
+    {
+      "path": "Makefile",
+      "upstream_mode": "100644",
+      "git_blob": "5de9b58e3e0678b02f6cc4f7f90860c2b26f15c4",
+      "sha256": "be49bce46e294c9688caed1c4aac4678462194b9794097704de38586221989cb",
+      "bytes": 632
+    },
+    {
+      "path": "examples/README.md",
+      "upstream_mode": "100644",
+      "git_blob": "1d9511bdd34822dabe502cc077d28abf26e3dae8",
+      "sha256": "c97fa4b669db74001a7c68675d2d1ce0e2e5d68f853dd775059c47cdc68ba41c",
+      "bytes": 2451
+    },
+    {
+      "path": "examples/shared_outputs.output.txt",
+      "upstream_mode": "100644",
+      "git_blob": "fccb56cbf6cec651ecfcfb7b91bf998507430e79",
+      "sha256": "b5ea73c006ec33dfc6fc832452f4c2cd8e8a7e4b71f414a49d53c99476093924",
+      "bytes": 25
+    },
+    {
+      "path": "examples/shared_outputs.txt",
+      "upstream_mode": "100644",
+      "git_blob": "947252c606df8dfcb0915cd28e0f2f22161ac4ef",
+      "sha256": "baf41e5fad35f4fbf36404fb32fc44b6a25fe67692de8bdbef43dbb4947f652b",
+      "bytes": 54
+    },
+    {
+      "path": "official/README.md",
+      "upstream_mode": "100644",
+      "git_blob": "bcab0abcbb5dc376e08bc5e21b53bdffd006ed93",
+      "sha256": "0a2778be49495f56667e86ec93bda1a41f099c6ed611d76406f015ba8ae7d370",
+      "bytes": 2971
+    },
+    {
+      "path": "releases/stage2/README.md",
+      "upstream_mode": "100644",
+      "git_blob": "8fdc5eb21f1c67ac40e6d708fbbcc46b88d206a7",
+      "sha256": "d860f665534949fa38b36968e32a63d1336a5a9e6bad5fd902468c37372361e6",
+      "bytes": 1554
+    },
+    {
+      "path": "reports/stage2-cuts-20261124/UFUG2106_Group2_Stage2_Report.pdf",
+      "upstream_mode": "100644",
+      "git_blob": "b1327f243be8e8ffe5a088153a60ac423c2255bd",
+      "sha256": "c7bfc0e6e6f82038c7e0afa29a293b40be94597f5fd3cceacca88db40d27016a",
+      "bytes": 29837,
+      "upstream_sha256": "a18a3593904cb3aa62d82a7473e0049062f6b590355df02681eeef94a286f2c1",
+      "upstream_bytes": 25746,
+      "transformation": "Removed two student identification numbers. Author names, experimental values and substantive text retained."
+    },
+    {
+      "path": "reports/stage2-cuts-20261124/casewise.csv",
+      "upstream_mode": "100644",
+      "git_blob": "39ba40ab790b421e252a288c3ff008417b38d5e1",
+      "sha256": "c5bfb86d2985c2a7b4673649b6c70156c2ddf913bd439e7e5b5c490dc48bb1d0",
+      "bytes": 11781
+    },
+    {
+      "path": "reports/stage2-cuts-20261124/paired.csv",
+      "upstream_mode": "100644",
+      "git_blob": "a665a342cf2619c8edea827ab88fdf425c799cb1",
+      "sha256": "378c5fe0891853c4f18cbf18b12e13fbcd4b634fcf32c7e3a7eb1530f2809dbe",
+      "bytes": 2342
+    },
+    {
+      "path": "reports/stage2-cuts-20261124/paired.patch",
+      "upstream_mode": "100644",
+      "git_blob": "0f2717468a150d9bca0599642c4056aba3da8ece",
+      "sha256": "968a4a8a777fde0e88981462d33b38aabffc20d9fa10f0a6f421e3a6a53d75f3",
+      "bytes": 409
+    },
+    {
+      "path": "reports/stage2-cuts-20261124/report.html",
+      "upstream_mode": "100644",
+      "git_blob": "da366ccaf58df99844daeb15b24eef0dd70eec47",
+      "sha256": "deaa1af674fc0658560c77473f198234d3fcd5c4a132bd7312db3ab5a755f5b0",
+      "bytes": 14577,
+      "upstream_sha256": "8f002500e9b61b95f311311d6f98f06f06ae9968d0db63565c32a79c866401c3",
+      "upstream_bytes": 14599,
+      "transformation": "Removed two student identification numbers. Author names, experimental values and substantive text retained."
+    },
+    {
+      "path": "reports/stage2-factors-20261124/UFUG2106_Group2_Stage2_Report.pdf",
+      "upstream_mode": "100644",
+      "git_blob": "1d99818a3a17878acf378e5d53048bba7db2754e",
+      "sha256": "0380c9b324bce97d3e882e0a499bb5ea3a680b1e47d4563238e56541f744a007",
+      "bytes": 28958,
+      "upstream_sha256": "f8bc95b5c8ab08759a36dcbd47242381bd0602f0236a82f25d0438784d5f1961",
+      "upstream_bytes": 25341,
+      "transformation": "Removed two student identification numbers. Author names, experimental values and substantive text retained."
+    },
+    {
+      "path": "reports/stage2-factors-20261124/holdout-design.csv",
+      "upstream_mode": "100644",
+      "git_blob": "b449b5136e8fe1bc5748cdb455fc1b378e4b5aaa",
+      "sha256": "dc21f9f7f60c1828b12b843e77316b48049f5eac28fcaa954fe8b3d1c8d62686",
+      "bytes": 586
+    },
+    {
+      "path": "reports/stage2-factors-20261124/holdout.py",
+      "upstream_mode": "100644",
+      "git_blob": "afd0e94106dd82e162b3a7878ebf0feaf499b71d",
+      "sha256": "e2585db5d13836c83f0bf347cd45d06d34eac4dd91a68c9ca134ec654bbb36ba",
+      "bytes": 2642
+    },
+    {
+      "path": "reports/stage2-factors-20261124/measurements.csv",
+      "upstream_mode": "100644",
+      "git_blob": "95f8beae9beb82530506458efb931f36197728c7",
+      "sha256": "2a56963fd616c49901bd88d4a2e081a9f25793856b4071d1902402e8db377c82",
+      "bytes": 8972
+    },
+    {
+      "path": "reports/stage2-factors-20261124/paired.csv",
+      "upstream_mode": "100644",
+      "git_blob": "2570f686a282bbcb20fc251ff0ef6262397199b0",
+      "sha256": "a2dd690ac93baa4555f0eb101aacfdde6e0b6950884ccb0dd9f8cb72f16fa520",
+      "bytes": 3697
+    },
+    {
+      "path": "reports/stage2-factors-20261124/paired.patch",
+      "upstream_mode": "100644",
+      "git_blob": "ce577547d7d6863456a68be42c47cd472e89bf36",
+      "sha256": "59f6414eec66282c0d08d43006302266ad8a10633ead407c5e24d1e67769d3b9",
+      "bytes": 883
+    },
+    {
+      "path": "reports/stage2-factors-20261124/protocol.md",
+      "upstream_mode": "100644",
+      "git_blob": "a287931e3ecab92901a45d24dcee83642a2a70f5",
+      "sha256": "daf58b9416cb1f6607a1e239b024dc32438d7b3b454fedd12b4a3f4a648176fd",
+      "bytes": 2432
+    },
+    {
+      "path": "reports/stage2-factors-20261124/report.html",
+      "upstream_mode": "100644",
+      "git_blob": "0c02185219e13dc3a2f442ffb5908c0f347944d3",
+      "sha256": "c7e11d9a3fa92de965052ad2a7fd848889fe0064af04a23200c2f32250246023",
+      "bytes": 14233,
+      "upstream_sha256": "b97c81ca5363055c1261c97d6171f4b437d9033ff76337cef791062cc37ef32c",
+      "upstream_bytes": 14255,
+      "transformation": "Removed two student identification numbers. Author names, experimental values and substantive text retained."
+    },
+    {
+      "path": "reports/stage2-headroom-20261124/README.md",
+      "upstream_mode": "100644",
+      "git_blob": "00771f53320b54baab052e920ccec4cc469d71a8",
+      "sha256": "916f35d3e951f5533b25f68fd012f320be40577688fdf2cf0bdff1163df157bd",
+      "bytes": 2446
+    },
+    {
+      "path": "reports/stage2-headroom-20261124/UFUG2106_Group2_Stage2_Report.pdf",
+      "upstream_mode": "100644",
+      "git_blob": "db3bcc72da596f5c7f2fc43d3a9f978f541dbd6e",
+      "sha256": "2ec48935a7812dc4048f9d104bf528e887d11ad3c7f5701a6e61b12adc859666",
+      "bytes": 30036,
+      "upstream_sha256": "e841dbaed3a1a72e0f411f04968a401abd1e0c2b571e91cc5e116b3695c50c60",
+      "upstream_bytes": 26582,
+      "transformation": "Removed two student identification numbers. Author names, experimental values and substantive text retained."
+    },
+    {
+      "path": "reports/stage2-headroom-20261124/controls.csv",
+      "upstream_mode": "100644",
+      "git_blob": "df938a99558789ccdfb73ecc7e8ab567c3e4c2cc",
+      "sha256": "35343a48ce6917930cf66cc11049d634ecf4766701a22a70e6023a8deb6cc12f",
+      "bytes": 6234
+    },
+    {
+      "path": "reports/stage2-headroom-20261124/development.csv",
+      "upstream_mode": "100644",
+      "git_blob": "d265e86457f6e52786cc7e4dcda9a62d95f5131f",
+      "sha256": "65f53e692c9c1aafd5506cd61a124217041c5451e29072d58f356c5654c8992b",
+      "bytes": 458
+    },
+    {
+      "path": "reports/stage2-headroom-20261124/limits_bank.py",
+      "upstream_mode": "100644",
+      "git_blob": "76763d870d44bbdcbe3151335b802d11da049a3e",
+      "sha256": "cf536cc56a3e08f85dea3fa70c62b690fc9dcba26fb0a0c5b1a739ae46189a4e",
+      "bytes": 2341
+    },
+    {
+      "path": "reports/stage2-headroom-20261124/memory.csv",
+      "upstream_mode": "100644",
+      "git_blob": "954b656cbfe23f094f6416d7e211bacc685c658a",
+      "sha256": "e09eb3c80e1248d93c699236c8f3efdc85e24ff5288e58a1678b20f08058c8cd",
+      "bytes": 228
+    },
+    {
+      "path": "reports/stage2-headroom-20261124/public-rss.csv",
+      "upstream_mode": "100644",
+      "git_blob": "35eb2022d15d57eead45f749a205a2604de3b186",
+      "sha256": "4d55d61851a0cb9dabdb521af17e224214134a1c0908f18ec2e62848b944fc1e",
+      "bytes": 1914
+    },
+    {
+      "path": "reports/stage2-headroom-20261124/public-runs.csv",
+      "upstream_mode": "100644",
+      "git_blob": "b20bc7a538af8d39dae00341d78d67fca8b1a348",
+      "sha256": "ffb956d7854b80bae7bc330d5d185af1426daf8efc2e2b0cfd483300a6f02f13",
+      "bytes": 13691
+    },
+    {
+      "path": "reports/stage2-headroom-20261124/report.html",
+      "upstream_mode": "100644",
+      "git_blob": "be11e84bfd5b2f5c2e1297bff1dd5f80c7840600",
+      "sha256": "0d927eea24498cf07de686e1bc07d99f92f75a6a6a5c216735addad6034082f4",
+      "bytes": 14611,
+      "upstream_sha256": "d59675565185000b9ce07b6240af930bd8fc9a62d6f3e3ce7495d3cc3a009a3b",
+      "upstream_bytes": 14633,
+      "transformation": "Removed two student identification numbers. Author names, experimental values and substantive text retained."
+    },
+    {
+      "path": "reports/stage2-memory-20261121/generate_dense.py",
+      "upstream_mode": "100644",
+      "git_blob": "b86902a3cbc33b8ceb61c540b21699c30227f7ae",
+      "sha256": "dcf92ed6853e0d4c4ac4898eda939b8b2a4c4fa8ee73f902443bafaf6ea028af",
+      "bytes": 839
+    },
+    {
+      "path": "reports/stage2-memory-20261121/memory-controls.json",
+      "upstream_mode": "100644",
+      "git_blob": "0b25fb96433aeeca15c53b186a5206ab90410178",
+      "sha256": "6770b987a564e641d21a08671c7e7373d43aef692735d15f41757a56a118c4f4",
+      "bytes": 4214
+    },
+    {
+      "path": "reports/stage2-rss-accounting-20261121/README.md",
+      "upstream_mode": "100644",
+      "git_blob": "296b27643ac104821beb037de1f41e96717b95ca",
+      "sha256": "31000499013772af5ee534cc949cb16c4373eed61b3639e5a26e84caef0d80f8",
+      "bytes": 3419
+    },
+    {
+      "path": "reports/stage2-rss-accounting-20261121/compare_accounting.py",
+      "upstream_mode": "100644",
+      "git_blob": "d7d353d3e4a9f363ca6ce964a3d0faf9e7ce27e6",
+      "sha256": "3fd2f834a9446a84efac82cdeaa835ffec4c5ed07b6a768a7e1324c8c7f1f749",
+      "bytes": 2186
+    },
+    {
+      "path": "reports/stage2-rss-accounting-20261121/observed.json",
+      "upstream_mode": "100644",
+      "git_blob": "eb0fcf61130c07f3e81ef991fc153a671ae2eac7",
+      "sha256": "b03359504648bec7390024c33482576fd5ab80f9e9a1adb173c1e61198e3f492",
+      "bytes": 4515
+    },
+    {
+      "path": "reports/stage2-rss-accounting-20261121/projection_case.py",
+      "upstream_mode": "100755",
+      "git_blob": "17c1aa0791425d6e93f9ca98f4560f46a11ede7b",
+      "sha256": "e4b3f586c2ac11972117375a570c086810d323c0674536797edba3ce368b1a2a",
+      "bytes": 1437
+    },
+    {
+      "path": "reports/stage2-rss-accounting-20261121/staff-note.md",
+      "upstream_mode": "100644",
+      "git_blob": "b981a806a24f2fa0f7388ceea1ed62ce8ba4a4fc",
+      "sha256": "5dd153aefe4c72cacf1e3c74c39436b666a9c3e45ef3b6ab9f72b165f9ee6105",
+      "bytes": 1156
+    },
+    {
+      "path": "reports/stage2-timing-20261124/README.md",
+      "upstream_mode": "100644",
+      "git_blob": "55c169acafaa1c6f01293e297f5ab4465c1ca499",
+      "sha256": "d85d8a7ca3c8b1c64c33d863f950177059d9fc27abf9ed8f43a58c030087cd01",
+      "bytes": 4312
+    },
+    {
+      "path": "reports/stage2-timing-20261124/UFUG2106_Group2_Stage2_Report.pdf",
+      "upstream_mode": "100644",
+      "git_blob": "12ec22c02d85f3780ba1ba0825000540d6059414",
+      "sha256": "56b043e39ca719500fb43fa617b9f80bd40de1ac0f9a051fc05754d7c7f0fa2c",
+      "bytes": 29228,
+      "upstream_sha256": "ce17d570fd3e69aa1d8306738df58394d8826762a98100973671f5a904011b88",
+      "upstream_bytes": 25912,
+      "transformation": "Removed two student identification numbers. Author names, experimental values and substantive text retained."
+    },
+    {
+      "path": "reports/stage2-timing-20261124/development.csv",
+      "upstream_mode": "100644",
+      "git_blob": "b2ffff15fd59137484b4e5eee3f7ed6b791e8112",
+      "sha256": "dd664747e103d35d217848188a89f3ebeaf6145bbe4b0dbcf7c62fbb4d18f35f",
+      "bytes": 5092
+    },
+    {
+      "path": "reports/stage2-timing-20261124/earlier-budget.csv",
+      "upstream_mode": "100644",
+      "git_blob": "1cc1b32114232552617554cfaddc6d3b950f0adf",
+      "sha256": "a82c68fba3ac40ad9c058e2ab6c20b3219d64dcbb0908e8dcb70d81415d46844",
+      "bytes": 133
+    },
+    {
+      "path": "reports/stage2-timing-20261124/memory.csv",
+      "upstream_mode": "100644",
+      "git_blob": "4f1d2530c7dc922913a91cc204a5380f0e2e31a7",
+      "sha256": "9adfaa7c1af19f03460cb3267b5cd287ff99f2a251c5e7f0bb3b44bca459de62",
+      "bytes": 203
+    },
+    {
+      "path": "reports/stage2-timing-20261124/public-rss.csv",
+      "upstream_mode": "100644",
+      "git_blob": "d6f63bdcae53753fe11f447b76cafb40a1b98407",
+      "sha256": "d9b8181a75c9839894c8d31be76139721736c67255ace069f8f851a8801e5db0",
+      "bytes": 1339
+    },
+    {
+      "path": "reports/stage2-timing-20261124/public-runs.csv",
+      "upstream_mode": "100644",
+      "git_blob": "23315913621d76b3b7c56ccdb24b4a06ed0269a7",
+      "sha256": "1108c61b8a84490159cf67aacd0131af2c0dbbc152e65b4f8fbd172256ea6cd7",
+      "bytes": 10009
+    },
+    {
+      "path": "reports/stage2-timing-20261124/report.html",
+      "upstream_mode": "100644",
+      "git_blob": "47550572a7579c026fd44e2c9033bfe674b57639",
+      "sha256": "d932f31f5166e57567cacc0e01660ba453494cc8e331d9c9030c57be86c8b127",
+      "bytes": 14745,
+      "upstream_sha256": "439d2b0cbe6607b0a7e7a60ed37fd7cb0976592a31845e6f435a7ada5d172047",
+      "upstream_bytes": 14767,
+      "transformation": "Removed two student identification numbers. Author names, experimental values and substantive text retained."
+    },
+    {
+      "path": "reports/stage2-timing-20261124/residual.csv",
+      "upstream_mode": "100644",
+      "git_blob": "2524fa9ce2c6088cda2b28a60fbf5ea56703ba0c",
+      "sha256": "b73f3a638cd55be1e1e747e25dd1212abbb2e35c06d07d57829b1ae48cc50da5",
+      "bytes": 480
+    },
+    {
+      "path": "reports/stage2-timing-20261124/stress.csv",
+      "upstream_mode": "100644",
+      "git_blob": "b501249561c6aebfa8f6547fb600a985bc577585",
+      "sha256": "56035d44577e1b626acbd15ab1b38654901ca0df80a6f5a4acaff83514c96341",
+      "bytes": 20854
+    },
+    {
+      "path": "reports/stage2-transfer-20261124/README.md",
+      "upstream_mode": "100644",
+      "git_blob": "7c0c3932e7aadbf479dc43673a1a84041d112938",
+      "sha256": "0e85e97c8cbacfc2e95f752095879580dd1ee488e168018dde9be774d6e3d378",
+      "bytes": 4022
+    },
+    {
+      "path": "reports/stage2-transfer-20261124/generate.py",
+      "upstream_mode": "100644",
+      "git_blob": "07efac9f7380ba8c9e2af040f31ab4e1df80288e",
+      "sha256": "9023d5b4cbc14d55707f923785793af18f448c174ae350a5e6aba2a2e535c09a",
+      "bytes": 3881
+    },
+    {
+      "path": "reports/stage2-transfer-20261124/protocol.md",
+      "upstream_mode": "100644",
+      "git_blob": "0120cb58a83960d08c07c975db4f8f6b33d94198",
+      "sha256": "ce0676854a2425055d0ab005f2c68adc1e8106bc97b80fd7ec236ea47a1916cb",
+      "bytes": 1441
+    },
+    {
+      "path": "reports/stage2-transfer-20261124/structured.csv",
+      "upstream_mode": "100644",
+      "git_blob": "a5e76fc6b125b8c8ed10e08ef8329f9c5bff1ed8",
+      "sha256": "3207e366c98fb5d3f82b489cf5b53b2984382ab9a706849c367f47199f5e9db1",
+      "bytes": 2829
+    },
+    {
+      "path": "reports/stage2-transfer-20261124/tightened.csv",
+      "upstream_mode": "100644",
+      "git_blob": "c029ca3e69f6e951af34aadbbfdfed628f105eed",
+      "sha256": "73689f9272a7bf65d9b10ae69a7b7a7e9fb5ba6064ce1ca2ec084144b8d85654",
+      "bytes": 3484
+    },
+    {
+      "path": "src/baseline.cpp",
+      "upstream_mode": "100644",
+      "git_blob": "f110d95e75a0fd4bd383c5ae8986ba944f04e58f",
+      "sha256": "dcd95c291764c78e144066d7a04b8610b734a75be58f6224d4a1dd30cd2dc286",
+      "bytes": 6492
+    },
+    {
+      "path": "src/round51/ORIGIN.md",
+      "upstream_mode": "100644",
+      "git_blob": "340b571db47ba6694ae5253ed37e8fcc1b2cf137",
+      "sha256": "6e0dd393da8c1fc3848c2231a7c4e11c419dd8dce7eada2373e7ef8debb6427c",
+      "bytes": 974
+    },
+    {
+      "path": "src/round51/algebraic_mapper.hpp",
+      "upstream_mode": "100644",
+      "git_blob": "42345024e7a57c66638ef99584147322c064aa2d",
+      "sha256": "e381d95ecf41a183292ee114a4f43ef856965d7f7a97d400a675ab6e0b74a21f",
+      "bytes": 2478
+    },
+    {
+      "path": "src/round51/cofactor_timing.hpp",
+      "upstream_mode": "100644",
+      "git_blob": "1f6f8a21fb551e1820c880b408d33e7879e0968f",
+      "sha256": "b7b0fd40c76c2d342fb353ecc387cee3f8a5a1869ec4346458b7b4e2d0b6954f",
+      "bytes": 17330
+    },
+    {
+      "path": "src/round51/critical_cuts.hpp",
+      "upstream_mode": "100644",
+      "git_blob": "62d32ed858bf4f2d7f6942a5fa7d2293305a40aa",
+      "sha256": "9f00cba3d1b84eff861e57156e7b8bf3cbc855234daa87ed611e86b43c299cd7",
+      "bytes": 3154
+    },
+    {
+      "path": "src/round51/polarity_mapper.hpp",
+      "upstream_mode": "100644",
+      "git_blob": "ab210e3d9971235ddb56b90a7767289395c40e72",
+      "sha256": "df535616c6c8546abcc288c359c96a46cc25e53973b1df001869a7b2eba1a7ef",
+      "bytes": 4149
+    },
+    {
+      "path": "src/round51/r84_cut.hpp",
+      "upstream_mode": "100644",
+      "git_blob": "8f54767fdabcb708ee7403fc5a984a93f117654b",
+      "sha256": "c1ae6e97aea17b1a3a196de4003854b72b5b35419a976f4045cfc8d65a828777",
+      "bytes": 15890
+    },
+    {
+      "path": "src/round51/shallow_table.hpp",
+      "upstream_mode": "100644",
+      "git_blob": "f8a46528d41ffa3bb6f7f0e3341426369a86788f",
+      "sha256": "09ac8de31343c81fcf9fb7e71fff2acf760d0ccd34762a4dd9c9b0172bfac090",
+      "bytes": 4865
+    },
+    {
+      "path": "src/round51/shared_factors.hpp",
+      "upstream_mode": "100644",
+      "git_blob": "79014d22f120c29f7ad5e36b7380ecc28cce3d24",
+      "sha256": "23743de2020b13e94ed7577b30f5b7171f9eb12b41b43bb94d4429f0022f2edf",
+      "bytes": 6306
+    },
+    {
+      "path": "src/round51/synthesis.hpp",
+      "upstream_mode": "100644",
+      "git_blob": "63b6d356820ca8c407cb75cf6df4c57e416ca489",
+      "sha256": "de7f2a66fa3f5a786477063f55c0c5ecf62955330d20b40aaacc95eb364ea296",
+      "bytes": 16513
+    },
+    {
+      "path": "src/round51/typed_netgraph.hpp",
+      "upstream_mode": "100644",
+      "git_blob": "3bae8b4b8d95e64a686d7502508734e890a8d4e8",
+      "sha256": "23c404b567bc1430a4b8ea0a110e9d46142d2b98b17e75cb793cb20a09c75472",
+      "bytes": 5639
+    },
+    {
+      "path": "src/synth.cpp",
+      "upstream_mode": "100644",
+      "git_blob": "9f43431a521d8520a77feb1aa1ccf268e01ef44f",
+      "sha256": "cd31f7d2a0540c85dc32277ad97fda0e221e769d323ea4adfec8b69916584550",
+      "bytes": 26104
+    },
+    {
+      "path": "src/synth_stage2.cpp",
+      "upstream_mode": "100644",
+      "git_blob": "217282c40caeb3ca914faf2bd783db70d753bd16",
+      "sha256": "dacee2c609da53ccdf8a29457a9b3a982d7fb1e5df99a5d041ec65be83762a3d",
+      "bytes": 59128
+    },
+    {
+      "path": "tests/cone_checks.cpp",
+      "upstream_mode": "100644",
+      "git_blob": "9302c6f327d8ee78ea253a11b7e9a6d6f0a3d359",
+      "sha256": "dd0aea3b06db82425a9d6bcc58bf7815174c9b8cec216a04a9a9775261d91a30",
+      "bytes": 3342
+    },
+    {
+      "path": "tests/regression.py",
+      "upstream_mode": "100644",
+      "git_blob": "f3ac14f87f3f0bc10e5e30866716c3f45db5c90d",
+      "sha256": "5e1ec3db9f87e52a7615f199f4299cc373c4a823cfdd417f01ee3785b74e810f",
+      "bytes": 3429
+    },
+    {
+      "path": "tests/test_comparison.py",
+      "upstream_mode": "100644",
+      "git_blob": "faa2d923b01a1862d2b5bc53d8fd893a78a202ff",
+      "sha256": "723aad89a73bf7ca096655289db594bde7e09fbc8353f69127f533a4be3839fe",
+      "bytes": 2842
+    },
+    {
+      "path": "tests/test_cone_choices.py",
+      "upstream_mode": "100644",
+      "git_blob": "33257fec6479b88949fb018bab0aadb285109608",
+      "sha256": "6717ae9c702e0c5a5484379be291eff1f296a5f3d0314149f0fa605cdf9e386b",
+      "bytes": 2065
+    },
+    {
+      "path": "tests/test_release.py",
+      "upstream_mode": "100644",
+      "git_blob": "1d8de46d7c44b39171742e8ef4a28e1ecad7ab14",
+      "sha256": "ae6eccbb0fa01c05d8a159d4e3d21b9b4ce6a61b0b0b84c05561f3c74e0e9dba",
+      "bytes": 1378
+    },
+    {
+      "path": "tests/test_stage2_resources.py",
+      "upstream_mode": "100644",
+      "git_blob": "94f303d0ca410317813b8166747c1feae657cd9d",
+      "sha256": "6ac4378e5b75e9802adec9ad83fba5de7e63c005f1ebfebcc1970c563d09cb83",
+      "bytes": 6913
+    },
+    {
+      "path": "tools/check_circuit.py",
+      "upstream_mode": "100644",
+      "git_blob": "72adfc1f2e8d5a7b7bb02b5996f33627b62ff2bf",
+      "sha256": "6e127234bb683a0e569e4747ac7433117dd395eff376105f8a4e04e60ee0bddc",
+      "bytes": 3456
+    },
+    {
+      "path": "tools/compare_stage_results.py",
+      "upstream_mode": "100644",
+      "git_blob": "fb92e9be4330f80c25c6ce9dc97cd195331f5e43",
+      "sha256": "9c4690d89b829953f57b796375e162d7801a4b58ee71cd9b9040dde0024374ec",
+      "bytes": 4935
+    },
+    {
+      "path": "tools/evaluate_release.py",
+      "upstream_mode": "100644",
+      "git_blob": "0f735d00a97ca00ae6ea0a5cebd5513648ba9162",
+      "sha256": "597f644871f59155adc10fef0f0fd7e9f699c22eaf3ec581e776b58697f8c2de",
+      "bytes": 5265
+    },
+    {
+      "path": "tools/generate_stress.py",
+      "upstream_mode": "100644",
+      "git_blob": "cfedfc310eef70df08532697a9e94645fe4d8f73",
+      "sha256": "063b9097289e558f7d148cf726d800bc6c88918bb6a43ad7b2c0c39cae4df747",
+      "bytes": 556
+    },
+    {
+      "path": "tools/verify_all.py",
+      "upstream_mode": "100644",
+      "git_blob": "ad0d05267f6946c1694f3e6624c21dfcfccd48a1",
+      "sha256": "ee84d22a7a1eca5cea0cccb9b62bc500d8ae85f56429490ec5584b3c1a475e7e",
+      "bytes": 851
+    }
+  ]
+}
